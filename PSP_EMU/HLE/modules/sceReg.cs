@@ -223,7 +223,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown font registry entry '{0}'", name));
+					System.Console.WriteLine(string.Format("Unknown font registry entry '{0}'", name));
 				}
 			}
 			else if (fullName.StartsWith("/system/DATA/FONT/PROPERTY/INFO", StringComparison.Ordinal) || fullName.StartsWith("/DATA/FONT/PROPERTY/INFO", StringComparison.Ordinal))
@@ -381,7 +381,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown font registry entry '{0}'", name));
+					System.Console.WriteLine(string.Format("Unknown font registry entry '{0}'", name));
 				}
 			}
 			else if ("/CONFIG/DATE".Equals(fullName))
@@ -434,7 +434,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/BROWSER".Equals(fullName))
@@ -612,7 +612,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/BROWSER2".Equals(fullName))
@@ -646,7 +646,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/NP".Equals(fullName))
@@ -735,7 +735,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/PREMO".Equals(fullName))
@@ -894,7 +894,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/SYSTEM".Equals(fullName))
@@ -983,7 +983,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/SYSTEM/SOUND".Equals(fullName))
@@ -1017,7 +1017,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/SYSTEM/CHARACTER_SET".Equals(fullName))
@@ -1042,7 +1042,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/SYSTEM/XMB".Equals(fullName))
@@ -1067,7 +1067,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/SYSTEM/XMB/THEME".Equals(fullName))
@@ -1110,7 +1110,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/SYSPROFILE/RESOLUTION".Equals(fullName))
@@ -1135,7 +1135,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/ALARM".Equals(fullName))
@@ -1160,7 +1160,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/NETWORK/GO_MESSENGER".Equals(fullName))
@@ -1185,7 +1185,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/NETWORK/ADHOC".Equals(fullName))
@@ -1210,7 +1210,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/NETWORK/INFRASTRUCTURE".Equals(fullName))
@@ -1253,7 +1253,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if (fullName.matches("/CONFIG/NETWORK/INFRASTRUCTURE/\\d+"))
@@ -1515,7 +1515,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if (fullName.matches("/CONFIG/NETWORK/INFRASTRUCTURE/\\d+/SUB1"))
@@ -1524,7 +1524,7 @@ namespace pspsharp.HLE.modules
 				int index = int.Parse(indexName.Substring(0, indexName.IndexOf("/", StringComparison.Ordinal)));
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("/CONFIG/NETWORK/INFRASTRUCTURE, index={0:D}, SUB1", index));
+					System.Console.WriteLine(string.Format("/CONFIG/NETWORK/INFRASTRUCTURE, index={0:D}, SUB1", index));
 				}
 				if ("last_leased_dhcp_addr".Equals(name))
 				{
@@ -1594,7 +1594,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/DATA/COUNT".Equals(fullName))
@@ -1655,7 +1655,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/SYSTEM/LOCK".Equals(fullName))
@@ -1689,7 +1689,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/SYSTEM/POWER_SAVING".Equals(fullName))
@@ -1732,7 +1732,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/TOOL/CONFIG".Equals(fullName))
@@ -1748,7 +1748,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/REGISTRY".Equals(fullName))
@@ -1764,7 +1764,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/OSK".Equals(fullName))
@@ -1816,7 +1816,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/MUSIC".Equals(fullName))
@@ -1850,7 +1850,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/PHOTO".Equals(fullName))
@@ -1866,7 +1866,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/VIDEO".Equals(fullName))
@@ -1939,7 +1939,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/INFOBOARD".Equals(fullName))
@@ -1956,7 +1956,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/CAMERA".Equals(fullName))
@@ -2090,7 +2090,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/RSS".Equals(fullName))
@@ -2106,7 +2106,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/DISPLAY".Equals(fullName))
@@ -2131,12 +2131,12 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else
 			{
-				Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+				System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 			}
 
 			return 0;
@@ -2188,7 +2188,7 @@ namespace pspsharp.HLE.modules
 			string name = Utilities.readStringNZ(reg.Address + 4, nameLen);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("RegParam: regType={0:D}, name='{1}'(len={2:D}), unknown1={3:D}, unknown2={4:D}", regType, name, nameLen, unknown1, unknown2));
+				System.Console.WriteLine(string.Format("RegParam: regType={0:D}, name='{1}'(len={2:D}), unknown1={3:D}, unknown2={4:D}", regType, name, nameLen, unknown1, unknown2));
 			}
 
 			RegistryHandle registryHandle = new RegistryHandle(regType, name, unknown1, unknown2);
@@ -2325,7 +2325,7 @@ namespace pspsharp.HLE.modules
 				}
 				else if (index == fontRegistry.Count)
 				{
-					Console.WriteLine(string.Format("sceRegCreateKey creating a new font entry '{0}'", categoryHandle.FullName));
+					System.Console.WriteLine(string.Format("sceRegCreateKey creating a new font entry '{0}'", categoryHandle.FullName));
 					FontRegistryEntry entry = new FontRegistryEntry();
 					fontRegistry.Add(entry);
 					if ("h_size".Equals(name) && size >= 4 && type == REG_TYPE_INT)
@@ -2394,13 +2394,13 @@ namespace pspsharp.HLE.modules
 					}
 					else
 					{
-						Console.WriteLine(string.Format("Unknown font registry entry '{0}' size=0x{1:X}, type={2:D}", name, size, type));
+						System.Console.WriteLine(string.Format("Unknown font registry entry '{0}' size=0x{1:X}, type={2:D}", name, size, type));
 					}
 				}
 			}
 			else
 			{
-				Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", categoryHandle.FullName, name));
+				System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", categoryHandle.FullName, name));
 			}
 
 			return 0;
@@ -2418,13 +2418,13 @@ namespace pspsharp.HLE.modules
 			}
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("buf: {0}", Utilities.getMemoryDump(buf.Address, size)));
+				System.Console.WriteLine(string.Format("buf: {0}", Utilities.getMemoryDump(buf.Address, size)));
 			}
 
 			string fullName = categoryHandle.FullName;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceRegSetKeyValue fullName='{0}/{1}'", fullName, name));
+				System.Console.WriteLine(string.Format("sceRegSetKeyValue fullName='{0}/{1}'", fullName, name));
 			}
 			fullName = fullName.Replace("flash1:/registry/system", "");
 			fullName = fullName.Replace("flash1/registry/system", "");
@@ -2438,7 +2438,7 @@ namespace pspsharp.HLE.modules
 					string fontDirPath = buf.getStringNZ(size);
 					if (log.InfoEnabled)
 					{
-						Console.WriteLine(string.Format("Setting font dir path to '{0}'", fontDirPath));
+						System.Console.WriteLine(string.Format("Setting font dir path to '{0}'", fontDirPath));
 					}
 					Modules.sceFontModule.FontDirPath = fontDirPath;
 				}
@@ -2450,13 +2450,13 @@ namespace pspsharp.HLE.modules
 					{
 						if (log.InfoEnabled)
 						{
-							Console.WriteLine(string.Format("Changing the number of fonts from {0:D} to {1:D}", fontRegistry.Count, numFonts));
+							System.Console.WriteLine(string.Format("Changing the number of fonts from {0:D} to {1:D}", fontRegistry.Count, numFonts));
 						}
 					}
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown font registry entry '{0}'", name));
+					System.Console.WriteLine(string.Format("Unknown font registry entry '{0}'", name));
 				}
 			}
 			else if (fullName.StartsWith("/system/DATA/FONT/PROPERTY/INFO", StringComparison.Ordinal))
@@ -2534,7 +2534,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown font registry entry '{0}'", name));
+					System.Console.WriteLine(string.Format("Unknown font registry entry '{0}'", name));
 				}
 			}
 			else if ("/DATA/COUNT".Equals(fullName))
@@ -2565,7 +2565,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}'", name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}'", name));
 				}
 			}
 			else if ("/CONFIG/OSK".Equals(fullName))
@@ -2592,7 +2592,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}'", name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}'", name));
 				}
 			}
 			else if ("/CONFIG/NP".Equals(fullName))
@@ -2623,7 +2623,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}'", name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}'", name));
 				}
 			}
 			else if ("/CONFIG/NETWORK/INFRASTRUCTURE".Equals(fullName))
@@ -2634,7 +2634,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if (fullName.matches("/CONFIG/NETWORK/INFRASTRUCTURE/\\d+"))
@@ -2646,7 +2646,7 @@ namespace pspsharp.HLE.modules
 					string cnfName = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set cnf_name#{0:D}='{1}'", index, cnfName));
+						System.Console.WriteLine(string.Format("set cnf_name#{0:D}='{1}'", index, cnfName));
 					}
 				}
 				else if ("ssid".Equals(name))
@@ -2654,7 +2654,7 @@ namespace pspsharp.HLE.modules
 					string ssid = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set ssid#{0:D}='{1}'", index, ssid));
+						System.Console.WriteLine(string.Format("set ssid#{0:D}='{1}'", index, ssid));
 					}
 				}
 				else if ("auth_proto".Equals(name) && size >= 4)
@@ -2662,7 +2662,7 @@ namespace pspsharp.HLE.modules
 					int authProto = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set auth_proto#{0:D}='{1}'", index, authProto));
+						System.Console.WriteLine(string.Format("set auth_proto#{0:D}='{1}'", index, authProto));
 					}
 				}
 				else if ("wep_key".Equals(name))
@@ -2670,7 +2670,7 @@ namespace pspsharp.HLE.modules
 					string wepKey = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set wep_key#{0:D}='{1}'", index, wepKey));
+						System.Console.WriteLine(string.Format("set wep_key#{0:D}='{1}'", index, wepKey));
 					}
 				}
 				else if ("how_to_set_ip".Equals(name) && size >= 4)
@@ -2678,7 +2678,7 @@ namespace pspsharp.HLE.modules
 					int howToSetIp = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set how_to_set_ip#{0:D}={1:D}", index, howToSetIp));
+						System.Console.WriteLine(string.Format("set how_to_set_ip#{0:D}={1:D}", index, howToSetIp));
 					}
 				}
 				else if ("ip_address".Equals(name))
@@ -2686,7 +2686,7 @@ namespace pspsharp.HLE.modules
 					string ipAddress = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set ip_address#{0:D}='{1}'", index, ipAddress));
+						System.Console.WriteLine(string.Format("set ip_address#{0:D}='{1}'", index, ipAddress));
 					}
 				}
 				else if ("netmask".Equals(name))
@@ -2694,7 +2694,7 @@ namespace pspsharp.HLE.modules
 					string netmask = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set netmask#{0:D}='{1}'", index, netmask));
+						System.Console.WriteLine(string.Format("set netmask#{0:D}='{1}'", index, netmask));
 					}
 				}
 				else if ("default_route".Equals(name))
@@ -2702,7 +2702,7 @@ namespace pspsharp.HLE.modules
 					string defaultRoute = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set default_route#{0:D}='{1}'", index, defaultRoute));
+						System.Console.WriteLine(string.Format("set default_route#{0:D}='{1}'", index, defaultRoute));
 					}
 				}
 				else if ("dns_flag".Equals(name) && size >= 4)
@@ -2710,7 +2710,7 @@ namespace pspsharp.HLE.modules
 					int dnsFlag = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set dns_flag#{0:D}={1:D}", index, dnsFlag));
+						System.Console.WriteLine(string.Format("set dns_flag#{0:D}={1:D}", index, dnsFlag));
 					}
 				}
 				else if ("primary_dns".Equals(name))
@@ -2718,7 +2718,7 @@ namespace pspsharp.HLE.modules
 					string primaryDns = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set primary_dns#{0:D}='{1}'", index, primaryDns));
+						System.Console.WriteLine(string.Format("set primary_dns#{0:D}='{1}'", index, primaryDns));
 					}
 				}
 				else if ("secondary_dns".Equals(name))
@@ -2726,7 +2726,7 @@ namespace pspsharp.HLE.modules
 					string secondaryDns = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set secondary_dns#{0:D}='{1}'", index, secondaryDns));
+						System.Console.WriteLine(string.Format("set secondary_dns#{0:D}='{1}'", index, secondaryDns));
 					}
 				}
 				else if ("auth_name".Equals(name))
@@ -2734,7 +2734,7 @@ namespace pspsharp.HLE.modules
 					string authName = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set auth_name#{0:D}='{1}'", index, authName));
+						System.Console.WriteLine(string.Format("set auth_name#{0:D}='{1}'", index, authName));
 					}
 				}
 				else if ("auth_key".Equals(name))
@@ -2742,7 +2742,7 @@ namespace pspsharp.HLE.modules
 					string authKey = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set auth_key#{0:D}='{1}'", index, authKey));
+						System.Console.WriteLine(string.Format("set auth_key#{0:D}='{1}'", index, authKey));
 					}
 				}
 				else if ("http_proxy_flag".Equals(name) && size >= 4)
@@ -2750,7 +2750,7 @@ namespace pspsharp.HLE.modules
 					int httpProxyFlag = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set http_proxy_flag#{0:D}={1:D}", index, httpProxyFlag));
+						System.Console.WriteLine(string.Format("set http_proxy_flag#{0:D}={1:D}", index, httpProxyFlag));
 					}
 				}
 				else if ("http_proxy_server".Equals(name))
@@ -2758,7 +2758,7 @@ namespace pspsharp.HLE.modules
 					string httpProxyServer = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set http_proxy_server#{0:D}='{1}'", index, httpProxyServer));
+						System.Console.WriteLine(string.Format("set http_proxy_server#{0:D}='{1}'", index, httpProxyServer));
 					}
 				}
 				else if ("http_proxy_port".Equals(name) && size >= 4)
@@ -2766,7 +2766,7 @@ namespace pspsharp.HLE.modules
 					int httpProxyPort = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set http_proxy_port#{0:D}={1:D}", index, httpProxyPort));
+						System.Console.WriteLine(string.Format("set http_proxy_port#{0:D}={1:D}", index, httpProxyPort));
 					}
 				}
 				else if ("version".Equals(name) && size >= 4)
@@ -2774,7 +2774,7 @@ namespace pspsharp.HLE.modules
 					int version = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set version#{0:D}={1:D}", index, version));
+						System.Console.WriteLine(string.Format("set version#{0:D}={1:D}", index, version));
 					}
 				}
 				else if ("device".Equals(name) && size >= 4)
@@ -2782,7 +2782,7 @@ namespace pspsharp.HLE.modules
 					int device = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set device#{0:D}={1:D}", index, device));
+						System.Console.WriteLine(string.Format("set device#{0:D}={1:D}", index, device));
 					}
 				}
 				else if ("auth_8021x_type".Equals(name) && size >= 4)
@@ -2790,7 +2790,7 @@ namespace pspsharp.HLE.modules
 					int authType = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set auth_8021x_type#{0:D}={1:D}", index, authType));
+						System.Console.WriteLine(string.Format("set auth_8021x_type#{0:D}={1:D}", index, authType));
 					}
 				}
 				else if ("auth_8021x_auth_name".Equals(name))
@@ -2798,7 +2798,7 @@ namespace pspsharp.HLE.modules
 					string authName = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set auth_8021x_auth_name#{0:D}='{1}'", index, authName));
+						System.Console.WriteLine(string.Format("set auth_8021x_auth_name#{0:D}='{1}'", index, authName));
 					}
 				}
 				else if ("auth_8021x_auth_key".Equals(name))
@@ -2806,7 +2806,7 @@ namespace pspsharp.HLE.modules
 					string authKey = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set auth_8021x_auth_key#{0:D}='{1}'", index, authKey));
+						System.Console.WriteLine(string.Format("set auth_8021x_auth_key#{0:D}='{1}'", index, authKey));
 					}
 				}
 				else if ("wpa_key_type".Equals(name) && size >= 4)
@@ -2814,7 +2814,7 @@ namespace pspsharp.HLE.modules
 					int wpaKeyType = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set wpa_key_type#{0:D}={1:D}", index, wpaKeyType));
+						System.Console.WriteLine(string.Format("set wpa_key_type#{0:D}={1:D}", index, wpaKeyType));
 					}
 				}
 				else if ("wpa_key".Equals(name))
@@ -2822,7 +2822,7 @@ namespace pspsharp.HLE.modules
 					string wpaKey = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set wpa_key#{0:D}='{1}'", index, wpaKey));
+						System.Console.WriteLine(string.Format("set wpa_key#{0:D}='{1}'", index, wpaKey));
 					}
 				}
 				else if ("browser_flag".Equals(name) && size >= 4)
@@ -2830,7 +2830,7 @@ namespace pspsharp.HLE.modules
 					int browserFlag = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set browser_flag#{0:D}={1:D}", index, browserFlag));
+						System.Console.WriteLine(string.Format("set browser_flag#{0:D}={1:D}", index, browserFlag));
 					}
 				}
 				else if ("wifisvc_config".Equals(name) && size >= 4)
@@ -2838,12 +2838,12 @@ namespace pspsharp.HLE.modules
 					int wifisvcConfig = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set wifisvc_config#{0:D}={1:D}", index, wifisvcConfig));
+						System.Console.WriteLine(string.Format("set wifisvc_config#{0:D}={1:D}", index, wifisvcConfig));
 					}
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if (fullName.matches("/CONFIG/NETWORK/INFRASTRUCTURE/\\d+/SUB1"))
@@ -2852,14 +2852,14 @@ namespace pspsharp.HLE.modules
 				int index = int.Parse(indexName.Substring(0, indexName.IndexOf("/", StringComparison.Ordinal)));
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("/CONFIG/NETWORK/INFRASTRUCTURE, index={0:D}, SUB1", index));
+					System.Console.WriteLine(string.Format("/CONFIG/NETWORK/INFRASTRUCTURE, index={0:D}, SUB1", index));
 				}
 				if ("wifisvc_auth_name".Equals(name))
 				{
 					string authName = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set wifisvc_auth_name#{0:D}='{1}'", index, authName));
+						System.Console.WriteLine(string.Format("set wifisvc_auth_name#{0:D}='{1}'", index, authName));
 					}
 				}
 				else if ("wifisvc_auth_key".Equals(name))
@@ -2867,7 +2867,7 @@ namespace pspsharp.HLE.modules
 					string authKey = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set wifisvc_auth_key#{0:D}='{1}'", index, authKey));
+						System.Console.WriteLine(string.Format("set wifisvc_auth_key#{0:D}='{1}'", index, authKey));
 					}
 				}
 				else if ("wifisvc_option".Equals(name))
@@ -2875,7 +2875,7 @@ namespace pspsharp.HLE.modules
 					int wifisvcOption = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set wifisvc_option#{0:D}={1:D}", index, wifisvcOption));
+						System.Console.WriteLine(string.Format("set wifisvc_option#{0:D}={1:D}", index, wifisvcOption));
 					}
 				}
 				else if ("last_leased_dhcp_addr".Equals(name))
@@ -2883,7 +2883,7 @@ namespace pspsharp.HLE.modules
 					string lastLeasedDhcpAddr = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set last_leased_dhcp_addr#{0:D}='{1}'", index, lastLeasedDhcpAddr));
+						System.Console.WriteLine(string.Format("set last_leased_dhcp_addr#{0:D}='{1}'", index, lastLeasedDhcpAddr));
 					}
 				}
 				else if ("bt_id".Equals(name))
@@ -2891,7 +2891,7 @@ namespace pspsharp.HLE.modules
 					int btId = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set bt_id#{0:D}={1:D}", index, btId));
+						System.Console.WriteLine(string.Format("set bt_id#{0:D}={1:D}", index, btId));
 					}
 				}
 				else if ("at_command".Equals(name))
@@ -2899,7 +2899,7 @@ namespace pspsharp.HLE.modules
 					string atCommand = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set at_command#{0:D}='{1}'", index, atCommand));
+						System.Console.WriteLine(string.Format("set at_command#{0:D}='{1}'", index, atCommand));
 					}
 				}
 				else if ("phone_number".Equals(name))
@@ -2907,12 +2907,12 @@ namespace pspsharp.HLE.modules
 					string phoneNumber = buf.getStringNZ(size);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("set phone_number#{0:D}='{1}'", index, phoneNumber));
+						System.Console.WriteLine(string.Format("set phone_number#{0:D}='{1}'", index, phoneNumber));
 					}
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/NETWORK/ADHOC".Equals(fullName))
@@ -2923,7 +2923,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}'", name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}'", name));
 				}
 			}
 			else if ("/CONFIG/SYSTEM".Equals(fullName))
@@ -2953,7 +2953,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}'", name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}'", name));
 				}
 			}
 			else if ("/CONFIG/MUSIC".Equals(fullName))
@@ -2968,7 +2968,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/CAMERA".Equals(fullName))
@@ -2978,7 +2978,7 @@ namespace pspsharp.HLE.modules
 					string msid = buf.getStringNZ(16);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceRegSetKeyValue msid='{0}'", msid));
+						System.Console.WriteLine(string.Format("sceRegSetKeyValue msid='{0}'", msid));
 					}
 				}
 				else if (name.Equals("file_folder") && size >= 4)
@@ -2986,7 +2986,7 @@ namespace pspsharp.HLE.modules
 					int fileFolder = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceRegSetKeyValue fileFolder=0x{0:X}", fileFolder));
+						System.Console.WriteLine(string.Format("sceRegSetKeyValue fileFolder=0x{0:X}", fileFolder));
 					}
 				}
 				else if (name.Equals("file_number") && size >= 4)
@@ -2994,7 +2994,7 @@ namespace pspsharp.HLE.modules
 					int fileNumber = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceRegSetKeyValue fileNumber=0x{0:X}", fileNumber));
+						System.Console.WriteLine(string.Format("sceRegSetKeyValue fileNumber=0x{0:X}", fileNumber));
 					}
 				}
 				else if (name.Equals("movie_quality") && size >= 4)
@@ -3002,7 +3002,7 @@ namespace pspsharp.HLE.modules
 					int movieQuality = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceRegSetKeyValue movieQuality=0x{0:X}", movieQuality));
+						System.Console.WriteLine(string.Format("sceRegSetKeyValue movieQuality=0x{0:X}", movieQuality));
 					}
 				}
 				else if (name.Equals("movie_size") && size >= 4)
@@ -3010,7 +3010,7 @@ namespace pspsharp.HLE.modules
 					int movieSize = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceRegSetKeyValue movieSize=0x{0:X}", movieSize));
+						System.Console.WriteLine(string.Format("sceRegSetKeyValue movieSize=0x{0:X}", movieSize));
 					}
 				}
 				else if (name.Equals("movie_fps") && size >= 4)
@@ -3018,12 +3018,12 @@ namespace pspsharp.HLE.modules
 					int movieFps = buf.getValue32();
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceRegSetKeyValue movieFps=0x{0:X}", movieFps));
+						System.Console.WriteLine(string.Format("sceRegSetKeyValue movieFps=0x{0:X}", movieFps));
 					}
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/DATE".Equals(fullName))
@@ -3050,7 +3050,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else if ("/CONFIG/SYSTEM/XMB".Equals(fullName))
@@ -3065,12 +3065,12 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+					System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 				}
 			}
 			else
 			{
-				Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
+				System.Console.WriteLine(string.Format("Unknown registry entry '{0}/{1}'", fullName, name));
 			}
 
 			return 0;
@@ -3162,7 +3162,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceRegGetKeyInfoByName fullName='{0}/{1}'", categoryHandle.FullName, name));
+				System.Console.WriteLine(string.Format("sceRegGetKeyInfoByName fullName='{0}/{1}'", categoryHandle.FullName, name));
 			}
 
 			return getKey(categoryHandle, name, ptype, psize, TPointer.NULL, 0);
@@ -3181,7 +3181,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceRegGetKeyValueByName fullName='{0}/{1}'", categoryHandle.FullName, name));
+				System.Console.WriteLine(string.Format("sceRegGetKeyValueByName fullName='{0}/{1}'", categoryHandle.FullName, name));
 			}
 
 			return getKey(categoryHandle, name, TPointer32.NULL, TPointer32.NULL, buf, size);

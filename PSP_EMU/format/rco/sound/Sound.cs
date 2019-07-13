@@ -65,7 +65,7 @@ namespace pspsharp.format.rco.sound
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Sound.play"));
+				System.Console.WriteLine(string.Format("Sound.play"));
 			}
 		}
 	}

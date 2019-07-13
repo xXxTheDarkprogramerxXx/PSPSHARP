@@ -69,7 +69,7 @@ namespace pspsharp.util
 			sysMemInfo = Modules.SysMemUserForUserModule.malloc(SysMemUserForUser.KERNEL_PARTITION_ID, "sceGu", SysMemUserForUser.PSP_SMEM_Low, totalMemorySize, 0);
 			if (sysMemInfo == null)
 			{
-				Console.WriteLine(string.Format("Cannot allocate sceGu memory, size=0x{0:X}", totalMemorySize));
+				System.Console.WriteLine(string.Format("Cannot allocate sceGu memory, size=0x{0:X}", totalMemorySize));
 			}
 		}
 
@@ -80,7 +80,7 @@ namespace pspsharp.util
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceGuGetMemory size=0x{0:X} - not enough memory, available=0x{1:X}", size, topAddr - listWriter.CurrentAddress));
+					System.Console.WriteLine(string.Format("sceGuGetMemory size=0x{0:X} - not enough memory, available=0x{1:X}", size, topAddr - listWriter.CurrentAddress));
 				}
 				// Not enough memory available
 				return 0;
@@ -152,13 +152,13 @@ namespace pspsharp.util
 
 			if (topAddr < listWriter.CurrentAddress)
 			{
-				Console.WriteLine(string.Format("sceGu memory overwrite mem={0}, listAddr=0x{1:X8}, topAddr=0x{2:X8}", sysMemInfo, listWriter.CurrentAddress, topAddr));
+				System.Console.WriteLine(string.Format("sceGu memory overwrite mem={0}, listAddr=0x{1:X8}, topAddr=0x{2:X8}", sysMemInfo, listWriter.CurrentAddress, topAddr));
 			}
 			else
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceGu memory usage free=0x{0:X}, mem={1}, listAddr=0x{2:X8}, topAddr=0x{3:X8}", topAddr - listWriter.CurrentAddress, sysMemInfo, listWriter.CurrentAddress, topAddr));
+					System.Console.WriteLine(string.Format("sceGu memory usage free=0x{0:X}, mem={1}, listAddr=0x{2:X8}, topAddr=0x{3:X8}", topAddr - listWriter.CurrentAddress, sysMemInfo, listWriter.CurrentAddress, topAddr));
 				}
 			}
 
@@ -183,7 +183,7 @@ namespace pspsharp.util
     
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceGu list 0x{0:X}: state {1:D}", listId, listState));
+					System.Console.WriteLine(string.Format("sceGu list 0x{0:X}: state {1:D}", listId, listState));
 				}
     
 				return listState == sceGe_user.PSP_GE_LIST_DRAWING || listState == sceGe_user.PSP_GE_LIST_QUEUED;

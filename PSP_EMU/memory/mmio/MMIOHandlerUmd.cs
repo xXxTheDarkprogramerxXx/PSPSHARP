@@ -116,7 +116,7 @@ namespace pspsharp.memory.mmio
 		{
 			closeFile();
 
-			Console.WriteLine(string.Format("Using UMD '{0}'", fileName));
+			System.Console.WriteLine(string.Format("Using UMD '{0}'", fileName));
 
 			vFile = new UmdIsoReaderVirtualFile(fileName);
 		}
@@ -143,7 +143,7 @@ namespace pspsharp.memory.mmio
     
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand command 0x{0:X}", value));
+					System.Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand command 0x{0:X}", value));
 				}
     
 				switch (value & 0xFF)
@@ -174,7 +174,7 @@ namespace pspsharp.memory.mmio
 					case 0x08:
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand command=0x{0:X}, transferLength=0x{1:X}", value, totalTransferLength));
+							System.Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand command=0x{0:X}, transferLength=0x{1:X}", value, totalTransferLength));
 						}
 						TPointer result = new TPointer(Memory, transferAddresses[0]);
 						result.setValue32(0, 0x12345678);
@@ -206,12 +206,12 @@ namespace pspsharp.memory.mmio
 						int lba = MMIOHandlerAta.Instance.LogicalBlockAddress;
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand command=0x{0:X}, transferLength=0x{1:X}, lba=0x{2:X}", value, totalTransferLength, lba));
+							System.Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand command=0x{0:X}, transferLength=0x{1:X}, lba=0x{2:X}", value, totalTransferLength, lba));
 						}
     
 						if (vFile == null)
 						{
-							Console.WriteLine(string.Format("MMIOHandlerUmd no UMD loaded"));
+							System.Console.WriteLine(string.Format("MMIOHandlerUmd no UMD loaded"));
 						}
 						else
 						{
@@ -220,11 +220,11 @@ namespace pspsharp.memory.mmio
 							long seekResult = vFile.ioLseek(offset);
 							if (seekResult < 0)
 							{
-								Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand seek error 0x{0:X8}", seekResult));
+								System.Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand seek error 0x{0:X8}", seekResult));
 							}
 							else if (seekResult != offset)
 							{
-								Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand incorrect seek: offset=0x{0:X}, seekResult=0x{1:X}", offset, seekResult));
+								System.Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand incorrect seek: offset=0x{0:X}, seekResult=0x{1:X}", offset, seekResult));
 							}
 							else
 							{
@@ -237,14 +237,14 @@ namespace pspsharp.memory.mmio
 										int readResult = vFile.ioRead(addr, transferLength);
 										if (readResult < 0)
 										{
-											Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand read error 0x{0:X8}", readResult));
+											System.Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand read error 0x{0:X8}", readResult));
 											break;
 										}
 										else
 										{
 											if (readResult != transferLength)
 											{
-												Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand uncomplete read: transferLength=0x{0:X}, readLength=0x{1:X}", transferLength, readResult));
+												System.Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand uncomplete read: transferLength=0x{0:X}, readLength=0x{1:X}", transferLength, readResult));
 												break;
 											}
     
@@ -265,7 +265,7 @@ namespace pspsharp.memory.mmio
 					case 0x0B:
 						break;
 					default:
-						Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand unknown command 0x{0:X}", value));
+						System.Console.WriteLine(string.Format("MMIOHandlerUmd.setCommand unknown command 0x{0:X}", value));
 						break;
 				}
     

@@ -51,7 +51,7 @@ namespace pspsharp.graphics.RE.externalge
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Starting async rendering lineMask=0x{0:X8}", lineMask));
+							System.Console.WriteLine(string.Format("Starting async rendering lineMask=0x{0:X8}", lineMask));
 						}
 						NativeUtils.rendererRender(lineMask);
 					}

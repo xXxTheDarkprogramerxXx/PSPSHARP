@@ -43,7 +43,7 @@ namespace pspsharp.HLE.VFS.local
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("ioWrite", e);
+				System.Console.WriteLine("ioWrite", e);
 				return IO_ERROR;
 			}
 
@@ -69,7 +69,7 @@ namespace pspsharp.HLE.VFS.local
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("ioWrite", e);
+				System.Console.WriteLine("ioWrite", e);
 				return IO_ERROR;
 			}
 
@@ -95,7 +95,7 @@ namespace pspsharp.HLE.VFS.local
 				case 0x00208013:
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Checking if LoadExec is allowed on '{0}'", this));
+						System.Console.WriteLine(string.Format("Checking if LoadExec is allowed on '{0}'", this));
 					}
 					// Result == 0: LoadExec allowed
 					// Result != 0: LoadExec prohibited
@@ -105,7 +105,7 @@ namespace pspsharp.HLE.VFS.local
 				case 0x00208003:
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Checking if LoadModule is allowed on '{0}'", this));
+						System.Console.WriteLine(string.Format("Checking if LoadModule is allowed on '{0}'", this));
 					}
 					// Result == 0: LoadModule allowed
 					// Result != 0: LoadModule prohibited
@@ -116,7 +116,7 @@ namespace pspsharp.HLE.VFS.local
 				case 0x00208082:
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Checking if PRX type is allowed on '{0}'", this));
+						System.Console.WriteLine(string.Format("Checking if PRX type is allowed on '{0}'", this));
 					}
 					// Result == 0: PRX type allowed
 					// Result != 0: PRX type prohibited

@@ -233,7 +233,7 @@ namespace pspsharp.Allegrex.compiler
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(ToString());
+				System.Console.WriteLine(ToString());
 			}
 
 			context.CodeInstruction = this;
@@ -333,7 +333,7 @@ namespace pspsharp.Allegrex.compiler
 						{
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("0x{0:X8}: branching to the 2nd instruction of a native code sequence, assuming the 1st instruction", Address));
+								System.Console.WriteLine(string.Format("0x{0:X8}: branching to the 2nd instruction of a native code sequence, assuming the 1st instruction", Address));
 							}
 							branchingToCodeInstruction = nativeCodeInstruction;
 						}
@@ -362,7 +362,7 @@ namespace pspsharp.Allegrex.compiler
 						{
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("0x{0:X8}: branching to a NOP in a delay slot, correcting to the next instruction", Address));
+								System.Console.WriteLine(string.Format("0x{0:X8}: branching to a NOP in a delay slot, correcting to the next instruction", Address));
 							}
 							branchingToCodeInstruction = context.CodeBlock.getCodeInstruction(BranchingTo + 4);
 						}
@@ -396,7 +396,7 @@ namespace pspsharp.Allegrex.compiler
 		{
 			if (delaySlotCodeInstruction == null)
 			{
-				Console.WriteLine(string.Format("Cannot find delay slot instruction at 0x{0:X8}", Address + 4));
+				System.Console.WriteLine(string.Format("Cannot find delay slot instruction at 0x{0:X8}", Address + 4));
 				return;
 			}
 
@@ -405,7 +405,7 @@ namespace pspsharp.Allegrex.compiler
 				// Issue a warning when compiling an instruction having a delay slot inside a delay slot.
 				// See http://code.google.com/p/pcsx2/source/detail?r=5541
 				string lineSeparator = System.getProperty("line.separator");
-				Console.WriteLine(string.Format("Instruction in a delay slot having a delay slot:{0}{1}{2}{3}", lineSeparator, this, lineSeparator, delaySlotCodeInstruction));
+				System.Console.WriteLine(string.Format("Instruction in a delay slot having a delay slot:{0}{1}{2}{3}", lineSeparator, this, lineSeparator, delaySlotCodeInstruction));
 			}
 
 			delaySlotCodeInstruction.IsDelaySlot = true;
@@ -598,7 +598,7 @@ namespace pspsharp.Allegrex.compiler
 				//    jr  $ra
 				//    nop
 				string lineSeparator = System.getProperty("line.separator");
-				Console.WriteLine(string.Format("Instruction in a delay slot having a delay slot:{0}{1}{2}{3}", lineSeparator, this, lineSeparator, delaySlotCodeInstruction));
+				System.Console.WriteLine(string.Format("Instruction in a delay slot having a delay slot:{0}{1}{2}{3}", lineSeparator, this, lineSeparator, delaySlotCodeInstruction));
 			}
 			else
 			{
@@ -800,7 +800,7 @@ namespace pspsharp.Allegrex.compiler
 			}
 			else
 			{
-				Console.WriteLine("CodeInstruction.getBranchingOpcode: unknown instruction " + insn.disasm(Address, Opcode));
+				System.Console.WriteLine("CodeInstruction.getBranchingOpcode: unknown instruction " + insn.disasm(Address, Opcode));
 			}
 
 			return branchingOpcode;

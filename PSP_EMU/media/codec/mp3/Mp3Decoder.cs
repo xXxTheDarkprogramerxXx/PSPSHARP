@@ -380,7 +380,7 @@ namespace pspsharp.media.codec.mp3
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Mp3Header: {0}", s));
+				System.Console.WriteLine(string.Format("Mp3Header: {0}", s));
 			}
 
 			return 0;
@@ -388,13 +388,13 @@ namespace pspsharp.media.codec.mp3
 
 		private int decodeLayer1()
 		{
-			Console.WriteLine("Unimplemented MP3 Layer-1");
+			System.Console.WriteLine("Unimplemented MP3 Layer-1");
 			return 0;
 		}
 
 		private int decodeLayer2()
 		{
-			Console.WriteLine("Unimplemented MP3 Layer-2");
+			System.Console.WriteLine("Unimplemented MP3 Layer-2");
 			return 0;
 		}
 
@@ -445,7 +445,7 @@ namespace pspsharp.media.codec.mp3
 				{
 					if (ctx.header.sampleRateIndex == 8)
 					{
-						Console.WriteLine(string.Format("Unimplemented switch point in 8kHz"));
+						System.Console.WriteLine(string.Format("Unimplemented switch point in 8kHz"));
 					}
 					// if switched mode, we handle the 36 first samples as
 					// long blocks. For 8000Hz, we handle the 72 first
@@ -708,7 +708,7 @@ namespace pspsharp.media.codec.mp3
 						bb.skip(lastPos - pos);
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Overread part23 by {0:D} bits", overread));
+							System.Console.WriteLine(string.Format("Overread part23 by {0:D} bits", overread));
 						}
 					}
 					break;
@@ -1165,7 +1165,7 @@ namespace pspsharp.media.codec.mp3
 					g.bigValues = br.read(9);
 					if (g.bigValues > 288)
 					{
-						Console.WriteLine(string.Format("bigValues too big {0:D}", g.bigValues));
+						System.Console.WriteLine(string.Format("bigValues too big {0:D}", g.bigValues));
 						return MP3_ERROR;
 					}
 
@@ -1190,7 +1190,7 @@ namespace pspsharp.media.codec.mp3
 						g.blockType = br.read(2);
 						if (g.blockType == 0)
 						{
-							Console.WriteLine(string.Format("invalid block type"));
+							System.Console.WriteLine(string.Format("invalid block type"));
 							return MP3_ERROR;
 						}
 						g.switchPoint = br.read1();
@@ -1511,7 +1511,7 @@ namespace pspsharp.media.codec.mp3
 			int header = br.read(32);
 			if (mpaCheckHeader(header) < 0)
 			{
-				Console.WriteLine(string.Format("Header missing"));
+				System.Console.WriteLine(string.Format("Header missing"));
 				return MP3_ERROR;
 			}
 

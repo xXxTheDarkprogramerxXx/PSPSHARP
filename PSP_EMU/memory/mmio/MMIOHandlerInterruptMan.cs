@@ -152,7 +152,7 @@ namespace pspsharp.memory.mmio
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("doTriggerException on {0}", this));
+						System.Console.WriteLine(string.Format("doTriggerException on {0}", this));
 					}
 					return true;
 				}

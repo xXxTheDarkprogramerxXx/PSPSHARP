@@ -38,7 +38,7 @@ namespace pspsharp.HLE.VFS.memoryStick
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("ioIoctl msstor cmd 0x{0:X8}", command));
+							System.Console.WriteLine(string.Format("ioIoctl msstor cmd 0x{0:X8}", command));
 						}
 						outputPointer.setValue32(MemoryStick.Locked);
 						result = 0;
@@ -54,7 +54,7 @@ namespace pspsharp.HLE.VFS.memoryStick
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("ioIoctl msstor cmd 0x{0:X8}", command));
+							System.Console.WriteLine(string.Format("ioIoctl msstor cmd 0x{0:X8}", command));
 						}
 						// Unknown output value
 						outputPointer.setValue32(MemoryStick.Inserted);
@@ -70,7 +70,7 @@ namespace pspsharp.HLE.VFS.memoryStick
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("ioIoctl msstor cmd 0x{0:X8}", command));
+							System.Console.WriteLine(string.Format("ioIoctl msstor cmd 0x{0:X8}", command));
 						}
 						// Unknown output values
 						outputPointer.clear(96);

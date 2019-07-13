@@ -54,7 +54,7 @@ namespace pspsharp.graphics.capture
 			data.writeInt(pixelformatFb);
 			data.writeInt(sync);
 
-			//VideoEngine.Console.WriteLine("CaptureDisplayDetails write " + (4 + packetSize));
+			//VideoEngine.System.Console.WriteLine("CaptureDisplayDetails write " + (4 + packetSize));
 		}
 
 //JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:

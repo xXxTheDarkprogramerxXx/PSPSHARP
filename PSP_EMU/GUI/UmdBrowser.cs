@@ -142,7 +142,7 @@ namespace pspsharp.GUI
 				{
 					if (!path.Directory)
 					{
-						Console.WriteLine("'" + path + "' is not a directory.");
+						System.Console.WriteLine("'" + path + "' is not a directory.");
 						return;
 					}
 
@@ -305,7 +305,7 @@ namespace pspsharp.GUI
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine(e);
+					System.Console.WriteLine(e);
 				}
 				return null;
 			}
@@ -472,7 +472,7 @@ namespace pspsharp.GUI
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 			}
 		}
 
@@ -492,11 +492,11 @@ namespace pspsharp.GUI
 			}
 			catch (FileNotFoundException e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 			}
 		}
 
@@ -619,12 +619,12 @@ namespace pspsharp.GUI
 				}
 				catch (IOException ve)
 				{
-					Console.WriteLine(ve);
+					System.Console.WriteLine(ve);
 				}
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 			}
 
 			umdInfoLoaded[rowIndex] = true;
@@ -655,7 +655,7 @@ namespace pspsharp.GUI
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine(e);
+					System.Console.WriteLine(e);
 				}
 
 				// Read PIC1.PNG
@@ -688,7 +688,7 @@ namespace pspsharp.GUI
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine(e);
+					System.Console.WriteLine(e);
 				}
 
 				icon0Icon = icons[rowIndex];
@@ -731,7 +731,7 @@ namespace pspsharp.GUI
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 			}
 			pic0Label.Icon = pic0Icon;
 			pic1Label.Icon = pic1Icon;
@@ -932,7 +932,7 @@ namespace pspsharp.GUI
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("onFilterChanged '{0}'", filter));
+				System.Console.WriteLine(string.Format("onFilterChanged '{0}'", filter));
 			}
 
 			if (filterItems(filter))

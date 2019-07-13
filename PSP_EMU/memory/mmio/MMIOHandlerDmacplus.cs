@@ -219,7 +219,7 @@ namespace pspsharp.memory.mmio
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("updateDisplay.hleDisplaySetFrameBuf frameBufferAddr=0x{0:X8}, displayFrameBufferWidth=0x{1:X}, displayPixelFormat=0x{2:X}, displayFlags=0x{3:X}", frameBufferAddr, displayFrameBufferWidth, displayPixelFormat, displayFlags));
+				System.Console.WriteLine(string.Format("updateDisplay.hleDisplaySetFrameBuf frameBufferAddr=0x{0:X8}, displayFrameBufferWidth=0x{1:X}, displayPixelFormat=0x{2:X}, displayFlags=0x{3:X}", frameBufferAddr, displayFrameBufferWidth, displayPixelFormat, displayFlags));
 			}
 
 			sceDisplayModule.hleDisplaySetFrameBuf(frameBufferAddr, displayFrameBufferWidth, displayPixelFormat, PSP_DISPLAY_SETBUF_IMMEDIATE);

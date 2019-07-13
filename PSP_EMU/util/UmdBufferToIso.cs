@@ -17,7 +17,7 @@ namespace pspsharp.util
 				RandomAccessFile outIso = new RandomAccessFile("tmp/umd.iso", "rw");
 
 				int numSectors = inToc.readInt();
-				Console.WriteLine(string.Format("numSectors={0:D}", numSectors));
+				System.Console.WriteLine(string.Format("numSectors={0:D}", numSectors));
 				sbyte[] buffer = new sbyte[sectorLength];
 				for (int i = 4; i < inToc.Length(); i += 8)
 				{
@@ -35,13 +35,13 @@ namespace pspsharp.util
 			}
 			catch (FileNotFoundException e)
 			{
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 			}
 		}
 	}

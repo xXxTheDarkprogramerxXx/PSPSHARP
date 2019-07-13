@@ -250,7 +250,7 @@ namespace pspsharp.network.adhoc
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("open", e);
+					System.Console.WriteLine("open", e);
 				}
 				result = SceKernelErrors.ERROR_NET_ADHOC_PORT_IN_USE;
 			}
@@ -258,23 +258,23 @@ namespace pspsharp.network.adhoc
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("open", e);
+					System.Console.WriteLine("open", e);
 				}
 				result = SceKernelErrors.ERROR_NET_ADHOC_INVALID_ARG;
 			}
 			catch (SocketException e)
 			{
-				Console.WriteLine("open", e);
+				System.Console.WriteLine("open", e);
 				result = SceKernelErrors.ERROR_NET_ADHOC_INVALID_ARG;
 			}
 			catch (UnknownHostException e)
 			{
-				Console.WriteLine("open", e);
+				System.Console.WriteLine("open", e);
 				result = SceKernelErrors.ERROR_NET_ADHOC_INVALID_ARG;
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("open", e);
+				System.Console.WriteLine("open", e);
 				result = SceKernelErrors.ERROR_NET_ADHOC_INVALID_ARG;
 			}
 
@@ -293,21 +293,21 @@ namespace pspsharp.network.adhoc
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("listen", e);
+					System.Console.WriteLine("listen", e);
 				}
 				result = SceKernelErrors.ERROR_NET_ADHOC_PORT_IN_USE;
 			}
 			catch (SocketException e)
 			{
-				Console.WriteLine("listen", e);
+				System.Console.WriteLine("listen", e);
 			}
 			catch (UnknownHostException e)
 			{
-				Console.WriteLine("listen", e);
+				System.Console.WriteLine("listen", e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("listen", e);
+				System.Console.WriteLine("listen", e);
 			}
 
 			return result;
@@ -379,7 +379,7 @@ namespace pspsharp.network.adhoc
 			catch (IOException e)
 			{
 				result = SceKernelErrors.ERROR_NET_ADHOC_DISCONNECTED;
-				Console.WriteLine("send returning ERROR_NET_ADHOC_DISCONNECTED", e);
+				System.Console.WriteLine("send returning ERROR_NET_ADHOC_DISCONNECTED", e);
 			}
 
 			return result;
@@ -414,7 +414,7 @@ namespace pspsharp.network.adhoc
 			catch (IOException e)
 			{
 				result = SceKernelErrors.ERROR_NET_ADHOC_DISCONNECTED;
-				Console.WriteLine("recv", e);
+				System.Console.WriteLine("recv", e);
 			}
 
 			return result;
@@ -453,7 +453,7 @@ namespace pspsharp.network.adhoc
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Returned received data: {0:D} bytes", Length));
+						System.Console.WriteLine(string.Format("Returned received data: {0:D} bytes", Length));
 						if (log.TraceEnabled)
 						{
 							log.trace(string.Format("Returned data: {0}", Utilities.getMemoryDump(data.Address, Length)));
@@ -479,11 +479,11 @@ namespace pspsharp.network.adhoc
 			{
 				if (offset == 0)
 				{
-					Console.WriteLine(string.Format("Successfully received message (Length={0:D}, rcvdData={1:D}) {2}", Length, RcvdData, adhocMessage));
+					System.Console.WriteLine(string.Format("Successfully received message (Length={0:D}, rcvdData={1:D}) {2}", Length, RcvdData, adhocMessage));
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Appending received message (offset={0:D}, Length={1:D}, rcvdData={2:D}) {3}", offset, Length, RcvdData, adhocMessage));
+					System.Console.WriteLine(string.Format("Appending received message (offset={0:D}, Length={1:D}, rcvdData={2:D}) {3}", offset, Length, RcvdData, adhocMessage));
 				}
 				if (log.TraceEnabled)
 				{
@@ -534,11 +534,11 @@ namespace pspsharp.network.adhoc
 						{
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("Received message not for me: {0}", adhocMessage));
+								System.Console.WriteLine(string.Format("Received message not for me: {0}", adhocMessage));
 							}
 						}
 	//				} catch (SocketException e) {
-	//					Console.WriteLine("update", e);
+	//					System.Console.WriteLine("update", e);
 	//					break;
 					}
 					catch (SocketTimeoutException)

@@ -58,7 +58,7 @@ namespace pspsharp.HLE.VFS
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("getPosition", e);
+					System.Console.WriteLine("getPosition", e);
 				}
 				return Modules.IoFileMgrForUserModule.getPosition(this);
 			}
@@ -78,7 +78,7 @@ namespace pspsharp.HLE.VFS
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("ioClose", e);
+				System.Console.WriteLine("ioClose", e);
 				return IO_ERROR;
 			}
 
@@ -106,7 +106,7 @@ namespace pspsharp.HLE.VFS
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("ioRead", e);
+				System.Console.WriteLine("ioRead", e);
 				return SceKernelErrors.ERROR_KERNEL_FILE_READ_ERROR;
 			}
 
@@ -124,7 +124,7 @@ namespace pspsharp.HLE.VFS
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("ioRead", e);
+					System.Console.WriteLine("ioRead", e);
 					return SceKernelErrors.ERROR_KERNEL_FILE_READ_ERROR;
 				}
 			}
@@ -155,7 +155,7 @@ namespace pspsharp.HLE.VFS
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("ioLseek", e);
+				System.Console.WriteLine("ioLseek", e);
 				return IO_ERROR;
 			}
 			return offset;
@@ -170,14 +170,14 @@ namespace pspsharp.HLE.VFS
 
 			if (log.isEnabledFor(Level.WARN))
 			{
-				Console.WriteLine(string.Format("ioIoctl 0x{0:X8} unsupported command, inlen={1:D}, outlen={2:D}", command, inputLength, outputLength));
+				System.Console.WriteLine(string.Format("ioIoctl 0x{0:X8} unsupported command, inlen={1:D}, outlen={2:D}", command, inputLength, outputLength));
 				if (inputPointer.AddressGood)
 				{
-					Console.WriteLine(string.Format("ioIoctl indata: {0}", Utilities.getMemoryDump(inputPointer.Address, inputLength)));
+					System.Console.WriteLine(string.Format("ioIoctl indata: {0}", Utilities.getMemoryDump(inputPointer.Address, inputLength)));
 				}
 				if (outputPointer.AddressGood)
 				{
-					Console.WriteLine(string.Format("ioIoctl outdata: {0}", Utilities.getMemoryDump(outputPointer.Address, outputLength)));
+					System.Console.WriteLine(string.Format("ioIoctl outdata: {0}", Utilities.getMemoryDump(outputPointer.Address, outputLength)));
 				}
 			}
 
@@ -194,7 +194,7 @@ namespace pspsharp.HLE.VFS
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("Length", e);
+					System.Console.WriteLine("Length", e);
 				}
 			}
 

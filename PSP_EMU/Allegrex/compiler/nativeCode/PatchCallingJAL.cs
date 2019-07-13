@@ -44,7 +44,7 @@ namespace pspsharp.Allegrex.compiler.nativeCode
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("PatchCallingJAL at 0x{0:X8} to 0x{1:X8}", patchAddr, jumpAddr));
+				System.Console.WriteLine(string.Format("PatchCallingJAL at 0x{0:X8} to 0x{1:X8}", patchAddr, jumpAddr));
 			}
 
 			return jumpAddr;

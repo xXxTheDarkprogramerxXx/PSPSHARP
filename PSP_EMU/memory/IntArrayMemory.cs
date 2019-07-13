@@ -125,14 +125,14 @@ namespace pspsharp.memory
 
 		public override void copyToMemory(int address, ByteBuffer source, int Length)
 		{
-			Console.WriteLine(string.Format("Unimplemented copyToMemory address=0x{0:X8}, source={1}, Length=0x{2:X}", address, source, Length));
+			System.Console.WriteLine(string.Format("Unimplemented copyToMemory address=0x{0:X8}, source={1}, Length=0x{2:X}", address, source, Length));
 		}
 
 		protected internal override void memcpy(int destination, int source, int Length, bool checkOverlap)
 		{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("Unimplemented memcpy destination=0x%08X, source=0x%08X, Length=0x%X, checkOverlap=%b", destination, source, Length, checkOverlap));
-			Console.WriteLine(string.Format("Unimplemented memcpy destination=0x%08X, source=0x%08X, Length=0x%X, checkOverlap=%b", destination, source, Length, checkOverlap));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("Unimplemented memcpy destination=0x%08X, source=0x%08X, Length=0x%X, checkOverlap=%b", destination, source, Length, checkOverlap));
+			System.Console.WriteLine(string.Format("Unimplemented memcpy destination=0x%08X, source=0x%08X, Length=0x%X, checkOverlap=%b", destination, source, Length, checkOverlap));
 		}
 	}
 

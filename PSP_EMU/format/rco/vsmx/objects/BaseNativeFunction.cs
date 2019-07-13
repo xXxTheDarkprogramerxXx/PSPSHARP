@@ -45,7 +45,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Calling {0}", ToString(arguments)));
+				System.Console.WriteLine(string.Format("Calling {0}", ToString(arguments)));
 			}
 			return VSMXNull.singleton;
 		}

@@ -195,7 +195,7 @@ namespace pspsharp.graphics.textures
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Delete VRAM texture inside GE {0}", texture.ToString()));
+						System.Console.WriteLine(string.Format("Delete VRAM texture inside GE {0}", texture.ToString()));
 					}
 					texture.deleteTexture(re);
 //JAVA TO C# CONVERTER TODO TASK: .NET enumerators are read-only:

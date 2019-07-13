@@ -111,7 +111,7 @@ namespace pspsharp.HLE.modules
 			HLEModuleManager moduleManager = HLEModuleManager.Instance;
 			if (moduleManager.hasFlash0Module(driverName))
 			{
-				Console.WriteLine(string.Format("Loading HLE module '{0}'", driverName));
+				System.Console.WriteLine(string.Format("Loading HLE module '{0}'", driverName));
 				int sceModuleId = moduleManager.LoadFlash0Module(driverName);
 				SceModule module = Managers.modules.getModuleByUID(sceModuleId);
 				loadedModules[driverName] = module;
@@ -158,7 +158,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceUsbGetState returning 0x{0:X}", UsbState));
+				System.Console.WriteLine(string.Format("sceUsbGetState returning 0x{0:X}", UsbState));
 			}
 
 			return UsbState;
@@ -167,7 +167,7 @@ namespace pspsharp.HLE.modules
 		[HLEFunction(nid : 0x4E537366, version : 150)]
 		public virtual int sceUsbGetDrvList(int unknown1, int unknown2, int unknown3)
 		{
-			Console.WriteLine(string.Format("Unimplemented sceUsbGetDrvList unknown1=0x{0:X8}, unknown2=0x{1:X8}, unknown3=0x{2:X8}", unknown1, unknown2, unknown3));
+			System.Console.WriteLine(string.Format("Unimplemented sceUsbGetDrvList unknown1=0x{0:X8}, unknown2=0x{1:X8}, unknown3=0x{2:X8}", unknown1, unknown2, unknown3));
 
 			return 0;
 		}
@@ -220,7 +220,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (!matchState(state, waitMode))
 			{
-				Console.WriteLine(string.Format("Unimplemented sceUsbWaitState state=0x{0:X}, waitMode=0x{1:X}, timeoutAddr={2} - non-matching state not implemented", state, waitMode, timeoutAddr));
+				System.Console.WriteLine(string.Format("Unimplemented sceUsbWaitState state=0x{0:X}, waitMode=0x{1:X}, timeoutAddr={2} - non-matching state not implemented", state, waitMode, timeoutAddr));
 				Modules.ThreadManForUserModule.hleBlockCurrentThread(SceKernelThreadInfo.JPCSP_WAIT_USB);
 				return 0;
 			}
@@ -228,7 +228,7 @@ namespace pspsharp.HLE.modules
 			int usbState = UsbState;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceUsbWaitState returning 0x{0:X}", usbState));
+				System.Console.WriteLine(string.Format("sceUsbWaitState returning 0x{0:X}", usbState));
 			}
 			return usbState;
 		}
@@ -240,7 +240,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (!matchState(state, waitMode))
 			{
-				Console.WriteLine(string.Format("Unimplemented sceUsbWaitStateCB state=0x{0:X}, waitMode=0x{1:X}, timeoutAddr={2} - non-matching state not implemented", state, waitMode, timeoutAddr));
+				System.Console.WriteLine(string.Format("Unimplemented sceUsbWaitStateCB state=0x{0:X}, waitMode=0x{1:X}, timeoutAddr={2} - non-matching state not implemented", state, waitMode, timeoutAddr));
 				Modules.ThreadManForUserModule.hleBlockCurrentThread(SceKernelThreadInfo.JPCSP_WAIT_USB);
 				return 0;
 			}
@@ -248,7 +248,7 @@ namespace pspsharp.HLE.modules
 			int usbState = UsbState;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceUsbWaitStateCB returning 0x{0:X}", usbState));
+				System.Console.WriteLine(string.Format("sceUsbWaitStateCB returning 0x{0:X}", usbState));
 			}
 			return usbState;
 		}

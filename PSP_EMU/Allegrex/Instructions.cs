@@ -815,7 +815,7 @@ namespace pspsharp.Allegrex
 		}
 		catch (Exception e)
 		{
-			Console.WriteLine("syscall", e);
+			System.Console.WriteLine("syscall", e);
 		}
 	}
 	public override void compile(ICompilerContext context, int insn)
@@ -886,7 +886,7 @@ namespace pspsharp.Allegrex
 		}
 		else
 		{
-			Console.WriteLine(string.Format("0x{0:X8} - Allegrex break 0x{1:X5}", processor.cpu.pc, imm20));
+			System.Console.WriteLine(string.Format("0x{0:X8} - Allegrex break 0x{1:X5}", processor.cpu.pc, imm20));
 
 			// Pause the emulator only if not ignoring invalid memory accesses
 			// (I'm too lazy to introduce a new configuration flag to ignore "break" instructions).
@@ -966,7 +966,7 @@ namespace pspsharp.Allegrex
 		}
 		catch (StopThreadException)
 		{
-			Console.WriteLine("Exception catched while interpreting the halt instruction");
+			System.Console.WriteLine("Exception catched while interpreting the halt instruction");
 		}
 	}
 	public override void compile(ICompilerContext context, int insn)
@@ -1067,7 +1067,7 @@ namespace pspsharp.Allegrex
 			}
 			catch (StopThreadException e)
 			{
-				Console.WriteLine("Catched exception while executing mtic instruction", e);
+				System.Console.WriteLine("Catched exception while executing mtic instruction", e);
 			}
 		}
 	}
@@ -5449,7 +5449,7 @@ namespace pspsharp.Allegrex
 					{
 						CodeInstruction sequence = new SequenceLWCodeInstruction(rs, offsets, registers);
 						sequence.Address = context.CodeInstruction.Address;
-						Compiler.Console.WriteLine(sequence);
+						Compiler.System.Console.WriteLine(sequence);
 					}
 
 					// Skip the next lw instructions
@@ -5731,7 +5731,7 @@ namespace pspsharp.Allegrex
 				{
 					CodeInstruction sequence = new SequenceSWCodeInstruction(rs, offsets, registers);
 					sequence.Address = context.CodeInstruction.Address;
-					Compiler.Console.WriteLine(sequence);
+					Compiler.System.Console.WriteLine(sequence);
 				}
 
 				// Skip the next sw instructions
@@ -6127,7 +6127,7 @@ namespace pspsharp.Allegrex
 			{
 				if (Compiler.log.DebugEnabled)
 				{
-					Compiler.Console.WriteLine(string.Format("lv.q sequence 0x{0:X8}-0x{1:X8}", address, address + countSequence * 4 - 4));
+					Compiler.System.Console.WriteLine(string.Format("lv.q sequence 0x{0:X8}-0x{1:X8}", address, address + countSequence * 4 - 4));
 				}
 
 				// Skip the next lv.q instructions
@@ -6457,7 +6457,7 @@ namespace pspsharp.Allegrex
 			{
 				if (Compiler.log.DebugEnabled)
 				{
-					Compiler.Console.WriteLine(string.Format("   sv.q sequence 0x{0:X8}-0x{1:X8}", address, address + countSequence * 4 - 4));
+					Compiler.System.Console.WriteLine(string.Format("   sv.q sequence 0x{0:X8}-0x{1:X8}", address, address + countSequence * 4 - 4));
 				}
 
 				// Skip the next sv.q instructions

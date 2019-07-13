@@ -75,7 +75,7 @@ namespace pspsharp.graphics.capture
 			}
 
 			VideoEngine.log_Renamed.info(string.Format("Saved memory {0:x8} - {1:x8} (len {2:x8})", address, address + Length, Length));
-			//VideoEngine.Console.WriteLine("CaptureRAM write " + ((3 * 4) + Length));
+			//VideoEngine.System.Console.WriteLine("CaptureRAM write " + ((3 * 4) + Length));
 
 			//data.flush();
 			//out.flush();

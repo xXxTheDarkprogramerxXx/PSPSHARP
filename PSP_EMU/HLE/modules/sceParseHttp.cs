@@ -97,7 +97,7 @@ namespace pspsharp.HLE.modules
 							found = true;
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("sceParseHttpResponseHeader returning valueLength=0x{0:X}: {1}", valueLength.getValue(), Utilities.getMemoryDump(valueAddr.getValue(), valueLength.getValue())));
+								System.Console.WriteLine(string.Format("sceParseHttpResponseHeader returning valueLength=0x{0:X}: {1}", valueLength.getValue(), Utilities.getMemoryDump(valueAddr.getValue(), valueLength.getValue())));
 							}
 							break;
 						}

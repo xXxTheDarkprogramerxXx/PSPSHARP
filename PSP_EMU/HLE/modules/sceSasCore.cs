@@ -120,13 +120,13 @@ namespace pspsharp.HLE.modules
 		{
 			if (!Memory.isAddressGood(sasCore))
 			{
-				Console.WriteLine(string.Format("{0} bad sasCore Address 0x{1:X8}", getCallingFunctionName(3), sasCore));
+				System.Console.WriteLine(string.Format("{0} bad sasCore Address 0x{1:X8}", getCallingFunctionName(3), sasCore));
 				throw (new SceKernelErrorException(ERROR_SAS_INVALID_ADDRESS));
 			}
 
 			if (!Memory.isAddressAlignedTo(sasCore, 64))
 			{
-				Console.WriteLine(string.Format("{0} bad sasCore Address 0x{1:X8} (not aligned to 64)", getCallingFunctionName(3), sasCore));
+				System.Console.WriteLine(string.Format("{0} bad sasCore Address 0x{1:X8} (not aligned to 64)", getCallingFunctionName(3), sasCore));
 				throw (new SceKernelErrorException(ERROR_SAS_INVALID_ADDRESS));
 			}
 		}
@@ -137,7 +137,7 @@ namespace pspsharp.HLE.modules
 
 			if (Processor.memory.read32(sasCore) != sasCoreUid)
 			{
-				Console.WriteLine(string.Format("{0} bad sasCoreUid 0x{1:X} (should be 0x{2:X})", getCallingFunctionName(3), Processor.memory.read32(sasCore), sasCoreUid));
+				System.Console.WriteLine(string.Format("{0} bad sasCoreUid 0x{1:X} (should be 0x{2:X})", getCallingFunctionName(3), Processor.memory.read32(sasCore), sasCoreUid));
 				throw (new SceKernelErrorException(SceKernelErrors.ERROR_SAS_NOT_INIT));
 			}
 		}
@@ -146,7 +146,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (voice < 0 || voice >= voices.Length)
 			{
-				Console.WriteLine(string.Format("{0} bad voice number {1:D}", getCallingFunctionName(3), voice));
+				System.Console.WriteLine(string.Format("{0} bad voice number {1:D}", getCallingFunctionName(3), voice));
 				throw (new SceKernelErrorException(SceKernelErrors.ERROR_SAS_INVALID_VOICE_INDEX));
 			}
 		}
@@ -176,7 +176,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("checkVoiceNotPaused returning 0x{0:X8}(ERROR_SAS_VOICE_PAUSED)", SceKernelErrors.ERROR_SAS_VOICE_PAUSED));
+					System.Console.WriteLine(string.Format("checkVoiceNotPaused returning 0x{0:X8}(ERROR_SAS_VOICE_PAUSED)", SceKernelErrors.ERROR_SAS_VOICE_PAUSED));
 				}
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_SAS_VOICE_PAUSED);
 			}
@@ -279,7 +279,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("__sceSasSetADSR voice=0x{0:X}: {1}", voice, envelope.ToString()));
+				System.Console.WriteLine(string.Format("__sceSasSetADSR voice=0x{0:X}: {1}", voice, envelope.ToString()));
 			}
 
 			return 0;
@@ -584,7 +584,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (size <= 0 || (size & 0xF) != 0)
 			{
-				Console.WriteLine(string.Format("__sceSasSetVoice invalid size 0x{0:X8}", size));
+				System.Console.WriteLine(string.Format("__sceSasSetVoice invalid size 0x{0:X8}", size));
 				return SceKernelErrors.ERROR_SAS_INVALID_ADPCM_SIZE;
 			}
 
@@ -645,7 +645,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("__sceSasSetADSRmode voice=0x{0:X}: {1}", voice, envelope.ToString()));
+				System.Console.WriteLine(string.Format("__sceSasSetADSRmode voice=0x{0:X}: {1}", voice, envelope.ToString()));
 			}
 
 			return 0;
@@ -944,7 +944,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("__sceSasSetSimpleADSR voice=0x{0:X}: {1}", voice, envelope.ToString()));
+				System.Console.WriteLine(string.Format("__sceSasSetSimpleADSR voice=0x{0:X}: {1}", voice, envelope.ToString()));
 			}
 
 			return 0;
@@ -1096,7 +1096,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (size <= 0 || size > 0x10000)
 			{
-				Console.WriteLine(string.Format("__sceSasSetVoicePCM invalid size 0x{0:X8}", size));
+				System.Console.WriteLine(string.Format("__sceSasSetVoicePCM invalid size 0x{0:X8}", size));
 
 				return SceKernelErrors.ERROR_SAS_INVALID_SIZE;
 			}

@@ -45,8 +45,8 @@ namespace pspsharp.memory
 			}
 
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("Using NativeMemory(littleEndian=%b)", NativeMemoryUtils.isLittleEndian()));
-			Console.WriteLine(string.Format("Using NativeMemory(littleEndian=%b)", NativeMemoryUtils.LittleEndian));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("Using NativeMemory(littleEndian=%b)", NativeMemoryUtils.isLittleEndian()));
+			System.Console.WriteLine(string.Format("Using NativeMemory(littleEndian=%b)", NativeMemoryUtils.LittleEndian));
 
 			return base.allocate();
 		}

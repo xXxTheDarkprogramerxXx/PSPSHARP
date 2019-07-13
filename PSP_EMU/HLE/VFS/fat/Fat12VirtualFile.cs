@@ -197,7 +197,7 @@ namespace pspsharp.HLE.VFS.fat
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Fat12VirtualFile.writeFatSector fatIndex=0x{0:X}, index=0x{1:X}, offset=0x{2:X}", fatIndex, index, offset));
+				System.Console.WriteLine(string.Format("Fat12VirtualFile.writeFatSector fatIndex=0x{0:X}, index=0x{1:X}, offset=0x{2:X}", fatIndex, index, offset));
 			}
 
 			while (offset < sectorSize && index < fatClusterMap.Length)

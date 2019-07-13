@@ -149,7 +149,7 @@ namespace pspsharp.memory.mmio
 						case 0xB001:
 							break;
 						default:
-							Console.WriteLine(string.Format("setCommand unknown command=0x{0:X}", command));
+							System.Console.WriteLine(string.Format("setCommand unknown command=0x{0:X}", command));
 							Arrays.Fill(data, 0);
 							break;
 					}
@@ -261,7 +261,7 @@ namespace pspsharp.memory.mmio
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("writeData32 command=0x{0:X}, data=0x{1:X8}, index=0x{2:X}", command, value, index));
+				System.Console.WriteLine(string.Format("writeData32 command=0x{0:X}, data=0x{1:X8}, index=0x{2:X}", command, value, index));
 			}
 			writeData8(value);
 			writeData8(value >> 8);
@@ -319,7 +319,7 @@ namespace pspsharp.memory.mmio
 								clearData(8);
 								break;
 							default:
-								Console.WriteLine(string.Format("writeData32 unknown command=0x{0:X}, data[0]=0x{1:X8}, data[1]=0x{2:X8}", command, getData32(0), getData32(4)));
+								System.Console.WriteLine(string.Format("writeData32 unknown command=0x{0:X}, data[0]=0x{1:X8}, data[1]=0x{2:X8}", command, getData32(0), getData32(4)));
 								Arrays.Fill(data, 0);
 								break;
 						}
@@ -331,7 +331,7 @@ namespace pspsharp.memory.mmio
 						totalLength = endianSwap16(getData16(1));
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("writeData32 command=0x{0:X}, totalLength=0x{1:X}", command, totalLength));
+							System.Console.WriteLine(string.Format("writeData32 command=0x{0:X}, totalLength=0x{1:X}", command, totalLength));
 						}
 						currentLength = 0;
 						unknown38 |= 0x0002;
@@ -344,7 +344,7 @@ namespace pspsharp.memory.mmio
 						switch (getData32(0))
 						{
 							default:
-								Console.WriteLine(string.Format("writeData32 unknown command=0x{0:X}, data[0]=0x{1:X8}, data[1]=0x{2:X8}", command, getData32(0), getData32(4)));
+								System.Console.WriteLine(string.Format("writeData32 unknown command=0x{0:X}, data[0]=0x{1:X8}, data[1]=0x{2:X8}", command, getData32(0), getData32(4)));
 								Arrays.Fill(data, 0);
 								break;
 						}

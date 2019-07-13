@@ -82,7 +82,7 @@ namespace pspsharp.memory.mmio.cy27040
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("executeTransmitReceiveCommand command=0x{0:X2} on {1}", command, this));
+				System.Console.WriteLine(string.Format("executeTransmitReceiveCommand command=0x{0:X2} on {1}", command, this));
 			}
 
 			switch (command)
@@ -103,7 +103,7 @@ namespace pspsharp.memory.mmio.cy27040
 					receiveData[0] = spreadSpectrum;
 					break;
 				default:
-					Console.WriteLine(string.Format("executeTransmitReceiveCommand unknown command 0x{0:X}", command));
+					System.Console.WriteLine(string.Format("executeTransmitReceiveCommand unknown command 0x{0:X}", command));
 					break;
 			}
 		}
@@ -123,13 +123,13 @@ namespace pspsharp.memory.mmio.cy27040
 					spreadSpectrum = transmitData[1] & 0xFF;
 					break;
 				default:
-					Console.WriteLine(string.Format("executeTransmitCommand unknown command 0x{0:X}", command));
+					System.Console.WriteLine(string.Format("executeTransmitCommand unknown command 0x{0:X}", command));
 					break;
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("executeTransmitCommand command=0x{0:X2} on {1}", command, this));
+				System.Console.WriteLine(string.Format("executeTransmitCommand command=0x{0:X2} on {1}", command, this));
 			}
 		}
 

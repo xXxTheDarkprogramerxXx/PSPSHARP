@@ -73,7 +73,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetAdhocDiscoverGetStatus returning {0:D}", status));
+				System.Console.WriteLine(string.Format("sceNetAdhocDiscoverGetStatus returning {0:D}", status));
 			}
 
 			return status;

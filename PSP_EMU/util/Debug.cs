@@ -49,7 +49,7 @@ namespace pspsharp.util
 		{
 			if (Modules.log.InfoEnabled)
 			{
-				Modules.Console.WriteLine(string.Format("printFontbuffer 0x{0:X4} '{1}' ({2:D}, {3:D})", charCode, (char) charCode, x, y));
+				Modules.System.Console.WriteLine(string.Format("printFontbuffer 0x{0:X4} '{1}' ({2:D}, {3:D})", charCode, (char) charCode, x, y));
 			}
 
 			if (Font.font == null)
@@ -223,7 +223,7 @@ namespace pspsharp.util
 				return fontPixelSizeInBytes[pixelformat];
 			}
 
-			Modules.Console.WriteLine("Unknown pixel format for sceFont: " + pixelformat);
+			Modules.System.Console.WriteLine("Unknown pixel format for sceFont: " + pixelformat);
 			return 1;
 		}
 

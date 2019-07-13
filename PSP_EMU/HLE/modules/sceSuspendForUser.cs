@@ -74,7 +74,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (type != 0)
 			{
-				Console.WriteLine(string.Format("hleKernelVolatileMemLock bad param type={0:D}", type));
+				System.Console.WriteLine(string.Format("hleKernelVolatileMemLock bad param type={0:D}", type));
 				return ERROR_INVALID_MODE;
 			}
 
@@ -157,7 +157,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (type != 0)
 			{
-				Console.WriteLine(string.Format("sceKernelVolatileMemUnlock bad param type={0:D}", type));
+				System.Console.WriteLine(string.Format("sceKernelVolatileMemUnlock bad param type={0:D}", type));
 				return ERROR_INVALID_MODE;
 			}
 

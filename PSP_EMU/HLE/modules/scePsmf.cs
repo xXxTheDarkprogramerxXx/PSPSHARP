@@ -58,7 +58,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("checkPsmfWithEPMap returning 0x{0:X8}(ERROR_PSMF_NOT_FOUND)", SceKernelErrors.ERROR_PSMF_NOT_FOUND));
+					System.Console.WriteLine(string.Format("checkPsmfWithEPMap returning 0x{0:X8}(ERROR_PSMF_NOT_FOUND)", SceKernelErrors.ERROR_PSMF_NOT_FOUND));
 				}
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_PSMF_NOT_FOUND);
 			}
@@ -113,7 +113,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("scePsmfGetCurrentStreamType returning type={0:D}, channel={1:D}", typeAddr.getValue(), channelAddr.getValue()));
+				System.Console.WriteLine(string.Format("scePsmfGetCurrentStreamType returning type={0:D}, channel={1:D}", typeAddr.getValue(), channelAddr.getValue()));
 			}
 
 			return 0;
@@ -165,7 +165,7 @@ namespace pspsharp.HLE.modules
 			startTimeAddr.setValue(startTime);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("scePsmfGetPresentationStartTime startTime={0:D}", startTime));
+				System.Console.WriteLine(string.Format("scePsmfGetPresentationStartTime startTime={0:D}", startTime));
 			}
 
 			return 0;
@@ -181,7 +181,7 @@ namespace pspsharp.HLE.modules
 			endTimeAddr.setValue(endTime);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("scePsmfGetPresentationEndTime endTime={0:D}", endTime));
+				System.Console.WriteLine(string.Format("scePsmfGetPresentationEndTime endTime={0:D}", endTime));
 			}
 
 			return 0;
@@ -217,7 +217,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("scePsmfGetVideoInfo returning 0x{0:X8}(ERROR_PSMF_INVALID_ID)", SceKernelErrors.ERROR_PSMF_INVALID_ID));
+					System.Console.WriteLine(string.Format("scePsmfGetVideoInfo returning 0x{0:X8}(ERROR_PSMF_INVALID_ID)", SceKernelErrors.ERROR_PSMF_INVALID_ID));
 				}
 				return SceKernelErrors.ERROR_PSMF_INVALID_ID;
 			}
@@ -237,7 +237,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("scePsmfGetAudioInfo returning 0x{0:X8}(ERROR_PSMF_INVALID_ID)", SceKernelErrors.ERROR_PSMF_INVALID_ID));
+					System.Console.WriteLine(string.Format("scePsmfGetAudioInfo returning 0x{0:X8}(ERROR_PSMF_INVALID_ID)", SceKernelErrors.ERROR_PSMF_INVALID_ID));
 				}
 				return SceKernelErrors.ERROR_PSMF_INVALID_ID;
 			}
@@ -267,14 +267,14 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("scePsmfGetEPWithId returning 0x{0:X8}(ERROR_PSMF_INVALID_ID)", SceKernelErrors.ERROR_PSMF_INVALID_ID));
+					System.Console.WriteLine(string.Format("scePsmfGetEPWithId returning 0x{0:X8}(ERROR_PSMF_INVALID_ID)", SceKernelErrors.ERROR_PSMF_INVALID_ID));
 				}
 				return SceKernelErrors.ERROR_PSMF_INVALID_ID;
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("scePsmfGetEPWithId returning {0}", entry));
+				System.Console.WriteLine(string.Format("scePsmfGetEPWithId returning {0}", entry));
 			}
 			outAddr.setValue(0, entry.EntryPTS);
 			outAddr.setValue(4, entry.EntryOffset);
@@ -294,7 +294,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("scePsmfGetEPWithTimestamp returning 0x{0:X8}(ERROR_PSMF_INVALID_TIMESTAMP)", SceKernelErrors.ERROR_PSMF_INVALID_TIMESTAMP));
+					System.Console.WriteLine(string.Format("scePsmfGetEPWithTimestamp returning 0x{0:X8}(ERROR_PSMF_INVALID_TIMESTAMP)", SceKernelErrors.ERROR_PSMF_INVALID_TIMESTAMP));
 				}
 				return SceKernelErrors.ERROR_PSMF_INVALID_TIMESTAMP;
 			}
@@ -305,14 +305,14 @@ namespace pspsharp.HLE.modules
 				// Unknown error code
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("scePsmfGetEPWithTimestamp returning -1"));
+					System.Console.WriteLine(string.Format("scePsmfGetEPWithTimestamp returning -1"));
 				}
 				return -1;
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("scePsmfGetEPWithTimestamp returning {0}", entry));
+				System.Console.WriteLine(string.Format("scePsmfGetEPWithTimestamp returning {0}", entry));
 			}
 			entryAddr.setValue(0, entry.EntryPTS);
 			entryAddr.setValue(4, entry.EntryOffset);
@@ -332,7 +332,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("scePsmfGetEPidWithTimestamp returning 0x{0:X8}(ERROR_PSMF_INVALID_TIMESTAMP)", SceKernelErrors.ERROR_PSMF_INVALID_TIMESTAMP));
+					System.Console.WriteLine(string.Format("scePsmfGetEPidWithTimestamp returning 0x{0:X8}(ERROR_PSMF_INVALID_TIMESTAMP)", SceKernelErrors.ERROR_PSMF_INVALID_TIMESTAMP));
 				}
 				return SceKernelErrors.ERROR_PSMF_INVALID_TIMESTAMP;
 			}
@@ -343,14 +343,14 @@ namespace pspsharp.HLE.modules
 				// Unknown error code
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("scePsmfGetEPidWithTimestamp returning -1"));
+					System.Console.WriteLine(string.Format("scePsmfGetEPidWithTimestamp returning -1"));
 				}
 				return -1;
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("scePsmfGetEPidWithTimestamp returning id 0x{0:X}", entry.Id));
+				System.Console.WriteLine(string.Format("scePsmfGetEPidWithTimestamp returning id 0x{0:X}", entry.Id));
 			}
 
 			return entry.Id;
@@ -388,7 +388,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("scePsmfGetNumberOfSpecificStreams returning {0:D}", streamNum));
+				System.Console.WriteLine(string.Format("scePsmfGetNumberOfSpecificStreams returning {0:D}", streamNum));
 			}
 
 			return streamNum;
@@ -404,7 +404,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("scePsmfSpecifyStreamWithStreamTypeNumber returning 0x{0:X8}(ERROR_PSMF_INVALID_ID)", SceKernelErrors.ERROR_PSMF_INVALID_ID));
+					System.Console.WriteLine(string.Format("scePsmfSpecifyStreamWithStreamTypeNumber returning 0x{0:X8}(ERROR_PSMF_INVALID_ID)", SceKernelErrors.ERROR_PSMF_INVALID_ID));
 				}
 				return SceKernelErrors.ERROR_PSMF_INVALID_ID;
 			}
@@ -425,7 +425,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("scePsmfVerifyPsmf returning 0x{0:X8}(ERROR_PSMF_INVALID_PSMF)", SceKernelErrors.ERROR_PSMF_INVALID_PSMF));
+					System.Console.WriteLine(string.Format("scePsmfVerifyPsmf returning 0x{0:X8}(ERROR_PSMF_INVALID_PSMF)", SceKernelErrors.ERROR_PSMF_INVALID_PSMF));
 				}
 				return SceKernelErrors.ERROR_PSMF_INVALID_PSMF;
 			}
@@ -436,7 +436,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("scePsmfVerifyPsmf returning 0x{0:X8}(ERROR_PSMF_INVALID_PSMF)", SceKernelErrors.ERROR_PSMF_INVALID_PSMF));
+					System.Console.WriteLine(string.Format("scePsmfVerifyPsmf returning 0x{0:X8}(ERROR_PSMF_INVALID_PSMF)", SceKernelErrors.ERROR_PSMF_INVALID_PSMF));
 				}
 				return SceKernelErrors.ERROR_PSMF_INVALID_PSMF;
 			}
@@ -484,7 +484,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("scePsmfGetPsmfVersion returning version={0:D} (headerVersion=0x{1:X4})", version, headerVersion));
+				System.Console.WriteLine(string.Format("scePsmfGetPsmfVersion returning version={0:D} (headerVersion=0x{1:X4})", version, headerVersion));
 			}
 
 			return version;

@@ -106,7 +106,7 @@ namespace pspsharp
 		{
 			if (DurationStatistics.collectStatistics)
 			{
-				Console.WriteLine(TextureCache.Instance.statistics);
+				System.Console.WriteLine(TextureCache.Instance.statistics);
 			}
 			RendererExecutor.exit();
 			VertexCache.Instance.exit();
@@ -130,27 +130,27 @@ namespace pspsharp
 				double cpuSecs = cpuMillis / 1000.0;
 				if (totalSecs != 0)
 				{
-					Console.WriteLine("Total execution time: " + string.Format("{0:F3}", totalSecs) + "s");
-					Console.WriteLine("     PSP CPU time: " + string.Format("{0:F3}", cpuSecs) + "s (" + string.Format("{0:F1}", cpuSecs / totalSecs * 100) + "%)");
-					Console.WriteLine("     Display time: " + string.Format("{0:F3}", displaySecs) + "s (" + string.Format("{0:F1}", displaySecs / totalSecs * 100) + "%)");
+					System.Console.WriteLine("Total execution time: " + string.Format("{0:F3}", totalSecs) + "s");
+					System.Console.WriteLine("     PSP CPU time: " + string.Format("{0:F3}", cpuSecs) + "s (" + string.Format("{0:F1}", cpuSecs / totalSecs * 100) + "%)");
+					System.Console.WriteLine("     Display time: " + string.Format("{0:F3}", displaySecs) + "s (" + string.Format("{0:F1}", displaySecs / totalSecs * 100) + "%)");
 				}
 				if (VideoEngine.Statistics != null)
 				{
 					long videoCalls = VideoEngine.Statistics.numberCalls;
 					if (videoCalls != 0)
 					{
-						Console.WriteLine("Elapsed time per frame: " + string.Format("{0:F3}", totalSecs / videoCalls) + "s:");
-						Console.WriteLine("    Display time: " + string.Format("{0:F3}", displaySecs / videoCalls));
-						Console.WriteLine("    PSP CPU time: " + string.Format("{0:F3}", cpuSecs / videoCalls) + " (" + (cpuCycles / videoCalls) + " instr)");
+						System.Console.WriteLine("Elapsed time per frame: " + string.Format("{0:F3}", totalSecs / videoCalls) + "s:");
+						System.Console.WriteLine("    Display time: " + string.Format("{0:F3}", displaySecs / videoCalls));
+						System.Console.WriteLine("    PSP CPU time: " + string.Format("{0:F3}", cpuSecs / videoCalls) + " (" + (cpuCycles / videoCalls) + " instr)");
 					}
 					if (totalSecs != 0)
 					{
-						Console.WriteLine("Display Speed: " + string.Format("{0:F2}", videoCalls / totalSecs) + " FPS");
+						System.Console.WriteLine("Display Speed: " + string.Format("{0:F2}", videoCalls / totalSecs) + " FPS");
 					}
 				}
 				if (cpuSecs != 0)
 				{
-					Console.WriteLine("PSP CPU Speed: " + string.Format("{0:F2}", cpuCycles / cpuSecs / 1000000.0) + "MHz (" + (long)(cpuCycles / cpuSecs) + " instructions per second)");
+					System.Console.WriteLine("PSP CPU Speed: " + string.Format("{0:F2}", cpuCycles / cpuSecs / 1000000.0) + "MHz (" + (long)(cpuCycles / cpuSecs) + " instructions per second)");
 				}
 			}
 			SoundChannel.exit();
@@ -239,7 +239,7 @@ namespace pspsharp
 			{
 				if (module.module_start_func != entryAddr)
 				{
-					Console.WriteLine(string.Format("Using the module start function as module entry: 0x{0:X8} instead of 0x{1:X8}", module.module_start_func, entryAddr));
+					System.Console.WriteLine(string.Format("Using the module start function as module entry: 0x{0:X8} instead of 0x{1:X8}", module.module_start_func, entryAddr));
 					entryAddr = module.module_start_func;
 				}
 			}
@@ -364,7 +364,7 @@ namespace pspsharp
 			{
 				if (!moduleLoaded)
 				{
-					Emulator.Console.WriteLine("Nothing loaded, can't run...");
+					Emulator.System.Console.WriteLine("Nothing loaded, can't run...");
 					gui.RefreshButtons();
 					return;
 				}

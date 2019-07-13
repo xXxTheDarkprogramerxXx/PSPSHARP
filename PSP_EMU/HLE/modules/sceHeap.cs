@@ -181,12 +181,12 @@ namespace pspsharp.HLE.modules
 					alignment = paramAddr.getValue(4);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceHeapAllocHeapMemoryWithOption options: struct size={0:D}, alignment=0x{1:X}", paramSize, alignment));
+						System.Console.WriteLine(string.Format("sceHeapAllocHeapMemoryWithOption options: struct size={0:D}, alignment=0x{1:X}", paramSize, alignment));
 					}
 				}
 				else
 				{
-					Console.WriteLine(string.Format("sceHeapAllocHeapMemoryWithOption option at {0}(size={1:D})", paramAddr, paramSize));
+					System.Console.WriteLine(string.Format("sceHeapAllocHeapMemoryWithOption option at {0}(size={1:D})", paramAddr, paramSize));
 				}
 			}
 
@@ -251,7 +251,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (paramAddr.NotNull)
 			{
-				Console.WriteLine(string.Format("sceHeapCreateHeap unknown option at {0}", paramAddr));
+				System.Console.WriteLine(string.Format("sceHeapCreateHeap unknown option at {0}", paramAddr));
 			}
 
 			int memType = PSP_SMEM_Low;
@@ -272,7 +272,7 @@ namespace pspsharp.HLE.modules
 			}
 			else
 			{
-				Console.WriteLine(string.Format("sceHeapCreateHeap not enough free mem (want={0:D}, free={1:D}, diff={2:D})", totalHeapSize, maxFreeSize, totalHeapSize - maxFreeSize));
+				System.Console.WriteLine(string.Format("sceHeapCreateHeap not enough free mem (want={0:D}, free={1:D}, diff={2:D})", totalHeapSize, maxFreeSize, totalHeapSize - maxFreeSize));
 			}
 			if (info == null)
 			{

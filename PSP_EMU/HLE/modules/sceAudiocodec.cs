@@ -123,7 +123,7 @@ namespace pspsharp.HLE.modules
 				case PSP_CODEC_MP3:
 					break;
 				default:
-					Console.WriteLine(string.Format("sceAudiocodecInit unimplemented codecType=0x{0:X}", codecType));
+					System.Console.WriteLine(string.Format("sceAudiocodecInit unimplemented codecType=0x{0:X}", codecType));
 					return -1;
 			}
 			info = new AudiocodecInfo(workArea.Address);
@@ -233,7 +233,7 @@ namespace pspsharp.HLE.modules
 			AudiocodecInfo info = infos[workArea.Address];
 			if (info == null)
 			{
-				Console.WriteLine(string.Format("sceAudiocodecDecode no info available for workArea={0}", workArea));
+				System.Console.WriteLine(string.Format("sceAudiocodecDecode no info available for workArea={0}", workArea));
 				return -1;
 			}
 
@@ -289,7 +289,7 @@ namespace pspsharp.HLE.modules
 							break; // MONO
 							goto default;
 						default:
-							Console.WriteLine(string.Format("sceAudiocodecDecode Atrac3 unknown value 0x{0:X} at offset 40", workArea.getValue32(40)));
+							System.Console.WriteLine(string.Format("sceAudiocodecDecode Atrac3 unknown value 0x{0:X} at offset 40", workArea.getValue32(40)));
 							inputBufferSize = 0x180;
 							break;
 					}
@@ -319,8 +319,8 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceAudiocodecDecode inputBuffer=0x{0:X8}, outputBuffer=0x{1:X8}, inputBufferSize=0x{2:X}, outputBufferSize=0x{3:X}", inputBuffer, outputBuffer, inputBufferSize, outputBufferSize));
-				Console.WriteLine(string.Format("sceAudiocodecDecode unknown1=0x{0:X8}", unknown1));
+				System.Console.WriteLine(string.Format("sceAudiocodecDecode inputBuffer=0x{0:X8}, outputBuffer=0x{1:X8}, inputBufferSize=0x{2:X}, outputBufferSize=0x{3:X}", inputBuffer, outputBuffer, inputBufferSize, outputBufferSize));
+				System.Console.WriteLine(string.Format("sceAudiocodecDecode unknown1=0x{0:X8}", unknown1));
 				if (log.TraceEnabled)
 				{
 					log.trace(string.Format("sceAudiocodecDecode inputBuffer: {0}", Utilities.getMemoryDump(inputBuffer, inputBufferSize)));
@@ -336,7 +336,7 @@ namespace pspsharp.HLE.modules
 
 			if (codec == null)
 			{
-				Console.WriteLine(string.Format("sceAudiocodecDecode no codec available for codecType=0x{0:X}", codecType));
+				System.Console.WriteLine(string.Format("sceAudiocodecDecode no codec available for codecType=0x{0:X}", codecType));
 				return -1;
 			}
 
@@ -345,11 +345,11 @@ namespace pspsharp.HLE.modules
 			{
 				if (bytesConsumed < 0)
 				{
-					Console.WriteLine(string.Format("codec.decode returned error 0x{0:X8}, data: {1}", bytesConsumed, Utilities.getMemoryDump(inputBuffer, inputBufferSize)));
+					System.Console.WriteLine(string.Format("codec.decode returned error 0x{0:X8}, data: {1}", bytesConsumed, Utilities.getMemoryDump(inputBuffer, inputBufferSize)));
 				}
 				else
 				{
-					Console.WriteLine(string.Format("sceAudiocodecDecode bytesConsumed=0x{0:X}", bytesConsumed));
+					System.Console.WriteLine(string.Format("sceAudiocodecDecode bytesConsumed=0x{0:X}", bytesConsumed));
 				}
 			}
 
@@ -379,7 +379,7 @@ namespace pspsharp.HLE.modules
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceAudiocodecDecode MP3 bitrateIndex={0:D}, rawSampleRateIndex={1:D}, type={2:D}", mp3Header.bitrateIndex, mp3Header.rawSampleRateIndex, type));
+						System.Console.WriteLine(string.Format("sceAudiocodecDecode MP3 bitrateIndex={0:D}, rawSampleRateIndex={1:D}, type={2:D}", mp3Header.bitrateIndex, mp3Header.rawSampleRateIndex, type));
 					}
 				}
 			}

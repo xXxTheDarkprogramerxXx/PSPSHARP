@@ -41,7 +41,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("hleUtilsBufferCopyWithRange using pre-decrypted data"));
+					System.Console.WriteLine(string.Format("hleUtilsBufferCopyWithRange using pre-decrypted data"));
 				}
 			}
 			else
@@ -66,7 +66,7 @@ namespace pspsharp.HLE.modules
 				result = crypto.KIRKEngine.hleUtilsBufferCopyWithRange(outBuffer, outSize, inBuffer, inSizeAligned, inSize, cmd);
 				if (result != 0)
 				{
-					Console.WriteLine(string.Format("hleUtilsBufferCopyWithRange cmd=0x{0:X} returned 0x{1:X}", cmd, result));
+					System.Console.WriteLine(string.Format("hleUtilsBufferCopyWithRange cmd=0x{0:X} returned 0x{1:X}", cmd, result));
 				}
 			}
 

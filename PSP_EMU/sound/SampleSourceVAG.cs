@@ -108,7 +108,7 @@ namespace pspsharp.sound
 				string dataName = (new StringBuilder(Utilities.readStringNZ(address + 32, 16))).reverse().ToString();
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("SampleSourceVAG found VAG/ADPCM data: version={0:D}, size={1:D}, sampleRate={2:D}, dataName='{3}'", version, dataSize, sampleRate, dataName));
+					System.Console.WriteLine(string.Format("SampleSourceVAG found VAG/ADPCM data: version={0:D}, size={1:D}, sampleRate={2:D}, dataName='{3}'", version, dataSize, sampleRate, dataName));
 				}
 				address += 0x30;
 			}

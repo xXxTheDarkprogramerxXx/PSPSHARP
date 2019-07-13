@@ -491,7 +491,7 @@ namespace pspsharp.network.proonline
 
 			public override void process()
 			{
-				Console.WriteLine(string.Format("Received MAC address {0}", mac));
+				System.Console.WriteLine(string.Format("Received MAC address {0}", mac));
 				proOnline.ConnectComplete = true;
 			}
 
@@ -709,7 +709,7 @@ namespace pspsharp.network.proonline
 					case OPCODE_CHAT:
 						return new SceNetAdhocctlChatPacketS2C(proOnline, buffer, Length);
 					default:
-						ProOnlineNetworkAdapter.Console.WriteLine(string.Format("Received unknown S2C opcode {0:D}", buffer[0]));
+						ProOnlineNetworkAdapter.System.Console.WriteLine(string.Format("Received unknown S2C opcode {0:D}", buffer[0]));
 						break;
 				}
 			}
@@ -736,7 +736,7 @@ namespace pspsharp.network.proonline
 					case OPCODE_CHAT:
 						return new SceNetAdhocctlChatPacketC2S(proOnline, proOnlineServer, buffer, Length);
 					default:
-						ProOnlineNetworkAdapter.Console.WriteLine(string.Format("Received unknown C2S opcode {0:D}", buffer[0]));
+						ProOnlineNetworkAdapter.System.Console.WriteLine(string.Format("Received unknown C2S opcode {0:D}", buffer[0]));
 						break;
 				}
 			}

@@ -64,7 +64,7 @@ namespace pspsharp.HLE.modules
 			}
 			else
 			{
-				Console.WriteLine(string.Format("hleKernelCpuResumeIntr unknown flag value 0x{0:X}", flagInterrupts));
+				System.Console.WriteLine(string.Format("hleKernelCpuResumeIntr unknown flag value 0x{0:X}", flagInterrupts));
 			}
 		}
 
@@ -184,7 +184,7 @@ namespace pspsharp.HLE.modules
 			int addr = tls.TlsAddress;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernel_FA835CDE returning 0x{0:X8}", addr));
+				System.Console.WriteLine(string.Format("sceKernel_FA835CDE returning 0x{0:X8}", addr));
 			}
 
 			return addr;

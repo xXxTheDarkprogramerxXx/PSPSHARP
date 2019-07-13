@@ -86,7 +86,7 @@ namespace pspsharp.network.proonline
 
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("accept completed, creating new Ptp object {0}", ptpObject));
+							System.Console.WriteLine(string.Format("accept completed, creating new Ptp object {0}", ptpObject));
 						}
 
 						acceptCompleted = true;
@@ -99,7 +99,7 @@ namespace pspsharp.network.proonline
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("pollAccept", e);
+				System.Console.WriteLine("pollAccept", e);
 			}
 
 			return acceptCompleted;

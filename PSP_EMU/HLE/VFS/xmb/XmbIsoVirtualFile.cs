@@ -146,11 +146,11 @@ namespace pspsharp.HLE.VFS.xmb
 			}
 			catch (FileNotFoundException e)
 			{
-				Console.WriteLine("XmbIsoVirtualFile", e);
+				System.Console.WriteLine("XmbIsoVirtualFile", e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("XmbIsoVirtualFile", e);
+				System.Console.WriteLine("XmbIsoVirtualFile", e);
 			}
 		}
 
@@ -177,7 +177,7 @@ namespace pspsharp.HLE.VFS.xmb
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("XmbIsoVirtualFile.readSection from Cache {0}", section.cacheFile));
+							System.Console.WriteLine(string.Format("XmbIsoVirtualFile.readSection from Cache {0}", section.cacheFile));
 						}
 
 						System.IO.Stream @is = new System.IO.FileStream(section.cacheFile, System.IO.FileMode.Open, System.IO.FileAccess.Read);
@@ -188,7 +188,7 @@ namespace pspsharp.HLE.VFS.xmb
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("XmbIsoVirtualFile.readSection from UMD {0}", section.umdFilename));
+							System.Console.WriteLine(string.Format("XmbIsoVirtualFile.readSection from UMD {0}", section.umdFilename));
 						}
 
 						UmdIsoReader iso = new UmdIsoReader(umdFilename);
@@ -204,7 +204,7 @@ namespace pspsharp.HLE.VFS.xmb
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("readSection", e);
+					System.Console.WriteLine("readSection", e);
 				}
 
 				// PARAM.SFO?

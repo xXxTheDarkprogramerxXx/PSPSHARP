@@ -222,15 +222,15 @@ namespace pspsharp
     
 					if (inputController == null)
 					{
-						Console.WriteLine(string.Format("No KEYBOARD controller found"));
+						System.Console.WriteLine(string.Format("No KEYBOARD controller found"));
 						for (int i = 0; controllers != null && i < controllers.Length; i++)
 						{
-							Console.WriteLine(string.Format("    Controller: '{0}'", controllers[i].Name));
+							System.Console.WriteLine(string.Format("    Controller: '{0}'", controllers[i].Name));
 						}
 					}
 					else
 					{
-						Console.WriteLine(string.Format("Using default controller '{0}'", inputController.Name));
+						System.Console.WriteLine(string.Format("Using default controller '{0}'", inputController.Name));
 					}
 					instance = new Controller(inputController);
 					instance.init();
@@ -246,7 +246,7 @@ namespace pspsharp
 			{
 				if (value != null)
 				{
-					Console.WriteLine(string.Format("Using controller '{0}'", value.Name));
+					System.Console.WriteLine(string.Format("Using controller '{0}'", value.Name));
 				}
 				this.inputController = value;
 				onInputControllerChanged();
@@ -583,7 +583,7 @@ namespace pspsharp
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("keyPressed {0}", key.ToString()));
+				System.Console.WriteLine(string.Format("keyPressed {0}", key.ToString()));
 			}
 
 			lastKey = key;
@@ -696,7 +696,7 @@ namespace pspsharp
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("keyReleased {0}", key.ToString()));
+				System.Console.WriteLine(string.Format("keyReleased {0}", key.ToString()));
 			}
 
 			lastKey = Controller.keyCode.RELEASED;
@@ -831,7 +831,7 @@ namespace pspsharp
 			Component.Identifier id = component.Identifier;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Controller Event on {0}({1}): {2:F}", component.Name, id.Name, value));
+				System.Console.WriteLine(string.Format("Controller Event on {0}({1}): {2:F}", component.Name, id.Name, value));
 			}
 
 			int? button = buttonComponents[id];
@@ -870,7 +870,7 @@ namespace pspsharp
 					}
 					else
 					{
-						Console.WriteLine(string.Format("Unknown Controller Button Event on {0}({1}): {2:F}", component.Name, id.Name, value));
+						System.Console.WriteLine(string.Format("Unknown Controller Button Event on {0}({1}): {2:F}", component.Name, id.Name, value));
 					}
 				}
 			}
@@ -996,7 +996,7 @@ namespace pspsharp
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown Controller Arrows Event on {0}({1}): {2:F}", component.Name, id.Name, value));
+					System.Console.WriteLine(string.Format("Unknown Controller Arrows Event on {0}({1}): {2:F}", component.Name, id.Name, value));
 				}
 			}
 			else
@@ -1007,21 +1007,21 @@ namespace pspsharp
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Unknown Controller Event in DeadZone on {0}({1}): {2:F}", component.Name, id.Name, value));
+						System.Console.WriteLine(string.Format("Unknown Controller Event in DeadZone on {0}({1}): {2:F}", component.Name, id.Name, value));
 					}
 				}
 				else if (isKeyboardController(inputController))
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Unknown Keyboard Controller Event on {0}({1}): {2:F}", component.Name, id.Name, value));
+						System.Console.WriteLine(string.Format("Unknown Keyboard Controller Event on {0}({1}): {2:F}", component.Name, id.Name, value));
 					}
 				}
 				else
 				{
 					if (log.InfoEnabled)
 					{
-						Console.WriteLine(string.Format("Unknown Controller Event on {0}({1}): {2:F}", component.Name, id.Name, value));
+						System.Console.WriteLine(string.Format("Unknown Controller Event on {0}({1}): {2:F}", component.Name, id.Name, value));
 					}
 				}
 			}

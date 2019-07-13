@@ -224,7 +224,7 @@ namespace pspsharp.Allegrex
 					}
 					break;
 				default:
-					Emulator.Console.WriteLine(string.Format("Unknown Rounding mode {0:D}", fcr31.rm));
+					Emulator.System.Console.WriteLine(string.Format("Unknown Rounding mode {0:D}", fcr31.rm));
 					break;
 			}
 
@@ -277,14 +277,14 @@ namespace pspsharp.Allegrex
 					if (fcr31.rm != RoundING_MODE_NEAREST)
 					{
 						// Only Rounding mode 0 is supported in Java
-						Emulator.Console.WriteLine(string.Format("CTC1 unsupported Rounding mode '{0}' (rm={1:D})", RoundingModeNames[fcr31.rm], fcr31.rm));
+						Emulator.System.Console.WriteLine(string.Format("CTC1 unsupported Rounding mode '{0}' (rm={1:D})", RoundingModeNames[fcr31.rm], fcr31.rm));
 					}
 					if (fcr31.fs)
 					{
 						// Flush-to-zero is not supported in Java
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: pspsharp.Emulator.Console.WriteLine(String.format("CTC1 unsupported flush-to-zero fs=%b", fcr31.fs));
-						Emulator.Console.WriteLine(string.Format("CTC1 unsupported flush-to-zero fs=%b", fcr31.fs));
+//ORIGINAL LINE: pspsharp.Emulator.System.Console.WriteLine(String.format("CTC1 unsupported flush-to-zero fs=%b", fcr31.fs));
+						Emulator.System.Console.WriteLine(string.Format("CTC1 unsupported flush-to-zero fs=%b", fcr31.fs));
 					}
 					break;
 

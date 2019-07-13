@@ -81,7 +81,7 @@ namespace pspsharp.memory
 			catch (System.OutOfMemoryException)
 			{
 				// Not enough memory provided for this VM, cannot use StandardMemory model
-				Memory.Console.WriteLine("Cannot allocate StandardMemory: add the option '-Xmx64m' to the Java Virtual Machine startup command to improve Performance");
+				Memory.System.Console.WriteLine("Cannot allocate StandardMemory: add the option '-Xmx64m' to the Java Virtual Machine startup command to improve Performance");
 				return false;
 			}
 
@@ -155,7 +155,7 @@ namespace pspsharp.memory
 			}
 			catch (Exception e)
 			{
-				Memory.Console.WriteLine("read8 - " + e.Message);
+				Memory.System.Console.WriteLine("read8 - " + e.Message);
 				Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_MEM_READ);
 				return 0;
 			}
@@ -170,7 +170,7 @@ namespace pspsharp.memory
 			}
 			catch (Exception e)
 			{
-				Memory.Console.WriteLine("read16 - " + e.Message);
+				Memory.System.Console.WriteLine("read16 - " + e.Message);
 				Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_MEM_READ);
 				return 0;
 			}
@@ -190,7 +190,7 @@ namespace pspsharp.memory
 					return 0;
 				}
 
-				Memory.Console.WriteLine("read32 - " + e.Message);
+				Memory.System.Console.WriteLine("read32 - " + e.Message);
 				Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_MEM_READ);
 				return 0;
 			}
@@ -205,7 +205,7 @@ namespace pspsharp.memory
 			}
 			catch (Exception e)
 			{
-				Memory.Console.WriteLine("read64 - " + e.Message);
+				Memory.System.Console.WriteLine("read64 - " + e.Message);
 				Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_MEM_READ);
 				return 0;
 			}
@@ -221,7 +221,7 @@ namespace pspsharp.memory
 			}
 			catch (Exception e)
 			{
-				Memory.Console.WriteLine("write8 - " + e.Message);
+				Memory.System.Console.WriteLine("write8 - " + e.Message);
 				Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_MEM_WRITE);
 			}
 		}
@@ -236,7 +236,7 @@ namespace pspsharp.memory
 			}
 			catch (Exception e)
 			{
-				Memory.Console.WriteLine("write16 - " + e.Message);
+				Memory.System.Console.WriteLine("write16 - " + e.Message);
 				Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_MEM_WRITE);
 			}
 		}
@@ -251,7 +251,7 @@ namespace pspsharp.memory
 			}
 			catch (Exception e)
 			{
-				Memory.Console.WriteLine("write32 - " + e.Message);
+				Memory.System.Console.WriteLine("write32 - " + e.Message);
 				Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_MEM_WRITE);
 			}
 		}
@@ -266,7 +266,7 @@ namespace pspsharp.memory
 			}
 			catch (Exception e)
 			{
-				Memory.Console.WriteLine("write64 - " + e.Message);
+				Memory.System.Console.WriteLine("write64 - " + e.Message);
 				Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_MEM_WRITE);
 			}
 		}

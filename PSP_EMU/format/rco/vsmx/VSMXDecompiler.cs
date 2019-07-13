@@ -548,7 +548,7 @@ namespace pspsharp.format.rco.vsmx
 					decompileOp(s);
 					break;
 				default:
-					Console.WriteLine(string.Format("Line #{0:D}: decompileOp({1}) unimplemented", i, VSMXCode.VsmxDecOps[opcode]));
+					System.Console.WriteLine(string.Format("Line #{0:D}: decompileOp({1}) unimplemented", i, VSMXCode.VsmxDecOps[opcode]));
 					break;
 			}
 		}
@@ -701,7 +701,7 @@ namespace pspsharp.format.rco.vsmx
 				case VSMXCode.VID_DEBUG_LINE:
 					break;
 				default:
-					Console.WriteLine(string.Format("Line #{0:D}: decompileStmt({1}) unimplemented", i, VSMXCode.VsmxDecOps[opcode]));
+					System.Console.WriteLine(string.Format("Line #{0:D}: decompileStmt({1}) unimplemented", i, VSMXCode.VsmxDecOps[opcode]));
 					break;
 			}
 

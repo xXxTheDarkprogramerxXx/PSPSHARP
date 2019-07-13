@@ -374,7 +374,7 @@ namespace pspsharp.HLE.modules
 			int addr = info.allocBlock(size);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelAllocHeapMemory(size=0x{0:X}) returning 0x{1:X8}, {2}", size, addr, info));
+				System.Console.WriteLine(string.Format("sceKernelAllocHeapMemory(size=0x{0:X}) returning 0x{1:X8}, {2}", size, addr, info));
 			}
 
 			return addr;
@@ -399,7 +399,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelFreeHeapMemory after free: {0}", info));
+				System.Console.WriteLine(string.Format("sceKernelFreeHeapMemory after free: {0}", info));
 			}
 
 			return 0;
@@ -437,7 +437,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelGetModel returning {0:D}({1})", result, Model.getModelName(result)));
+				System.Console.WriteLine(string.Format("sceKernelGetModel returning {0:D}({1})", result, Model.getModelName(result)));
 			}
 
 			return result;
@@ -450,7 +450,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelGetModel_660 returning {0:D}({1})", result, Model.getModelName(result)));
+				System.Console.WriteLine(string.Format("sceKernelGetModel_660 returning {0:D}({1})", result, Model.getModelName(result)));
 			}
 
 			return result;
@@ -482,7 +482,7 @@ namespace pspsharp.HLE.modules
 			npEnv = unknown.getStringNZ(8);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("SysMemForKernel_A03CB480 setting unknownString='{0}'", npEnv));
+				System.Console.WriteLine(string.Format("SysMemForKernel_A03CB480 setting unknownString='{0}'", npEnv));
 			}
 
 			return 0;
@@ -665,7 +665,7 @@ namespace pspsharp.HLE.modules
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceKernelCreateUIDtypeInherit - funcTable id={0}, addr=0x{1:X8}", getUidFunctionIdName(id), addr));
+						System.Console.WriteLine(string.Format("sceKernelCreateUIDtypeInherit - funcTable id={0}, addr=0x{1:X8}", getUidFunctionIdName(id), addr));
 					}
 				}
 			}
@@ -839,7 +839,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (SceUidManager.isValidUid(id))
 			{
-				Console.WriteLine(string.Format("sceKernelRenameUID called on id=0x{0:X}, which has not been created by sceKernelCreateUID", id));
+				System.Console.WriteLine(string.Format("sceKernelRenameUID called on id=0x{0:X}, which has not been created by sceKernelCreateUID", id));
 				return 0;
 			}
 
@@ -966,7 +966,7 @@ namespace pspsharp.HLE.modules
 					partitionInfo.attr = 0xF;
 					break;
 				default:
-					Console.WriteLine(string.Format("Unimplemented sceKernelQueryMemoryPartitionInfo partitionId=0x{0:X}", partitionId));
+					System.Console.WriteLine(string.Format("Unimplemented sceKernelQueryMemoryPartitionInfo partitionId=0x{0:X}", partitionId));
 					return -1;
 			}
 

@@ -49,7 +49,7 @@ namespace pspsharp.format.rco.anim
 			int currentDuration = (int)(now - start);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("BaseAnimAction duration={0:D}/{1:D}", currentDuration, duration));
+				System.Console.WriteLine(string.Format("BaseAnimAction duration={0:D}/{1:D}", currentDuration, duration));
 			}
 			currentDuration = System.Math.Min(currentDuration, duration);
 			float step = currentDuration == duration ? 1f : currentDuration / (float) duration;

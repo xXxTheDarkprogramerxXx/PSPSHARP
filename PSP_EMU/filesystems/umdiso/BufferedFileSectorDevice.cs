@@ -62,7 +62,7 @@ namespace pspsharp.filesystems.umdiso
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("readToc", e);
+				System.Console.WriteLine("readToc", e);
 			}
 		}
 
@@ -84,7 +84,7 @@ namespace pspsharp.filesystems.umdiso
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("writeToc", e);
+					System.Console.WriteLine("writeToc", e);
 				}
 			}
 		}
@@ -103,7 +103,7 @@ namespace pspsharp.filesystems.umdiso
 
 			if (sectorDevice == null)
 			{
-				Console.WriteLine(string.Format("Reading outside the UMD buffer file (sector=0x{0:X})", sectorNumber));
+				System.Console.WriteLine(string.Format("Reading outside the UMD buffer file (sector=0x{0:X})", sectorNumber));
 				Arrays.Fill(buffer, offset, offset + ISectorDevice_Fields.sectorLength, (sbyte) 0);
 			}
 			else

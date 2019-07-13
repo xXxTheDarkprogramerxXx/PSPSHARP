@@ -82,7 +82,7 @@ namespace pspsharp.HLE.modules
 					dataBuffer = Modules.SysMemUserForUserModule.malloc(SysMemUserForUser.KERNEL_PARTITION_ID, "sceNpMatching2-DataBuffer", SysMemUserForUser.PSP_SMEM_Low, 128, 0);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceNpMatching2.notifyRequestCallback allocated dataBuffer {0}", dataBuffer));
+						System.Console.WriteLine(string.Format("sceNpMatching2.notifyRequestCallback allocated dataBuffer {0}", dataBuffer));
 					}
 				}
 				Memory mem = Emulator.Memory;
@@ -244,7 +244,7 @@ namespace pspsharp.HLE.modules
 					dataBuffer = Modules.SysMemUserForUserModule.malloc(SysMemUserForUser.KERNEL_PARTITION_ID, "sceNpMatching2-DataBuffer", SysMemUserForUser.PSP_SMEM_Low, 128, 0);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceNpMatching2.notifyRoomMessageCallback allocated dataBuffer {0}", dataBuffer));
+						System.Console.WriteLine(string.Format("sceNpMatching2.notifyRoomMessageCallback allocated dataBuffer {0}", dataBuffer));
 					}
 				}
 				Memory mem = Emulator.Memory;
@@ -313,8 +313,8 @@ namespace pspsharp.HLE.modules
 			//if (log.DebugEnabled)
 			{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("sceNpMatching2SetDefaultRoomEventOptParam callbackFunction=0x%08X, callbackArgument=0x%X, unknownFlag1=%b, unknownFlag2=%b, unknownFlag3=%b, unknownFlag4=%b", callbackFunction, callbackArgument, unknownFlag1, unknownFlag2, unknownFlag3, unknownFlag4));
-				Console.WriteLine(string.Format("sceNpMatching2SetDefaultRoomEventOptParam callbackFunction=0x%08X, callbackArgument=0x%X, unknownFlag1=%b, unknownFlag2=%b, unknownFlag3=%b, unknownFlag4=%b", callbackFunction, callbackArgument, unknownFlag1, unknownFlag2, unknownFlag3, unknownFlag4));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("sceNpMatching2SetDefaultRoomEventOptParam callbackFunction=0x%08X, callbackArgument=0x%X, unknownFlag1=%b, unknownFlag2=%b, unknownFlag3=%b, unknownFlag4=%b", callbackFunction, callbackArgument, unknownFlag1, unknownFlag2, unknownFlag3, unknownFlag4));
+				System.Console.WriteLine(string.Format("sceNpMatching2SetDefaultRoomEventOptParam callbackFunction=0x%08X, callbackArgument=0x%X, unknownFlag1=%b, unknownFlag2=%b, unknownFlag3=%b, unknownFlag4=%b", callbackFunction, callbackArgument, unknownFlag1, unknownFlag2, unknownFlag3, unknownFlag4));
 			}
 
 			defaultRoomEventCallbackFunction = callbackFunction;
@@ -414,7 +414,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNpMatching2GetServerInfo serverId=0x{0:X}, unknown1: {1}, unknown2: {2}", serverId, Utilities.getMemoryDump(unknown1.Address, 16), Utilities.getMemoryDump(unknown2.Address, 20)));
+				System.Console.WriteLine(string.Format("sceNpMatching2GetServerInfo serverId=0x{0:X}, unknown1: {1}, unknown2: {2}", serverId, Utilities.getMemoryDump(unknown1.Address, 16), Utilities.getMemoryDump(unknown2.Address, 20)));
 			}
 
 			unknown2.setValue(0x00010000);
@@ -429,7 +429,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNpMatching2CreateContext communicationId={0}, passPhrase={1}", Utilities.getMemoryDump(communicationId.Address, 12), Utilities.getMemoryDump(passPhrase.Address, 128)));
+				System.Console.WriteLine(string.Format("sceNpMatching2CreateContext communicationId={0}, passPhrase={1}", Utilities.getMemoryDump(communicationId.Address, 12), Utilities.getMemoryDump(passPhrase.Address, 128)));
 			}
 
 			// Returning a ctxId in range [1..7]
@@ -443,7 +443,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNpMatching2CreateContext returning 0x{0:X}", uid));
+				System.Console.WriteLine(string.Format("sceNpMatching2CreateContext returning 0x{0:X}", uid));
 			}
 			ctxId.Value = uid;
 
@@ -478,7 +478,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNpMatching2SetDefaultRequestOptParam callbackFunction=0x{0:X8}, callbackArgument=0x{1:X}, timeout=0x{2:X}, appReqId=0x{3:X}", callbackFunction, callbackArgument, timeout, appReqId));
+				System.Console.WriteLine(string.Format("sceNpMatching2SetDefaultRequestOptParam callbackFunction=0x{0:X8}, callbackArgument=0x{1:X}, timeout=0x{2:X}, appReqId=0x{3:X}", callbackFunction, callbackArgument, timeout, appReqId));
 			}
 
 			defaultRequestCallbackFunction = callbackFunction;
@@ -598,7 +598,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNpMatching2GetWorldInfoList callbackFunction=0x{0:X8}, callbackArgument=0x{1:X}, timeout=0x{2:X}, appReqId=0x{3:X}", callbackFunction, callbackArgument, timeout, appReqId));
+					System.Console.WriteLine(string.Format("sceNpMatching2GetWorldInfoList callbackFunction=0x{0:X8}, callbackArgument=0x{1:X}, timeout=0x{2:X}, appReqId=0x{3:X}", callbackFunction, callbackArgument, timeout, appReqId));
 				}
 			}
 
@@ -606,7 +606,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNpMatching2GetWorldInfoList serverId=0x{0:X}", serverId));
+				System.Console.WriteLine(string.Format("sceNpMatching2GetWorldInfoList serverId=0x{0:X}", serverId));
 			}
 
 			return 0;
@@ -662,7 +662,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNpMatching2SetDefaultRoomMessageOptParam callbackFunction=0x{0:X8}, callbackArgument=0x{1:X}", callbackFunction, callbackArgument));
+				System.Console.WriteLine(string.Format("sceNpMatching2SetDefaultRoomMessageOptParam callbackFunction=0x{0:X8}, callbackArgument=0x{1:X}", callbackFunction, callbackArgument));
 			}
 
 			defaultRoomMessageCallbackFunction = callbackFunction;

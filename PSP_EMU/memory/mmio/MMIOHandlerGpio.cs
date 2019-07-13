@@ -149,7 +149,7 @@ namespace pspsharp.memory.mmio
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("MMIOHandlerGpio.setPort 0x{0:X}({1}) on {2}", value, getPortName(value), this));
+					System.Console.WriteLine(string.Format("MMIOHandlerGpio.setPort 0x{0:X}({1}) on {2}", value, getPortName(value), this));
 				}
     
 				if (!hasBit(ports, value))
@@ -167,7 +167,7 @@ namespace pspsharp.memory.mmio
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("MMIOHandlerGpio.clearPort 0x{0:X}({1}) on {2}", port, getPortName(port), this));
+				System.Console.WriteLine(string.Format("MMIOHandlerGpio.clearPort 0x{0:X}({1}) on {2}", port, getPortName(port), this));
 			}
 
 			if (hasBit(ports, port))

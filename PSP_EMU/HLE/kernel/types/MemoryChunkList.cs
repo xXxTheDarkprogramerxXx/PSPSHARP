@@ -367,7 +367,7 @@ namespace pspsharp.HLE.kernel.types
 				{
 					if (memoryChunk.addr < addr)
 					{
-						Console.WriteLine(string.Format("MemoryChunkList has overlapping memory chunks at 0x{0:X8}: {1}", addr, memoryChunk));
+						System.Console.WriteLine(string.Format("MemoryChunkList has overlapping memory chunks at 0x{0:X8}: {1}", addr, memoryChunk));
 					}
 					addr = memoryChunk.addr + memoryChunk.size;
 				}

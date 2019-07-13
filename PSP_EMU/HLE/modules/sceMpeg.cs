@@ -660,7 +660,7 @@ namespace pspsharp.HLE.modules
 
 				if (log.InfoEnabled)
 				{
-					Console.WriteLine(string.Format("Found PSMF MPEG video stream data: streamID=0x{0:X}, privateStreamID=0x{1:X}, unk1=0x{2:X}, unk2=0x{3:X}, EPMapOffset=0x{4:x}, EPMapNumEntries={5:D}, frameWidth={6:D}, frameHeight={7:D}", streamID, privateStreamID, unk1, unk2, EPMapOffset, EPMapNumEntries, frameWidth, frameHeight));
+					System.Console.WriteLine(string.Format("Found PSMF MPEG video stream data: streamID=0x{0:X}, privateStreamID=0x{1:X}, unk1=0x{2:X}, unk2=0x{3:X}, EPMapOffset=0x{4:x}, EPMapNumEntries={5:D}, frameWidth={6:D}, frameHeight={7:D}", streamID, privateStreamID, unk1, unk2, EPMapOffset, EPMapNumEntries, frameWidth, frameHeight));
 				}
 
 				streamType = PSMF_AVC_STREAM;
@@ -678,7 +678,7 @@ namespace pspsharp.HLE.modules
 
 				if (log.InfoEnabled)
 				{
-					Console.WriteLine(string.Format("Found PSMF MPEG audio stream data: streamID=0x{0:X}, privateStreamID=0x{1:X}, unk1=0x{2:X}, unk2=0x{3:X}, audioChannelConfig={4:D}, audioSampleFrequency={5:D}", streamID, privateStreamID, unk1, unk2, audioChannelConfig, audioSampleFrequency));
+					System.Console.WriteLine(string.Format("Found PSMF MPEG audio stream data: streamID=0x{0:X}, privateStreamID=0x{1:X}, unk1=0x{2:X}, unk2=0x{3:X}, audioChannelConfig={4:D}, audioSampleFrequency={5:D}", streamID, privateStreamID, unk1, unk2, audioChannelConfig, audioSampleFrequency));
 				}
 
 				if (psmfHeader != null)
@@ -693,7 +693,7 @@ namespace pspsharp.HLE.modules
 
 			public virtual void readUserDataStreamParams(Memory mem, int addr, sbyte[] mpegHeader, int offset, PSMFHeader psmfHeader)
 			{
-				Console.WriteLine(string.Format("Unknown User Data stream format"));
+				System.Console.WriteLine(string.Format("Unknown User Data stream format"));
 				streamType = PSMF_DATA_STREAM;
 			}
 		}
@@ -816,7 +816,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("PSMFHeader: version=0x{0:X4}, firstTimestamp={1:D}, lastTimestamp={2:D}, streamDataTotalSize={3:D}, unk=0x{4:X8}, streamDataNextBlockSize={5:D}, streamDataNextInnerBlockSize={6:D}, streamNum={7:D}", Version, mpegFirstTimestamp, mpegLastTimestamp, streamDataTotalSize, unk, streamDataNextBlockSize, streamDataNextInnerBlockSize, streamNum));
+					System.Console.WriteLine(string.Format("PSMFHeader: version=0x{0:X4}, firstTimestamp={1:D}, lastTimestamp={2:D}, streamDataTotalSize={3:D}, unk=0x{4:X8}, streamDataNextBlockSize={5:D}, streamDataNextInnerBlockSize={6:D}, streamNum={7:D}", Version, mpegFirstTimestamp, mpegLastTimestamp, streamDataTotalSize, unk, streamDataNextBlockSize, streamDataNextInnerBlockSize, streamNum));
 				}
 
 				if (Valid)
@@ -855,7 +855,7 @@ namespace pspsharp.HLE.modules
 								stream.EPMap.Add(psmfEntry);
 								//if (log.DebugEnabled)
 								{
-									Console.WriteLine(string.Format("EPMap stream {0:D}, entry#{1:D}: {2}", stream.StreamChannel, i, psmfEntry));
+									System.Console.WriteLine(string.Format("EPMap stream {0:D}, entry#{1:D}: {2}", stream.StreamChannel, i, psmfEntry));
 								}
 							}
 						}
@@ -1432,7 +1432,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("Exiting the VideoDecoderThread");
+					System.Console.WriteLine("Exiting the VideoDecoderThread");
 				}
 				done = true;
 			}
@@ -1714,7 +1714,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Further delaying thread=0x{0:X} by {1:D} microseconds", threadUid, delayMicros));
+					System.Console.WriteLine(string.Format("Further delaying thread=0x{0:X} by {1:D} microseconds", threadUid, delayMicros));
 				}
 				action = new DelayThreadAction(threadUid, (int) delayMicros, false, true);
 			}
@@ -1722,7 +1722,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Unblocking thread=0x{0:X}", threadUid));
+					System.Console.WriteLine(string.Format("Unblocking thread=0x{0:X}", threadUid));
 				}
 				action = new UnblockThreadAction(threadUid);
 			}
@@ -1762,7 +1762,7 @@ namespace pspsharp.HLE.modules
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Removing error image {0}", decodedImages.First.Value));
+						System.Console.WriteLine(string.Format("Removing error image {0}", decodedImages.First.Value));
 					}
 					decodedImages.RemoveFirst();
 				}
@@ -1809,7 +1809,7 @@ namespace pspsharp.HLE.modules
 
 					if (result < 0)
 					{
-						Console.WriteLine(string.Format("decodeNextImage codec returned 0x{0:X8}", result));
+						System.Console.WriteLine(string.Format("decodeNextImage codec returned 0x{0:X8}", result));
 						// Skip this incorrect frame
 						videoBuffer.notifyRead(decodedImageInfo.frameEnd);
 						decodedImageInfo.gotFrame = false;
@@ -1854,7 +1854,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Adding decoded image {0}", decodedImageInfo));
+				System.Console.WriteLine(string.Format("Adding decoded image {0}", decodedImageInfo));
 			}
 			lock (decodedImages)
 			{
@@ -1869,12 +1869,12 @@ namespace pspsharp.HLE.modules
 				if (threadUid >= 0)
 				{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("hleVideoDecoderStep threadUid=0x%X, buffer=0x%08X, frameWidth=%d, pixelMode=%d, gotFrameAddr=%s, writeAbgr=%b, %d decoded images", threadUid, buffer, frameWidth, pixelMode, gotFrameAddr, writeAbgr, decodedImages.size()));
-					Console.WriteLine(string.Format("hleVideoDecoderStep threadUid=0x%X, buffer=0x%08X, frameWidth=%d, pixelMode=%d, gotFrameAddr=%s, writeAbgr=%b, %d decoded images", threadUid, buffer, frameWidth, pixelMode, gotFrameAddr, writeAbgr, decodedImages.Count));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("hleVideoDecoderStep threadUid=0x%X, buffer=0x%08X, frameWidth=%d, pixelMode=%d, gotFrameAddr=%s, writeAbgr=%b, %d decoded images", threadUid, buffer, frameWidth, pixelMode, gotFrameAddr, writeAbgr, decodedImages.size()));
+					System.Console.WriteLine(string.Format("hleVideoDecoderStep threadUid=0x%X, buffer=0x%08X, frameWidth=%d, pixelMode=%d, gotFrameAddr=%s, writeAbgr=%b, %d decoded images", threadUid, buffer, frameWidth, pixelMode, gotFrameAddr, writeAbgr, decodedImages.Count));
 				}
 				else
 				{
-					Console.WriteLine(string.Format("hleVideoDecoderStep {0:D} decoded images", decodedImages.Count));
+					System.Console.WriteLine(string.Format("hleVideoDecoderStep {0:D} decoded images", decodedImages.Count));
 				}
 			}
 
@@ -1999,7 +1999,7 @@ namespace pspsharp.HLE.modules
 					{
 						if (log.InfoEnabled)
 						{
-							Console.WriteLine(string.Format("Audio frame Length 0x{0:X} with incorrect header (header: {1:X2} {2:X2} {3:X2} {4:X2} {5:X2} {6:X2} {7:X2} {8:X2})", audioFrameLength, frameHeader[0], frameHeader[1], frameHeader[2], frameHeader[3], frameHeader[4], frameHeader[5], frameHeader[6], frameHeader[7]));
+							System.Console.WriteLine(string.Format("Audio frame Length 0x{0:X} with incorrect header (header: {1:X2} {2:X2} {3:X2} {4:X2} {5:X2} {6:X2} {7:X2} {8:X2})", audioFrameLength, frameHeader[0], frameHeader[1], frameHeader[2], frameHeader[3], frameHeader[4], frameHeader[5], frameHeader[6], frameHeader[7]));
 						}
 					}
 					else
@@ -2021,7 +2021,7 @@ namespace pspsharp.HLE.modules
 				int addr = buffer.ReadAddr;
 				if (audioBuffer.write(mem, addr, readLength) != readLength)
 				{
-					Console.WriteLine(string.Format("AudioBuffer too small"));
+					System.Console.WriteLine(string.Format("AudioBuffer too small"));
 				}
 				buffer.notifyRead(readLength);
 				Length -= readLength;
@@ -2194,7 +2194,7 @@ namespace pspsharp.HLE.modules
 			pspFileBuffer buffer = mpegRingbuffer.AudioBuffer;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("readNextAudioFrame {0}", mpegRingbuffer));
+				System.Console.WriteLine(string.Format("readNextAudioFrame {0}", mpegRingbuffer));
 			}
 			int audioChannel = RegisteredAudioChannel;
 
@@ -2255,7 +2255,7 @@ namespace pspsharp.HLE.modules
 						endOfAudio = true;
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Unknown StartCode 0x{0:X8} at 0x{1:X8}", startCode, buffer.ReadAddr - 4));
+							System.Console.WriteLine(string.Format("Unknown StartCode 0x{0:X8} at 0x{1:X8}", startCode, buffer.ReadAddr - 4));
 						}
 						break;
 				}
@@ -2263,7 +2263,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("After readNextAudioFrame {0}", mpegRingbuffer));
+				System.Console.WriteLine(string.Format("After readNextAudioFrame {0}", mpegRingbuffer));
 			}
 		}
 
@@ -2306,7 +2306,7 @@ namespace pspsharp.HLE.modules
 			pspFileBuffer buffer = mpegRingbuffer.VideoBuffer;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("readNextVideoFrame {0}", mpegRingbuffer));
+				System.Console.WriteLine(string.Format("readNextVideoFrame {0}", mpegRingbuffer));
 			}
 			int videoChannel = RegisteredVideoChannel;
 
@@ -2377,7 +2377,7 @@ namespace pspsharp.HLE.modules
 							endOfVideo = true;
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("Unknown StartCode 0x{0:X8} at 0x{1:X8}", startCode, buffer.ReadAddr - 4));
+								System.Console.WriteLine(string.Format("Unknown StartCode 0x{0:X8} at 0x{1:X8}", startCode, buffer.ReadAddr - 4));
 							}
 						}
 						break;
@@ -2385,7 +2385,7 @@ namespace pspsharp.HLE.modules
 						endOfVideo = true;
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Unknown StartCode 0x{0:X8} at 0x{1:X8}", startCode, buffer.ReadAddr - 4));
+							System.Console.WriteLine(string.Format("Unknown StartCode 0x{0:X8} at 0x{1:X8}", startCode, buffer.ReadAddr - 4));
 						}
 						break;
 				}
@@ -2404,7 +2404,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("After readNextVideoFrame frameEnd=0x{0:X}, {1}", frameEnd, mpegRingbuffer));
+				System.Console.WriteLine(string.Format("After readNextVideoFrame frameEnd=0x{0:X}, {1}", frameEnd, mpegRingbuffer));
 			}
 
 			return frameEnd;
@@ -2421,7 +2421,7 @@ namespace pspsharp.HLE.modules
 			pspFileBuffer buffer = mpegRingbuffer.UserDataBuffer;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("readNextUserDataFrame {0}", mpegRingbuffer));
+				System.Console.WriteLine(string.Format("readNextUserDataFrame {0}", mpegRingbuffer));
 			}
 			int userDataChannel = 0x20 + RegisteredUserDataChannel;
 
@@ -2492,14 +2492,14 @@ namespace pspsharp.HLE.modules
 						skip(buffer, streamOffset - PSMF_STREAM_OFFSET_OFFSET - 4);
 						break;
 					default:
-						Console.WriteLine(string.Format("Unknown StartCode 0x{0:X8} at 0x{1:X8}", startCode, buffer.ReadAddr - 4));
+						System.Console.WriteLine(string.Format("Unknown StartCode 0x{0:X8} at 0x{1:X8}", startCode, buffer.ReadAddr - 4));
 						break;
 				}
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("After readNextUserDataFrame {0}", mpegRingbuffer));
+				System.Console.WriteLine(string.Format("After readNextUserDataFrame {0}", mpegRingbuffer));
 			}
 		}
 
@@ -2543,7 +2543,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("writeImageABGR addr=0x{0:X8}-0x{1:X8}, frameWidth={2:D}, frameHeight={3:D}, width={4:D}, height={5:D}, pixelMode={6:D}", addr, addr + frameWidth * frameHeight * bytesPerPixel, frameWidth, frameHeight, imageWidth, imageHeight, pixelMode));
+				System.Console.WriteLine(string.Format("writeImageABGR addr=0x{0:X8}-0x{1:X8}, frameWidth={2:D}, frameHeight={3:D}, width={4:D}, height={5:D}, pixelMode={6:D}", addr, addr + frameWidth * frameHeight * bytesPerPixel, frameWidth, frameHeight, imageWidth, imageHeight, pixelMode));
 			}
 
 			int lineWidth = System.Math.Min(imageWidth, frameWidth);
@@ -2602,7 +2602,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("writeImageYCbCr addr=0x{0:X8}-0x{1:X8}, frameWidth={2:D}, frameHeight={3:D}", addr, addr + Length + length2 + length2, frameWidth, frameHeight));
+				System.Console.WriteLine(string.Format("writeImageYCbCr addr=0x{0:X8}-0x{1:X8}, frameWidth={2:D}, frameHeight={3:D}", addr, addr + Length + length2 + length2, frameWidth, frameHeight));
 			}
 
 			IMemoryWriter memoryWriter = MemoryWriter.getMemoryWriter(addr, Length + length2 + length2, 1);
@@ -2682,7 +2682,7 @@ namespace pspsharp.HLE.modules
 			int result = videoCodec.getImage(decodedImageInfo.luma, decodedImageInfo.cb, decodedImageInfo.cr);
 			if (result < 0)
 			{
-				Console.WriteLine(string.Format("VideoCodec error 0x{0:X8} while retrieving the image", result));
+				System.Console.WriteLine(string.Format("VideoCodec error 0x{0:X8} while retrieving the image", result));
 				return false;
 			}
 
@@ -2745,7 +2745,7 @@ namespace pspsharp.HLE.modules
 			// Check size.
 			if (size < MPEG_MEMSIZE)
 			{
-				Console.WriteLine("sceMpegCreate bad size " + size);
+				System.Console.WriteLine("sceMpegCreate bad size " + size);
 				return SceKernelErrors.ERROR_MPEG_NO_MEMORY;
 			}
 
@@ -2832,7 +2832,7 @@ namespace pspsharp.HLE.modules
 
 				if (packetsAdded > mpegRingbuffer.FreePackets)
 				{
-					Console.WriteLine(string.Format("sceMpegRingbufferPut clamping packetsAdded old={0:D}, new={1:D}", packetsAdded, mpegRingbuffer.FreePackets));
+					System.Console.WriteLine(string.Format("sceMpegRingbufferPut clamping packetsAdded old={0:D}, new={1:D}", packetsAdded, mpegRingbuffer.FreePackets));
 					packetsAdded = mpegRingbuffer.FreePackets;
 				}
 				mpegRingbuffer.addPackets(packetsAdded);
@@ -2841,7 +2841,7 @@ namespace pspsharp.HLE.modules
 				afterRingbufferPutCallback.addPacketsAdded(packetsAdded);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMpegRingbufferPut packetsAdded=0x{0:X}, packetsRead=0x{1:X}, new availableSize=0x{2:X}", packetsAdded, mpegRingbuffer.ReadPackets, mpegRingbuffer.FreePackets));
+					System.Console.WriteLine(string.Format("sceMpegRingbufferPut packetsAdded=0x{0:X}, packetsRead=0x{1:X}, new availableSize=0x{2:X}", packetsAdded, mpegRingbuffer.ReadPackets, mpegRingbuffer.FreePackets));
 				}
 
 				int dataSizeInRingbuffer = mpegRingbuffer.PacketsInRingbuffer * mpegRingbuffer.PacketSize;
@@ -2849,7 +2849,7 @@ namespace pspsharp.HLE.modules
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceMpegRingbufferPut returning ERROR_MPEG_INVALID_VALUE, size of data in ringbuffer=0x{0:X}, mpegStreamSize=0x{1:X}", dataSizeInRingbuffer, psmfHeader.mpegStreamSize));
+						System.Console.WriteLine(string.Format("sceMpegRingbufferPut returning ERROR_MPEG_INVALID_VALUE, size of data in ringbuffer=0x{0:X}, mpegStreamSize=0x{1:X}", dataSizeInRingbuffer, psmfHeader.mpegStreamSize));
 					}
 					afterRingbufferPutCallback.ErrorCode = SceKernelErrors.ERROR_MPEG_INVALID_VALUE;
 					// No further callbacks
@@ -2868,7 +2868,7 @@ namespace pspsharp.HLE.modules
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceMpegRingbufferPut executing callback 0x{0:X8} to read 0x{1:X} packets at 0x{2:X8}", mpegRingbuffer.CallbackAddr, putNumberPackets, putDataAddr));
+						System.Console.WriteLine(string.Format("sceMpegRingbufferPut executing callback 0x{0:X8} to read 0x{1:X} packets at 0x{2:X8}", mpegRingbuffer.CallbackAddr, putNumberPackets, putDataAddr));
 					}
 					Modules.ThreadManForUserModule.executeCallback(null, mpegRingbuffer.CallbackAddr, afterRingbufferPutCallback, false, putDataAddr, putNumberPackets, mpegRingbuffer.CallbackArgs);
 				}
@@ -2878,7 +2878,7 @@ namespace pspsharp.HLE.modules
 				afterRingbufferPutCallback.ErrorCode = packetsAdded;
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMpegRingbufferPut callback returning packetsAdded=0x{0:X}", packetsAdded));
+					System.Console.WriteLine(string.Format("sceMpegRingbufferPut callback returning packetsAdded=0x{0:X}", packetsAdded));
 				}
 			}
 		}
@@ -3089,14 +3089,14 @@ namespace pspsharp.HLE.modules
 					// Wait for the video decoder thread
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("hleMpegGetAvcAu waiting for the video decoder thread..."));
+						System.Console.WriteLine(string.Format("hleMpegGetAvcAu waiting for the video decoder thread..."));
 					}
 					Utilities.sleep(1);
 				}
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("hleMpegGetAvcAu decodedImageInfo: {0}", decodedImageInfo));
+					System.Console.WriteLine(string.Format("hleMpegGetAvcAu decodedImageInfo: {0}", decodedImageInfo));
 				}
 				mpegAvcAu.pts = decodedImageInfo.pesHeader.Pts;
 				mpegAvcAu.dts = decodedImageInfo.pesHeader.Dts;
@@ -3121,11 +3121,11 @@ namespace pspsharp.HLE.modules
 						{
 							if (psmfHeader == null)
 							{
-								Console.WriteLine(string.Format("hleMpegGetAvcAu with psmfHeader==null, returning ERROR_MPEG_NO_DATA"));
+								System.Console.WriteLine(string.Format("hleMpegGetAvcAu with psmfHeader==null, returning ERROR_MPEG_NO_DATA"));
 							}
 							else
 							{
-								Console.WriteLine(string.Format("hleMpegGetAvcAu with currentVideoTimestamp={0:D} and psmfHeader.mpegLastTimestamp={1:D}, returning ERROR_MPEG_NO_DATA", currentVideoTimestamp, psmfHeader.mpegLastTimestamp));
+								System.Console.WriteLine(string.Format("hleMpegGetAvcAu with currentVideoTimestamp={0:D} and psmfHeader.mpegLastTimestamp={1:D}, returning ERROR_MPEG_NO_DATA", currentVideoTimestamp, psmfHeader.mpegLastTimestamp));
 							}
 						}
 						result = SceKernelErrors.ERROR_MPEG_NO_DATA;
@@ -3147,7 +3147,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("hleMpegGetAvcAu returning 0x{0:X8}, AvcAu={1}", result, mpegAvcAu));
+				System.Console.WriteLine(string.Format("hleMpegGetAvcAu returning 0x{0:X8}, AvcAu={1}", result, mpegAvcAu));
 			}
 
 			if (result != 0)
@@ -3257,7 +3257,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("hleMpegGetAtracAu returning result=0x{0:X8}, {1}", result, mpegAtracAu));
+				System.Console.WriteLine(string.Format("hleMpegGetAtracAu returning result=0x{0:X8}, {1}", result, mpegAtracAu));
 			}
 
 			return result;
@@ -3279,7 +3279,7 @@ namespace pspsharp.HLE.modules
 				result = audioCodec.decode(audioBuffer.ReadAddr, audioFrameLength, bufferAddr.Address);
 				if (result < 0)
 				{
-					Console.WriteLine(string.Format("Error received from codec.decode: 0x{0:X8}", result));
+					System.Console.WriteLine(string.Format("Error received from codec.decode: 0x{0:X8}", result));
 				}
 				else
 				{
@@ -3291,7 +3291,7 @@ namespace pspsharp.HLE.modules
 				}
 				if (audioBuffer.notifyRead(Memory.Instance, audioFrameLength) != audioFrameLength)
 				{
-					Console.WriteLine(string.Format("Internal error while consuming from the audio buffer"));
+					System.Console.WriteLine(string.Format("Internal error while consuming from the audio buffer"));
 				}
 
 				startedMpeg = true;
@@ -3349,7 +3349,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (getMpegHandle(mpeg) != mpegHandle)
 			{
-				Console.WriteLine(string.Format("checkMpegHandler bad mpeg handle 0x{0:X8}", mpeg));
+				System.Console.WriteLine(string.Format("checkMpegHandler bad mpeg handle 0x{0:X8}", mpeg));
 				throw new SceKernelErrorException(-1);
 			}
 			return mpeg;
@@ -3441,8 +3441,8 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Stream offset: 0x{0:X}, Stream size: 0x{1:X}", psmfHeader.mpegOffset, psmfHeader.mpegStreamSize));
-				Console.WriteLine(string.Format("First timestamp: {0:D}, Last timestamp: {1:D}", psmfHeader.mpegFirstTimestamp, psmfHeader.mpegLastTimestamp));
+				System.Console.WriteLine(string.Format("Stream offset: 0x{0:X}, Stream size: 0x{1:X}", psmfHeader.mpegOffset, psmfHeader.mpegStreamSize));
+				System.Console.WriteLine(string.Format("First timestamp: {0:D}, Last timestamp: {1:D}", psmfHeader.mpegFirstTimestamp, psmfHeader.mpegLastTimestamp));
 				if (log.TraceEnabled)
 				{
 					log.trace(Utilities.getMemoryDump(bufferAddr, MPEG_HEADER_BUFFER_MINIMUM_SIZE));
@@ -3552,7 +3552,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("finishStreams");
+				System.Console.WriteLine("finishStreams");
 			}
 
 			// Release all the streams (can't loop on streamMap as release() modifies it)
@@ -3568,7 +3568,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("finishMpeg");
+				System.Console.WriteLine("finishMpeg");
 			}
 
 			resetMpegRingbuffer();
@@ -3605,14 +3605,14 @@ namespace pspsharp.HLE.modules
 
 			if (mpegRingbuffer == null)
 			{
-				Console.WriteLine("ringbuffer not created");
+				System.Console.WriteLine("ringbuffer not created");
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_MPEG_NO_DATA); // No more data in ringbuffer.
 			}
 
 			if (!mpegRingbuffer.hasReadPackets() || (mpegRingbuffer.Empty && videoBuffer.Empty && decodedImages.Count == 0))
 			{
 				delayThread(mpegDecodeErrorDelay);
-				Console.WriteLine("ringbuffer and video buffer are empty");
+				System.Console.WriteLine("ringbuffer and video buffer are empty");
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_MPEG_NO_DATA); // No more data in ringbuffer.
 			}
 		}
@@ -3621,7 +3621,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (!mpegRingbuffer.hasReadPackets() || (mpegRingbuffer.Empty && audioBuffer.Empty))
 			{
-				Console.WriteLine("ringbuffer and audio buffer are empty");
+				System.Console.WriteLine("ringbuffer and audio buffer are empty");
 				delayThread(mpegDecodeErrorDelay);
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_MPEG_NO_DATA); // No more data in ringbuffer.
 			}
@@ -3670,7 +3670,7 @@ namespace pspsharp.HLE.modules
 			// Check magic.
 			if (psmfHeader.mpegMagic != PSMF_MAGIC)
 			{
-				Console.WriteLine("sceMpegQueryStreamOffset bad magic " + string.Format("0x{0:X8}", psmfHeader.mpegMagic));
+				System.Console.WriteLine("sceMpegQueryStreamOffset bad magic " + string.Format("0x{0:X8}", psmfHeader.mpegMagic));
 				offsetAddr.setValue(0);
 				return SceKernelErrors.ERROR_MPEG_INVALID_VALUE;
 			}
@@ -3678,7 +3678,7 @@ namespace pspsharp.HLE.modules
 			// Check version.
 			if (psmfHeader.mpegVersion < 0)
 			{
-				Console.WriteLine("sceMpegQueryStreamOffset bad version " + string.Format("0x{0:X8}", psmfHeader.mpegRawVersion));
+				System.Console.WriteLine("sceMpegQueryStreamOffset bad version " + string.Format("0x{0:X8}", psmfHeader.mpegRawVersion));
 				offsetAddr.setValue(0);
 				return SceKernelErrors.ERROR_MPEG_BAD_VERSION;
 			}
@@ -3686,7 +3686,7 @@ namespace pspsharp.HLE.modules
 			// Check offset.
 			if ((psmfHeader.mpegOffset & 2047) != 0 || psmfHeader.mpegOffset == 0)
 			{
-				Console.WriteLine("sceMpegQueryStreamOffset bad offset " + string.Format("0x{0:X8}", psmfHeader.mpegOffset));
+				System.Console.WriteLine("sceMpegQueryStreamOffset bad offset " + string.Format("0x{0:X8}", psmfHeader.mpegOffset));
 				offsetAddr.setValue(0);
 				return SceKernelErrors.ERROR_MPEG_INVALID_VALUE;
 			}
@@ -3694,7 +3694,7 @@ namespace pspsharp.HLE.modules
 			offsetAddr.setValue(psmfHeader.mpegOffset);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegQueryStreamOffset returning 0x{0:X}", offsetAddr.getValue()));
+				System.Console.WriteLine(string.Format("sceMpegQueryStreamOffset returning 0x{0:X}", offsetAddr.getValue()));
 			}
 
 			return 0;
@@ -3717,7 +3717,7 @@ namespace pspsharp.HLE.modules
 			// Check magic.
 			if (psmfHeader.mpegMagic != PSMF_MAGIC)
 			{
-				Console.WriteLine(string.Format("sceMpegQueryStreamSize bad magic 0x{0:X8}", psmfHeader.mpegMagic));
+				System.Console.WriteLine(string.Format("sceMpegQueryStreamSize bad magic 0x{0:X8}", psmfHeader.mpegMagic));
 				return -1;
 			}
 
@@ -3834,7 +3834,7 @@ namespace pspsharp.HLE.modules
 			StreamInfo info = new StreamInfo(this, streamType, streamChannelNum);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegRegistStream returning 0x{0:X}", info.Uid));
+				System.Console.WriteLine(string.Format("sceMpegRegistStream returning 0x{0:X}", info.Uid));
 			}
 
 			return info.Uid;
@@ -3855,7 +3855,7 @@ namespace pspsharp.HLE.modules
 			StreamInfo info = getStreamInfo(streamUid);
 			if (info == null)
 			{
-				Console.WriteLine(string.Format("sceMpegUnRegistStream unknown stream=0x{0:X}", streamUid));
+				System.Console.WriteLine(string.Format("sceMpegUnRegistStream unknown stream=0x{0:X}", streamUid));
 				return SceKernelErrors.ERROR_MPEG_UNKNOWN_STREAM_ID;
 			}
 
@@ -3907,7 +3907,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (esBuf == 0)
 			{
-				Console.WriteLine("sceMpegFreeAvcEsBuf(mpeg=0x" + mpeg.ToString("x") + ", esBuf=0x" + esBuf.ToString("x") + ") bad esBuf handle");
+				System.Console.WriteLine("sceMpegFreeAvcEsBuf(mpeg=0x" + mpeg.ToString("x") + ", esBuf=0x" + esBuf.ToString("x") + ") bad esBuf handle");
 				return SceKernelErrors.ERROR_MPEG_INVALID_VALUE;
 			}
 
@@ -4016,7 +4016,7 @@ namespace pspsharp.HLE.modules
 			StreamInfo info = getStreamInfo(streamUid);
 			if (info == null)
 			{
-				Console.WriteLine(string.Format("sceMpegChangeGetAuMode unknown stream=0x{0:X}", streamUid));
+				System.Console.WriteLine(string.Format("sceMpegChangeGetAuMode unknown stream=0x{0:X}", streamUid));
 				return -1;
 			}
 
@@ -4038,7 +4038,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegChangeGetAuMode mode={0}: {1}", mode == MPEG_AU_MODE_DECODE ? "DECODE" : "SKIP", info));
+				System.Console.WriteLine(string.Format("sceMpegChangeGetAuMode mode={0}: {1}", mode == MPEG_AU_MODE_DECODE ? "DECODE" : "SKIP", info));
 			}
 
 			return 0;
@@ -4070,13 +4070,13 @@ namespace pspsharp.HLE.modules
 			// @NOTE: Shouldn't this be negated?
 			if (Memory.isAddressGood(streamUid))
 			{
-				Console.WriteLine("sceMpegGetAvcAu didn't get a fake stream");
+				System.Console.WriteLine("sceMpegGetAvcAu didn't get a fake stream");
 				return SceKernelErrors.ERROR_MPEG_INVALID_ADDR;
 			}
 
 			if (!streamMap.ContainsKey(streamUid))
 			{
-				Console.WriteLine(string.Format("sceMpegGetAvcAu bad stream 0x{0:X}", streamUid));
+				System.Console.WriteLine(string.Format("sceMpegGetAvcAu bad stream 0x{0:X}", streamUid));
 				return -1;
 			}
 
@@ -4091,7 +4091,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("videoFrameCount={0:D}(pts={1:D}), audioFrameCount={2:D}(pts={3:D}), pts difference {4:D}, vcount={5:D}", videoFrameCount, currentVideoTimestamp, audioFrameCount, currentAudioTimestamp, currentAudioTimestamp - currentVideoTimestamp, Modules.sceDisplayModule.Vcount));
+				System.Console.WriteLine(string.Format("videoFrameCount={0:D}(pts={1:D}), audioFrameCount={2:D}(pts={3:D}), pts difference {4:D}, vcount={5:D}", videoFrameCount, currentVideoTimestamp, audioFrameCount, currentAudioTimestamp, currentAudioTimestamp - currentVideoTimestamp, Modules.sceDisplayModule.Vcount));
 			}
 
 			return result;
@@ -4122,13 +4122,13 @@ namespace pspsharp.HLE.modules
 			// Should be negated?
 			if (Memory.isAddressGood(streamUid))
 			{
-				Console.WriteLine("sceMpegGetPcmAu didn't get a fake stream");
+				System.Console.WriteLine("sceMpegGetPcmAu didn't get a fake stream");
 				return SceKernelErrors.ERROR_MPEG_INVALID_ADDR;
 			}
 
 			if (!streamMap.ContainsKey(streamUid))
 			{
-				Console.WriteLine(string.Format("sceMpegGetPcmAu bad streamUid 0x{0:X8}", streamUid));
+				System.Console.WriteLine(string.Format("sceMpegGetPcmAu bad streamUid 0x{0:X8}", streamUid));
 				return -1;
 			}
 			int result = 0;
@@ -4139,7 +4139,7 @@ namespace pspsharp.HLE.modules
 				mpegAtracAu.write(auAddr);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMpegGetPcmAu returning AtracAu={0}", mpegAtracAu.ToString()));
+					System.Console.WriteLine(string.Format("sceMpegGetPcmAu returning AtracAu={0}", mpegAtracAu.ToString()));
 				}
 			}
 			// Bitfield used to store data attributes.
@@ -4175,13 +4175,13 @@ namespace pspsharp.HLE.modules
 
 			if (Memory.isAddressGood(streamUid))
 			{
-				Console.WriteLine("sceMpegGetAtracAu didn't get a fake stream");
+				System.Console.WriteLine("sceMpegGetAtracAu didn't get a fake stream");
 				return SceKernelErrors.ERROR_MPEG_INVALID_ADDR;
 			}
 
 			if (!streamMap.ContainsKey(streamUid))
 			{
-				Console.WriteLine("sceMpegGetAtracAu bad address " + string.Format("0x{0:X8} 0x{1:X8}", streamUid, auAddr));
+				System.Console.WriteLine("sceMpegGetAtracAu bad address " + string.Format("0x{0:X8} 0x{1:X8}", streamUid, auAddr));
 				return -1;
 			}
 
@@ -4193,7 +4193,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("videoFrameCount={0:D}(pts={1:D}), audioFrameCount={2:D}(pts={3:D}), pts difference {4:D}, vcount={5:D}", videoFrameCount, currentVideoTimestamp, audioFrameCount, currentAudioTimestamp, currentAudioTimestamp - currentVideoTimestamp, Modules.sceDisplayModule.Vcount));
+				System.Console.WriteLine(string.Format("videoFrameCount={0:D}(pts={1:D}), audioFrameCount={2:D}(pts={3:D}), pts difference {4:D}, vcount={5:D}", videoFrameCount, currentVideoTimestamp, audioFrameCount, currentAudioTimestamp, currentAudioTimestamp - currentVideoTimestamp, Modules.sceDisplayModule.Vcount));
 			}
 
 			return result;
@@ -4269,7 +4269,7 @@ namespace pspsharp.HLE.modules
 				// probably only one frame at a time.
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMpegAvcDecode buffer=0x{0:X8}, avcEsBuf: {1}", buffer, Utilities.getMemoryDump(avcEsBuf.addr, AVC_ES_BUF_SIZE)));
+					System.Console.WriteLine(string.Format("sceMpegAvcDecode buffer=0x{0:X8}, avcEsBuf: {1}", buffer, Utilities.getMemoryDump(avcEsBuf.addr, AVC_ES_BUF_SIZE)));
 				}
 
 				// Generate a faked image. We cannot use the MediaEngine at this point
@@ -4325,8 +4325,8 @@ namespace pspsharp.HLE.modules
 			//if (log.DebugEnabled)
 			{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("sceMpegAvcDecode buffer=0x%08X, dts=0x%X, pts=0x%X, gotFrame=%b", buffer, mpegAvcAu.dts, mpegAvcAu.pts, avcGotFrame));
-				Console.WriteLine(string.Format("sceMpegAvcDecode buffer=0x%08X, dts=0x%X, pts=0x%X, gotFrame=%b", buffer, mpegAvcAu.dts, mpegAvcAu.pts, avcGotFrame));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("sceMpegAvcDecode buffer=0x%08X, dts=0x%X, pts=0x%X, gotFrame=%b", buffer, mpegAvcAu.dts, mpegAvcAu.pts, avcGotFrame));
+				System.Console.WriteLine(string.Format("sceMpegAvcDecode buffer=0x%08X, dts=0x%X, pts=0x%X, gotFrame=%b", buffer, mpegAvcAu.dts, mpegAvcAu.pts, avcGotFrame));
 			}
 
 			// Correct decoding.
@@ -4369,7 +4369,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegAvcDecodeDetail returning decodeResult=0x{0:X}, frameCount={1:D}, width={2:D}, height={3:D}, gotFrame=0x{4:X}", detailPointer.getValue32(0), detailPointer.getValue32(4), detailPointer.getValue32(8), detailPointer.getValue32(12), detailPointer.getValue32(32)));
+				System.Console.WriteLine(string.Format("sceMpegAvcDecodeDetail returning decodeResult=0x{0:X}, frameCount={1:D}, width={2:D}, height={3:D}, gotFrame=0x{4:X}", detailPointer.getValue32(0), detailPointer.getValue32(4), detailPointer.getValue32(8), detailPointer.getValue32(12), detailPointer.getValue32(32)));
 			}
 			return 0;
 		}
@@ -4393,13 +4393,13 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMpegAvcDecodeMode mode=0x{0:X}, pixelMode=0x{1:X}", mode, pixelMode));
+					System.Console.WriteLine(string.Format("sceMpegAvcDecodeMode mode=0x{0:X}, pixelMode=0x{1:X}", mode, pixelMode));
 				}
 				videoPixelMode = pixelMode;
 			}
 			else
 			{
-				Console.WriteLine(string.Format("sceMpegAvcDecodeMode mode=0x{0:X}, pixel mode=0x{1:X}: unknown pixel mode", mode, pixelMode));
+				System.Console.WriteLine(string.Format("sceMpegAvcDecodeMode mode=0x{0:X}, pixel mode=0x{1:X}: unknown pixel mode", mode, pixelMode));
 			}
 			return 0;
 		}
@@ -4473,7 +4473,7 @@ namespace pspsharp.HLE.modules
 		{
 			if ((width & 15) != 0 || (height & 15) != 0 || width > 480 || height > 272)
 			{
-				Console.WriteLine("sceMpegAvcQueryYCbCrSize invalid size width=" + width + ", height=" + height);
+				System.Console.WriteLine("sceMpegAvcQueryYCbCrSize invalid size width=" + width + ", height=" + height);
 				return SceKernelErrors.ERROR_MPEG_INVALID_VALUE;
 			}
 
@@ -4536,8 +4536,8 @@ namespace pspsharp.HLE.modules
 			//if (log.DebugEnabled)
 			{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("sceMpegAvcDecodeYCbCr *buffer=0x%08X, currentTimestamp=%d, avcGotFrame=%b", bufferAddr.getValue(), mpegAvcAu.pts, avcGotFrame));
-				Console.WriteLine(string.Format("sceMpegAvcDecodeYCbCr *buffer=0x%08X, currentTimestamp=%d, avcGotFrame=%b", bufferAddr.getValue(), mpegAvcAu.pts, avcGotFrame));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("sceMpegAvcDecodeYCbCr *buffer=0x%08X, currentTimestamp=%d, avcGotFrame=%b", bufferAddr.getValue(), mpegAvcAu.pts, avcGotFrame));
+				System.Console.WriteLine(string.Format("sceMpegAvcDecodeYCbCr *buffer=0x%08X, currentTimestamp=%d, avcGotFrame=%b", bufferAddr.getValue(), mpegAvcAu.pts, avcGotFrame));
 			}
 
 			// Correct decoding.
@@ -4614,14 +4614,14 @@ namespace pspsharp.HLE.modules
 			int rangeHeight = rangeAddr.getValue(12);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegAvcCsc range x={0:D}, y={1:D}, width={2:D}, height={3:D}", rangeX, rangeY, rangeWidth, rangeHeight));
+				System.Console.WriteLine(string.Format("sceMpegAvcCsc range x={0:D}, y={1:D}, width={2:D}, height={3:D}", rangeX, rangeY, rangeWidth, rangeHeight));
 			}
 
 			if (((rangeX | rangeY | rangeWidth | rangeHeight) & 0xF) != 0)
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMpegAvcCsc returning ERROR_MPEG_INVALID_VALUE"));
+					System.Console.WriteLine(string.Format("sceMpegAvcCsc returning ERROR_MPEG_INVALID_VALUE"));
 				}
 				return SceKernelErrors.ERROR_MPEG_INVALID_VALUE;
 			}
@@ -4631,7 +4631,7 @@ namespace pspsharp.HLE.modules
 				// Returning ERROR_INVALID_VALUE and not ERROR_MPEG_INVALID_VALUE
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMpegAvcCsc returning ERROR_INVALID_VALUE"));
+					System.Console.WriteLine(string.Format("sceMpegAvcCsc returning ERROR_INVALID_VALUE"));
 				}
 				return SceKernelErrors.ERROR_INVALID_VALUE;
 			}
@@ -4644,7 +4644,7 @@ namespace pspsharp.HLE.modules
 				// Returning ERROR_INVALID_VALUE and not ERROR_MPEG_INVALID_VALUE
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMpegAvcCsc returning ERROR_INVALID_VALUE"));
+					System.Console.WriteLine(string.Format("sceMpegAvcCsc returning ERROR_INVALID_VALUE"));
 				}
 				return SceKernelErrors.ERROR_INVALID_VALUE;
 			}
@@ -4756,7 +4756,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegAvcCsc writing to 0x{0:X8}-0x{1:X8}, vcount={2:D}", destAddr.Address, destAddr.Address + (rangeY + rangeHeight) * frameWidth * bytesPerPixel, Modules.sceDisplayModule.Vcount));
+				System.Console.WriteLine(string.Format("sceMpegAvcCsc writing to 0x{0:X8}-0x{1:X8}, vcount={2:D}", destAddr.Address, destAddr.Address + (rangeY + rangeHeight) * frameWidth * bytesPerPixel, Modules.sceDisplayModule.Vcount));
 			}
 
 			delayThread(avcDecodeDelay);
@@ -4782,7 +4782,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegAtracDecode currentTimestamp={0:D}", mpegAtracAu.pts));
+				System.Console.WriteLine(string.Format("sceMpegAtracDecode currentTimestamp={0:D}", mpegAtracAu.pts));
 			}
 
 			return result;
@@ -4832,7 +4832,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (size < getSizeFromPackets(packets))
 			{
-				Console.WriteLine(string.Format("sceMpegRingbufferConstruct insufficient space: size={0:D}, packets={1:D}", size, packets));
+				System.Console.WriteLine(string.Format("sceMpegRingbufferConstruct insufficient space: size={0:D}, packets={1:D}", size, packets));
 				return SceKernelErrors.ERROR_MPEG_NO_MEMORY;
 			}
 
@@ -4897,7 +4897,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegRingbufferPut executing callback 0x{0:X8} to read 0x{1:X} packets at 0x{2:X8}, Ringbuffer={3}", mpegRingbuffer.CallbackAddr, putNumberPackets, putDataAddr, mpegRingbuffer));
+				System.Console.WriteLine(string.Format("sceMpegRingbufferPut executing callback 0x{0:X8} to read 0x{1:X} packets at 0x{2:X8}, Ringbuffer={3}", mpegRingbuffer.CallbackAddr, putNumberPackets, putDataAddr, mpegRingbuffer));
 			}
 			Modules.ThreadManForUserModule.executeCallback(null, mpegRingbuffer.CallbackAddr, afterRingbufferPutCallback, false, putDataAddr, putNumberPackets, mpegRingbuffer.CallbackArgs);
 
@@ -4934,7 +4934,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (!streamMap.ContainsKey(streamUid))
 			{
-				Console.WriteLine(string.Format("sceMpegNextAvcRpAu bad stream 0x{0:X}", streamUid));
+				System.Console.WriteLine(string.Format("sceMpegNextAvcRpAu bad stream 0x{0:X}", streamUid));
 				return -1;
 			}
 
@@ -4943,7 +4943,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMpegNextAvcRpAu returning 0x{0:X8}", result));
+					System.Console.WriteLine(string.Format("sceMpegNextAvcRpAu returning 0x{0:X8}", result));
 				}
 				return result;
 			}
@@ -4963,7 +4963,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMpegGetUserdataAu no registered user data stream, returning 0x{0:X8}", SceKernelErrors.ERROR_MPEG_NO_DATA));
+					System.Console.WriteLine(string.Format("sceMpegGetUserdataAu no registered user data stream, returning 0x{0:X8}", SceKernelErrors.ERROR_MPEG_NO_DATA));
 				}
 				return SceKernelErrors.ERROR_MPEG_NO_DATA;
 			}
@@ -4986,7 +4986,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMpegGetUserdataAu no user data available, returning 0x{0:X8}", SceKernelErrors.ERROR_MPEG_NO_DATA));
+					System.Console.WriteLine(string.Format("sceMpegGetUserdataAu no user data available, returning 0x{0:X8}", SceKernelErrors.ERROR_MPEG_NO_DATA));
 				}
 				return SceKernelErrors.ERROR_MPEG_NO_DATA;
 			}
@@ -4994,7 +4994,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMpegGetUserdataAu no enough user data available (0x{0:X} from 0x{1:X}), returning 0x{2:X8}", userDataBuffer.Length, userDataLength, SceKernelErrors.ERROR_MPEG_NO_DATA));
+					System.Console.WriteLine(string.Format("sceMpegGetUserdataAu no enough user data available (0x{0:X} from 0x{1:X}), returning 0x{2:X8}", userDataBuffer.Length, userDataLength, SceKernelErrors.ERROR_MPEG_NO_DATA));
 				}
 				return SceKernelErrors.ERROR_MPEG_NO_DATA;
 			}
@@ -5020,7 +5020,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegGetUserdataAu returning au={0}", mpegUserDataAu));
+				System.Console.WriteLine(string.Format("sceMpegGetUserdataAu returning au={0}", mpegUserDataAu));
 				if (log.TraceEnabled)
 				{
 					log.trace(string.Format("mpegUserDataAu.esBuffer: {0}", Utilities.getMemoryDump(mpegUserDataAu.esBuffer, mpegUserDataAu.esSize)));
@@ -5056,7 +5056,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegAvcCopyYCbCr from 0x{0:X8}-0x{1:X8} to 0x{2:X8}-0x{3:X8}", sourceAddr.Address, sourceAddr.Address + size, destinationAddr.Address, destinationAddr.Address + size));
+				System.Console.WriteLine(string.Format("sceMpegAvcCopyYCbCr from 0x{0:X8}-0x{1:X8} to 0x{2:X8}-0x{3:X8}", sourceAddr.Address, sourceAddr.Address + size, destinationAddr.Address, destinationAddr.Address + size));
 			}
 
 			return 0;
@@ -5122,7 +5122,7 @@ namespace pspsharp.HLE.modules
 					{
 						buffer[i] = (sbyte) videoCodecExtraData[i];
 					}
-					Console.WriteLine(string.Format("sceMpegGetAvcNalAu videoCodecExtraData: {0}", Utilities.getMemoryDump(buffer, 0, buffer.Length)));
+					System.Console.WriteLine(string.Format("sceMpegGetAvcNalAu videoCodecExtraData: {0}", Utilities.getMemoryDump(buffer, 0, buffer.Length)));
 				}
 			}
 
@@ -5156,7 +5156,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegAvcDecodeDetailIndex returning width={0:D}, height={1:D}", detail.getValue(8), detail.getValue(12)));
+				System.Console.WriteLine(string.Format("sceMpegAvcDecodeDetailIndex returning width={0:D}, height={1:D}", detail.getValue(8), detail.getValue(12)));
 			}
 
 			return 0;
@@ -5186,7 +5186,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegAvcConvertToYuv420 from 0x{0:X8}-0x{1:X8} to 0x{2:X8}-0x{3:X8}", yCbCrBuffer.Address, yCbCrBuffer.Address + size, yuv420Buffer.Address, yuv420Buffer.Address + size));
+				System.Console.WriteLine(string.Format("sceMpegAvcConvertToYuv420 from 0x{0:X8}-0x{1:X8} to 0x{2:X8}-0x{3:X8}", yCbCrBuffer.Address, yCbCrBuffer.Address + size, yuv420Buffer.Address, yuv420Buffer.Address + size));
 			}
 
 			// The YUV420 image will be decoded and saved to memory by sceJpegCsc
@@ -5292,13 +5292,13 @@ namespace pspsharp.HLE.modules
 		{
 			if (avcEsBuf == null)
 			{
-				Console.WriteLine(string.Format("sceMpegAvcResourceGetAvcEsBuf avcEsBuf not allocated"));
+				System.Console.WriteLine(string.Format("sceMpegAvcResourceGetAvcEsBuf avcEsBuf not allocated"));
 				return -1;
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegAvcResourceGetAvcEsBuf returning 0x{0:X8}", avcEsBuf.addr));
+				System.Console.WriteLine(string.Format("sceMpegAvcResourceGetAvcEsBuf returning 0x{0:X8}", avcEsBuf.addr));
 			}
 
 			return avcEsBuf.addr;

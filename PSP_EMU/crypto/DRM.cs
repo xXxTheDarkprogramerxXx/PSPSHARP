@@ -119,13 +119,13 @@ namespace pspsharp.crypto
 			AES128 aes = new AES128("AES/ECB/NoPadding");
 
 			sbyte[] actdat = new sbyte[0x800];
-			sbyte[] consoleKey = GetConsoleKey(openPSID);
+			sbyte[] System.ConsoleKey = GetSystem.ConsoleKey(openPSID);
 			Array.Copy(actdatBuf, 0x10, actdat, 0x0, actdat.Length - 0x10);
 
-			return aes.decrypt(actdat, consoleKey, iv);
+			return aes.decrypt(actdat, System.ConsoleKey, iv);
 		}
 
-		public virtual sbyte[] GetConsoleKey(sbyte[] openPSID)
+		public virtual sbyte[] GetSystem.ConsoleKey(sbyte[] openPSID)
 		{
 			AES128 aes = new AES128("AES/ECB/NoPadding");
 

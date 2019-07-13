@@ -75,17 +75,17 @@ namespace pspsharp.settings
 			}
 			catch (FileNotFoundException e)
 			{
-				Emulator.Console.WriteLine("Settings file not found:", e);
+				Emulator.System.Console.WriteLine("Settings file not found:", e);
 			}
 			catch (IOException e)
 			{
-				Emulator.Console.WriteLine("Problem loading settings:", e);
+				Emulator.System.Console.WriteLine("Problem loading settings:", e);
 			}
 			catch (System.NullReferenceException e)
 			{
 				// This except is thrown by java.util.Properties when the directory
 				// contains special characters or is too long.
-				Emulator.Console.WriteLine("Could not initialize properly pspsharp, try to install pspsharp directly under C:\\pspsharp", e);
+				Emulator.System.Console.WriteLine("Could not initialize properly pspsharp, try to install pspsharp directly under C:\\pspsharp", e);
 			}
 			finally
 			{
@@ -155,15 +155,15 @@ namespace pspsharp.settings
 				{
 					patchSettingsStream = new BufferedInputStream(new System.IO.FileStream(patchFile, System.IO.FileMode.Open, System.IO.FileAccess.Read));
 					patchSettings.load(patchSettingsStream);
-					Emulator.Console.WriteLine(string.Format("Overwriting default settings with patch file '{0}'", patchFileName));
+					Emulator.System.Console.WriteLine(string.Format("Overwriting default settings with patch file '{0}'", patchFileName));
 				}
 				catch (FileNotFoundException e)
 				{
-					Emulator.Console.WriteLine(string.Format("Patch file not found: {0}", e.ToString()));
+					Emulator.System.Console.WriteLine(string.Format("Patch file not found: {0}", e.ToString()));
 				}
 				catch (IOException e)
 				{
-					Emulator.Console.WriteLine("Problem loading patch:", e);
+					Emulator.System.Console.WriteLine("Problem loading patch:", e);
 				}
 				finally
 				{
@@ -212,11 +212,11 @@ namespace pspsharp.settings
 			}
 			catch (FileNotFoundException e)
 			{
-				Emulator.Console.WriteLine("Settings file not found:", e);
+				Emulator.System.Console.WriteLine("Settings file not found:", e);
 			}
 			catch (IOException e)
 			{
-				Emulator.Console.WriteLine("Problem saving settings:", e);
+				Emulator.System.Console.WriteLine("Problem saving settings:", e);
 			}
 			finally
 			{
@@ -829,7 +829,7 @@ namespace pspsharp.settings
 						}
 						else
 						{
-							Console.Error.WriteLine("gui.font.file '" + fontfilename + "' doesn't exist.");
+							System.Console.Error.WriteLine("gui.font.file '" + fontfilename + "' doesn't exist.");
 						}
 					}
 					else if (fontname.Length != 0)
@@ -845,7 +845,7 @@ namespace pspsharp.settings
 					}
 					else
 					{
-						Console.Error.WriteLine("gui.font.size setting is missing.");
+						System.Console.Error.WriteLine("gui.font.size setting is missing.");
 					}
     
 					font = @base.deriveFont(Font.PLAIN, fontsize);
@@ -856,13 +856,13 @@ namespace pspsharp.settings
 				}
 				catch (System.FormatException)
 				{
-					Console.Error.WriteLine("gui.font.size setting is invalid.");
+					System.Console.Error.WriteLine("gui.font.size setting is invalid.");
 				}
 				catch (Exception e)
 				{
-					Console.WriteLine(e.ToString());
-					Console.Write(e.StackTrace);
-					Console.WriteLine(e.Message);
+					System.Console.WriteLine(e.ToString());
+					System.Console.Write(e.StackTrace);
+					System.Console.WriteLine(e.Message);
 				}
     
 				loadedFont = font;

@@ -215,7 +215,7 @@ namespace pspsharp.Allegrex.compiler
 			{
 				if (DurationStatistics.collectStatistics)
 				{
-					Console.WriteLine(compileDuration);
+					System.Console.WriteLine(compileDuration);
 				}
 			}
 		}
@@ -231,7 +231,7 @@ namespace pspsharp.Allegrex.compiler
 		public virtual void invalidateAll()
 		{
 			// Simply generate a new class loader.
-			Console.WriteLine("Compiler: invalidating all compiled classes");
+			System.Console.WriteLine("Compiler: invalidating all compiled classes");
 			classLoader = new CompilerClassLoader(this);
 		}
 
@@ -381,15 +381,15 @@ namespace pspsharp.Allegrex.compiler
 			}
 			catch (ParserConfigurationException e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 			}
 			catch (SAXException e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 			}
 
 			if (configuration != null)
@@ -420,7 +420,7 @@ namespace pspsharp.Allegrex.compiler
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Compiler.interpret Block 0x{0:X8}", startAddress));
+				System.Console.WriteLine(string.Format("Compiler.interpret Block 0x{0:X8}", startAddress));
 			}
 			CodeBlock codeBlock = new CodeBlock(startAddress, instanceIndex);
 
@@ -429,7 +429,7 @@ namespace pspsharp.Allegrex.compiler
 			IExecutable executable = codeBlock.getInterpretedExecutable(context);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("Executable: " + executable);
+				System.Console.WriteLine("Executable: " + executable);
 			}
 
 			return executable;
@@ -456,7 +456,7 @@ namespace pspsharp.Allegrex.compiler
 					}
 					else
 					{
-						Console.WriteLine(string.Format("Unknown conditional instruction ending a block: {0}", insn.disasm(pc, opcode)));
+						System.Console.WriteLine(string.Format("Unknown conditional instruction ending a block: {0}", insn.disasm(pc, opcode)));
 					}
 				}
 				else
@@ -490,11 +490,11 @@ namespace pspsharp.Allegrex.compiler
 				{
 					if (IgnoreInvalidMemory)
 					{
-						Console.WriteLine(string.Format("IGNORING: Trying to compile an invalid address 0x{0:X8} while compiling from 0x{1:X8}", pc, startAddress));
+						System.Console.WriteLine(string.Format("IGNORING: Trying to compile an invalid address 0x{0:X8} while compiling from 0x{1:X8}", pc, startAddress));
 					}
 					else
 					{
-						Console.WriteLine(string.Format("Trying to compile an invalid address 0x{0:X8} while compiling from 0x{1:X8}", pc, startAddress));
+						System.Console.WriteLine(string.Format("Trying to compile an invalid address 0x{0:X8} while compiling from 0x{1:X8}", pc, startAddress));
 					}
 					return null;
 				}
@@ -630,14 +630,14 @@ namespace pspsharp.Allegrex.compiler
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("Compiler.analyse 0x" + startAddress.ToString("x").ToUpper() + " - already analysed");
+					System.Console.WriteLine("Compiler.analyse 0x" + startAddress.ToString("x").ToUpper() + " - already analysed");
 				}
 				return;
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("Compiler.analyse 0x" + startAddress.ToString("x").ToUpper());
+				System.Console.WriteLine("Compiler.analyse 0x" + startAddress.ToString("x").ToUpper());
 			}
 
 			CompilerContext context = new CompilerContext(classLoader, instanceIndex);
@@ -665,8 +665,8 @@ namespace pspsharp.Allegrex.compiler
 			int methodMaxInstructions = context.MethodMaxInstructions * 3 / 4;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Catched exception '{0}' (can be ignored)", e.ToString()));
-				Console.WriteLine(string.Format("Retrying compilation again with maxInstruction={0:D}, retries left={1:D}...", methodMaxInstructions, retries - 1));
+				System.Console.WriteLine(string.Format("Catched exception '{0}' (can be ignored)", e.ToString()));
+				System.Console.WriteLine(string.Format("Retrying compilation again with maxInstruction={0:D}, retries left={1:D}...", methodMaxInstructions, retries - 1));
 			}
 			context = new CompilerContext(classLoader, instanceIndex);
 			context.MethodMaxInstructions = methodMaxInstructions;
@@ -697,11 +697,11 @@ namespace pspsharp.Allegrex.compiler
 			{
 				if (IgnoreInvalidMemory)
 				{
-					Console.WriteLine(string.Format("IGNORING: Trying to compile an invalid address 0x{0:X8}", address));
+					System.Console.WriteLine(string.Format("IGNORING: Trying to compile an invalid address 0x{0:X8}", address));
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Trying to compile an invalid address 0x{0:X8}", address));
+					System.Console.WriteLine(string.Format("Trying to compile an invalid address 0x{0:X8}", address));
 					Emulator.PauseEmu();
 				}
 				return null;
@@ -728,7 +728,7 @@ namespace pspsharp.Allegrex.compiler
 				// Force an interpreter call
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Forcing an interpreter call for address 0x{0:X8}", address));
+					System.Console.WriteLine(string.Format("Forcing an interpreter call for address 0x{0:X8}", address));
 				}
 			}
 			else
@@ -754,12 +754,12 @@ namespace pspsharp.Allegrex.compiler
 					}
 					catch (System.NullReferenceException e)
 					{
-						Console.WriteLine(string.Format("Catched exception '{0}' while compiling 0x{1:X8} (0x{2:X8}-0x{3:X8})", e.ToString(), address, context.CodeBlock.LowestAddress, context.CodeBlock.HighestAddress));
+						System.Console.WriteLine(string.Format("Catched exception '{0}' while compiling 0x{1:X8} (0x{2:X8}-0x{3:X8})", e.ToString(), address, context.CodeBlock.LowestAddress, context.CodeBlock.HighestAddress));
 						break;
 					}
 					catch (VerifyError e)
 					{
-						Console.WriteLine(string.Format("Catched exception '{0}' while compiling 0x{1:X8} (0x{2:X8}-0x{3:X8})", e.ToString(), address, context.CodeBlock.LowestAddress, context.CodeBlock.HighestAddress));
+						System.Console.WriteLine(string.Format("Catched exception '{0}' while compiling 0x{1:X8} (0x{2:X8}-0x{3:X8})", e.ToString(), address, context.CodeBlock.LowestAddress, context.CodeBlock.HighestAddress));
 						break;
 					}
 					catch (Exception e)
@@ -784,7 +784,7 @@ namespace pspsharp.Allegrex.compiler
 			{
 				if (log.DebugEnabled && context != null)
 				{
-					Console.WriteLine(string.Format("Compilation failed with maxInstruction={0:D}", context.MethodMaxInstructions));
+					System.Console.WriteLine(string.Format("Compilation failed with maxInstruction={0:D}", context.MethodMaxInstructions));
 				}
 				if (lastContext != null)
 				{
@@ -808,7 +808,7 @@ namespace pspsharp.Allegrex.compiler
 			{
 				if (log.DebugEnabled && context != null)
 				{
-					Console.WriteLine(string.Format("Compilation was now correct with maxInstruction={0:D}", context.MethodMaxInstructions));
+					System.Console.WriteLine(string.Format("Compilation was now correct with maxInstruction={0:D}", context.MethodMaxInstructions));
 				}
 			}
 
@@ -864,7 +864,7 @@ namespace pspsharp.Allegrex.compiler
 				{
 					this.defaultMethodMaxInstructions = value;
     
-					Console.WriteLine(string.Format("Compiler MethodMaxInstructions: {0:D}", value));
+					System.Console.WriteLine(string.Format("Compiler MethodMaxInstructions: {0:D}", value));
 				}
 			}
 		}

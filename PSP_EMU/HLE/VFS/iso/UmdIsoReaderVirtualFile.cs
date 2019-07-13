@@ -74,7 +74,7 @@ namespace pspsharp.HLE.VFS.iso
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("ioRead", e);
+					System.Console.WriteLine("ioRead", e);
 					return ERROR_KERNEL_FILE_READ_ERROR;
 				}
 
@@ -111,7 +111,7 @@ namespace pspsharp.HLE.VFS.iso
 					}
 					catch (IOException e)
 					{
-						Console.WriteLine("ioRead", e);
+						System.Console.WriteLine("ioRead", e);
 						return ERROR_KERNEL_FILE_READ_ERROR;
 					}
 				}
@@ -126,7 +126,7 @@ namespace pspsharp.HLE.VFS.iso
 					}
 					catch (IOException e)
 					{
-						Console.WriteLine("ioRead", e);
+						System.Console.WriteLine("ioRead", e);
 						return ERROR_KERNEL_FILE_READ_ERROR;
 					}
 				}
@@ -155,7 +155,7 @@ namespace pspsharp.HLE.VFS.iso
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("ioClose", e);
+				System.Console.WriteLine("ioClose", e);
 				return IO_ERROR;
 			}
 

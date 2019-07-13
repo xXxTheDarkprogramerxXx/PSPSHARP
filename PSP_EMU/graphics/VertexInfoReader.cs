@@ -558,7 +558,7 @@ namespace pspsharp.graphics
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Not reading Vertex, all native at 0x{0:X8}", address));
+					System.Console.WriteLine(string.Format("Not reading Vertex, all native at 0x{0:X8}", address));
 				}
 				return null;
 			}
@@ -566,22 +566,22 @@ namespace pspsharp.graphics
 			// Display debug information on non-native elements
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Reading {0:D} Vertex at 0x{1:X8}", numberOfVertex, address + firstVertex * vertexInfo.vertexSize));
+				System.Console.WriteLine(string.Format("Reading {0:D} Vertex at 0x{1:X8}", numberOfVertex, address + firstVertex * vertexInfo.vertexSize));
 				if (!textureNative)
 				{
-					Console.WriteLine("Texture non-native " + vertexInfo.ToString());
+					System.Console.WriteLine("Texture non-native " + vertexInfo.ToString());
 				}
 				if (!colorNative)
 				{
-					Console.WriteLine("Color non-native " + vertexInfo.ToString());
+					System.Console.WriteLine("Color non-native " + vertexInfo.ToString());
 				}
 				if (!normalNative)
 				{
-					Console.WriteLine("Normal non-native " + vertexInfo.ToString());
+					System.Console.WriteLine("Normal non-native " + vertexInfo.ToString());
 				}
 				if (!positionNative)
 				{
-					Console.WriteLine("Position non-native " + vertexInfo.ToString());
+					System.Console.WriteLine("Position non-native " + vertexInfo.ToString());
 				}
 			}
 

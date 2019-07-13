@@ -106,13 +106,13 @@ namespace pspsharp.network.upnp
 				}
 				catch (SocketException e)
 				{
-					Console.WriteLine(e.ToString());
-					Console.Write(e.StackTrace);
+					System.Console.WriteLine(e.ToString());
+					System.Console.Write(e.StackTrace);
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine(e.ToString());
-					Console.Write(e.StackTrace);
+					System.Console.WriteLine(e.ToString());
+					System.Console.Write(e.StackTrace);
 				}
 
 				ISet<string> processedUrls = new HashSet<string>();
@@ -131,7 +131,7 @@ namespace pspsharp.network.upnp
 								string reply = new string(responsePacket.Data, responsePacket.Offset, responsePacket.Length);
 								//if (log.DebugEnabled)
 								{
-									Console.WriteLine(string.Format("Discovery: {0}", reply));
+									System.Console.WriteLine(string.Format("Discovery: {0}", reply));
 								}
 
 								string location = null;
@@ -154,7 +154,7 @@ namespace pspsharp.network.upnp
 								{
 									//if (log.DebugEnabled)
 									{
-										Console.WriteLine(string.Format("Location: '{0}', st: '{1}'", location, st));
+										System.Console.WriteLine(string.Format("Location: '{0}', st: '{1}'", location, st));
 									}
 
 									if (!processedUrls.Contains(location))
@@ -165,7 +165,7 @@ namespace pspsharp.network.upnp
 										{
 											//if (log.DebugEnabled)
 											{
-												Console.WriteLine(string.Format("IGD connected with external IP: {0}", igd.getExternalIPAddress(upnp)));
+												System.Console.WriteLine(string.Format("IGD connected with external IP: {0}", igd.getExternalIPAddress(upnp)));
 											}
 											Done = true;
 										}
@@ -173,7 +173,7 @@ namespace pspsharp.network.upnp
 								}
 								else
 								{
-									Console.WriteLine(string.Format("Could not parse discovery response: {0}", reply));
+									System.Console.WriteLine(string.Format("Could not parse discovery response: {0}", reply));
 								}
 							}
 						}
@@ -275,7 +275,7 @@ namespace pspsharp.network.upnp
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("discover", e);
+				System.Console.WriteLine("discover", e);
 			}
 		}
 
@@ -359,7 +359,7 @@ namespace pspsharp.network.upnp
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("UPnP command serviceType {0}, action {1}, result: {2}", serviceType, action, content.ToString()));
+					System.Console.WriteLine(string.Format("UPnP command serviceType {0}, action {1}, result: {2}", serviceType, action, content.ToString()));
 				}
 
 				result = parseSimpleCommandResponse(content.ToString());
@@ -369,19 +369,19 @@ namespace pspsharp.network.upnp
 					string errorCode = result["errorCode"];
 					if (!string.ReferenceEquals(errorCode, null))
 					{
-						Console.WriteLine(string.Format("UPnP command {0}: errorCode = {1}", action, errorCode));
+						System.Console.WriteLine(string.Format("UPnP command {0}: errorCode = {1}", action, errorCode));
 					}
 				}
 			}
 			catch (MalformedURLException e)
 			{
-				Console.WriteLine("executeUPnPcommand", e);
+				System.Console.WriteLine("executeUPnPcommand", e);
 			}
 			catch (IOException e)
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("executeUPnPcommand", e);
+					System.Console.WriteLine("executeUPnPcommand", e);
 				}
 			}
 
@@ -406,19 +406,19 @@ namespace pspsharp.network.upnp
 			}
 			catch (ParserConfigurationException e)
 			{
-				Console.WriteLine("Discovery", e);
+				System.Console.WriteLine("Discovery", e);
 			}
 			catch (SAXException e)
 			{
-				Console.WriteLine("Discovery", e);
+				System.Console.WriteLine("Discovery", e);
 			}
 			catch (MalformedURLException e)
 			{
-				Console.WriteLine("Discovery", e);
+				System.Console.WriteLine("Discovery", e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("Discovery", e);
+				System.Console.WriteLine("Discovery", e);
 			}
 
 			return result;
@@ -481,7 +481,7 @@ namespace pspsharp.network.upnp
 
 			if (log.DebugEnabled && result != null)
 			{
-				Console.WriteLine(string.Format("addPortMapping errorCode={0}", result["errorCode"]));
+				System.Console.WriteLine(string.Format("addPortMapping errorCode={0}", result["errorCode"]));
 			}
 		}
 
@@ -497,7 +497,7 @@ namespace pspsharp.network.upnp
 
 			if (log.DebugEnabled && result != null)
 			{
-				Console.WriteLine(string.Format("deletePortMapping errorCode={0}", result["errorCode"]));
+				System.Console.WriteLine(string.Format("deletePortMapping errorCode={0}", result["errorCode"]));
 			}
 		}
 

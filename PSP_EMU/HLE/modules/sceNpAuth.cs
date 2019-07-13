@@ -207,7 +207,7 @@ namespace pspsharp.HLE.modules
 			param.read(paramAddr);
 			if (log.InfoEnabled)
 			{
-				Console.WriteLine(string.Format("sceNpAuthCreateStartRequest param: {0}", param));
+				System.Console.WriteLine(string.Format("sceNpAuthCreateStartRequest param: {0}", param));
 			}
 
 			serviceId = param.serviceId;
@@ -253,10 +253,10 @@ namespace pspsharp.HLE.modules
 							int responseCode = connection.ResponseCode;
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("Response code: {0:D}", responseCode));
+								System.Console.WriteLine(string.Format("Response code: {0:D}", responseCode));
 								foreach (KeyValuePair<string, IList<string>> entry in connection.HeaderFields.entrySet())
 								{
-									Console.WriteLine(string.Format("{0}: {1}", entry.Key, entry.Value));
+									System.Console.WriteLine(string.Format("{0}: {1}", entry.Key, entry.Value));
 								}
 							}
 
@@ -276,17 +276,17 @@ namespace pspsharp.HLE.modules
 
 								//if (log.DebugEnabled)
 								{
-									Console.WriteLine(string.Format("Received ticket: {0}", Utilities.getMemoryDump(ticketBytes, 0, ticketBytesLength)));
+									System.Console.WriteLine(string.Format("Received ticket: {0}", Utilities.getMemoryDump(ticketBytes, 0, ticketBytesLength)));
 								}
 							}
 						}
 						catch (MalformedURLException e)
 						{
-							Console.WriteLine(e);
+							System.Console.WriteLine(e);
 						}
 						catch (IOException e)
 						{
-							Console.WriteLine(e);
+							System.Console.WriteLine(e);
 						}
 						finally
 						{
@@ -346,7 +346,7 @@ namespace pspsharp.HLE.modules
 				ticket.unknownBytes = new sbyte[72];
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNpAuthGetTicket returning dummy ticket: {0}", ticket));
+					System.Console.WriteLine(string.Format("sceNpAuthGetTicket returning dummy ticket: {0}", ticket));
 				}
 				ticket.write(buffer);
 				result = ticket.@sizeof();
@@ -362,7 +362,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNpAuthGetTicket returning real ticket: {0}", Utilities.getMemoryDump(buffer.Address, result)));
+					System.Console.WriteLine(string.Format("sceNpAuthGetTicket returning real ticket: {0}", Utilities.getMemoryDump(buffer.Address, result)));
 				}
 			}
 			else
@@ -373,7 +373,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNpAuthGetTicket returning empty ticket"));
+					System.Console.WriteLine(string.Format("sceNpAuthGetTicket returning empty ticket"));
 				}
 			}
 
@@ -422,7 +422,7 @@ namespace pspsharp.HLE.modules
 				// This is an empty ticket, do no analyze it
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNpAuthGetTicketParam returning empty param from empty ticket"));
+					System.Console.WriteLine(string.Format("sceNpAuthGetTicketParam returning empty param from empty ticket"));
 				}
 			}
 			else
@@ -431,7 +431,7 @@ namespace pspsharp.HLE.modules
 				ticket.read(ticketBuffer);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNpAuthGetTicketParam ticket: {0}", ticket));
+					System.Console.WriteLine(string.Format("sceNpAuthGetTicketParam ticket: {0}", ticket));
 				}
 
 				SceNpTicket.TicketParam ticketParam = ticket.parameters[paramNumber];

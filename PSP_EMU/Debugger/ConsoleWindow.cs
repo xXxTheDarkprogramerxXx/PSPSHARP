@@ -25,7 +25,7 @@ namespace pspsharp.Debugger
 	/// <summary>
 	/// @author shadow
 	/// </summary>
-	public class ConsoleWindow : javax.swing.JFrame
+	public class System.ConsoleWindow : javax.swing.JFrame
 	{
 		private bool InstanceFieldsInitialized = false;
 
@@ -50,7 +50,7 @@ namespace pspsharp.Debugger
 		/// <summary>
 		/// Creates new form LoggingWindow
 		/// </summary>
-		public ConsoleWindow()
+		public System.ConsoleWindow()
 		{
 			if (!InstanceFieldsInitialized)
 			{
@@ -77,7 +77,7 @@ namespace pspsharp.Debugger
 			SaveMessageToFileButton = new javax.swing.JButton();
 
 			java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pspsharp/languages/pspsharp"); // NOI18N
-			Title = bundle.getString("ConsoleWindow.title"); // NOI18N
+			Title = bundle.getString("System.ConsoleWindow.title"); // NOI18N
 			Resizable = false;
 
 			talogging.Columns = 20;
@@ -85,10 +85,10 @@ namespace pspsharp.Debugger
 			talogging.Rows = 5;
 			jScrollPane1.ViewportView = talogging;
 
-			ClearMessageButton.Text = bundle.getString("ConsoleWindow.ClearMessageButton.text"); // NOI18N
+			ClearMessageButton.Text = bundle.getString("System.ConsoleWindow.ClearMessageButton.text"); // NOI18N
 			ClearMessageButton.addActionListener(new ActionListenerAnonymousInnerClass(this));
 
-			SaveMessageToFileButton.Text = bundle.getString("ConsoleWindow.SaveMessageToFileButton.text"); // NOI18N
+			SaveMessageToFileButton.Text = bundle.getString("System.ConsoleWindow.SaveMessageToFileButton.text"); // NOI18N
 			SaveMessageToFileButton.addActionListener(new ActionListenerAnonymousInnerClass2(this));
 
 			javax.swing.GroupLayout layout = new javax.swing.GroupLayout(ContentPane);
@@ -101,9 +101,9 @@ namespace pspsharp.Debugger
 
 		private class ActionListenerAnonymousInnerClass : java.awt.@event.ActionListener
 		{
-			private readonly ConsoleWindow outerInstance;
+			private readonly System.ConsoleWindow outerInstance;
 
-			public ActionListenerAnonymousInnerClass(ConsoleWindow outerInstance)
+			public ActionListenerAnonymousInnerClass(System.ConsoleWindow outerInstance)
 			{
 				this.outerInstance = outerInstance;
 			}
@@ -116,9 +116,9 @@ namespace pspsharp.Debugger
 
 		private class ActionListenerAnonymousInnerClass2 : java.awt.@event.ActionListener
 		{
-			private readonly ConsoleWindow outerInstance;
+			private readonly System.ConsoleWindow outerInstance;
 
-			public ActionListenerAnonymousInnerClass2(ConsoleWindow outerInstance)
+			public ActionListenerAnonymousInnerClass2(System.ConsoleWindow outerInstance)
 			{
 				this.outerInstance = outerInstance;
 			}
@@ -139,7 +139,7 @@ namespace pspsharp.Debugger
 			java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pspsharp/languages/pspsharp"); // NOI18N
 			JFileChooser m_fileChooser = new JFileChooser();
 			m_fileChooser.SelectedFile = new File("logoutput.txt");
-			m_fileChooser.DialogTitle = bundle.getString("ConsoleWindow.strSaveLogging.text");
+			m_fileChooser.DialogTitle = bundle.getString("System.ConsoleWindow.strSaveLogging.text");
 			m_fileChooser.CurrentDirectory = new File(".");
 			int returnVal = m_fileChooser.showSaveDialog(this);
 			if (returnVal != JFileChooser.APPROVE_OPTION)
@@ -152,7 +152,7 @@ namespace pspsharp.Debugger
 			{
 				if (f.exists())
 				{
-					int res = MessageBox.Show(this, bundle.getString("ConsoleWindow.strFileExists.text"), bundle.getString("ConsoleWindow.strFileExistsTitle.text"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+					int res = MessageBox.Show(this, bundle.getString("System.ConsoleWindow.strFileExists.text"), bundle.getString("System.ConsoleWindow.strFileExistsTitle.text"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
 					if (res != 0)
 					{
@@ -166,8 +166,8 @@ namespace pspsharp.Debugger
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 			}
 			finally
 			{
@@ -197,7 +197,7 @@ namespace pspsharp.Debugger
 		/// </summary>
 		private sealed class JTextAreaOutStream : FilterOutputStream
 		{
-			private readonly ConsoleWindow outerInstance;
+			private readonly System.ConsoleWindow outerInstance;
 
 
 			/// <summary>
@@ -207,7 +207,7 @@ namespace pspsharp.Debugger
 			/// </para>
 			/// </summary>
 			/// <param name="aStream"> The <code>OutputStream</code>. </param>
-			public JTextAreaOutStream(ConsoleWindow outerInstance, System.IO.Stream aStream) : base(aStream)
+			public JTextAreaOutStream(System.ConsoleWindow outerInstance, System.IO.Stream aStream) : base(aStream)
 			{
 				this.outerInstance = outerInstance;
 			}

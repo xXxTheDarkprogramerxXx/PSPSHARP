@@ -86,7 +86,7 @@ namespace pspsharp.network.upnp
 		{
 			if (OtherJpcspAvailable)
 			{
-				Console.WriteLine(string.Format("Other pspsharp is running"));
+				System.Console.WriteLine(string.Format("Other pspsharp is running"));
 			}
 			else
 			{
@@ -118,14 +118,14 @@ namespace pspsharp.network.upnp
 					if (responsePacket.Length > 0)
 					{
 						string reply = new string(responsePacket.Data, responsePacket.Offset, responsePacket.Length);
-						Console.WriteLine(string.Format("Discovery {0}: {1}", deviceName, reply));
+						System.Console.WriteLine(string.Format("Discovery {0}: {1}", deviceName, reply));
 						Regex p = Pattern.compile("^location: *(\\S+):(\\d+)$", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
 						Matcher m = p.matcher(reply);
 						if (m.find())
 						{
 							string address = m.group(1);
 							int port = int.Parse(m.group(2));
-							Console.WriteLine(string.Format("Found {0} at location: address='{1}', port={2:D}", deviceName, address, port));
+							System.Console.WriteLine(string.Format("Found {0} at location: address='{1}', port={2:D}", deviceName, address, port));
 							if (address.Equals(LocalHostIP))
 							{
 								Modules.sceNetAdhocModule.NetClientPortShift = port;
@@ -135,18 +135,18 @@ namespace pspsharp.network.upnp
 						}
 						else
 						{
-							Console.WriteLine(string.Format("Could not parse discovery response for {0}: {1}", deviceName, reply));
+							System.Console.WriteLine(string.Format("Could not parse discovery response for {0}: {1}", deviceName, reply));
 						}
 					}
 					socket.close();
 				}
 				catch (SocketTimeoutException e)
 				{
-					Console.WriteLine(string.Format("Timeout while discovering pspsharp: {0}", e.Message));
+					System.Console.WriteLine(string.Format("Timeout while discovering pspsharp: {0}", e.Message));
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("Discover pspsharp", e);
+					System.Console.WriteLine("Discover pspsharp", e);
 				}
     
 				return found;
@@ -188,7 +188,7 @@ namespace pspsharp.network.upnp
 
 			public override void run()
 			{
-				Console.WriteLine(string.Format("Starting AutoDetectJpcsp ListenerThread"));
+				System.Console.WriteLine(string.Format("Starting AutoDetectJpcsp ListenerThread"));
 				sbyte[] response = new sbyte[256];
 
 				while (!exit_Renamed)
@@ -208,7 +208,7 @@ namespace pspsharp.network.upnp
 					}
 					catch (IOException e)
 					{
-						Console.WriteLine("ListenerThread", e);
+						System.Console.WriteLine("ListenerThread", e);
 						exit();
 					}
 				}
@@ -218,7 +218,7 @@ namespace pspsharp.network.upnp
 //ORIGINAL LINE: private void processRequest(java.net.MulticastSocket socket, String request, java.net.InetAddress address, int port) throws java.io.IOException
 			internal virtual void processRequest(MulticastSocket socket, string request, InetAddress address, int port)
 			{
-				Console.WriteLine(string.Format("Received '{0}' from {1}:{2:D}", request, address, port));
+				System.Console.WriteLine(string.Format("Received '{0}' from {1}:{2:D}", request, address, port));
 
 				Regex p = Pattern.compile("SEARCH +\\* +.*^ST: *" + deviceName + "$.*", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
 				Matcher m = p.matcher(request);
@@ -235,7 +235,7 @@ namespace pspsharp.network.upnp
 					}
 					response.Append(string.Format("Location: {0}:{1:D}", LocalHostIP, netServerPortShift));
 
-					Console.WriteLine(string.Format("Sending response '{0}' to {1}:{2:D}", response, address, port));
+					System.Console.WriteLine(string.Format("Sending response '{0}' to {1}:{2:D}", response, address, port));
 					DatagramPacket packet = new DatagramPacket(response.ToString().GetBytes(), response.Length, address, port);
 					socket.send(packet);
 				}

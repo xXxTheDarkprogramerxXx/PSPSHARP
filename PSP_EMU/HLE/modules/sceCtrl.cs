@@ -359,7 +359,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("hleCtrlExecuteSampling");
+				System.Console.WriteLine("hleCtrlExecuteSampling");
 			}
 
 			Controller controller = State.controller;
@@ -385,7 +385,7 @@ namespace pspsharp.HLE.modules
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine("hleExecuteSampling waiting up thread " + wait.thread);
+						System.Console.WriteLine("hleExecuteSampling waiting up thread " + wait.thread);
 					}
 					wait.thread.cpuContext._v0 = hleCtrlReadBufferImmediately(wait.readAddr, wait.readCount, wait.readPositive, false);
 					Modules.ThreadManForUserModule.hleUnblockThread(wait.thread.uid);
@@ -394,7 +394,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("hleExecuteSampling thread " + wait.thread + " was no longer blocked");
+					System.Console.WriteLine("hleExecuteSampling thread " + wait.thread + " was no longer blocked");
 				}
 			}
 		}
@@ -440,8 +440,8 @@ namespace pspsharp.HLE.modules
 			//if (log.DebugEnabled)
 			{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("hleCtrlReadBufferImmediately(positive=%b, peek=%b) returning %d", positive, peek, count));
-				Console.WriteLine(string.Format("hleCtrlReadBufferImmediately(positive=%b, peek=%b) returning %d", positive, peek, count));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("hleCtrlReadBufferImmediately(positive=%b, peek=%b) returning %d", positive, peek, count));
+				System.Console.WriteLine(string.Format("hleCtrlReadBufferImmediately(positive=%b, peek=%b) returning %d", positive, peek, count));
 			}
 
 			return count;
@@ -470,7 +470,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("hleCtrlReadBuffer waiting for sample");
+				System.Console.WriteLine("hleCtrlReadBuffer waiting for sample");
 			}
 
 			return 0;
@@ -486,7 +486,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceCtrlSetSamplingCycle cycle={0:D} returning {1:D}", newCycle, oldCycle));
+				System.Console.WriteLine(string.Format("sceCtrlSetSamplingCycle cycle={0:D} returning {1:D}", newCycle, oldCycle));
 			}
 
 			return oldCycle;
@@ -510,7 +510,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceCtrlSetSamplingMode mode={0:D} returning {1:D}", newMode, oldMode));
+				System.Console.WriteLine(string.Format("sceCtrlSetSamplingMode mode={0:D} returning {1:D}", newMode, oldMode));
 			}
 
 			return oldMode;
@@ -577,7 +577,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceCtrlReadLatch uiMake=0x{0:X6}, uiBreak=0x{1:X6}, uiPress=0x{2:X6}, uiRelease=0x{3:X6}, returning {4:D}", uiMake, uiBreak, uiPress, uiRelease, latchSamplingCount));
+				System.Console.WriteLine(string.Format("sceCtrlReadLatch uiMake=0x{0:X6}, uiBreak=0x{1:X6}, uiPress=0x{2:X6}, uiRelease=0x{3:X6}, returning {4:D}", uiMake, uiBreak, uiPress, uiRelease, latchSamplingCount));
 			}
 
 			uiMake = 0;

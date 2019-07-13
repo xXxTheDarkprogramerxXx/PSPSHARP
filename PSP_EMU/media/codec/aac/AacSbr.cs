@@ -117,7 +117,7 @@ namespace pspsharp.media.codec.aac
 
 					if (chData.bsNumEnv > 4)
 					{
-						Console.WriteLine(string.Format("Invalid bitstream, too many SBR envelopes in FIXFIX type SBR frame: {0:D}", chData.bsNumEnv));
+						System.Console.WriteLine(string.Format("Invalid bitstream, too many SBR envelopes in FIXFIX type SBR frame: {0:D}", chData.bsNumEnv));
 						return -1;
 					}
 
@@ -179,7 +179,7 @@ namespace pspsharp.media.codec.aac
 
 					if (chData.bsNumEnv > 5)
 					{
-						Console.WriteLine(string.Format("Invalid bitstream, too many SBR envelopes in VARVAR type SBR frame: {0:D}", chData.bsNumEnv));
+						System.Console.WriteLine(string.Format("Invalid bitstream, too many SBR envelopes in VARVAR type SBR frame: {0:D}", chData.bsNumEnv));
 						return -1;
 					}
 
@@ -202,7 +202,7 @@ namespace pspsharp.media.codec.aac
 
 			if (bsPointer > chData.bsNumEnv + 1)
 			{
-				Console.WriteLine(string.Format("Invalid bitstream, bs_pointer points to a middle noise border outside the time borders table: {0:D}", bsPointer));
+				System.Console.WriteLine(string.Format("Invalid bitstream, bs_pointer points to a middle noise border outside the time borders table: {0:D}", bsPointer));
 				return -1;
 			}
 
@@ -210,7 +210,7 @@ namespace pspsharp.media.codec.aac
 			{
 				if (chData.tEnv[i - 1] > chData.tEnv[i])
 				{
-					Console.WriteLine(string.Format("Non monotone time borders"));
+					System.Console.WriteLine(string.Format("Non monotone time borders"));
 					return -1;
 				}
 			}
@@ -451,7 +451,7 @@ namespace pspsharp.media.codec.aac
 				case EXTENSION_ID_PS:
 					if (ac.oc[1].m4ac.ps == 0)
 					{
-						Console.WriteLine(string.Format("Parametric Stereo signaled to be not-present but was found in the bitstream"));
+						System.Console.WriteLine(string.Format("Parametric Stereo signaled to be not-present but was found in the bitstream"));
 						ac.br.skip(numBitsLeft);
 						numBitsLeft = 0;
 					}
@@ -464,7 +464,7 @@ namespace pspsharp.media.codec.aac
 					// some files contain 0-padding
 					if (bsExtensionId != 0 || numBitsLeft > 16 || ac.br.peek(numBitsLeft) != 0)
 					{
-						Console.WriteLine(string.Format("Reserved SBR extensions"));
+						System.Console.WriteLine(string.Format("Reserved SBR extensions"));
 					}
 					ac.br.skip(numBitsLeft);
 					numBitsLeft = 0;
@@ -488,7 +488,7 @@ namespace pspsharp.media.codec.aac
 			}
 			else
 			{
-				Console.WriteLine(string.Format("Invalid bitstream - cannot apply SBR to element type {0:D}", idAac));
+				System.Console.WriteLine(string.Format("Invalid bitstream - cannot apply SBR to element type {0:D}", idAac));
 				sbrTurnoff(sbr);
 				return ac.br.BitsRead - cnt;
 			}
@@ -510,7 +510,7 @@ namespace pspsharp.media.codec.aac
 
 				if (numBitsLeft < 0)
 				{
-					Console.WriteLine(string.Format("SBD Extension over read"));
+					System.Console.WriteLine(string.Format("SBD Extension over read"));
 				}
 				else if (numBitsLeft > 0)
 				{
@@ -542,12 +542,12 @@ namespace pspsharp.media.codec.aac
 			// Requirements (14496-3 sp04 p205)
 			if (nMaster <= 0)
 			{
-				Console.WriteLine(string.Format("Invalid n_master: {0:D}", nMaster));
+				System.Console.WriteLine(string.Format("Invalid n_master: {0:D}", nMaster));
 				return -1;
 			}
 			if (bsXoverBand >= nMaster)
 			{
-				Console.WriteLine(string.Format("Invalid bitstream, crossover band index beyond array bounds: {0:D}", bsXoverBand));
+				System.Console.WriteLine(string.Format("Invalid bitstream, crossover band index beyond array bounds: {0:D}", bsXoverBand));
 				return -1;
 			}
 
@@ -627,7 +627,7 @@ namespace pspsharp.media.codec.aac
 					sbrOffsetPtr = sbr_offset[5];
 					break;
 				default:
-					Console.WriteLine(string.Format("Unsupported sample rate for SBR: {0:D}", sbr.sampleRate));
+					System.Console.WriteLine(string.Format("Unsupported sample rate for SBR: {0:D}", sbr.sampleRate));
 					return -1;
 			}
 
@@ -656,7 +656,7 @@ namespace pspsharp.media.codec.aac
 			}
 			else
 			{
-				Console.WriteLine(string.Format("Invalid bsStopFreq: {0:D}", spectrum.bsStopFreq));
+				System.Console.WriteLine(string.Format("Invalid bsStopFreq: {0:D}", spectrum.bsStopFreq));
 				return -1;
 			}
 			sbr.k[2] = System.Math.Min(64, sbr.k[2]);
@@ -676,13 +676,13 @@ namespace pspsharp.media.codec.aac
 			}
 			else
 			{
-				Console.WriteLine(string.Format("Unsupported sample rate {0:D}", sbr.sampleRate));
+				System.Console.WriteLine(string.Format("Unsupported sample rate {0:D}", sbr.sampleRate));
 				return -1;
 			}
 
 			if (sbr.k[2] - sbr.k[0] > maxQmfSubbands)
 			{
-				Console.WriteLine(string.Format("Invalid bitstream, too many QMF subbands: {0:D}", sbr.k[2] - sbr.k[0]));
+				System.Console.WriteLine(string.Format("Invalid bitstream, too many QMF subbands: {0:D}", sbr.k[2] - sbr.k[0]));
 				return -1;
 			}
 
@@ -742,7 +742,7 @@ namespace pspsharp.media.codec.aac
 
 				if (num_bands_0 <= 0)
 				{ // Requirements (14496-3 sp04 p205)
-					Console.WriteLine(string.Format("Invalid num_bands_0: {0:D}", num_bands_0));
+					System.Console.WriteLine(string.Format("Invalid num_bands_0: {0:D}", num_bands_0));
 					return -1;
 				}
 
@@ -758,7 +758,7 @@ namespace pspsharp.media.codec.aac
 				{
 					if (vk0[k] <= 0)
 					{ // Requirements (14496-3 sp04 p205)
-						Console.WriteLine(string.Format("Invalid vDk0[{0:D}]: {1:D}", k, vk0[k]));
+						System.Console.WriteLine(string.Format("Invalid vDk0[{0:D}]: {1:D}", k, vk0[k]));
 						return -1;
 					}
 					vk0[k] += vk0[k - 1];
@@ -790,7 +790,7 @@ namespace pspsharp.media.codec.aac
 					{
 						if (vk1[k] <= 0)
 						{ // Requirements (14496-3 sp04 p205)
-							Console.WriteLine(string.Format("Invalid vDk1[{0:D}]: {1:D}", k, vk1[k]));
+							System.Console.WriteLine(string.Format("Invalid vDk1[{0:D}]: {1:D}", k, vk1[k]));
 							return -1;
 						}
 						vk1[k] += vk1[k - 1];
@@ -915,7 +915,7 @@ namespace pspsharp.media.codec.aac
 				// count of 6 patches
 				if (sbr.numPatches > 5)
 				{
-					Console.WriteLine(string.Format("Too many patches: {0:D}", sbr.numPatches));
+					System.Console.WriteLine(string.Format("Too many patches: {0:D}", sbr.numPatches));
 					return -1;
 				}
 
@@ -960,12 +960,12 @@ namespace pspsharp.media.codec.aac
 			// Requirements (14496-3 sp04 p205)
 			if (sbr.kx[1] + sbr.m[1] > 64)
 			{
-				Console.WriteLine(string.Format("Stop frequency border too high: {0:D}", sbr.kx[1] + sbr.m[1]));
+				System.Console.WriteLine(string.Format("Stop frequency border too high: {0:D}", sbr.kx[1] + sbr.m[1]));
 				return -1;
 			}
 			if (sbr.kx[1] > 32)
 			{
-				Console.WriteLine(string.Format("Start frequency border too high: {0:D}", sbr.kx[1]));
+				System.Console.WriteLine(string.Format("Start frequency border too high: {0:D}", sbr.kx[1]));
 				return -1;
 			}
 
@@ -979,7 +979,7 @@ namespace pspsharp.media.codec.aac
 			sbr.nQ = System.Math.Max(1, lrintf(sbr.spectrumParams.bsNoiseBands * log2f(sbr.k[2] / (float)sbr.kx[1]))); // 0 <= bs_noise_bands <= 3
 			if (sbr.nQ > 5)
 			{
-				Console.WriteLine(string.Format("Too many noise floor scale factors: {0:D}", sbr.nQ));
+				System.Console.WriteLine(string.Format("Too many noise floor scale factors: {0:D}", sbr.nQ));
 				return -1;
 			}
 
@@ -1075,7 +1075,7 @@ namespace pspsharp.media.codec.aac
 			}
 			if (err < 0)
 			{
-				Console.WriteLine(string.Format("SBR reset failed. Switching SBR to pure upsampling mode"));
+				System.Console.WriteLine(string.Format("SBR reset failed. Switching SBR to pure upsampling mode"));
 				sbrTurnoff(sbr);
 			}
 		}
@@ -1137,7 +1137,7 @@ namespace pspsharp.media.codec.aac
 
 			if (bytesRead > cnt)
 			{
-				Console.WriteLine(string.Format("Expected to read {0:D} SBR bytes actually read {1:D}", cnt, bytesRead));
+				System.Console.WriteLine(string.Format("Expected to read {0:D} SBR bytes actually read {1:D}", cnt, bytesRead));
 			}
 
 			return cnt;
@@ -1197,7 +1197,7 @@ namespace pspsharp.media.codec.aac
 						float fac;
 						if (temp1 > 1E20)
 						{
-							Console.WriteLine(string.Format("envelope scalefactor overflow in dequant"));
+							System.Console.WriteLine(string.Format("envelope scalefactor overflow in dequant"));
 							temp1 = 1;
 						}
 						fac = temp1 / (1.0f + temp2);
@@ -1214,7 +1214,7 @@ namespace pspsharp.media.codec.aac
 						float fac;
 						if (temp1 > 1E20)
 						{
-							Console.WriteLine(string.Format("envelope scalefactor overflow in dequant"));
+							System.Console.WriteLine(string.Format("envelope scalefactor overflow in dequant"));
 							temp1 = 1;
 						}
 						fac = temp1 / (1.0f + temp2);
@@ -1235,7 +1235,7 @@ namespace pspsharp.media.codec.aac
 							sbr.data[ch].envFacs[e][k] = exp2f(alpha * sbr.data[ch].envFacs[e][k] + 6.0f);
 							if (sbr.data[ch].envFacs[e][k] > 1E20)
 							{
-								Console.WriteLine(string.Format("envelope scalefactor overflow in dequant"));
+								System.Console.WriteLine(string.Format("envelope scalefactor overflow in dequant"));
 								sbr.data[ch].envFacs[e][k] = 1;
 							}
 						}
@@ -1388,7 +1388,7 @@ namespace pspsharp.media.codec.aac
 
 					if (g < 0)
 					{
-						Console.WriteLine(string.Format("ERROR : no subband found for frequency {0:D}", k));
+						System.Console.WriteLine(string.Format("ERROR : no subband found for frequency {0:D}", k));
 						return -1;
 					}
 
@@ -1424,7 +1424,7 @@ namespace pspsharp.media.codec.aac
 
 				if (sbr.kx[1] != table[0])
 				{
-					Console.WriteLine(string.Format("kx != f_table{high,low}[0]. Derived frequency tables were not regenerated."));
+					System.Console.WriteLine(string.Format("kx != f_table{high,low}[0]. Derived frequency tables were not regenerated."));
 					sbrTurnoff(sbr);
 					return AAC_ERROR;
 				}

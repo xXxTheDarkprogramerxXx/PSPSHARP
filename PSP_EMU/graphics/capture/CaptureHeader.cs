@@ -66,7 +66,7 @@ namespace pspsharp.graphics.capture
 				header.packetType = data.readInt();
 				sizeRemaining -= 4;
 				data.skipBytes(sizeRemaining);
-				//VideoEngine.Console.WriteLine("CaptureHeader type " + header.packetType);
+				//VideoEngine.System.Console.WriteLine("CaptureHeader type " + header.packetType);
 			}
 			else
 			{

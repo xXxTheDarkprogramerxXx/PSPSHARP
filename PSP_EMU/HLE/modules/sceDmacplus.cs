@@ -51,7 +51,7 @@ namespace pspsharp.HLE.modules
 			int pixelFormat = pixelFormatFromCode[displayPixelFormatCoded];
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceDmacplusLcdcSetFormat pixelFormat={0:D}", pixelFormat));
+				System.Console.WriteLine(string.Format("sceDmacplusLcdcSetFormat pixelFormat={0:D}", pixelFormat));
 			}
 			return 0;
 		}
@@ -76,7 +76,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceDmacplusSc2MeLLI src=0x{0:X8}, dst=0x{1:X8}, next=0x{2:X8}, attributes=0x{3:X}", src, dst, next, attributes));
+				System.Console.WriteLine(string.Format("sceDmacplusSc2MeLLI src=0x{0:X8}, dst=0x{1:X8}, next=0x{2:X8}, attributes=0x{3:X}", src, dst, next, attributes));
 			}
 
 			return 0;

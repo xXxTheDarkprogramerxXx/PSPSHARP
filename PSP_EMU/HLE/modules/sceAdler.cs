@@ -64,7 +64,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceAdler32 returning 0x{0:X8}", result));
+				System.Console.WriteLine(string.Format("sceAdler32 returning 0x{0:X8}", result));
 			}
 
 			return result;

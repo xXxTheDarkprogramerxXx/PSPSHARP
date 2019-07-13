@@ -90,7 +90,7 @@ namespace pspsharp.Allegrex.compiler.nativeCode
 				}
 				else
 				{
-					Console.WriteLine(string.Format("CachedInterpreter: could not find the CodeBlock 0x{0:X8}", startAddress));
+					System.Console.WriteLine(string.Format("CachedInterpreter: could not find the CodeBlock 0x{0:X8}", startAddress));
 				}
 			}
 

@@ -383,7 +383,7 @@ namespace pspsharp.HLE.modules
 			{
 				string interfaceName = unknown.getStringNZ(16);
 				int flags = unknown.getValue16(16);
-				Console.WriteLine(string.Format("sceNetIfhandleIfIoctl interfaceName='{0}' flags=0x{1:X}", interfaceName, flags));
+				System.Console.WriteLine(string.Format("sceNetIfhandleIfIoctl interfaceName='{0}' flags=0x{1:X}", interfaceName, flags));
 			}
 		}
 

@@ -59,7 +59,7 @@ namespace pspsharp.format.rco
 					return new SlideOutAnim();
 			}
 
-			RCO.Console.WriteLine(string.Format("AnimFactory.newAnim unknown type 0x{0:X}", type));
+			RCO.System.Console.WriteLine(string.Format("AnimFactory.newAnim unknown type 0x{0:X}", type));
 
 			return null;
 		}

@@ -58,7 +58,7 @@ namespace pspsharp.HLE.VFS.emulator
 					string outputString = StringHelper.NewString(input);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(outputString);
+						System.Console.WriteLine(outputString);
 					}
 					AutoTestsOutput.appendString(outputString);
 					break;
@@ -75,12 +75,12 @@ namespace pspsharp.HLE.VFS.emulator
 						captureImage.write();
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Screenshot 0x{0:X8}-0x{1:X8} saved under '{2}'", fb.topAddr, fb.bottomAddr, captureImage.FileName));
+							System.Console.WriteLine(string.Format("Screenshot 0x{0:X8}-0x{1:X8} saved under '{2}'", fb.topAddr, fb.bottomAddr, captureImage.FileName));
 						}
 					}
 					catch (IOException e)
 					{
-						Console.WriteLine("Emit Screenshot", e);
+						System.Console.WriteLine("Emit Screenshot", e);
 					}
 					break;
 				default:

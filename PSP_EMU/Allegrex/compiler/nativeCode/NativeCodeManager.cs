@@ -62,7 +62,7 @@ namespace pspsharp.Allegrex.compiler.nativeCode
 			}
 			catch (ClassNotFoundException e)
 			{
-				Compiler.Console.WriteLine(e);
+				Compiler.System.Console.WriteLine(e);
 				return null;
 			}
 		}
@@ -140,14 +140,14 @@ namespace pspsharp.Allegrex.compiler.nativeCode
 						}
 						catch (System.FormatException e)
 						{
-							Compiler.Console.WriteLine(e);
+							Compiler.System.Console.WriteLine(e);
 						}
 					}
 				}
 			}
 			catch (IOException e)
 			{
-				Compiler.Console.WriteLine(e);
+				Compiler.System.Console.WriteLine(e);
 			}
 		}
 
@@ -202,14 +202,14 @@ namespace pspsharp.Allegrex.compiler.nativeCode
 						}
 						catch (System.FormatException e)
 						{
-							Compiler.Console.WriteLine(e);
+							Compiler.System.Console.WriteLine(e);
 						}
 					}
 				}
 			}
 			catch (IOException e)
 			{
-				Compiler.Console.WriteLine(e);
+				Compiler.System.Console.WriteLine(e);
 			}
 		}
 
@@ -265,7 +265,7 @@ namespace pspsharp.Allegrex.compiler.nativeCode
 			}
 			catch (System.FormatException e)
 			{
-				Compiler.Console.WriteLine(e);
+				Compiler.System.Console.WriteLine(e);
 			}
 		}
 
@@ -341,7 +341,7 @@ namespace pspsharp.Allegrex.compiler.nativeCode
 				}
 				else
 				{
-					Compiler.Console.WriteLine(string.Format("BranchInstruction: label '{0}' not found", branchInstructionLabel));
+					Compiler.System.Console.WriteLine(string.Format("BranchInstruction: label '{0}' not found", branchInstructionLabel));
 				}
 			}
 

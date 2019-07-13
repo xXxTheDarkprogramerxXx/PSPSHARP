@@ -203,28 +203,28 @@ namespace pspsharp.graphics.RE.externalge
 				case 0: // E_OFF
 					break;
 				case 1: // E_FATAL
-					Console.WriteLine(message);
+					System.Console.WriteLine(message);
 					break;
 				case 2: // E_ERROR
-					Console.WriteLine(message);
+					System.Console.WriteLine(message);
 					break;
 				case 3: // E_WARN
-					Console.WriteLine(message);
+					System.Console.WriteLine(message);
 					break;
 				case 4: // E_INFO
-					Console.WriteLine(message);
+					System.Console.WriteLine(message);
 					break;
 				case 5: // E_DEBUG
-					Console.WriteLine(message);
+					System.Console.WriteLine(message);
 					break;
 				case 6: // E_TRACE
 					log.trace(message);
 					break;
 				case 7: // E_FORCE
-					Console.WriteLine(message);
+					System.Console.WriteLine(message);
 					break;
 				default:
-					Console.WriteLine(string.Format("Unknown log level {0:D}: {1}", level, message));
+					System.Console.WriteLine(string.Format("Unknown log level {0:D}: {1}", level, message));
 					break;
 			}
 		}

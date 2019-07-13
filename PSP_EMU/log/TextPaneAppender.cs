@@ -86,7 +86,7 @@ namespace pspsharp.log
 			}
 			catch (Exception e)
 			{
-				Emulator.Console.WriteLine("Exception occured: " + e.Message, e);
+				Emulator.System.Console.WriteLine("Exception occured: " + e.Message, e);
 			}
 			return (img);
 		}
@@ -186,7 +186,7 @@ namespace pspsharp.log
 			}
 			catch (BadLocationException badex)
 			{
-				Console.Error.WriteLine(badex);
+				System.Console.Error.WriteLine(badex);
 			}
 			textpane.CaretPosition = doc.Length;
 		}

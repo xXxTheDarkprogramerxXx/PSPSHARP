@@ -237,11 +237,11 @@ namespace pspsharp
 			// let the layout manager settle before setting the minimum size
 			Modules.sceDisplayModule.setDisplayMinimumSize();
 
-			// as the console log window position depends on the main
+			// as the System.Console log window position depends on the main
 			// window's size run this here
 			if (Settings.Instance.readBool("gui.snapLogwindow"))
 			{
-				updateConsoleWinPosition();
+				updateSystem.ConsoleWinPosition();
 			}
 			});
 
@@ -254,8 +254,8 @@ namespace pspsharp
 			}
 			catch (Exception t)
 			{
-				Console.WriteLine(t.ToString());
-				Console.Write(t.StackTrace);
+				System.Console.WriteLine(t.ToString());
+				System.Console.Write(t.StackTrace);
 			}
 		}
 
@@ -647,7 +647,7 @@ namespace pspsharp
 
 			ToolsSubMenu.Text = bundle.getString("MainGUI.ToolsSubMenu.text"); // NOI18N
 
-			LoggerMenu.Text = bundle.getString("ConsoleWindow.title"); // NOI18N
+			LoggerMenu.Text = bundle.getString("System.ConsoleWindow.title"); // NOI18N
 
 			ToggleLogger.Text = bundle.getString("MainGUI.ToggleLogger.text"); // NOI18N
 			ToggleLogger.addActionListener(new ActionListenerAnonymousInnerClass36(this));
@@ -2272,12 +2272,12 @@ namespace pspsharp
 
 				if (log.InfoEnabled)
 				{
-					Console.WriteLine(string.Format("Changing resolution to {0:D}x{1:D}, {2:D} bits, {3:D} Hz", displayMode.Width, displayMode.Height, displayMode.BitDepth, displayMode.RefreshRate));
+					System.Console.WriteLine(string.Format("Changing resolution to {0:D}x{1:D}, {2:D} bits, {3:D} Hz", displayMode.Width, displayMode.Height, displayMode.BitDepth, displayMode.RefreshRate));
 				}
 			}
 		}
 
-		public virtual LogWindow ConsoleWindow
+		public virtual LogWindow System.ConsoleWindow
 		{
 			get
 			{
@@ -2398,8 +2398,8 @@ namespace pspsharp
 			catch (Exception e)
 			{
 				// Required by File.getCanonicalPath
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 			}
 
 			// Files anywhere on user's hard drive, may not work
@@ -2424,7 +2424,7 @@ namespace pspsharp
 				{
 					State.logWindow.clearScreenMessages();
 				}
-				Console.WriteLine(MetaInformation.FULL_NAME);
+				System.Console.WriteLine(MetaInformation.FULL_NAME);
 
 				umdLoaded = false;
 				loadedFile = file;
@@ -2524,22 +2524,22 @@ namespace pspsharp
 				}
 				else
 				{
-					Console.WriteLine(e.ToString());
-					Console.Write(e.StackTrace);
+					System.Console.WriteLine(e.ToString());
+					System.Console.Write(e.StackTrace);
 					JpcspDialogManager.showError(this, bundle.getString("ioError") + ": " + e.LocalizedMessage);
 				}
 			}
 			catch (Exception ex)
 			{
-				Console.WriteLine(ex.ToString());
-				Console.Write(ex.StackTrace);
+				System.Console.WriteLine(ex.ToString());
+				System.Console.Write(ex.StackTrace);
 				if (ex.Message != null)
 				{
 					JpcspDialogManager.showError(this, bundle.getString("MainGUI.strCriticalError.text") + ": " + ex.LocalizedMessage);
 				}
 				else
 				{
-					JpcspDialogManager.showError(this, bundle.getString("MainGUI.strCriticalError.text") + ": " + bundle.getString("MainGUI.strCheckConsole.text"));
+					JpcspDialogManager.showError(this, bundle.getString("MainGUI.strCriticalError.text") + ": " + bundle.getString("MainGUI.strCheckSystem.Console.text"));
 				}
 			}
 			RefreshUI();
@@ -2608,8 +2608,8 @@ namespace pspsharp
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 			}
 		}
 
@@ -2825,7 +2825,7 @@ namespace pspsharp
 			}
 			catch (FileNotFoundException e)
 			{
-				Console.WriteLine(e.Message);
+				System.Console.WriteLine(e.Message);
 			}
 			catch (GeneralJpcspException)
 			{
@@ -2854,7 +2854,7 @@ namespace pspsharp
 				ByteBuffer readbuffer = roChannel.map(FileChannel.MapMode.READ_ONLY, 0, (int) roChannel.size());
 				emulator.load("disc0:/PSP_GAME/SYSDIR/EBOOT.BIN", readbuffer);
 				raf.close();
-				Console.WriteLine("Using unpacked UMD EBOOT.BIN image");
+				System.Console.WriteLine("Using unpacked UMD EBOOT.BIN image");
 				return true;
 			}
 			return false;
@@ -2918,7 +2918,7 @@ namespace pspsharp
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("loadUMD", e);
+				System.Console.WriteLine("loadUMD", e);
 				closeIso = true;
 			}
 			finally
@@ -2934,7 +2934,7 @@ namespace pspsharp
 					}
 					catch (IOException e)
 					{
-						Console.WriteLine("loadUMD", e);
+						System.Console.WriteLine("loadUMD", e);
 					}
 				}
 			}
@@ -2948,17 +2948,17 @@ namespace pspsharp
 				UmdIsoReader iso = new UmdIsoReader(file.Path);
 				if (!iso.hasFile("PSP_GAME/param.sfo"))
 				{
-					Console.WriteLine(string.Format("The UMD '{0}' is not a PSP_GAME UMD", file));
+					System.Console.WriteLine(string.Format("The UMD '{0}' is not a PSP_GAME UMD", file));
 					return;
 				}
 
-				Console.WriteLine(string.Format("Switching to the UMD {0}", file));
+				System.Console.WriteLine(string.Format("Switching to the UMD {0}", file));
 
 				Modules.sceUmdUserModule.hleUmdSwitch(iso);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("switchUMD", e);
+				System.Console.WriteLine("switchUMD", e);
 			}
 		}
 
@@ -2975,7 +2975,7 @@ namespace pspsharp
 				logStart();
 
 				Modules.SysMemUserForUserModule.reset();
-				Console.WriteLine(MetaInformation.FULL_NAME);
+				System.Console.WriteLine(MetaInformation.FULL_NAME);
 
 				umdLoaded = true;
 				loadedFile = file;
@@ -3051,7 +3051,7 @@ namespace pspsharp
 				int memorySize = Settings.Instance.readInt("memorySize", 0);
 				if (memorySize > 0)
 				{
-					Console.WriteLine(string.Format("Using memory size 0x{0:X} from settings for {1}", memorySize, State.discId));
+					System.Console.WriteLine(string.Format("Using memory size 0x{0:X} from settings for {1}", memorySize, State.discId));
 					Modules.SysMemUserForUserModule.MemorySize = memorySize;
 				}
 				else
@@ -3059,7 +3059,7 @@ namespace pspsharp
 					bool hasMemory64MB = psf.getNumeric("MEMSIZE") == 1;
 					if (Settings.Instance.readBool("memory64MB"))
 					{
-						Console.WriteLine(string.Format("Using 64MB memory from settings for {0}", State.discId));
+						System.Console.WriteLine(string.Format("Using 64MB memory from settings for {0}", State.discId));
 						hasMemory64MB = true;
 					}
 					Modules.SysMemUserForUserModule.Memory64MB = hasMemory64MB;
@@ -3097,21 +3097,21 @@ namespace pspsharp
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 				JpcspDialogManager.showError(this, bundle.getString("MainGUI.strIOError.text") + " : " + e.LocalizedMessage);
 			}
 			catch (Exception ex)
 			{
-				Console.WriteLine(ex.ToString());
-				Console.Write(ex.StackTrace);
+				System.Console.WriteLine(ex.ToString());
+				System.Console.Write(ex.StackTrace);
 				if (ex.Message != null)
 				{
 					JpcspDialogManager.showError(this, bundle.getString("MainGUI.strCriticalError.text") + " : " + ex.LocalizedMessage);
 				}
 				else
 				{
-					JpcspDialogManager.showError(this, bundle.getString("MainGUI.strCriticalError.text") + " : " + bundle.getString("MainGUI.strCheckConsole.text"));
+					JpcspDialogManager.showError(this, bundle.getString("MainGUI.strCriticalError.text") + " : " + bundle.getString("MainGUI.strCheckSystem.Console.text"));
 				}
 			}
 		}
@@ -3128,7 +3128,7 @@ namespace pspsharp
 				}
 				logStart();
 				Modules.SysMemUserForUserModule.reset();
-				Console.WriteLine(MetaInformation.FULL_NAME);
+				System.Console.WriteLine(MetaInformation.FULL_NAME);
 
 				umdLoaded = true;
 				loadedFile = file;
@@ -3177,15 +3177,15 @@ namespace pspsharp
 			}
 			catch (Exception ex)
 			{
-				Console.WriteLine(ex.ToString());
-				Console.Write(ex.StackTrace);
+				System.Console.WriteLine(ex.ToString());
+				System.Console.Write(ex.StackTrace);
 				if (ex.Message != null)
 				{
 					JpcspDialogManager.showError(this, bundle.getString("MainGUI.strCriticalError.text") + ": " + ex.LocalizedMessage);
 				}
 				else
 				{
-					JpcspDialogManager.showError(this, bundle.getString("MainGUI.strCriticalError.text") + ": " + bundle.getString("MainGUI.strCheckConsole.text"));
+					JpcspDialogManager.showError(this, bundle.getString("MainGUI.strCriticalError.text") + ": " + bundle.getString("MainGUI.strCheckSystem.Console.text"));
 				}
 			}
 		}
@@ -3201,7 +3201,7 @@ namespace pspsharp
 				}
 				logStart();
 				Modules.SysMemUserForUserModule.reset();
-				Console.WriteLine(MetaInformation.FULL_NAME);
+				System.Console.WriteLine(MetaInformation.FULL_NAME);
 
 				umdLoaded = true;
 				loadedFile = file;
@@ -3237,15 +3237,15 @@ namespace pspsharp
 			}
 			catch (Exception ex)
 			{
-				Console.WriteLine(ex.ToString());
-				Console.Write(ex.StackTrace);
+				System.Console.WriteLine(ex.ToString());
+				System.Console.Write(ex.StackTrace);
 				if (ex.Message != null)
 				{
 					JpcspDialogManager.showError(this, bundle.getString("MainGUI.strCriticalError.text") + ": " + ex.LocalizedMessage);
 				}
 				else
 				{
-					JpcspDialogManager.showError(this, bundle.getString("MainGUI.strCriticalError.text") + ": " + bundle.getString("MainGUI.strCheckConsole.text"));
+					JpcspDialogManager.showError(this, bundle.getString("MainGUI.strCriticalError.text") + ": " + bundle.getString("MainGUI.strCheckSystem.Console.text"));
 				}
 			}
 		}
@@ -3273,7 +3273,7 @@ namespace pspsharp
 			{
 				// do nothing
 			}
-			Console.WriteLine(string.format(format, text, value, square ? '[' : '(', square ? ']' : ')', "from patch file"));
+			System.Console.WriteLine(string.format(format, text, value, square ? '[' : '(', square ? ']' : ')', "from patch file"));
 		}
 
 		private void logConfigurationSettingBool(string resourceKey, bool value, bool textLeft, bool square)
@@ -3314,7 +3314,7 @@ namespace pspsharp
 		{
 			// jog here only in the English locale
 			java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pspsharp/languages/pspsharp", new Locale("en"));
-			Console.WriteLine(string.Format("{0} / {1}", bundle.getString("SettingsGUI.title"), bundle.getString(resourceKey)));
+			System.Console.WriteLine(string.Format("{0} / {1}", bundle.getString("SettingsGUI.title"), bundle.getString(resourceKey)));
 		}
 
 		private void logDirectory(File dir, string prefix)
@@ -3326,7 +3326,7 @@ namespace pspsharp
 
 			if (dir.Directory)
 			{
-				Console.WriteLine(string.Format("{0}{1}:", prefix, dir.Name));
+				System.Console.WriteLine(string.Format("{0}{1}:", prefix, dir.Name));
 				File[] files = dir.listFiles();
 				if (files != null)
 				{
@@ -3338,7 +3338,7 @@ namespace pspsharp
 			}
 			else
 			{
-				Console.WriteLine(string.Format("{0}{1}, size=0x{2:X}", prefix, dir.Name, dir.Length()));
+				System.Console.WriteLine(string.Format("{0}{1}, size=0x{2:X}", prefix, dir.Name, dir.Length()));
 			}
 		}
 
@@ -3347,19 +3347,19 @@ namespace pspsharp
 			File dir = new File(dirName);
 			if (dir.exists())
 			{
-				Console.WriteLine(string.Format("Contents of '{0}' directory:", dirName));
+				System.Console.WriteLine(string.Format("Contents of '{0}' directory:", dirName));
 				logDirectory(dir, "  ");
 			}
 			else
 			{
-				Console.WriteLine(string.Format("Non existing directory '{0}'", dirName));
+				System.Console.WriteLine(string.Format("Non existing directory '{0}'", dirName));
 			}
 		}
 
 		private void logStart()
 		{
-			Console.WriteLine(string.Format("Java version: {0} ({1})", System.getProperty("java.version"), System.getProperty("java.runtime.version")));
-			Console.WriteLine(string.Format("Java library path: {0}", System.getProperty("java.library.path")));
+			System.Console.WriteLine(string.Format("Java version: {0} ({1})", System.getProperty("java.version"), System.getProperty("java.runtime.version")));
+			System.Console.WriteLine(string.Format("Java library path: {0}", System.getProperty("java.library.path")));
 
 			logConfigurationSettings();
 
@@ -3386,7 +3386,7 @@ namespace pspsharp
 						psfFile.read(data);
 						psf.read(ByteBuffer.wrap(data));
 
-						Console.WriteLine(string.Format("Content of {0}:{1}{2}", paramSfoFile, Environment.NewLine, psf));
+						System.Console.WriteLine(string.Format("Content of {0}:{1}{2}", paramSfoFile, Environment.NewLine, psf));
 					}
 					catch (IOException)
 					{
@@ -3404,7 +3404,7 @@ namespace pspsharp
 					umdDataBin.readFully(buffer);
 					umdDataBin.Dispose();
 					string umdDataBinContent = (StringHelper.NewString(buffer)).Replace((char) 0, ' ');
-					Console.WriteLine(string.Format("Content of UMD_DATA.BIN: '{0}'", umdDataBinContent));
+					System.Console.WriteLine(string.Format("Content of UMD_DATA.BIN: '{0}'", umdDataBinContent));
 				}
 			}
 			catch (FileNotFoundException)
@@ -3424,7 +3424,7 @@ namespace pspsharp
 				return;
 			}
 
-			Console.WriteLine("Using the following settings:");
+			System.Console.WriteLine("Using the following settings:");
 
 			// Log the configuration settings
 			logConfigurationPanel("SettingsGUI.RegionPanel.title");
@@ -3629,14 +3629,14 @@ namespace pspsharp
 				output.Close();
 				input.Dispose();
 
-				Console.WriteLine(string.Format("Exported file '{0}' to '{1}'", fileName, exportFileName));
+				System.Console.WriteLine(string.Format("Exported file '{0}' to '{1}'", fileName, exportFileName));
 				string messageFormat = bundle.getString("MainGUI.FileExported.text");
 				string message = MessageFormat.format(messageFormat, fileName, exportFileName);
 				MessageBox.Show(null, message, null, MessageBoxIcon.Information);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 			}
 
 	} //GEN-LAST:event_ExportISOFileActionPerformed
@@ -3701,8 +3701,8 @@ namespace pspsharp
 		}
 		catch (IOException e)
 		{
-			Console.WriteLine(e.ToString());
-			Console.Write(e.StackTrace);
+			System.Console.WriteLine(e.ToString());
+			System.Console.Write(e.StackTrace);
 		}
 	} //GEN-LAST:event_SaveSnapActionPerformed
 
@@ -3714,8 +3714,8 @@ namespace pspsharp
 		}
 		catch (IOException e)
 		{
-			Console.WriteLine(e.ToString());
-			Console.Write(e.StackTrace);
+			System.Console.WriteLine(e.ToString());
+			System.Console.Write(e.StackTrace);
 		}
 	} //GEN-LAST:event_LoadSnapActionPerformed
 
@@ -3844,7 +3844,7 @@ namespace pspsharp
 	{ //GEN-FIRST:event_ToggleLoggerActionPerformed
 			if (!State.logWindow.Visible)
 			{
-				updateConsoleWinPosition();
+				updateSystem.ConsoleWinPosition();
 			}
 			State.logWindow.Visible = !State.logWindow.Visible;
 			ToggleLogger.Selected = State.logWindow.Visible;
@@ -3960,7 +3960,7 @@ namespace pspsharp
 
 		private void formComponentResized(ComponentEvent evt)
 		{ //GEN-FIRST:event_formComponentResized
-			updateConsoleWinPosition();
+			updateSystem.ConsoleWinPosition();
 		} //GEN-LAST:event_formComponentResized
 
 		private void EnglishGBActionPerformed(ActionEvent evt)
@@ -3990,7 +3990,7 @@ namespace pspsharp
 			Environment.Exit(0);
 		}
 
-		public virtual void updateConsoleWinPosition()
+		public virtual void updateSystem.ConsoleWinPosition()
 		{
 			if (Settings.Instance.readBool("gui.snapLogwindow"))
 			{
@@ -4250,7 +4250,7 @@ namespace pspsharp
 
 					if (!Modules.rebootModule.loadAndRun())
 					{
-						Console.WriteLine(string.Format("Cannot reboot - missing files"));
+						System.Console.WriteLine(string.Format("Cannot reboot - missing files"));
 						reboot.enableReboot = false;
 					}
 				}
@@ -4271,7 +4271,7 @@ namespace pspsharp
 							mappedDirectoryName += "/";
 						}
 						Settings.Instance.setDirectoryMapping(directoryName, mappedDirectoryName);
-						Console.WriteLine(string.Format("Mapping '{0}' to directory '{1}'", directoryName, mappedDirectoryName));
+						System.Console.WriteLine(string.Format("Mapping '{0}' to directory '{1}'", directoryName, mappedDirectoryName));
 					}
 					else
 					{
@@ -4351,8 +4351,8 @@ namespace pspsharp
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 			}
 
 			// add the window property saver class to the event listeners for
@@ -4549,7 +4549,7 @@ namespace pspsharp
 		{
 			if (State.logWindow.Visible)
 			{
-				updateConsoleWinPosition();
+				updateSystem.ConsoleWinPosition();
 			}
 		}
 

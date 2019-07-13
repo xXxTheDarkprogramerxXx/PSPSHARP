@@ -226,7 +226,7 @@ namespace pspsharp.graphics.RE
 				{
 					if (!re.ShaderAvailable)
 					{
-						Console.WriteLine("Shaders are not available on your computer. They are required to save stencil information into the GE texture. Saving of the stencil information has been disabled.");
+						System.Console.WriteLine("Shaders are not available on your computer. They are required to save stencil information into the GE texture. Saving of the stencil information has been disabled.");
 						return false;
 					}
 
@@ -239,7 +239,7 @@ namespace pspsharp.graphics.RE
 					bool compiled = re.compilerShader(shaderId, fragmentShaderSource);
 					if (!compiled)
 					{
-						Console.WriteLine(string.Format("Cannot compile shader required for storing stencil information into the GE texture: {0}", re.getShaderInfoLog(shaderId)));
+						System.Console.WriteLine(string.Format("Cannot compile shader required for storing stencil information into the GE texture: {0}", re.getShaderInfoLog(shaderId)));
 						return false;
 					}
 
@@ -248,7 +248,7 @@ namespace pspsharp.graphics.RE
 					bool linked = re.linkProgram(stencilShaderProgramId);
 					if (!linked)
 					{
-						Console.WriteLine(string.Format("Cannot link shader required for storing stencil information into the GE texture: {0}", re.getProgramInfoLog(stencilShaderProgramId)));
+						System.Console.WriteLine(string.Format("Cannot link shader required for storing stencil information into the GE texture: {0}", re.getProgramInfoLog(stencilShaderProgramId)));
 						return false;
 					}
 
@@ -259,7 +259,7 @@ namespace pspsharp.graphics.RE
 
 					if (!Settings.Instance.readBool("emu.useshaders"))
 					{
-						Console.WriteLine("Shaders are disabled in the pspsharp video settings. However a small shader program is required to implement the saving of the Stencil information into the GE texture. This small shader program will still be used even though the shaders are disabled in the settings. This was just for your information, you do not need to take special actions.");
+						System.Console.WriteLine("Shaders are disabled in the pspsharp video settings. However a small shader program is required to implement the saving of the Stencil information into the GE texture. This small shader program will still be used even though the shaders are disabled in the settings. This was just for your information, you do not need to take special actions.");
 					}
 				}
 

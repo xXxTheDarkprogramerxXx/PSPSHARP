@@ -67,7 +67,7 @@ namespace pspsharp.format.rco.anim
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("ResizeAnim '{0}' from ({1:F},{2:F},{3:F}) to ({4:F},{5:F},{6:F})", positionObject.Name, startWidth, startHeight, startDepth, positionObject.scaleWidth.FloatValue, positionObject.scaleHeight.FloatValue, positionObject.scaleDepth.FloatValue));
+					System.Console.WriteLine(string.Format("ResizeAnim '{0}' from ({1:F},{2:F},{3:F}) to ({4:F},{5:F},{6:F})", positionObject.Name, startWidth, startHeight, startDepth, positionObject.scaleWidth.FloatValue, positionObject.scaleHeight.FloatValue, positionObject.scaleDepth.FloatValue));
 				}
 			}
 		}
@@ -76,7 +76,7 @@ namespace pspsharp.format.rco.anim
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("ResizeAnim play {0} on {1}", ToString(), @object));
+				System.Console.WriteLine(string.Format("ResizeAnim play {0} on {1}", ToString(), @object));
 			}
 
 			Scheduler.addAction(new ResizeAnimAction(this, duration.IntValue, @object));

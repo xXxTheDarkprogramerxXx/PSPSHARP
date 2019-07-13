@@ -91,7 +91,7 @@ namespace pspsharp.graphics
 
 			if (log.InfoEnabled)
 			{
-				Console.WriteLine(string.Format("Compiling VertexInfoReader for {0}", vinfo));
+				System.Console.WriteLine(string.Format("Compiling VertexInfoReader for {0}", vinfo));
 			}
 
 			Dictionary<string, object> variables = new Dictionary<string, object>();
@@ -128,11 +128,11 @@ namespace pspsharp.graphics
 				}
 				catch (InstantiationException e)
 				{
-					Console.WriteLine("Error while instanciating compiled vertexInfoReader", e);
+					System.Console.WriteLine("Error while instanciating compiled vertexInfoReader", e);
 				}
 				catch (IllegalAccessException e)
 				{
-					Console.WriteLine("Error while instanciating compiled vertexInfoReader", e);
+					System.Console.WriteLine("Error while instanciating compiled vertexInfoReader", e);
 				}
 			}
 

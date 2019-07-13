@@ -289,7 +289,7 @@ namespace pspsharp.memory.mmio
     
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("MMIOHandlerAta.setCommand command 0x{0:X2}({1})", value, getCommandName(this.command)));
+					System.Console.WriteLine(string.Format("MMIOHandlerAta.setCommand command 0x{0:X2}({1})", value, getCommandName(this.command)));
 				}
     
 				switch (value)
@@ -303,7 +303,7 @@ namespace pspsharp.memory.mmio
 						pendingOperationCodeParameters = -1;
 						break;
 					default:
-						Console.WriteLine(string.Format("MMIOHandlerAta.setCommand unknown command 0x{0:X2}", value));
+						System.Console.WriteLine(string.Format("MMIOHandlerAta.setCommand unknown command 0x{0:X2}", value));
 						break;
 				}
 			}
@@ -317,7 +317,7 @@ namespace pspsharp.memory.mmio
     
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("MMIOHandlerAta.setControl control 0x{0:X2}", this.control));
+					System.Console.WriteLine(string.Format("MMIOHandlerAta.setControl control 0x{0:X2}", this.control));
 				}
     
 				if ((value & ATA_CONTROL_SOFT_RESET) != 0)
@@ -335,7 +335,7 @@ namespace pspsharp.memory.mmio
     
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("MMIOHandlerAta.setFeatures features 0x{0:X2}", this.features));
+					System.Console.WriteLine(string.Format("MMIOHandlerAta.setFeatures features 0x{0:X2}", this.features));
 				}
 			}
 		}
@@ -353,7 +353,7 @@ namespace pspsharp.memory.mmio
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("MMIOHandlerAta.writeData 0x{0:X4}", data16));
+				System.Console.WriteLine(string.Format("MMIOHandlerAta.writeData 0x{0:X4}", data16));
 			}
 
 			if (dataIndex >= dataLength)
@@ -380,7 +380,7 @@ namespace pspsharp.memory.mmio
     
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("MMIOHandlerAta.getData16 returning 0x{0:X4}", data16));
+					System.Console.WriteLine(string.Format("MMIOHandlerAta.getData16 returning 0x{0:X4}", data16));
 				}
     
 				if (dataIndex >= dataLength)
@@ -520,7 +520,7 @@ namespace pspsharp.memory.mmio
 					}
 					break;
 				default:
-					Console.WriteLine(string.Format("MMIOHandlerAta.executeCommand unknown command 0x{0:X2}", command));
+					System.Console.WriteLine(string.Format("MMIOHandlerAta.executeCommand unknown command 0x{0:X2}", command));
 					break;
 			}
 		}
@@ -539,7 +539,7 @@ namespace pspsharp.memory.mmio
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("ATA_CMD_OP_INQUIRY allocationLength=0x{0:X}", allocationLength));
+						System.Console.WriteLine(string.Format("ATA_CMD_OP_INQUIRY allocationLength=0x{0:X}", allocationLength));
 					}
 
 					prepareDataInit(allocationLength);
@@ -561,7 +561,7 @@ namespace pspsharp.memory.mmio
 				case ATA_CMD_OP_TEST_UNIT_READY:
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("ATA_CMD_OP_TEST_UNIT_READY"));
+						System.Console.WriteLine(string.Format("ATA_CMD_OP_TEST_UNIT_READY"));
 					}
 
 					// Duration 1ms
@@ -572,7 +572,7 @@ namespace pspsharp.memory.mmio
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("ATA_CMD_OP_REQUEST_SENSE allocationLength=0x{0:X}", allocationLength));
+						System.Console.WriteLine(string.Format("ATA_CMD_OP_REQUEST_SENSE allocationLength=0x{0:X}", allocationLength));
 					}
 
 					prepareDataInit(allocationLength);
@@ -612,7 +612,7 @@ namespace pspsharp.memory.mmio
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("ATA_CMD_OP_READ_STRUCTURE formatCode=0x{0:X}, allocationLength=0x{1:X}", formatCode, allocationLength));
+						System.Console.WriteLine(string.Format("ATA_CMD_OP_READ_STRUCTURE formatCode=0x{0:X}, allocationLength=0x{1:X}", formatCode, allocationLength));
 					}
 
 					prepareDataInit(allocationLength);
@@ -646,7 +646,7 @@ namespace pspsharp.memory.mmio
 							delayUs = 6000;
 							break;
 						default:
-							Console.WriteLine(string.Format("ATA_CMD_OP_READ_STRUCTURE unknown formatCode=0x{0:X}", formatCode));
+							System.Console.WriteLine(string.Format("ATA_CMD_OP_READ_STRUCTURE unknown formatCode=0x{0:X}", formatCode));
 							break;
 					}
 					prepareDataEndWithDelay(allocationLength, delayUs);
@@ -656,7 +656,7 @@ namespace pspsharp.memory.mmio
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("ATA_CMD_OP_UNKNOWN_F0 unknown=0x{0:X}", unknown));
+						System.Console.WriteLine(string.Format("ATA_CMD_OP_UNKNOWN_F0 unknown=0x{0:X}", unknown));
 					}
 
 					// Unknown 1 byte is being returned
@@ -671,7 +671,7 @@ namespace pspsharp.memory.mmio
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("ATA_CMD_OP_MODE_SENSE_BIG pageCode=0x{0:X}, allocationLength=0x{1:X}", pageCode, allocationLength));
+						System.Console.WriteLine(string.Format("ATA_CMD_OP_MODE_SENSE_BIG pageCode=0x{0:X}, allocationLength=0x{1:X}", pageCode, allocationLength));
 					}
 
 					prepareDataInit(allocationLength);
@@ -711,7 +711,7 @@ namespace pspsharp.memory.mmio
 							delayUs = 2000;
 							break;
 						default:
-							Console.WriteLine(string.Format("ATA_CMD_OP_MODE_SENSE_BIG unknown pageCode=0x{0:X}", pageCode));
+							System.Console.WriteLine(string.Format("ATA_CMD_OP_MODE_SENSE_BIG unknown pageCode=0x{0:X}", pageCode));
 							break;
 					}
 					prepareDataEndWithDelay(allocationLength, delayUs);
@@ -722,7 +722,7 @@ namespace pspsharp.memory.mmio
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("ATA_CMD_OP_MODE_SELECT_BIG parameterListLength=0x{0:X}, unknown=0x{1:X}", parameterListLength, unknown));
+						System.Console.WriteLine(string.Format("ATA_CMD_OP_MODE_SELECT_BIG parameterListLength=0x{0:X}, unknown=0x{1:X}", parameterListLength, unknown));
 					}
 
 					preparePacketCommandParameterList(parameterListLength, operationCode);
@@ -732,7 +732,7 @@ namespace pspsharp.memory.mmio
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("ATA_CMD_OP_UNKNOWN_F1 unknown=0x{0:X}", unknown));
+						System.Console.WriteLine(string.Format("ATA_CMD_OP_UNKNOWN_F1 unknown=0x{0:X}", unknown));
 					}
 
 					prepareDataInit(unknown);
@@ -743,7 +743,7 @@ namespace pspsharp.memory.mmio
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("ATA_CMD_OP_UNKNOWN_F7 unknown=0x{0:X}", unknown));
+						System.Console.WriteLine(string.Format("ATA_CMD_OP_UNKNOWN_F7 unknown=0x{0:X}", unknown));
 					}
 
 					packetCommandCompleted();
@@ -753,7 +753,7 @@ namespace pspsharp.memory.mmio
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("ATA_CMD_OP_UNKNOWN_FC allocationLength=0x{0:X}", allocationLength));
+						System.Console.WriteLine(string.Format("ATA_CMD_OP_UNKNOWN_FC allocationLength=0x{0:X}", allocationLength));
 					}
 
 					prepareDataInit(allocationLength);
@@ -769,7 +769,7 @@ namespace pspsharp.memory.mmio
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("ATA_CMD_OP_READ_BIG logicalBlockAddress=0x{0:X}, numberOfSectorsToTransfer=0x{1:X}", logicalBlockAddress, numberOfSectorsToTransfer));
+						System.Console.WriteLine(string.Format("ATA_CMD_OP_READ_BIG logicalBlockAddress=0x{0:X}, numberOfSectorsToTransfer=0x{1:X}", logicalBlockAddress, numberOfSectorsToTransfer));
 					}
 
 					prepareDataInit(0);
@@ -777,7 +777,7 @@ namespace pspsharp.memory.mmio
 					prepareDataEndWithDelay(0, 1000);
 					break;
 				default:
-					Console.WriteLine(string.Format("MMIOHandlerAta.executePacketCommand unknown operation code 0x{0:X2}({1})", operationCode, getOperationCodeName(operationCode)));
+					System.Console.WriteLine(string.Format("MMIOHandlerAta.executePacketCommand unknown operation code 0x{0:X2}({1})", operationCode, getOperationCodeName(operationCode)));
 					break;
 			}
 		}
@@ -792,20 +792,20 @@ namespace pspsharp.memory.mmio
 
 					if (pageCode != 0)
 					{
-						Console.WriteLine(string.Format("ATA_CMD_OP_MODE_SELECT_BIG parameter unknown pageCode=0x{0:X}", pageCode));
+						System.Console.WriteLine(string.Format("ATA_CMD_OP_MODE_SELECT_BIG parameter unknown pageCode=0x{0:X}", pageCode));
 					}
 					if (pageLength != 0x1A)
 					{
-						Console.WriteLine(string.Format("ATA_CMD_OP_MODE_SELECT_BIG parameter unknown pageLength=0x{0:X}", pageLength));
+						System.Console.WriteLine(string.Format("ATA_CMD_OP_MODE_SELECT_BIG parameter unknown pageLength=0x{0:X}", pageLength));
 					}
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("ATA_CMD_OP_MODE_SELECT_BIG parameters pageCode=0x{0:X}, pageLength=0x{1:X}", pageCode, pageLength));
+						System.Console.WriteLine(string.Format("ATA_CMD_OP_MODE_SELECT_BIG parameters pageCode=0x{0:X}, pageLength=0x{1:X}", pageCode, pageLength));
 					}
 					break;
 				default:
-					Console.WriteLine(string.Format("MMIOHandlerAta.executePacketCommandParameterList unknown operation code 0x{0:X2}({1})", operationCode, getOperationCodeName(operationCode)));
+					System.Console.WriteLine(string.Format("MMIOHandlerAta.executePacketCommandParameterList unknown operation code 0x{0:X2}({1})", operationCode, getOperationCodeName(operationCode)));
 					break;
 			}
 
@@ -816,7 +816,7 @@ namespace pspsharp.memory.mmio
 		{
 			if (value != 0)
 			{
-				Console.WriteLine(string.Format("MMIOHandlerAta.endOfData unknown value=0x{0:X2}", value));
+				System.Console.WriteLine(string.Format("MMIOHandlerAta.endOfData unknown value=0x{0:X2}", value));
 			}
 		}
 

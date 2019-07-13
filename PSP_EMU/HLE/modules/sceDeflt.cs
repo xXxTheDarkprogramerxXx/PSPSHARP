@@ -79,7 +79,7 @@ namespace pspsharp.HLE.modules
 					}
 					if (decompressedLength + Length > outBufferLength)
 					{
-						Console.WriteLine(string.Format("sceGzipDecompress : decompress buffer too small inBuffer={0}, outLength={1:D}", inBufferAddr, outBufferLength));
+						System.Console.WriteLine(string.Format("sceGzipDecompress : decompress buffer too small inBuffer={0}, outLength={1:D}", inBufferAddr, outBufferLength));
 						@is.close();
 						return SceKernelErrors.ERROR_INVALID_SIZE;
 					}
@@ -98,7 +98,7 @@ namespace pspsharp.HLE.modules
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("sceGzipDecompress", e);
+				System.Console.WriteLine("sceGzipDecompress", e);
 				return SceKernelErrors.ERROR_INVALID_FORMAT;
 			}
 			crc32Addr.setValue((int) crc32.Value);
@@ -180,7 +180,7 @@ namespace pspsharp.HLE.modules
 
 					if (inflater.TotalOut > outBufferLength)
 					{
-						Console.WriteLine(string.Format("sceZlibDecompress : zlib decompress buffer too small inBuffer={0}, outLength={1:D}", inBufferAddr, outBufferLength));
+						System.Console.WriteLine(string.Format("sceZlibDecompress : zlib decompress buffer too small inBuffer={0}, outLength={1:D}", inBufferAddr, outBufferLength));
 						return SceKernelErrors.ERROR_INVALID_SIZE;
 					}
 					crc32.update(outBuffer, 0, count);
@@ -191,7 +191,7 @@ namespace pspsharp.HLE.modules
 				}
 				catch (DataFormatException)
 				{
-					Console.WriteLine(string.Format("sceZlibDecompress : malformed zlib stream inBuffer={0}", inBufferAddr));
+					System.Console.WriteLine(string.Format("sceZlibDecompress : malformed zlib stream inBuffer={0}", inBufferAddr));
 					return SceKernelErrors.ERROR_INVALID_FORMAT;
 				}
 			}

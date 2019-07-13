@@ -139,7 +139,7 @@ namespace pspsharp.filesystems.umdiso
 					readSize = fileAccess.read(tableBytes);
 					if (readSize != tableBytes.Length)
 					{
-						Console.WriteLine(string.Format("Could not read table with size {0:D} (readSize={1:D})", tableBytes.Length, readSize));
+						System.Console.WriteLine(string.Format("Could not read table with size {0:D} (readSize={1:D})", tableBytes.Length, readSize));
 					}
 
 					IntBuffer tableInts = ByteBuffer.wrap(tableBytes).order(ByteOrder.LITTLE_ENDIAN).asIntBuffer();
@@ -172,7 +172,7 @@ namespace pspsharp.filesystems.umdiso
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("Reading PBP", e);
+				System.Console.WriteLine("Reading PBP", e);
 			}
 		}
 
@@ -235,7 +235,7 @@ namespace pspsharp.filesystems.umdiso
 							int lzsize = lzrc_decompress(blockBuffer, blockBuffer.Length, readBuffer, table[block].size);
 							if (lzsize != blockSize)
 							{
-								Console.WriteLine(string.Format("LZRC decompress error: decompressedSized={0:D}, should be {1:D}", lzsize, blockSize));
+								System.Console.WriteLine(string.Format("LZRC decompress error: decompressedSized={0:D}, should be {1:D}", lzsize, blockSize));
 							}
 						}
 

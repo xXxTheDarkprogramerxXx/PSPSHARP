@@ -251,7 +251,7 @@ namespace pspsharp.graphics.capture
 			{
 				if (!ImageIO.write(im, fileFormat, new File(fileName)))
 				{
-					Console.WriteLine(string.Format("Cannot save image in format {0} using ImageIO: {1}", fileFormat, fileName));
+					System.Console.WriteLine(string.Format("Cannot save image in format {0} using ImageIO: {1}", fileFormat, fileName));
 				}
 			}
 		}
@@ -620,7 +620,7 @@ namespace pspsharp.graphics.capture
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Saved image to {0}", FileName));
+				System.Console.WriteLine(string.Format("Saved image to {0}", FileName));
 			}
 		}
 
@@ -898,7 +898,7 @@ namespace pspsharp.graphics.capture
 					decompressImageDXT(5);
 					break;
 				default:
-					Console.WriteLine(string.Format("Unsupported compressed buffer storage {0:D}", bufferStorage));
+					System.Console.WriteLine(string.Format("Unsupported compressed buffer storage {0:D}", bufferStorage));
 					break;
 			}
 		}

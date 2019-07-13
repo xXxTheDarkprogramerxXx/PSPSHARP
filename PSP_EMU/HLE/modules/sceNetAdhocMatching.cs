@@ -250,7 +250,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetAdhocMatchingCreate mode={0}", getModeName(mode)));
+				System.Console.WriteLine(string.Format("sceNetAdhocMatchingCreate mode={0}", getModeName(mode)));
 			}
 
 			MatchingObject matchingObject = NetworkAdapter.createMatchingObject();
@@ -488,7 +488,7 @@ namespace pspsharp.HLE.modules
 			sizeAddr.setValue(matchingMemberSize * members.Count);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetAdhocMatchingGetMembers returning size={0:D}", sizeAddr.getValue()));
+				System.Console.WriteLine(string.Format("sceNetAdhocMatchingGetMembers returning size={0:D}", sizeAddr.getValue()));
 			}
 
 			if (buf.NotNull)
@@ -504,7 +504,7 @@ namespace pspsharp.HLE.modules
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceNetAdhocMatchingGetMembers returning {0} at 0x{1:X8}", member, buf.Address + offset));
+						System.Console.WriteLine(string.Format("sceNetAdhocMatchingGetMembers returning {0} at 0x{1:X8}", member, buf.Address + offset));
 					}
 
 					/// <summary>

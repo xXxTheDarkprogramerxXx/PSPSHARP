@@ -57,7 +57,7 @@ namespace pspsharp.filesystems.umdiso
 				{
 					if ((sectorOffsets[i] & sectorOffsetMask) < (sectorOffsets[i - 1] & sectorOffsetMask))
 					{
-						Console.WriteLine(string.Format("Corrupted CISO - Invalid offset [{0:D}]: 0x{1:X8} < 0x{2:X8}", i, sectorOffsets[i], sectorOffsets[i - 1]));
+						System.Console.WriteLine(string.Format("Corrupted CISO - Invalid offset [{0:D}]: 0x{1:X8} < 0x{2:X8}", i, sectorOffsets[i], sectorOffsets[i - 1]));
 					}
 				}
 			}

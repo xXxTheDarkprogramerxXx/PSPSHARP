@@ -146,7 +146,7 @@ namespace pspsharp.network.adhoc
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("Error while closing Adhoc socket", e);
+					System.Console.WriteLine("Error while closing Adhoc socket", e);
 				}
 				socket = null;
 			}
@@ -194,7 +194,7 @@ namespace pspsharp.network.adhoc
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Successfully sent {0:D} bytes to {1}, port {2:D}({3:D}): {4}", adhocMessage.DataLength, socketAddress[i], destPort, realPort, adhocMessage));
+					System.Console.WriteLine(string.Format("Successfully sent {0:D} bytes to {1}, port {2:D}({3:D}): {4}", adhocMessage.DataLength, socketAddress[i], destPort, realPort, adhocMessage));
 				}
 			}
 		}

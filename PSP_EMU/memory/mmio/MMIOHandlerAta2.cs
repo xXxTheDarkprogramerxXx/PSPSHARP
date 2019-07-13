@@ -92,7 +92,7 @@ namespace pspsharp.memory.mmio
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("writeUnknown44 0x{0:X4}", unknownValue));
+				System.Console.WriteLine(string.Format("writeUnknown44 0x{0:X4}", unknownValue));
 			}
 		}
 

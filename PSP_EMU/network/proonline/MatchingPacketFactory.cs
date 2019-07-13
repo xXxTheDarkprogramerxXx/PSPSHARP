@@ -180,7 +180,7 @@ namespace pspsharp.network.proonline
 						addToBytes(message, macAddress);
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Sending Sibling#{0:D}: MAC {1}", i, convertMacAddressToString(macAddress)));
+							System.Console.WriteLine(string.Format("Sending Sibling#{0:D}: MAC {1}", i, convertMacAddressToString(macAddress)));
 						}
 					}
     
@@ -205,7 +205,7 @@ namespace pspsharp.network.proonline
 						copyFromBytes(message, mac);
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Received Sibling#{0:D}: MAC {1}", i, convertMacAddressToString(mac)));
+							System.Console.WriteLine(string.Format("Received Sibling#{0:D}: MAC {1}", i, convertMacAddressToString(mac)));
 						}
 					}
 				}

@@ -109,7 +109,7 @@ namespace pspsharp.HLE.modules
 
 		public override void start()
 		{
-			Console.WriteLine(string.Format("Starting {0}", Name));
+			System.Console.WriteLine(string.Format("Starting {0}", Name));
 
 			waitingForSync = false;
 			syncDone = false;
@@ -134,7 +134,7 @@ namespace pspsharp.HLE.modules
 
 		public override void stop()
 		{
-			Console.WriteLine(string.Format("Stopping {0}", Name));
+			System.Console.WriteLine(string.Format("Stopping {0}", Name));
 
 			if (ExternalGE.Active)
 			{
@@ -150,7 +150,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("really waking thread " + thid.ToString("x") + "(" + threadMan.getThreadName(thid.Value) + ")");
+					System.Console.WriteLine("really waking thread " + thid.ToString("x") + "(" + threadMan.getThreadName(thid.Value) + ")");
 				}
 				threadMan.hleUnblockThread(thid);
 
@@ -165,7 +165,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Scheduling Async Callback {0}, listId=0x{1:X}, listPc=0x{2:X8}, behavior={3:D}, signalId=0x{4:X}", callback.ToString(), listId, listPc, behavior, signalId));
+					System.Console.WriteLine(string.Format("Scheduling Async Callback {0}, listId=0x{1:X}, listPc=0x{2:X8}, behavior={3:D}, signalId=0x{4:X}", callback.ToString(), listId, listPc, behavior, signalId));
 				}
 				GeCallbackInterruptHandler geCallbackInterruptHandler = new GeCallbackInterruptHandler(callback.CallbackFunction, callback.CallbackArgument, listPc);
 				GeInterruptHandler geInterruptHandler = new GeInterruptHandler(geCallbackInterruptHandler, listId, behavior, signalId);
@@ -193,7 +193,7 @@ namespace pspsharp.HLE.modules
 					// do not block the thread
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine("blockCurrentThreadOnList not blocking thread " + currentThreadId.ToString("x") + ", list completed " + list);
+						System.Console.WriteLine("blockCurrentThreadOnList not blocking thread " + currentThreadId.ToString("x") + ", list completed " + list);
 					}
 					executeAction = true;
 				}
@@ -201,7 +201,7 @@ namespace pspsharp.HLE.modules
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine("blockCurrentThreadOnList blocking thread " + currentThreadId.ToString("x") + " on list " + list);
+						System.Console.WriteLine("blockCurrentThreadOnList blocking thread " + currentThreadId.ToString("x") + " on list " + list);
 					}
 					list.blockedThreadIds.Add(currentThreadId);
 					blockCurrentThread = true;
@@ -265,7 +265,7 @@ namespace pspsharp.HLE.modules
 					}
 				}
 
-				Console.WriteLine(msg);
+				System.Console.WriteLine(msg);
 			}
 
 			lock (this)
@@ -296,7 +296,7 @@ namespace pspsharp.HLE.modules
 					PspGeList list = allGeLists[listId];
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine("hleGeOnAfterCallback restarting list " + list);
+						System.Console.WriteLine("hleGeOnAfterCallback restarting list " + list);
 					}
 
 					list.restartList();
@@ -426,7 +426,7 @@ namespace pspsharp.HLE.modules
 				saveContextAddr = optParams.contextAddr;
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("hleGeListEnQueue optParams={0}", optParams));
+					System.Console.WriteLine(string.Format("hleGeListEnQueue optParams={0}", optParams));
 				}
 			}
 
@@ -444,7 +444,7 @@ namespace pspsharp.HLE.modules
 				}
 				if (isBusy)
 				{
-					Console.WriteLine(string.Format("hleGeListEnQueue can't enqueue duplicate list address {0}, stack 0x{1:X8}", listAddr, stackAddr));
+					System.Console.WriteLine(string.Format("hleGeListEnQueue can't enqueue duplicate list address {0}, stack 0x{1:X8}", listAddr, stackAddr));
 					return SceKernelErrors.ERROR_BUSY;
 				}
 			}
@@ -471,12 +471,12 @@ namespace pspsharp.HLE.modules
 				PspGeList list = listFreeQueue.poll();
 				if (list == null)
 				{
-					Console.WriteLine("hleGeListEnQueue no more free list available!");
+					System.Console.WriteLine("hleGeListEnQueue no more free list available!");
 					//if (log.DebugEnabled)
 					{
 						for (int i = 0; i < NUMBER_GE_LISTS; i++)
 						{
-							Console.WriteLine(string.Format("List#{0:D}: {1}", i, allGeLists[i]));
+							System.Console.WriteLine(string.Format("List#{0:D}: {1}", i, allGeLists[i]));
 						}
 					}
 					return SceKernelErrors.ERROR_OUT_OF_MEMORY;
@@ -504,7 +504,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("hleGeListEnQueue returning 0x{0:X}", result));
+				System.Console.WriteLine(string.Format("hleGeListEnQueue returning 0x{0:X}", result));
 			}
 
 			return result;
@@ -561,7 +561,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("setStallAddressWithCachedMemory [0x{0:X8}-0x{1:X8}] {2}", startAddress, startAddress + Length, list));
+					System.Console.WriteLine(string.Format("setStallAddressWithCachedMemory [0x{0:X8}-0x{1:X8}] {2}", startAddress, startAddress + Length, list));
 				}
 			}
 			else
@@ -608,7 +608,7 @@ namespace pspsharp.HLE.modules
 
 			if (log.InfoEnabled)
 			{
-				Console.WriteLine(string.Format("sceGeGetCmd {0}: cmd=0x{1:X}, value=0x{2:X6}", ve.commandToString(cmd).ToUpper(), cmd, value));
+				System.Console.WriteLine(string.Format("sceGeGetCmd {0}: cmd=0x{1:X}, value=0x{2:X6}", ve.commandToString(cmd).ToUpper(), cmd, value));
 			}
 
 			return value;
@@ -619,7 +619,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (mtxType < 0 || mtxType > PSP_GE_MATRIX_TEXGEN)
 			{
-				Console.WriteLine(string.Format("sceGeGetMtx invalid type mtxType={0:D}", mtxType));
+				System.Console.WriteLine(string.Format("sceGeGetMtx invalid type mtxType={0:D}", mtxType));
 				return SceKernelErrors.ERROR_INVALID_INDEX;
 			}
 
@@ -641,7 +641,7 @@ namespace pspsharp.HLE.modules
 
 			if (log.InfoEnabled)
 			{
-				Console.WriteLine(string.Format("sceGeGetMtx mtxType={0:D}, mtxAddr={1}, mtx={2}", mtxType, mtxAddr, mtx));
+				System.Console.WriteLine(string.Format("sceGeGetMtx mtxType={0:D}, mtxAddr={1}, mtx={2}", mtxType, mtxAddr, mtx));
 			}
 
 			return 0;
@@ -739,7 +739,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (mode == 0 && IntrManager.Instance.InsideInterrupt)
 			{
-				Console.WriteLine("sceGeListSync (mode==0) cannot be called inside an interrupt handler!");
+				System.Console.WriteLine("sceGeListSync (mode==0) cannot be called inside an interrupt handler!");
 				return SceKernelErrors.ERROR_KERNEL_CANNOT_BE_CALLED_FROM_INTERRUPT;
 			}
 
@@ -751,7 +751,7 @@ namespace pspsharp.HLE.modules
 				list = allGeLists[id];
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceGeListSync on list: {0}", list));
+					System.Console.WriteLine(string.Format("sceGeListSync on list: {0}", list));
 				}
 
 				if (list.Reset)
@@ -786,7 +786,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (mode == 0 && IntrManager.Instance.InsideInterrupt)
 			{
-				Console.WriteLine("sceGeDrawSync (mode==0) cannot be called inside an interrupt handler!");
+				System.Console.WriteLine("sceGeDrawSync (mode==0) cannot be called inside an interrupt handler!");
 				return SceKernelErrors.ERROR_KERNEL_CANNOT_BE_CALLED_FROM_INTERRUPT;
 			}
 
@@ -813,7 +813,7 @@ namespace pspsharp.HLE.modules
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine("sceGeDrawSync all lists completed, not waiting");
+						System.Console.WriteLine("sceGeDrawSync all lists completed, not waiting");
 					}
 					hleGeAfterDrawSyncAction();
 					Modules.ThreadManForUserModule.hleRescheduleCurrentThread();
@@ -836,7 +836,7 @@ namespace pspsharp.HLE.modules
 				}
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceGeDrawSync mode={0:D}, returning {1:D}", mode, result));
+					System.Console.WriteLine(string.Format("sceGeDrawSync mode={0:D}, returning {1:D}", mode, result));
 				}
 			}
 
@@ -927,13 +927,13 @@ namespace pspsharp.HLE.modules
 			int cbid = SceUidManager.getNewId(geCallbackPurpose, 0, 15);
 			if (cbid == SceUidManager.INVALID_ID)
 			{
-				Console.WriteLine(string.Format("sceGeSetCallback no more callback ID available"));
+				System.Console.WriteLine(string.Format("sceGeSetCallback no more callback ID available"));
 				return SceKernelErrors.ERROR_OUT_OF_MEMORY;
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceGeSetCallback signalFunc=0x{0:X8}, signalArg=0x{1:X8}, finishFunc=0x{2:X8}, finishArg=0x{3:X8}, result cbid=0x{4:X}", cbdata.signalFunction, cbdata.signalArgument, cbdata.finishFunction, cbdata.finishArgument, cbid));
+				System.Console.WriteLine(string.Format("sceGeSetCallback signalFunc=0x{0:X8}, signalArg=0x{1:X8}, finishFunc=0x{2:X8}, finishArg=0x{3:X8}, result cbid=0x{4:X}", cbdata.signalFunction, cbdata.signalArgument, cbdata.finishFunction, cbdata.finishArgument, cbid));
 			}
 
 			ThreadManForUser threadMan = Modules.ThreadManForUserModule;

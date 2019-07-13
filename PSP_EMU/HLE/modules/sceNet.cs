@@ -130,7 +130,7 @@ namespace pspsharp.HLE.modules
 			}
 			else
 			{
-				Console.WriteLine(string.Format("Cannot parse hex digit '{0}'", c));
+				System.Console.WriteLine(string.Format("Cannot parse hex digit '{0}'", c));
 				return 0;
 			}
 		}
@@ -355,7 +355,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetStrlen '{0}'", srcAddr.StringZ));
+				System.Console.WriteLine(string.Format("sceNetStrlen '{0}'", srcAddr.StringZ));
 			}
 			return Modules.SysclibForKernelModule.strlen(srcAddr);
 		}
@@ -429,7 +429,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetLook_ctype_table c='{0}' = 0x{1:X2}", (char) c, ctype));
+				System.Console.WriteLine(string.Format("sceNetLook_ctype_table c='{0}' = 0x{1:X2}", (char) c, ctype));
 			}
 
 			return ctype;
@@ -516,7 +516,7 @@ namespace pspsharp.HLE.modules
 			string s2 = src2Addr.getStringNZ(size);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetStrncasecmp s1='{0}', s2='{1}'", s1, s2));
+				System.Console.WriteLine(string.Format("sceNetStrncasecmp s1='{0}', s2='{1}'", s1, s2));
 			}
 
 			return string.Compare(s1, s2, StringComparison.OrdinalIgnoreCase);
@@ -594,7 +594,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (in2Size > 64)
 			{
-				Console.WriteLine(string.Format("sceNet_lib_384EFE14 not implemented for size=0x{0:X}", in2Size));
+				System.Console.WriteLine(string.Format("sceNet_lib_384EFE14 not implemented for size=0x{0:X}", in2Size));
 			}
 
 			MessageDigest md;
@@ -604,7 +604,7 @@ namespace pspsharp.HLE.modules
 			}
 			catch (NoSuchAlgorithmException e)
 			{
-				Console.WriteLine("sceNet_lib_384EFE14", e);
+				System.Console.WriteLine("sceNet_lib_384EFE14", e);
 				return -1;
 			}
 
@@ -657,7 +657,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetVsprintf returning '{0}'", formattedString));
+				System.Console.WriteLine(string.Format("sceNetVsprintf returning '{0}'", formattedString));
 			}
 
 			return formattedString.Length;

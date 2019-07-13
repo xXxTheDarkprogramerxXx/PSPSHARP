@@ -75,7 +75,7 @@ namespace pspsharp.sound
 				}
 				catch (LWJGLException e)
 				{
-					Console.WriteLine(e);
+					System.Console.WriteLine(e);
 				}
 			}
 		}
@@ -276,7 +276,7 @@ namespace pspsharp.sound
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("alSourceQueueBuffer buffer={0:D}, {1}", alBuffer, ToString()));
+				System.Console.WriteLine(string.Format("alSourceQueueBuffer buffer={0:D}, {1}", alBuffer, ToString()));
 			}
 		}
 

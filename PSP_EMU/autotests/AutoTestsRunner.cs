@@ -28,7 +28,7 @@ namespace pspsharp.autotests
 
 	using FileUtil = pspsharp.util.FileUtil;
 	using LWJGLFixer = pspsharp.util.LWJGLFixer;
-	using ConsoleAppender = org.apache.log4j.ConsoleAppender;
+	using System.ConsoleAppender = org.apache.log4j.System.ConsoleAppender;
 	using Level = org.apache.log4j.Level;
 	//using Logger = org.apache.log4j.Logger;
 	using DOMConfigurator = org.apache.log4j.xml.DOMConfigurator;
@@ -50,7 +50,7 @@ namespace pspsharp.autotests
 		static AutoTestsRunner()
 		{
 			LWJGLFixer.fixOnce();
-			log.addAppender(new ConsoleAppender());
+			log.addAppender(new System.ConsoleAppender());
 		}
 
 		public static void Main(string[] args)
@@ -62,20 +62,20 @@ namespace pspsharp.autotests
 
 		private static void debug(string str)
 		{
-			//Console.WriteLine(str);
-			Console.Error.WriteLine(str);
+			//System.Console.WriteLine(str);
+			System.Console.Error.WriteLine(str);
 		}
 
 		private static void info(string str)
 		{
-			//Console.WriteLine(str);
-			Console.WriteLine(str);
+			//System.Console.WriteLine(str);
+			System.Console.WriteLine(str);
 		}
 
 		private static void error(string str)
 		{
-			//Console.WriteLine(str);
-			Console.Error.WriteLine(str);
+			//System.Console.WriteLine(str);
+			System.Console.Error.WriteLine(str);
 		}
 
 		internal class DummyGUI : IMainGUI
@@ -199,8 +199,8 @@ namespace pspsharp.autotests
 			}
 			catch (Exception o)
 			{
-				Console.WriteLine(o.ToString());
-				Console.Write(o.StackTrace);
+				System.Console.WriteLine(o.ToString());
+				System.Console.Write(o.StackTrace);
 			}
 
 			Environment.Exit(0);

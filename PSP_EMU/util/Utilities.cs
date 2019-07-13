@@ -747,7 +747,7 @@ namespace pspsharp.util
 			else
 			{
 //JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
-				Modules.Console.WriteLine("Utilities.putBuffer: Unsupported Buffer type " + source.GetType().FullName);
+				Modules.System.Console.WriteLine("Utilities.putBuffer: Unsupported Buffer type " + source.GetType().FullName);
 				Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_UNIMPLEMENTED);
 			}
 
@@ -822,7 +822,7 @@ namespace pspsharp.util
 			else
 			{
 //JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
-				Emulator.Console.WriteLine("Utilities.putBuffer: Unsupported Buffer type " + source.GetType().FullName);
+				Emulator.System.Console.WriteLine("Utilities.putBuffer: Unsupported Buffer type " + source.GetType().FullName);
 				Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_UNIMPLEMENTED);
 			}
 
@@ -1996,7 +1996,7 @@ namespace pspsharp.util
 			}
 			catch (System.OutOfMemoryException e)
 			{
-				Emulator.Console.WriteLine("Error while reading a complete vFile", e);
+				Emulator.System.Console.WriteLine("Error while reading a complete vFile", e);
 				return null;
 			}
 
@@ -2020,7 +2020,7 @@ namespace pspsharp.util
 				}
 				catch (System.OutOfMemoryException e)
 				{
-					Emulator.Console.WriteLine("Error while reading a complete vFile", e);
+					Emulator.System.Console.WriteLine("Error while reading a complete vFile", e);
 					return null;
 				}
 				Array.Copy(buffer, 0, resizedBuffer, 0, Length);
@@ -2154,7 +2154,7 @@ namespace pspsharp.util
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 			}
 		}
 
@@ -2262,7 +2262,7 @@ namespace pspsharp.util
 			int checkValue = mem.read32(module.baseAddress + offset);
 			if ((checkValue & mask) != (oldValue & mask))
 			{
-				Emulator.Console.WriteLine(string.Format("Patching of module '{0}' failed at offset 0x{1:X}, 0x{2:X8} found instead of 0x{3:X8}", module.modname, offset, checkValue, oldValue));
+				Emulator.System.Console.WriteLine(string.Format("Patching of module '{0}' failed at offset 0x{1:X}, 0x{2:X8} found instead of 0x{3:X8}", module.modname, offset, checkValue, oldValue));
 			}
 			else
 			{
@@ -2276,7 +2276,7 @@ namespace pspsharp.util
 			int checkChar = mem.read8(address);
 			if (checkChar != oldChar)
 			{
-				Emulator.Console.WriteLine(string.Format("Patching of module '{0}' failed at offset 0x{1:X}, 0x{2:X2} found instead of 0x{3:X2}: {4}", module.modname, offset, checkChar, oldChar, Utilities.getMemoryDump(address - 0x100, 0x200)));
+				Emulator.System.Console.WriteLine(string.Format("Patching of module '{0}' failed at offset 0x{1:X}, 0x{2:X2} found instead of 0x{3:X2}: {4}", module.modname, offset, checkChar, oldChar, Utilities.getMemoryDump(address - 0x100, 0x200)));
 			}
 			else
 			{

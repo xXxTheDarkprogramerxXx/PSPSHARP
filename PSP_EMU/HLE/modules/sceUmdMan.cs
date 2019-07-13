@@ -191,13 +191,13 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceUmdMan_E3716915 LBA parameters: sectorNumber=0x{0:X}, unknown1=0x{1:X}, unknown2=0x{2:X}, unknown3=0x{3:X}, unknown4=0x{4:X}", sectorNumber, unknown1, unknown2, unknown3, unknown4));
+				System.Console.WriteLine(string.Format("sceUmdMan_E3716915 LBA parameters: sectorNumber=0x{0:X}, unknown1=0x{1:X}, unknown2=0x{2:X}, unknown3=0x{3:X}, unknown4=0x{4:X}", sectorNumber, unknown1, unknown2, unknown3, unknown4));
 			}
 
 			ISectorDevice sectorDevice = SectorDevice;
 			if (sectorDevice == null)
 			{
-				Console.WriteLine(string.Format("sceUmdMan_E3716915 no SectorDevice available"));
+				System.Console.WriteLine(string.Format("sceUmdMan_E3716915 no SectorDevice available"));
 				return -1;
 			}
 
@@ -223,7 +223,7 @@ namespace pspsharp.HLE.modules
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 				return -1;
 			}
 
@@ -264,7 +264,7 @@ namespace pspsharp.HLE.modules
 			ISectorDevice sectorDevice = SectorDevice;
 			if (sectorDevice == null)
 			{
-				Console.WriteLine(string.Format("sceUmdMan_D1478023 no SectorDevice available"));
+				System.Console.WriteLine(string.Format("sceUmdMan_D1478023 no SectorDevice available"));
 				return -1;
 			}
 
@@ -275,7 +275,7 @@ namespace pspsharp.HLE.modules
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(string.Format("sceUmdMan_D1478023 IO error {0}", e));
+				System.Console.WriteLine(string.Format("sceUmdMan_D1478023 IO error {0}", e));
 				return -1;
 			}
 

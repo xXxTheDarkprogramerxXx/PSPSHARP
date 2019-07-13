@@ -94,7 +94,7 @@ namespace pspsharp.Allegrex.compiler.nativeCode
 				break;
 			default:
 				value = 0;
-				Compiler.Console.WriteLine("MemcpySequence.call(): Unimplemented valueBytes=" + valueBytes);
+				Compiler.System.Console.WriteLine("MemcpySequence.call(): Unimplemented valueBytes=" + valueBytes);
 				break;
 			}
 			setRegisterValue(valueReg, value);

@@ -715,7 +715,7 @@ namespace pspsharp.Allegrex.compiler.nativeCode.graphics
 
 				if (log.InfoEnabled)
 				{
-					Console.WriteLine(string.Format("sceGuCallList Stack address 0x{0:X8}-0x{1:X8}", callAddr, callAddr + memorySize));
+					System.Console.WriteLine(string.Format("sceGuCallList Stack address 0x{0:X8}-0x{1:X8}", callAddr, callAddr + memorySize));
 				}
 
 				int[] instructions = Utilities.readInt32(callAddr, memorySize);

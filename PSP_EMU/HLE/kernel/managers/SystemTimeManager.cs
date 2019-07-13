@@ -79,7 +79,7 @@ namespace pspsharp.HLE.kernel.managers
 			long sysClock = sysClockAddr.Value;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelSysClock2USec sysClockAddr={0}({1:D}), secAddr={2}, microSecAddr={3}", sysClockAddr, sysClock, secAddr, microSecAddr));
+				System.Console.WriteLine(string.Format("sceKernelSysClock2USec sysClockAddr={0}({1:D}), secAddr={2}, microSecAddr={3}", sysClockAddr, sysClock, secAddr, microSecAddr));
 			}
 
 			if (secAddr.Null)
@@ -134,7 +134,7 @@ namespace pspsharp.HLE.kernel.managers
 			long systemTime = SystemTime;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelGetSystemTimeWide returning {0:D}", systemTime));
+				System.Console.WriteLine(string.Format("sceKernelGetSystemTimeWide returning {0:D}", systemTime));
 			}
 			return systemTime;
 		}
@@ -144,7 +144,7 @@ namespace pspsharp.HLE.kernel.managers
 			int systemTimeLow = unchecked((int)(SystemTime & 0xFFFFFFFFL));
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelGetSystemTimeLow returning {0:D}", systemTimeLow));
+				System.Console.WriteLine(string.Format("sceKernelGetSystemTimeLow returning {0:D}", systemTimeLow));
 			}
 			return systemTimeLow;
 		}

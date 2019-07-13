@@ -29,7 +29,7 @@ namespace pspsharp.HLE
 		/// Unique 32-bit identifier of the function for that module.
 		/// Initially was the 32 last bits of the SHA1's function's name.
 		/// </summary>
-		public int nid;
+		public uint nid;
 
 		/// <summary>
 		/// Checks if the cpu is inside an interrupt and if so, 
@@ -63,7 +63,7 @@ namespace pspsharp.HLE
 		/// </summary>
 		public int stackUsage;
 
-		public HLEFunction(int nid, bool checkInsideInterrupt = false, bool checkDispatchThreadEnabled = false, int version = 150, String moduleName = "", String functionName = "", int stackUsage = 0)
+		public HLEFunction(uint nid, bool checkInsideInterrupt = false, bool checkDispatchThreadEnabled = false, int version = 150, String moduleName = "", String functionName = "", int stackUsage = 0)
 		{
 			this.nid = nid;
 			this.checkInsideInterrupt = checkInsideInterrupt;

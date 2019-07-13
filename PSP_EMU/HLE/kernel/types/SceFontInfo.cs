@@ -160,7 +160,7 @@ namespace pspsharp.HLE.kernel.types
 					charmap_compr[i++] = charmapCompressionTable1[1][j];
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("CharMap Compression Table #{0:D}: 0x{1:X}, Length={2:D}", j, charmapCompressionTable1[0][j], charmapCompressionTable1[1][j]));
+						System.Console.WriteLine(string.Format("CharMap Compression Table #{0:D}: 0x{1:X}, Length={2:D}", j, charmapCompressionTable1[0][j], charmapCompressionTable1[1][j]));
 					}
 				}
 

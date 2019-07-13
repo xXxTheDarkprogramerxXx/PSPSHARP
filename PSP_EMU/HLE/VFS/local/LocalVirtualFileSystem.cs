@@ -106,7 +106,7 @@ namespace pspsharp.HLE.VFS.local
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("hleIoOpen - file already exists (PSP_O_CREAT + PSP_O_EXCL)");
+					System.Console.WriteLine("hleIoOpen - file already exists (PSP_O_CREAT + PSP_O_EXCL)");
 				}
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_ERRNO_FILE_ALREADY_EXISTS);
 			}
@@ -198,11 +198,11 @@ namespace pspsharp.HLE.VFS.local
 			{
 				if (file.exists())
 				{
-					Console.WriteLine(string.Format("ioDopen file '{0}' is not a directory", dirName));
+					System.Console.WriteLine(string.Format("ioDopen file '{0}' is not a directory", dirName));
 				}
 				else
 				{
-					Console.WriteLine(string.Format("ioDopen directory '{0}' not found", dirName));
+					System.Console.WriteLine(string.Format("ioDopen directory '{0}' not found", dirName));
 				}
 				return null;
 			}
@@ -323,12 +323,12 @@ namespace pspsharp.HLE.VFS.local
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("ioRename: renaming file '{0}' to '{1}'", oldFileName, newFileName));
+				System.Console.WriteLine(string.Format("ioRename: renaming file '{0}' to '{1}'", oldFileName, newFileName));
 			}
 
 			if (!oldFile.renameTo(newFile))
 			{
-				Console.WriteLine(string.Format("ioRename failed: '{0}' to '{1}'", oldFileName, newFileName));
+				System.Console.WriteLine(string.Format("ioRename failed: '{0}' to '{1}'", oldFileName, newFileName));
 				return IO_ERROR;
 			}
 
@@ -344,7 +344,7 @@ namespace pspsharp.HLE.VFS.local
 				// Register memorystick insert/eject callback (fatms0).
 				case 0x02415821:
 				{
-					Console.WriteLine("sceIoDevctl register memorystick insert/eject callback (fatms0)");
+					System.Console.WriteLine("sceIoDevctl register memorystick insert/eject callback (fatms0)");
 					ThreadManForUser threadMan = Modules.ThreadManForUserModule;
 					if (!deviceName.Equals("fatms0:"))
 					{
@@ -375,7 +375,7 @@ namespace pspsharp.HLE.VFS.local
 				// Unregister memorystick insert/eject callback (fatms0).
 				case 0x02415822:
 				{
-					Console.WriteLine("sceIoDevctl unregister memorystick insert/eject callback (fatms0)");
+					System.Console.WriteLine("sceIoDevctl unregister memorystick insert/eject callback (fatms0)");
 					ThreadManForUser threadMan = Modules.ThreadManForUserModule;
 					if (!deviceName.Equals("fatms0:"))
 					{
@@ -396,7 +396,7 @@ namespace pspsharp.HLE.VFS.local
 				// Set if the device is assigned/inserted or not (fatms0).
 				case 0x02415823:
 				{
-					Console.WriteLine("sceIoDevctl set assigned device (fatms0)");
+					System.Console.WriteLine("sceIoDevctl set assigned device (fatms0)");
 					if (!deviceName.Equals("fatms0:"))
 					{
 						result = ERROR_MEMSTICK_DEVCTL_BAD_PARAMS;
@@ -417,7 +417,7 @@ namespace pspsharp.HLE.VFS.local
 				// Check if the device is write protected (fatms0).
 				case 0x02425824:
 				{
-					Console.WriteLine("sceIoDevctl check write protection (fatms0)");
+					System.Console.WriteLine("sceIoDevctl check write protection (fatms0)");
 					if (!deviceName.Equals("fatms0:") && !deviceName.Equals("ms0:"))
 					{ // For this command the alias "ms0:" is also supported.
 						result = ERROR_MEMSTICK_DEVCTL_BAD_PARAMS;
@@ -438,7 +438,7 @@ namespace pspsharp.HLE.VFS.local
 				// Get MS capacity (fatms0).
 				case 0x02425818:
 				{
-					Console.WriteLine("sceIoDevctl get MS capacity (fatms0)");
+					System.Console.WriteLine("sceIoDevctl get MS capacity (fatms0)");
 					int sectorSize = 0x200;
 					int sectorCount = MemoryStick.SectorSize / sectorSize;
 					int maxClusters = (int)((MemoryStick.FreeSize * 95L / 100) / (sectorSize * sectorCount));
@@ -449,7 +449,7 @@ namespace pspsharp.HLE.VFS.local
 						int addr = inputPointer.getValue32();
 						if (Memory.isAddressGood(addr))
 						{
-							Console.WriteLine("sceIoDevctl refer ms free space");
+							System.Console.WriteLine("sceIoDevctl refer ms free space");
 							Memory mem = Memory.Instance;
 							mem.write32(addr, maxClusters);
 							mem.write32(addr + 4, freeClusters);
@@ -460,13 +460,13 @@ namespace pspsharp.HLE.VFS.local
 						}
 						else
 						{
-							Console.WriteLine("sceIoDevctl 0x02425818 bad save address " + string.Format("0x{0:X8}", addr));
+							System.Console.WriteLine("sceIoDevctl 0x02425818 bad save address " + string.Format("0x{0:X8}", addr));
 							result = IO_ERROR;
 						}
 					}
 					else
 					{
-						Console.WriteLine("sceIoDevctl 0x02425818 bad param address " + string.Format("0x{0:X8}", inputPointer) + " or size " + inputLength);
+						System.Console.WriteLine("sceIoDevctl 0x02425818 bad param address " + string.Format("0x{0:X8}", inputPointer) + " or size " + inputLength);
 						result = IO_ERROR;
 					}
 					break;
@@ -474,7 +474,7 @@ namespace pspsharp.HLE.VFS.local
 				// Check if the device is assigned/inserted (fatms0).
 				case 0x02425823:
 				{
-					Console.WriteLine("sceIoDevctl check assigned device (fatms0)");
+					System.Console.WriteLine("sceIoDevctl check assigned device (fatms0)");
 					if (!deviceName.Equals("fatms0:"))
 					{
 						result = ERROR_MEMSTICK_DEVCTL_BAD_PARAMS;

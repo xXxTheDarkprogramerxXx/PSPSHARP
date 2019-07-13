@@ -323,7 +323,7 @@ namespace pspsharp.Allegrex.compiler.nativeCode
 			IMemoryReader memoryReader = MemoryReader.getMemoryReader(srcAddr - srcAddr3, 4);
 			if (memoryReader == null)
 			{
-				Console.WriteLine("getStrlen: null MemoryReader");
+				System.Console.WriteLine("getStrlen: null MemoryReader");
 				return 0;
 			}
 
@@ -405,7 +405,7 @@ namespace pspsharp.Allegrex.compiler.nativeCode
 			IMemoryReader memoryReader = MemoryReader.getMemoryReader(srcAddr - srcAddr3, 4);
 			if (memoryReader == null)
 			{
-				Console.WriteLine("getStrlen: null MemoryReader");
+				System.Console.WriteLine("getStrlen: null MemoryReader");
 				return 0;
 			}
 

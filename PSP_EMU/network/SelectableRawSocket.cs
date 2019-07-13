@@ -33,7 +33,7 @@ namespace pspsharp.network
 				int result = __select(__socket, true, 0, 0);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("SelectableRawSocket.isSelectedForRead: {0:D}", result));
+					System.Console.WriteLine(string.Format("SelectableRawSocket.isSelectedForRead: {0:D}", result));
 				}
 				return result >= 0;
 			}
@@ -46,7 +46,7 @@ namespace pspsharp.network
 				int result = __select(__socket, false, 0, 0);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("SelectableRawSocket.isSelectedForWrite: {0:D}", result));
+					System.Console.WriteLine(string.Format("SelectableRawSocket.isSelectedForWrite: {0:D}", result));
 				}
 				return result >= 0;
 			}

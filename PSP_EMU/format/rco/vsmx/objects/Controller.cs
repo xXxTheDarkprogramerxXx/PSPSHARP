@@ -64,7 +64,7 @@ namespace pspsharp.format.rco.vsmx.objects
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Executing Controller.onChangeResource '{0}' with function {1}", outerInstance.resource, callback));
+						System.Console.WriteLine(string.Format("Executing Controller.onChangeResource '{0}' with function {1}", outerInstance.resource, callback));
 					}
 					VSMXBaseObject[] arguments = new VSMXBaseObject[1];
 					arguments[0] = new VSMXString(outerInstance.interpreter, outerInstance.resource);
@@ -109,7 +109,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Controller.getUserData() returning {0}", userData));
+				System.Console.WriteLine(string.Format("Controller.getUserData() returning {0}", userData));
 			}
 
 			return userData;
@@ -119,7 +119,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Controller.setUserData({0})", userData));
+				System.Console.WriteLine(string.Format("Controller.setUserData({0})", userData));
 			}
 
 			this.userData = userData;
@@ -140,7 +140,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Controller.changeResource({0})", resource));
+				System.Console.WriteLine(string.Format("Controller.changeResource({0})", resource));
 			}
 
 			string newResource = resource.StringValue;
@@ -171,7 +171,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Controller.onUp focus={0}", focus));
+				System.Console.WriteLine(string.Format("Controller.onUp focus={0}", focus));
 			}
 
 			if (focus != null)
@@ -184,7 +184,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Controller.onDown focus={0}", focus));
+				System.Console.WriteLine(string.Format("Controller.onDown focus={0}", focus));
 			}
 
 			if (focus != null)
@@ -197,7 +197,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Controller.onLeft focus={0}", focus));
+				System.Console.WriteLine(string.Format("Controller.onLeft focus={0}", focus));
 			}
 
 			if (focus != null)
@@ -210,7 +210,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Controller.onRight focus={0}", focus));
+				System.Console.WriteLine(string.Format("Controller.onRight focus={0}", focus));
 			}
 
 			if (focus != null)
@@ -223,7 +223,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Controller.onPush focus={0}", focus));
+				System.Console.WriteLine(string.Format("Controller.onPush focus={0}", focus));
 			}
 
 			if (focus != null)

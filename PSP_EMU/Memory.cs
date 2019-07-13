@@ -104,7 +104,7 @@ namespace pspsharp
 						}
 						catch (UnsatisfiedLinkError e)
 						{
-							Console.WriteLine("Cannot load memory library", e);
+							System.Console.WriteLine("Cannot load memory library", e);
 							useNativeMemory = false;
 						}
 					}
@@ -163,7 +163,7 @@ namespace pspsharp
     
 								if (!instance.allocate())
 								{
-									Console.WriteLine(string.Format("Cannot allocate native memory"));
+									System.Console.WriteLine(string.Format("Cannot allocate native memory"));
 									instance = null;
 								}
 							}
@@ -192,7 +192,7 @@ namespace pspsharp
 					//if (log.DebugEnabled)
 					{
 	//JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
-						Console.WriteLine(string.Format("Using {0}", instance.GetType().FullName));
+						System.Console.WriteLine(string.Format("Using {0}", instance.GetType().FullName));
 					}
 				}
     
@@ -232,11 +232,11 @@ namespace pspsharp
 
 			if (ignoreInvalidMemoryAccess)
 			{
-				Console.WriteLine("IGNORED: " + message);
+				System.Console.WriteLine("IGNORED: " + message);
 			}
 			else
 			{
-				Console.WriteLine(message);
+				System.Console.WriteLine(message);
 				Emulator.PauseEmuWithStatus(status);
 			}
 		}
@@ -247,11 +247,11 @@ namespace pspsharp
 
 			if (ignoreInvalidMemoryAccess)
 			{
-				Console.WriteLine("IGNORED: " + message);
+				System.Console.WriteLine("IGNORED: " + message);
 			}
 			else
 			{
-				Console.WriteLine(message);
+				System.Console.WriteLine(message);
 				Emulator.PauseEmuWithStatus(status);
 			}
 		}
@@ -317,7 +317,7 @@ namespace pspsharp
 			//
 			if ((address >= unchecked((int)0x8f800020) && address <= unchecked((int)0x8f8001ac)) || (address >= 0x0f800020 && address <= 0x0f8001ac))
 			{ // Accept also masked address
-				Console.WriteLine("read32 - ignoring pspSdkInstallNoPlainModuleCheckPatch");
+				System.Console.WriteLine("read32 - ignoring pspSdkInstallNoPlainModuleCheckPatch");
 				return true;
 			}
 

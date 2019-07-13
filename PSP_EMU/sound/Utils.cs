@@ -234,14 +234,14 @@ namespace pspsharp.sound
 			{
 				if (Modules.log.isEnabledFor(Level.WARN))
 				{
-					Modules.Console.WriteLine(string.Format("Utils.mixStereoInMemory left volume outside range {0:F}", inLeftVolume));
+					Modules.System.Console.WriteLine(string.Format("Utils.mixStereoInMemory left volume outside range {0:F}", inLeftVolume));
 				}
 			}
 			if (inRightVolume < 0.0f || inRightVolume > 1.0f)
 			{
 				if (Modules.log.isEnabledFor(Level.WARN))
 				{
-					Modules.Console.WriteLine(string.Format("Utils.mixStereoInMemory right volume outside range {0:F}", inRightVolume));
+					Modules.System.Console.WriteLine(string.Format("Utils.mixStereoInMemory right volume outside range {0:F}", inRightVolume));
 				}
 			}
 

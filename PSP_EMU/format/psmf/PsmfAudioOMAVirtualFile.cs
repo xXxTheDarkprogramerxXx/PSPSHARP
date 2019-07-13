@@ -52,7 +52,7 @@ namespace pspsharp.format.psmf
 
 			if (header[0] != (sbyte) 0x0F || header[1] != unchecked((sbyte) 0xD0))
 			{
-				Console.WriteLine(string.Format("Invalid header 0x{0:X2} 0x{1:X2}", header[0] & 0xFF, header[1] & 0xFF));
+				System.Console.WriteLine(string.Format("Invalid header 0x{0:X2} 0x{1:X2}", header[0] & 0xFF, header[1] & 0xFF));
 				return false;
 			}
 

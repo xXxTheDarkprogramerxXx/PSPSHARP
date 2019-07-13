@@ -146,7 +146,7 @@ namespace pspsharp.memory.mmio
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Skipping Vblank interrupt {0}", this));
+					System.Console.WriteLine(string.Format("Skipping Vblank interrupt {0}", this));
 				}
 				return;
 			}
@@ -158,7 +158,7 @@ namespace pspsharp.memory.mmio
 			long schedule = NextVblankSchedule;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Scheduling next Vblank at 0x{0:X}, {1}", schedule, this));
+				System.Console.WriteLine(string.Format("Scheduling next Vblank at 0x{0:X}, {1}", schedule, this));
 			}
 			Scheduler.addAction(schedule, triggerVblankInterruptAction);
 		}

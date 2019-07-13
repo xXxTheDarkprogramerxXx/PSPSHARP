@@ -165,7 +165,7 @@ namespace pspsharp.util
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("Cannot read class", e);
+				System.Console.WriteLine("Cannot read class", e);
 			}
 
 			if (debugOutput != null)
@@ -180,7 +180,7 @@ namespace pspsharp.util
 			}
 			catch (ClassFormatError e)
 			{
-				Console.WriteLine("Error while defining specialized class", e);
+				System.Console.WriteLine("Error while defining specialized class", e);
 			}
 
 			return specializedClass;

@@ -116,21 +116,21 @@ namespace pspsharp.graphics.RE
 		{
 			if (GLContext.Capabilities.OpenGL31)
 			{
-				Console.WriteLine("Using RenderingEngineLwjgl31");
+				System.Console.WriteLine("Using RenderingEngineLwjgl31");
 				return new RenderingEngineLwjgl31();
 			}
 			else if (GLContext.Capabilities.OpenGL15)
 			{
-				Console.WriteLine("Using RenderingEngineLwjgl15");
+				System.Console.WriteLine("Using RenderingEngineLwjgl15");
 				return new RenderingEngineLwjgl15();
 			}
 			else if (GLContext.Capabilities.OpenGL12)
 			{
-				Console.WriteLine("Using RenderingEngineLwjgl12");
+				System.Console.WriteLine("Using RenderingEngineLwjgl12");
 				return new RenderingEngineLwjgl12();
 			}
 
-			Console.WriteLine("Using RenderingEngineLwjgl");
+			System.Console.WriteLine("Using RenderingEngineLwjgl");
 			return new RenderingEngineLwjgl();
 		}
 
@@ -144,7 +144,7 @@ namespace pspsharp.graphics.RE
 			string openGLVersion = GL11.glGetString(GL11.GL_VERSION);
 			string openGLVendor = GL11.glGetString(GL11.GL_VENDOR);
 			string openGLRenderer = GL11.glGetString(GL11.GL_RENDERER);
-			Console.WriteLine(string.Format("OpenGL version: {0}, vender: {1}, renderer: {2}", openGLVersion, openGLVendor, openGLRenderer));
+			System.Console.WriteLine(string.Format("OpenGL version: {0}, vender: {1}, renderer: {2}", openGLVersion, openGLVendor, openGLRenderer));
 
 			vendorIntel = "Intel".Equals(openGLVendor, StringComparison.OrdinalIgnoreCase);
 			hasOpenGL30 = GLContext.Capabilities.OpenGL30;
@@ -152,7 +152,7 @@ namespace pspsharp.graphics.RE
 			if (GLContext.Capabilities.OpenGL20)
 			{
 				string shadingLanguageVersion = GL11.glGetString(GL20.GL_SHADING_LANGUAGE_VERSION);
-				Console.WriteLine("Shading Language version: " + shadingLanguageVersion);
+				System.Console.WriteLine("Shading Language version: " + shadingLanguageVersion);
 			}
 
 			if (GLContext.Capabilities.OpenGL30)
@@ -163,7 +163,7 @@ namespace pspsharp.graphics.RE
 				{
 					s += " (GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT)";
 				}
-				Console.WriteLine(s);
+				System.Console.WriteLine(s);
 			}
 
 			if (GLContext.Capabilities.OpenGL32)
@@ -178,7 +178,7 @@ namespace pspsharp.graphics.RE
 				{
 					s += " (GL_CONTEXT_COMPATIBILITY_PROFILE_BIT)";
 				}
-				Console.WriteLine(s);
+				System.Console.WriteLine(s);
 			}
 		}
 
@@ -334,7 +334,7 @@ namespace pspsharp.graphics.RE
 				}
 				catch (System.InvalidOperationException e)
 				{
-					Console.WriteLine("VideoEngine: " + e.Message);
+					System.Console.WriteLine("VideoEngine: " + e.Message);
 				}
 			}
 		}
@@ -347,7 +347,7 @@ namespace pspsharp.graphics.RE
 			}
 			catch (System.InvalidOperationException e)
 			{
-				Console.WriteLine("VideoEngine: " + e.Message);
+				System.Console.WriteLine("VideoEngine: " + e.Message);
 			}
 		}
 
@@ -1016,7 +1016,7 @@ namespace pspsharp.graphics.RE
 				}
 				catch (System.InvalidOperationException e)
 				{
-					Console.WriteLine("VideoEngine: " + e.Message);
+					System.Console.WriteLine("VideoEngine: " + e.Message);
 				}
 			}
 		}
@@ -1551,7 +1551,7 @@ namespace pspsharp.graphics.RE
 						}
 					}
 
-					Console.WriteLine(string.Format("Error {0}: {1}\n{2}", logComment, errorComment, stackTraceLog.ToString()));
+					System.Console.WriteLine(string.Format("Error {0}: {1}\n{2}", logComment, errorComment, stackTraceLog.ToString()));
 				}
 			}
 
@@ -1577,7 +1577,7 @@ namespace pspsharp.graphics.RE
 					GL11.glDrawElements(primitiveToGL[primitive], DirectBufferUtilities.getDirectIntBuffer(count << 2, indices, indicesOffset));
 					break;
 				default:
-					Console.WriteLine(string.Format("drawElements unknown indexType={0:D}", indexType));
+					System.Console.WriteLine(string.Format("drawElements unknown indexType={0:D}", indexType));
 					break;
 			}
 		}

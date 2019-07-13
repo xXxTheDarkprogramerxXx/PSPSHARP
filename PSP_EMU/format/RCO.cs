@@ -138,7 +138,7 @@ namespace pspsharp.format
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("RCO entry at offset 0x{0:X}: {1}", entryOffset, ToString()));
+					System.Console.WriteLine(string.Format("RCO entry at offset 0x{0:X}: {1}", entryOffset, ToString()));
 				}
 
 				switch (id)
@@ -146,7 +146,7 @@ namespace pspsharp.format
 					case RCO_TABLE_MAIN:
 						if (type != 1)
 						{
-							Console.WriteLine(string.Format("Unknown RCO entry type 0x{0:X} at offset 0x{1:X}", type, entryOffset));
+							System.Console.WriteLine(string.Format("Unknown RCO entry type 0x{0:X} at offset 0x{1:X}", type, entryOffset));
 						}
 						break;
 					case RCO_TABLE_VSMX:
@@ -161,7 +161,7 @@ namespace pspsharp.format
 						}
 						else
 						{
-							Console.WriteLine(string.Format("Unknown RCO entry type 0x{0:X} at offset 0x{1:X}", type, entryOffset));
+							System.Console.WriteLine(string.Format("Unknown RCO entry type 0x{0:X} at offset 0x{1:X}", type, entryOffset));
 						}
 						break;
 					case RCO_TABLE_IMG:
@@ -194,12 +194,12 @@ namespace pspsharp.format
 
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("RCO entry {0}: format={1:D}, compression={2:D}, sizePacked=0x{3:X}, offset=0x{4:X}, sizeUnpacked=0x{5:X}", id == RCO_TABLE_IMG ? "IMG" : "MODEL", format, compression, sizePacked, offset, sizeUnpacked));
+								System.Console.WriteLine(string.Format("RCO entry {0}: format={1:D}, compression={2:D}, sizePacked=0x{3:X}, offset=0x{4:X}, sizeUnpacked=0x{5:X}", id == RCO_TABLE_IMG ? "IMG" : "MODEL", format, compression, sizePacked, offset, sizeUnpacked));
 							}
 						}
 						else if (type != 0)
 						{
-							Console.WriteLine(string.Format("Unknown RCO entry type 0x{0:X} at offset 0x{1:X}", type, entryOffset));
+							System.Console.WriteLine(string.Format("Unknown RCO entry type 0x{0:X} at offset 0x{1:X}", type, entryOffset));
 						}
 						break;
 					case RCO_TABLE_SOUND:
@@ -214,7 +214,7 @@ namespace pspsharp.format
 							// now pairs of size/offset for each channel
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("RCO entry SOUND: format={0:D}, channels={1:D}, sizeTotal=0x{2:X}, offset=0x{3:X}", format, channels, sizeTotal, offset));
+								System.Console.WriteLine(string.Format("RCO entry SOUND: format={0:D}, channels={1:D}, sizeTotal=0x{2:X}, offset=0x{3:X}", format, channels, sizeTotal, offset));
 							}
 							for (int channel = 0; channel < channels; channel++)
 							{
@@ -222,7 +222,7 @@ namespace pspsharp.format
 								channelOffset[channel] = outerInstance.read32();
 								//if (log.DebugEnabled)
 								{
-									Console.WriteLine(string.Format("Channel {0:D}: size=0x{1:X}, offset=0x{2:X}", channel, channelSize[channel], channelOffset[channel]));
+									System.Console.WriteLine(string.Format("Channel {0:D}: size=0x{1:X}, offset=0x{2:X}", channel, channelSize[channel], channelOffset[channel]));
 								}
 							}
 
@@ -244,7 +244,7 @@ namespace pspsharp.format
 						}
 						else if (type != 0)
 						{
-							Console.WriteLine(string.Format("Unknown RCO entry type 0x{0:X} at offset 0x{1:X}", type, entryOffset));
+							System.Console.WriteLine(string.Format("Unknown RCO entry type 0x{0:X} at offset 0x{1:X}", type, entryOffset));
 						}
 						break;
 					case RCO_TABLE_OBJ:
@@ -272,14 +272,14 @@ namespace pspsharp.format
 									obj.read(context);
 									if (context.offset != dataLength)
 									{
-										Console.WriteLine(string.Format("Incorrect Length data for ANIM"));
+										System.Console.WriteLine(string.Format("Incorrect Length data for ANIM"));
 									}
 
 									outerInstance.objects[entryOffset] = obj;
 
 									//if (log.DebugEnabled)
 									{
-										Console.WriteLine(string.Format("OBJ: {0}", obj));
+										System.Console.WriteLine(string.Format("OBJ: {0}", obj));
 									}
 								}
 							}
@@ -310,14 +310,14 @@ namespace pspsharp.format
 									obj.read(context);
 									if (context.offset != dataLength)
 									{
-										Console.WriteLine(string.Format("Incorrect Length data for ANIM"));
+										System.Console.WriteLine(string.Format("Incorrect Length data for ANIM"));
 									}
 
 									outerInstance.objects[entryOffset] = obj;
 
 									//if (log.DebugEnabled)
 									{
-										Console.WriteLine(string.Format("ANIM: {0}", obj));
+										System.Console.WriteLine(string.Format("ANIM: {0}", obj));
 									}
 								}
 							}
@@ -332,12 +332,12 @@ namespace pspsharp.format
 							int unknown2 = outerInstance.read32();
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("RCO entry FONT: format={0:D}, compression={1:D}, unknown1=0x{2:X}, unknown2=0x{3:X}", format, compression, unknown1, unknown2));
+								System.Console.WriteLine(string.Format("RCO entry FONT: format={0:D}, compression={1:D}, unknown1=0x{2:X}, unknown2=0x{3:X}", format, compression, unknown1, unknown2));
 							}
 						}
 						else if (type != 0)
 						{
-							Console.WriteLine(string.Format("Unknown RCO FONT entry type 0x{0:X} at offset 0x{1:X}", type, entryOffset));
+							System.Console.WriteLine(string.Format("Unknown RCO FONT entry type 0x{0:X} at offset 0x{1:X}", type, entryOffset));
 						}
 						break;
 					case RCO_TABLE_TEXT:
@@ -348,7 +348,7 @@ namespace pspsharp.format
 							int numIndexes = outerInstance.read32();
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("RCO entry TEXT: lang={0:D}, format={1:D}, numIndexes=0x{2:X}", lang, format, numIndexes));
+								System.Console.WriteLine(string.Format("RCO entry TEXT: lang={0:D}, format={1:D}, numIndexes=0x{2:X}", lang, format, numIndexes));
 							}
 							texts = new string[numIndexes];
 							for (int i = 0; i < numIndexes; i++)
@@ -359,17 +359,17 @@ namespace pspsharp.format
 								texts[i] = outerInstance.readText(lang, offset, Length);
 								//if (log.DebugEnabled)
 								{
-									Console.WriteLine(string.Format("RCO entry TEXT Index#{0:D}: labelOffset={1:D}, Length={2:D}, offset=0x{3:X}; '{4}'", i, labelOffset, Length, offset, texts[i]));
+									System.Console.WriteLine(string.Format("RCO entry TEXT Index#{0:D}: labelOffset={1:D}, Length={2:D}, offset=0x{3:X}; '{4}'", i, labelOffset, Length, offset, texts[i]));
 								}
 							}
 						}
 						else if (type != 0)
 						{
-							Console.WriteLine(string.Format("Unknown RCO TEXT entry type 0x{0:X} at offset 0x{1:X}", type, entryOffset));
+							System.Console.WriteLine(string.Format("Unknown RCO TEXT entry type 0x{0:X} at offset 0x{1:X}", type, entryOffset));
 						}
 						break;
 					default:
-						Console.WriteLine(string.Format("Unknown RCO entry id 0x{0:X} at offset 0x{1:X}", id, entryOffset));
+						System.Console.WriteLine(string.Format("Unknown RCO entry id 0x{0:X} at offset 0x{1:X}", id, entryOffset));
 						break;
 				}
 
@@ -585,7 +585,7 @@ namespace pspsharp.format
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(string.Format("Error reading image from RCO at 0x{0:X}, Length=0x{1:X}", offset, Length), e);
+				System.Console.WriteLine(string.Format("Error reading image from RCO at 0x{0:X}, Length=0x{1:X}", offset, Length), e);
 			}
 
 			return System.Drawing.Bitmap;
@@ -672,13 +672,13 @@ namespace pspsharp.format
 			int magic = endianSwap32(read32());
 			if (magic != RCO_MAGIC)
 			{
-				Console.WriteLine(string.Format("Invalid RCO magic 0x{0:X8}", magic));
+				System.Console.WriteLine(string.Format("Invalid RCO magic 0x{0:X8}", magic));
 				return false;
 			}
 			int version = read32();
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("RCO version 0x{0:X}", version));
+				System.Console.WriteLine(string.Format("RCO version 0x{0:X}", version));
 			}
 
 			skip32(); // null
@@ -687,7 +687,7 @@ namespace pspsharp.format
 			int headerCompression = (compression & 0xF0) >> 4;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("umdFlag=0x{0:X}, headerCompression=0x{1:X}", umdFlag, headerCompression));
+				System.Console.WriteLine(string.Format("umdFlag=0x{0:X}, headerCompression=0x{1:X}", umdFlag, headerCompression));
 			}
 
 			int pMainTable = read32();
@@ -731,10 +731,10 @@ namespace pspsharp.format
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("pMainTable=0x{0:X}, pVSMXTable=0x{1:X}, pTextTable=0x{2:X}, pSoundTable=0x{3:X}, pModelTable=0x{4:X}, pImgTable=0x{5:X}, pFontTable=0x{6:X}, pObjTable=0x{7:X}, pAnimTable=0x{8:X}", pMainTable, pVSMXTable, pTextTable, pSoundTable, pModelTable, pImgTable, pFontTable, pObjTable, pAnimTable));
-				Console.WriteLine(string.Format("TextData=0x{0:X}[0x{1:X}], LabelData=0x{2:X}[0x{3:X}], EventData=0x{4:X}[0x{5:X}]", pTextData, lTextData, pLabelData, lLabelData, pEventData, lEventData));
-				Console.WriteLine(string.Format("TextPtrs=0x{0:X}[0x{1:X}], ImgPtrs=0x{2:X}[0x{3:X}], ModelPtrs=0x{4:X}[0x{5:X}], SoundPtrs=0x{6:X}[0x{7:X}], ObjPtrs=0x{8:X}[0x{9:X}], AnimPtrs=0x{10:X}[0x{11:X}]", pTextPtrs, lTextPtrs, pImgPtrs, lImgPtrs, pModelPtrs, lModelPtrs, pSoundPtrs, lSoundPtrs, pObjPtrs, lObjPtrs, pAnimPtrs, lAnimPtrs));
-				Console.WriteLine(string.Format("ImgData=0x{0:X}[0x{1:X}], SoundData=0x{2:X}[0x{3:X}], ModelData=0x{4:X}[0x{5:X}]", pImgData, lImgData, pSoundData, lSoundData, pModelData, lModelData));
+				System.Console.WriteLine(string.Format("pMainTable=0x{0:X}, pVSMXTable=0x{1:X}, pTextTable=0x{2:X}, pSoundTable=0x{3:X}, pModelTable=0x{4:X}, pImgTable=0x{5:X}, pFontTable=0x{6:X}, pObjTable=0x{7:X}, pAnimTable=0x{8:X}", pMainTable, pVSMXTable, pTextTable, pSoundTable, pModelTable, pImgTable, pFontTable, pObjTable, pAnimTable));
+				System.Console.WriteLine(string.Format("TextData=0x{0:X}[0x{1:X}], LabelData=0x{2:X}[0x{3:X}], EventData=0x{4:X}[0x{5:X}]", pTextData, lTextData, pLabelData, lLabelData, pEventData, lEventData));
+				System.Console.WriteLine(string.Format("TextPtrs=0x{0:X}[0x{1:X}], ImgPtrs=0x{2:X}[0x{3:X}], ModelPtrs=0x{4:X}[0x{5:X}], SoundPtrs=0x{6:X}[0x{7:X}], ObjPtrs=0x{8:X}[0x{9:X}], AnimPtrs=0x{10:X}[0x{11:X}]", pTextPtrs, lTextPtrs, pImgPtrs, lImgPtrs, pModelPtrs, lModelPtrs, pSoundPtrs, lSoundPtrs, pObjPtrs, lObjPtrs, pAnimPtrs, lAnimPtrs));
+				System.Console.WriteLine(string.Format("ImgData=0x{0:X}[0x{1:X}], SoundData=0x{2:X}[0x{3:X}], ModelData=0x{4:X}[0x{5:X}]", pImgData, lImgData, pSoundData, lSoundData, pModelData, lModelData));
 			}
 
 			if (headerCompression != 0)
@@ -752,7 +752,7 @@ namespace pspsharp.format
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unimplemented compression {0:D}", headerCompression));
+					System.Console.WriteLine(string.Format("Unimplemented compression {0:D}", headerCompression));
 					result = -1;
 				}
 
@@ -782,7 +782,7 @@ namespace pspsharp.format
 						}
 						else
 						{
-							Console.WriteLine(string.Format("Unimplemented compression {0:D}", headerCompression));
+							System.Console.WriteLine(string.Format("Unimplemented compression {0:D}", headerCompression));
 							result = -1;
 						}
 
@@ -834,7 +834,7 @@ namespace pspsharp.format
 			mainTable = readRCOEntry(pMainTable);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("mainTable: {0}", mainTable));
+				System.Console.WriteLine(string.Format("mainTable: {0}", mainTable));
 			}
 
 			if (pObjPtrs != RCO_NULL_PTR)
@@ -845,7 +845,7 @@ namespace pspsharp.format
 					int objPtr = read32();
 					if (objPtr != 0 && !objects.ContainsKey(objPtr))
 					{
-						Console.WriteLine(string.Format("Object 0x{0:X} not read", objPtr));
+						System.Console.WriteLine(string.Format("Object 0x{0:X} not read", objPtr));
 					}
 				}
 			}
@@ -858,7 +858,7 @@ namespace pspsharp.format
 					int imgPtr = read32();
 					if (imgPtr != 0 && !images.ContainsKey(imgPtr))
 					{
-						Console.WriteLine(string.Format("Image 0x{0:X} not read", imgPtr));
+						System.Console.WriteLine(string.Format("Image 0x{0:X} not read", imgPtr));
 					}
 				}
 			}

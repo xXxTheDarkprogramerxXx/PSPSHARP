@@ -109,7 +109,7 @@ namespace pspsharp.network.proonline
 				ProOnlineNetworkAdapter.enabled = value;
 				if (value)
 				{
-					Console.WriteLine("Enabling ProOnline network");
+					System.Console.WriteLine("Enabling ProOnline network");
 				}
 			}
 		}
@@ -142,7 +142,7 @@ namespace pspsharp.network.proonline
 		{
 			base.start();
 
-			Console.WriteLine(string.Format("ProOnline start, server {0}:{1:D}", metaServer, metaPort));
+			System.Console.WriteLine(string.Format("ProOnline start, server {0}:{1:D}", metaServer, metaPort));
 
 			try
 			{
@@ -150,7 +150,7 @@ namespace pspsharp.network.proonline
 			}
 			catch (UnknownHostException e)
 			{
-				Console.WriteLine("Unable to set the broadcast address", e);
+				System.Console.WriteLine("Unable to set the broadcast address", e);
 			}
 
 			try
@@ -159,7 +159,7 @@ namespace pspsharp.network.proonline
 			}
 			catch (UnknownHostException e)
 			{
-				Console.WriteLine("Unable to set the loopback address", e);
+				System.Console.WriteLine("Unable to set the loopback address", e);
 			}
 
 			try
@@ -168,7 +168,7 @@ namespace pspsharp.network.proonline
 			}
 			catch (UnknownHostException e)
 			{
-				Console.WriteLine("Unable to set the local address", e);
+				System.Console.WriteLine("Unable to set the local address", e);
 			}
 
 			upnp = new UPnP();
@@ -192,7 +192,7 @@ namespace pspsharp.network.proonline
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Message not sent to meta server because not connected: {0}", packet));
+					System.Console.WriteLine(string.Format("Message not sent to meta server because not connected: {0}", packet));
 				}
 			}
 		}
@@ -240,7 +240,7 @@ namespace pspsharp.network.proonline
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("sceNetAdhocctlInit");
+				System.Console.WriteLine("sceNetAdhocctlInit");
 			}
 
 			// Wait for a previous instance of the Friend Finder thread to terminate
@@ -266,7 +266,7 @@ namespace pspsharp.network.proonline
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("sceNetAdhocctlConnect redirecting to sceNetAdhocctlCreate");
+				System.Console.WriteLine("sceNetAdhocctlConnect redirecting to sceNetAdhocctlCreate");
 			}
 
 			sceNetAdhocctlCreate();
@@ -276,7 +276,7 @@ namespace pspsharp.network.proonline
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("sceNetAdhocctlCreate");
+				System.Console.WriteLine("sceNetAdhocctlCreate");
 			}
 
 			try
@@ -286,7 +286,7 @@ namespace pspsharp.network.proonline
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("sceNetAdhocctlCreate", e);
+				System.Console.WriteLine("sceNetAdhocctlCreate", e);
 			}
 		}
 
@@ -294,7 +294,7 @@ namespace pspsharp.network.proonline
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("sceNetAdhocctlJoin redirecting to sceNetAdhocctlCreate");
+				System.Console.WriteLine("sceNetAdhocctlJoin redirecting to sceNetAdhocctlCreate");
 			}
 
 			sceNetAdhocctlCreate();
@@ -304,7 +304,7 @@ namespace pspsharp.network.proonline
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("sceNetAdhocctlDisconnect");
+				System.Console.WriteLine("sceNetAdhocctlDisconnect");
 			}
 
 			try
@@ -316,7 +316,7 @@ namespace pspsharp.network.proonline
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("sceNetAdhocctlDisconnect", e);
+				System.Console.WriteLine("sceNetAdhocctlDisconnect", e);
 			}
 		}
 
@@ -324,7 +324,7 @@ namespace pspsharp.network.proonline
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("sceNetAdhocctlTerm");
+				System.Console.WriteLine("sceNetAdhocctlTerm");
 			}
 
 			exit_Renamed = true;
@@ -335,7 +335,7 @@ namespace pspsharp.network.proonline
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("sceNetAdhocctlScan");
+				System.Console.WriteLine("sceNetAdhocctlScan");
 			}
 
 			try
@@ -344,7 +344,7 @@ namespace pspsharp.network.proonline
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("sceNetAdhocctlScan", e);
+				System.Console.WriteLine("sceNetAdhocctlScan", e);
 			}
 		}
 
@@ -352,7 +352,7 @@ namespace pspsharp.network.proonline
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetPortOpen {0}, port={1:D}", protocol, port));
+				System.Console.WriteLine(string.Format("sceNetPortOpen {0}, port={1:D}", protocol, port));
 			}
 			portManager.addPort(port, protocol);
 		}
@@ -361,7 +361,7 @@ namespace pspsharp.network.proonline
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetPortClose {0}, port={1:D}", protocol, port));
+				System.Console.WriteLine(string.Format("sceNetPortClose {0}, port={1:D}", protocol, port));
 			}
 			portManager.removePort(port, protocol);
 		}
@@ -380,11 +380,11 @@ namespace pspsharp.network.proonline
 			}
 			catch (UnknownHostException e)
 			{
-				Console.WriteLine(string.Format("Could not connect to meta server {0}:{1:D}", metaServer, metaPort), e);
+				System.Console.WriteLine(string.Format("Could not connect to meta server {0}:{1:D}", metaServer, metaPort), e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(string.Format("Could not connect to meta server {0}:{1:D}", metaServer, metaPort), e);
+				System.Console.WriteLine(string.Format("Could not connect to meta server {0}:{1:D}", metaServer, metaPort), e);
 			}
 		}
 
@@ -410,7 +410,7 @@ namespace pspsharp.network.proonline
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("friendFinder", e);
+					System.Console.WriteLine("friendFinder", e);
 				}
 				metaSocket = null;
 			}
@@ -424,7 +424,7 @@ namespace pspsharp.network.proonline
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("Starting friendFinder");
+				System.Console.WriteLine("Starting friendFinder");
 			}
 
 			friendFinderActive = true;
@@ -458,7 +458,7 @@ namespace pspsharp.network.proonline
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("friendFinder", e);
+					System.Console.WriteLine("friendFinder", e);
 				}
 
 				if (offset > 0)
@@ -479,7 +479,7 @@ namespace pspsharp.network.proonline
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Incoming server packet {0}", packet));
+							System.Console.WriteLine(string.Format("Incoming server packet {0}", packet));
 						}
 						packet.process();
 						consumed = packet.Length;
@@ -495,7 +495,7 @@ namespace pspsharp.network.proonline
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("Exiting friendFinder");
+				System.Console.WriteLine("Exiting friendFinder");
 			}
 
 			// Be clean, send a disconnect message to the server
@@ -525,7 +525,7 @@ namespace pspsharp.network.proonline
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Adding friend nickName='{0}', mac={1}, ip={2}", nickName, mac, convertIpToString(ip)));
+					System.Console.WriteLine(string.Format("Adding friend nickName='{0}', mac={1}, ip={2}", nickName, mac, convertIpToString(ip)));
 				}
         
 				Modules.sceNetAdhocctlModule.hleNetAdhocctlAddPeer(nickName, mac);
@@ -561,7 +561,7 @@ namespace pspsharp.network.proonline
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Deleting friend ip={0}", convertIpToString(ip)));
+					System.Console.WriteLine(string.Format("Deleting friend ip={0}", convertIpToString(ip)));
 				}
         
 				foreach (MacIp macIp in macIps)
@@ -775,13 +775,13 @@ namespace pspsharp.network.proonline
 
 		public override AdhocMessage createAdhocGameModeMessage(sceNetAdhoc.GameModeArea gameModeArea)
 		{
-			Console.WriteLine("Adhoc GameMode not supported by ProOnline");
+			System.Console.WriteLine("Adhoc GameMode not supported by ProOnline");
 			return null;
 		}
 
 		public override AdhocMessage createAdhocGameModeMessage(sbyte[] message, int Length)
 		{
-			Console.WriteLine("Adhoc GameMode not supported by ProOnline");
+			System.Console.WriteLine("Adhoc GameMode not supported by ProOnline");
 			return null;
 		}
 
@@ -812,7 +812,7 @@ namespace pspsharp.network.proonline
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("not for me: port={0:D}, address={1}, message={2}", port, address, adhocMessage));
+					System.Console.WriteLine(string.Format("not for me: port={0:D}, address={1}, message={2}", port, address, adhocMessage));
 				}
 				// Unknown source IP address, ignore the message
 				return false;
@@ -829,7 +829,7 @@ namespace pspsharp.network.proonline
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Sending chat message '{0}'", message));
+				System.Console.WriteLine(string.Format("Sending chat message '{0}'", message));
 			}
 
 			try
@@ -838,7 +838,7 @@ namespace pspsharp.network.proonline
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("Error while sending chat message", e);
+				System.Console.WriteLine("Error while sending chat message", e);
 			}
 		}
 
@@ -846,7 +846,7 @@ namespace pspsharp.network.proonline
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Displaying chat message from '{0}': '{1}'", nickName, message));
+				System.Console.WriteLine(string.Format("Displaying chat message from '{0}': '{1}'", nickName, message));
 			}
 
 			chatGUI.addChatMessage(nickName, message);

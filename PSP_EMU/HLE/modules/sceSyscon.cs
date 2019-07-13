@@ -127,7 +127,7 @@ namespace pspsharp.HLE.modules
 			long scratchPad16 = Modules.sceRtcModule.hleGetCurrentTick() >> 19;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Initializing scratchPad16=0x{0:X}", scratchPad16));
+				System.Console.WriteLine(string.Format("Initializing scratchPad16=0x{0:X}", scratchPad16));
 			}
 			for (int i = 0; i < 5; i++, scratchPad16 >>= 8)
 			{
@@ -452,7 +452,7 @@ namespace pspsharp.HLE.modules
 					baryon = 0x0022B200;
 					break;
 				default:
-					Console.WriteLine(string.Format("_sceSysconGetBaryonVersion unknown baryon version for PSP Model {0}", Model.getModelName(Model.Model)));
+					System.Console.WriteLine(string.Format("_sceSysconGetBaryonVersion unknown baryon version for PSP Model {0}", Model.getModelName(Model.Model)));
 					break;
 			}
 			return baryon;
@@ -558,7 +558,7 @@ namespace pspsharp.HLE.modules
 			int len = packet.getValue8(13);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceSysconCmdExec cmd=0x{0:X2}, len=0x{1:X2}, txData: {2}", cmd, len, Utilities.getMemoryDump(packet.Address + 14, len - 2)));
+				System.Console.WriteLine(string.Format("sceSysconCmdExec cmd=0x{0:X2}, len=0x{1:X2}, txData: {2}", cmd, len, Utilities.getMemoryDump(packet.Address + 14, len - 2)));
 			}
 			return 0;
 		}
@@ -580,7 +580,7 @@ namespace pspsharp.HLE.modules
 			int len = packet.getValue8(13);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceSysconCmdExecAsync cmd=0x{0:X2}, len=0x{1:X2}, txData: {2}", cmd, len, Utilities.getMemoryDump(packet.Address + 14, len - 2)));
+				System.Console.WriteLine(string.Format("sceSysconCmdExecAsync cmd=0x{0:X2}, len=0x{1:X2}, txData: {2}", cmd, len, Utilities.getMemoryDump(packet.Address + 14, len - 2)));
 			}
 			return 0;
 		}

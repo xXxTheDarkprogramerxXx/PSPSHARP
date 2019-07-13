@@ -145,7 +145,7 @@ namespace pspsharp.HLE.kernel.types
 
 				if (Modules.log.InfoEnabled)
 				{
-					Modules.Console.WriteLine(string.Format("Thread Event Handler exit detected (thid=0x{0:X}, result=0x{1:X8})", outerInstance.thid, result));
+					Modules.System.Console.WriteLine(string.Format("Thread Event Handler exit detected (thid=0x{0:X}, result=0x{1:X8})", outerInstance.thid, result));
 				}
 			}
 		}

@@ -60,7 +60,7 @@ namespace pspsharp.HLE.modules
 				File dec = new File(pauthDecFileName);
 				if (dec.exists())
 				{
-					Console.WriteLine("Reading PAUTH data file from " + pauthDecFileName);
+					System.Console.WriteLine("Reading PAUTH data file from " + pauthDecFileName);
 
 					// Read the externally decrypted file.
 					SeekableRandomFile pauthPRXDec = new SeekableRandomFile(pauthDecFileName, "rw");
@@ -78,8 +78,8 @@ namespace pspsharp.HLE.modules
 					File f = new File(pauthDirName);
 					f.mkdirs();
 
-					Console.WriteLine("Writting PAUTH data file to " + pauthFileName);
-					Console.WriteLine("Writting PAUTH key file to " + pauthKeyFileName);
+					System.Console.WriteLine("Writting PAUTH data file to " + pauthFileName);
+					System.Console.WriteLine("Writting PAUTH key file to " + pauthKeyFileName);
 
 					// Write the PAUTH file and key for external decryption.
 					SeekableRandomFile pauthPRX = new SeekableRandomFile(pauthFileName, "rw");
@@ -99,7 +99,7 @@ namespace pspsharp.HLE.modules
 			}
 			catch (IOException ioe)
 			{
-				Console.WriteLine(ioe);
+				System.Console.WriteLine(ioe);
 			}
 
 			return 0;
@@ -137,7 +137,7 @@ namespace pspsharp.HLE.modules
 				File dec = new File(pauthDecFileName);
 				if (dec.exists())
 				{
-					Console.WriteLine("Reading PAUTH data file from " + pauthDecFileName);
+					System.Console.WriteLine("Reading PAUTH data file from " + pauthDecFileName);
 
 					// Read the externally decrypted file.
 					SeekableRandomFile pauthPRXDec = new SeekableRandomFile(pauthDecFileName, "rw");
@@ -155,8 +155,8 @@ namespace pspsharp.HLE.modules
 					File f = new File(pauthDirName);
 					f.mkdirs();
 
-					Console.WriteLine("Writting PAUTH data file to " + pauthFileName);
-					Console.WriteLine("Writting PAUTH key file to " + pauthKeyFileName);
+					System.Console.WriteLine("Writting PAUTH data file to " + pauthFileName);
+					System.Console.WriteLine("Writting PAUTH key file to " + pauthKeyFileName);
 
 					// Write the PAUTH file and key for external decryption.
 					SeekableRandomFile pauthPRX = new SeekableRandomFile(pauthFileName, "rw");
@@ -176,7 +176,7 @@ namespace pspsharp.HLE.modules
 			}
 			catch (IOException ioe)
 			{
-				Console.WriteLine(ioe);
+				System.Console.WriteLine(ioe);
 			}
 
 			return 0;

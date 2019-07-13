@@ -468,7 +468,7 @@ namespace pspsharp.memory.mmio
 					// Interrupt from the main cpu to the Media Engine cpu
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sysregInterruptToOther to ME on {0}", MMIOHandlerMeCore.Instance.ToString()));
+						System.Console.WriteLine(string.Format("sysregInterruptToOther to ME on {0}", MMIOHandlerMeCore.Instance.ToString()));
 					}
 					RuntimeContextLLE.triggerInterrupt(RuntimeContextLLE.MediaEngineProcessor, PSP_MECODEC_INTR);
 					RuntimeContextLLE.MediaEngineProcessor.triggerException(ExceptionManager.IP2);
@@ -478,7 +478,7 @@ namespace pspsharp.memory.mmio
 					// Interrupt from the Media Engine cpu to the main cpu
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sysregInterruptToOther from ME on {0}", MMIOHandlerMeCore.Instance.ToString()));
+						System.Console.WriteLine(string.Format("sysregInterruptToOther from ME on {0}", MMIOHandlerMeCore.Instance.ToString()));
 					}
 					RuntimeContextLLE.triggerInterrupt(RuntimeContextLLE.MainProcessor, PSP_MECODEC_INTR);
 				}
@@ -593,21 +593,21 @@ namespace pspsharp.memory.mmio
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("MMIOHandlerSystemControl.setAvcPower enabling Avc power"));
+						System.Console.WriteLine(string.Format("MMIOHandlerSystemControl.setAvcPower enabling Avc power"));
 					}
 				}
 				else
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("MMIOHandlerSystemControl.setAvcPower disabling Avc power"));
+						System.Console.WriteLine(string.Format("MMIOHandlerSystemControl.setAvcPower disabling Avc power"));
 					}
 				}
     
 				// Only bit SYSREG_AVC_POWER is known
 				if ((value & ~(1 << SYSREG_AVC_POWER)) != 0)
 				{
-					Console.WriteLine(string.Format("MMIOHandlerSystemControl.setAvcPower unknown value 0x{0:X}", value));
+					System.Console.WriteLine(string.Format("MMIOHandlerSystemControl.setAvcPower unknown value 0x{0:X}", value));
 				}
 			}
 		}

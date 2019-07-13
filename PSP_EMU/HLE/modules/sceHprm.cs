@@ -58,8 +58,8 @@ namespace pspsharp.HLE.modules
 			//if (log.DebugEnabled)
 			{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("sceHprmIsRemoteExist returning %b", enableRemote));
-				Console.WriteLine(string.Format("sceHprmIsRemoteExist returning %b", enableRemote));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("sceHprmIsRemoteExist returning %b", enableRemote));
+				System.Console.WriteLine(string.Format("sceHprmIsRemoteExist returning %b", enableRemote));
 			}
 
 			return enableRemote;
@@ -71,8 +71,8 @@ namespace pspsharp.HLE.modules
 			//if (log.DebugEnabled)
 			{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("sceHprmIsHeadphoneExist returning %b", enableHeadphone));
-				Console.WriteLine(string.Format("sceHprmIsHeadphoneExist returning %b", enableHeadphone));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("sceHprmIsHeadphoneExist returning %b", enableHeadphone));
+				System.Console.WriteLine(string.Format("sceHprmIsHeadphoneExist returning %b", enableHeadphone));
 			}
 
 			return enableHeadphone;
@@ -84,8 +84,8 @@ namespace pspsharp.HLE.modules
 			//if (log.DebugEnabled)
 			{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("sceHprmIsMicrophoneExist returning %b", enableMicrophone));
-				Console.WriteLine(string.Format("sceHprmIsMicrophoneExist returning %b", enableMicrophone));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("sceHprmIsMicrophoneExist returning %b", enableMicrophone));
+				System.Console.WriteLine(string.Format("sceHprmIsMicrophoneExist returning %b", enableMicrophone));
 			}
 
 			return enableMicrophone;

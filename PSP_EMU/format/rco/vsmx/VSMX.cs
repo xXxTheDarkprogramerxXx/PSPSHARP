@@ -135,7 +135,7 @@ namespace pspsharp.format.rco.vsmx
 
 			if (stringIndex != entries)
 			{
-				Console.WriteLine(string.Format("readStrings: incorrect number of strings read: stringsOffset=0x{0:X}, Length=0x{1:X}, entries=0x{2:X}, bytesPerChar={3:D}, read entries=0x{4:X}", stringsOffset, Length, entries, bytesPerChar, stringIndex));
+				System.Console.WriteLine(string.Format("readStrings: incorrect number of strings read: stringsOffset=0x{0:X}, Length=0x{1:X}, entries=0x{2:X}, bytesPerChar={3:D}, read entries=0x{4:X}", stringsOffset, Length, entries, bytesPerChar, stringIndex));
 			}
 
 			return strings;
@@ -146,24 +146,24 @@ namespace pspsharp.format.rco.vsmx
 			readHeader();
 			if (header.sig != VSMX_SIGNATURE)
 			{
-				Console.WriteLine(string.Format("Invalid VSMX signature 0x{0:X8}", header.sig));
+				System.Console.WriteLine(string.Format("Invalid VSMX signature 0x{0:X8}", header.sig));
 				return;
 			}
 			if (header.ver != VSMX_VERSION)
 			{
-				Console.WriteLine(string.Format("Invalid VSMX version 0x{0:X8}", header.ver));
+				System.Console.WriteLine(string.Format("Invalid VSMX version 0x{0:X8}", header.ver));
 				return;
 			}
 
 			if (header.codeOffset > header.size())
 			{
-				Console.WriteLine(string.Format("VSMX: skipping range after header: 0x{0:X}-0x{1:X}", header.size(), header.codeOffset));
+				System.Console.WriteLine(string.Format("VSMX: skipping range after header: 0x{0:X}-0x{1:X}", header.size(), header.codeOffset));
 				seek(header.codeOffset);
 			}
 
 			if ((header.codeLength % VSMXGroup.SIZE_OF) != 0)
 			{
-				Console.WriteLine(string.Format("VSMX: code Length is not aligned to 8 bytes: 0x{0:X}", header.codeLength));
+				System.Console.WriteLine(string.Format("VSMX: code Length is not aligned to 8 bytes: 0x{0:X}", header.codeLength));
 			}
 
 			mem = new VSMXMem();
@@ -242,7 +242,7 @@ namespace pspsharp.format.rco.vsmx
 						int n = (code.id >> 16) & 0xFF;
 						if (n != 0)
 						{
-							Console.WriteLine(string.Format("Unexpected localvars value for function at line {0:D}, expected 0, got {1:D}", i, n));
+							System.Console.WriteLine(string.Format("Unexpected localvars value for function at line {0:D}, expected 0, got {1:D}", i, n));
 						}
 						int args = (code.id >> 8) & 0xFF;
 						int localVars = (code.id >> 24) & 0xFF;
@@ -311,7 +311,7 @@ namespace pspsharp.format.rco.vsmx
 					case VSMXCode.VID_END:
 						if (code.value != 0)
 						{
-							Console.WriteLine(string.Format("Unexpected non-zero value at line #{0:D}: 0x{1:X}!", i, code.value));
+							System.Console.WriteLine(string.Format("Unexpected non-zero value at line #{0:D}: 0x{1:X}!", i, code.value));
 						}
 						break;
 					default:
@@ -319,10 +319,10 @@ namespace pspsharp.format.rco.vsmx
 						break;
 				}
 
-				Console.WriteLine(string.Format("Line#{0:D}: {1}", i, s.ToString()));
+				System.Console.WriteLine(string.Format("Line#{0:D}: {1}", i, s.ToString()));
 			}
 
-			Console.WriteLine(decompile());
+			System.Console.WriteLine(decompile());
 		}
 
 		private string decompile()

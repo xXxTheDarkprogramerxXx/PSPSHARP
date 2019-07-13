@@ -118,7 +118,7 @@ namespace pspsharp.format.rco.@object
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("PageObject.open {0}, children: {1}", this, @object.getPropertyValue(rootName).getPropertyValue(childrenName)));
+				System.Console.WriteLine(string.Format("PageObject.open {0}, children: {1}", this, @object.getPropertyValue(rootName).getPropertyValue(childrenName)));
 			}
 
 			trigger(onInit);
@@ -141,7 +141,7 @@ namespace pspsharp.format.rco.@object
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("PageObject.activate"));
+				System.Console.WriteLine(string.Format("PageObject.activate"));
 			}
 
 			trigger(onActivate);
@@ -153,7 +153,7 @@ namespace pspsharp.format.rco.@object
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("PageObject.close"));
+				System.Console.WriteLine(string.Format("PageObject.close"));
 			}
 
 			if (display != null)

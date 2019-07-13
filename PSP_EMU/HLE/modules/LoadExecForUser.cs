@@ -95,7 +95,7 @@ namespace pspsharp.HLE.modules
 
 					if ((module.fileFormat & Loader.FORMAT_ELF) != Loader.FORMAT_ELF)
 					{
-						Console.WriteLine("sceKernelLoadExec - failed, target is not an ELF");
+						System.Console.WriteLine("sceKernelLoadExec - failed, target is not an ELF");
 						throw new SceKernelErrorException(ERROR_KERNEL_ILLEGAL_LOADEXEC_FILENAME);
 					}
 
@@ -116,12 +116,12 @@ namespace pspsharp.HLE.modules
 			}
 			catch (GeneralJpcspException e)
 			{
-				Console.WriteLine("General Error", e);
+				System.Console.WriteLine("General Error", e);
 				Emulator.PauseEmu();
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(string.Format("sceKernelLoadExec - Error while loading module '{0}'", moduleFileName), e);
+				System.Console.WriteLine(string.Format("sceKernelLoadExec - Error while loading module '{0}'", moduleFileName), e);
 				return ERROR_KERNEL_PROHIBIT_LOADEXEC_DEVICE;
 			}
 
@@ -135,7 +135,7 @@ namespace pspsharp.HLE.modules
 			// The PSP is replacing a loadexec of disc0:/PSP_GAME/SYSDIR/BOOT.BIN with EBOOT.BIN
 			if (name.Equals(unencryptedBootPath))
 			{
-				Console.WriteLine(string.Format("sceKernelLoadExec '{0}' replaced by '{1}'", name, encryptedBootPath));
+				System.Console.WriteLine(string.Format("sceKernelLoadExec '{0}' replaced by '{1}'", name, encryptedBootPath));
 				name = encryptedBootPath;
 			}
 
@@ -158,7 +158,7 @@ namespace pspsharp.HLE.modules
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("hleKernelLoadExec", e);
+					System.Console.WriteLine("hleKernelLoadExec", e);
 				}
 			}
 
@@ -185,7 +185,7 @@ namespace pspsharp.HLE.modules
 					}
 					catch (IOException e)
 					{
-						Console.WriteLine(string.Format("sceKernelLoadExec - Error while loading module '{0}'", name), e);
+						System.Console.WriteLine(string.Format("sceKernelLoadExec - Error while loading module '{0}'", name), e);
 						return ERROR_KERNEL_PROHIBIT_LOADEXEC_DEVICE;
 					}
 				}
@@ -212,7 +212,7 @@ namespace pspsharp.HLE.modules
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceKernelLoadExec params: optSize={0:D}, argSize={1:D}, argAddr=0x{2:X8}, keyAddr=0x{3:X8}: {4}", optSize, argSize, argAddr, keyAddr, Utilities.getMemoryDump(argAddr, argSize)));
+						System.Console.WriteLine(string.Format("sceKernelLoadExec params: optSize={0:D}, argSize={1:D}, argAddr=0x{2:X8}, keyAddr=0x{3:X8}: {4}", optSize, argSize, argAddr, keyAddr, Utilities.getMemoryDump(argAddr, argSize)));
 					}
 
 				}
@@ -257,7 +257,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("LoadExecForUser_362A956B registeredExitCallbackUid=0x{0:X}", registeredExitCallbackUid));
+				System.Console.WriteLine(string.Format("LoadExecForUser_362A956B registeredExitCallbackUid=0x{0:X}", registeredExitCallbackUid));
 			}
 
 			SceKernelCallbackInfo callbackInfo = Modules.ThreadManForUserModule.getCallbackInfo(registeredExitCallbackUid);
@@ -265,7 +265,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("LoadExecForUser_362A956B registeredExitCallbackUid=0x{0:x} callback not found", registeredExitCallbackUid));
+					System.Console.WriteLine(string.Format("LoadExecForUser_362A956B registeredExitCallbackUid=0x{0:x} callback not found", registeredExitCallbackUid));
 				}
 				return SceKernelErrors.ERROR_KERNEL_NOT_FOUND_CALLBACK;
 			}
@@ -274,7 +274,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("LoadExecForUser_362A956B invalid address for callbackArgument=0x{0:X8}", callbackArgument));
+					System.Console.WriteLine(string.Format("LoadExecForUser_362A956B invalid address for callbackArgument=0x{0:X8}", callbackArgument));
 				}
 				return SceKernelErrors.ERROR_KERNEL_ILLEGAL_ADDR;
 			}
@@ -286,7 +286,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("LoadExecForUser_362A956B invalid value unknown1=0x{0:X8}", unknown1));
+					System.Console.WriteLine(string.Format("LoadExecForUser_362A956B invalid value unknown1=0x{0:X8}", unknown1));
 				}
 				return SceKernelErrors.ERROR_KERNEL_ILLEGAL_ARGUMENT;
 			}
@@ -296,7 +296,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("LoadExecForUser_362A956B invalid address for parameterArea=0x{0:X8}", parameterArea));
+					System.Console.WriteLine(string.Format("LoadExecForUser_362A956B invalid address for parameterArea=0x{0:X8}", parameterArea));
 				}
 				return SceKernelErrors.ERROR_KERNEL_ILLEGAL_ADDR;
 			}
@@ -306,7 +306,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("LoadExecForUser_362A956B invalid parameter area size {0:D}", size));
+					System.Console.WriteLine(string.Format("LoadExecForUser_362A956B invalid parameter area size {0:D}", size));
 				}
 				return SceKernelErrors.ERROR_KERNEL_ILLEGAL_SIZE;
 			}

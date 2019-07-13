@@ -95,7 +95,7 @@ namespace pspsharp.memory.mmio
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("memcpyCompleted 0x{0:X}", flagCompleted));
+				System.Console.WriteLine(string.Format("memcpyCompleted 0x{0:X}", flagCompleted));
 			}
 			flagsCompleted |= flagCompleted;
 

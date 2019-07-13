@@ -210,7 +210,7 @@ namespace pspsharp.HLE.modules
 					outdata.setValue32(1);
 					break;
 				default:
-					Console.WriteLine(string.Format("hleMSstorControllerIoDevctl 0x{0:X8} unknown command on device '{1}'", cmd, devicename));
+					System.Console.WriteLine(string.Format("hleMSstorControllerIoDevctl 0x{0:X8} unknown command on device '{1}'", cmd, devicename));
 					break;
 			}
 			return 0;
@@ -239,7 +239,7 @@ namespace pspsharp.HLE.modules
 					break;
 				case 0x0210D816: // Format Memory Stick
 					// inlen == 0, outlen == 0
-					Console.WriteLine(string.Format("A FORMAT of the Memory Stick was requested, ignoring the request"));
+					System.Console.WriteLine(string.Format("A FORMAT of the Memory Stick was requested, ignoring the request"));
 					break;
 				case 0x02025806: // Check if the device is inserted
 					// 0 = Not inserted.
@@ -247,7 +247,7 @@ namespace pspsharp.HLE.modules
 					outdata.setValue32(1);
 					break;
 				default:
-					Console.WriteLine(string.Format("hleMSstorStorageIoDevctl 0x{0:X8} unknown command on device '{1}'", cmd, devicename));
+					System.Console.WriteLine(string.Format("hleMSstorStorageIoDevctl 0x{0:X8} unknown command on device '{1}'", cmd, devicename));
 					break;
 			}
 			return 0;
@@ -275,7 +275,7 @@ namespace pspsharp.HLE.modules
 					outdata.setValue32(0); // 0 or != 0
 					break;
 				default:
-					Console.WriteLine(string.Format("hleMSstorStorageIoIoctl 0x{0:X8} unknown command", cmd));
+					System.Console.WriteLine(string.Format("hleMSstorStorageIoIoctl 0x{0:X8} unknown command", cmd));
 					break;
 			}
 			return 0;
@@ -308,7 +308,7 @@ namespace pspsharp.HLE.modules
 					outdata.setValue32(0); // ???
 					break;
 				default:
-					Console.WriteLine(string.Format("hleMSstorPartitionIoDevctl 0x{0:X8} unknown command on device '{1}'", cmd, devicename));
+					System.Console.WriteLine(string.Format("hleMSstorPartitionIoDevctl 0x{0:X8} unknown command on device '{1}'", cmd, devicename));
 					break;
 			}
 			return 0;
@@ -342,7 +342,7 @@ namespace pspsharp.HLE.modules
 					outdata.setValue32(0); // 0 or != 0
 					break;
 				default:
-					Console.WriteLine(string.Format("hleMSstorPartitionIoIoctl 0x{0:X8} unknown command", cmd));
+					System.Console.WriteLine(string.Format("hleMSstorPartitionIoIoctl 0x{0:X8} unknown command", cmd));
 					break;
 			}
 			return 0;
@@ -377,7 +377,7 @@ namespace pspsharp.HLE.modules
 					position = offset;
 					break;
 				default:
-					Console.WriteLine(string.Format("hleMSstorPartitionIoLseek unimplemented whence=0x{0:X}", whence));
+					System.Console.WriteLine(string.Format("hleMSstorPartitionIoLseek unimplemented whence=0x{0:X}", whence));
 					break;
 			}
 
@@ -513,7 +513,7 @@ namespace pspsharp.HLE.modules
 			vFile = new Fat32VirtualFile("ms0:", vfs);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("openFile vFile={0}", vFile));
+				System.Console.WriteLine(string.Format("openFile vFile={0}", vFile));
 			}
 		}
 

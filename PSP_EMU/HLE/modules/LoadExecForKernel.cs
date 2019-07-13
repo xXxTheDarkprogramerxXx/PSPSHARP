@@ -40,7 +40,7 @@ namespace pspsharp.HLE.modules
 			// when called in game mode it will have the same effect that sceKernelExitGame 
 			if (param.NotNull)
 			{
-				Console.WriteLine(string.Format("sceKernelExitVSHVSH param={0}", Utilities.getMemoryDump(param.Address, 36)));
+				System.Console.WriteLine(string.Format("sceKernelExitVSHVSH param={0}", Utilities.getMemoryDump(param.Address, 36)));
 			}
 			Emulator.PauseEmu();
 			RuntimeContext.reset();
@@ -59,7 +59,7 @@ namespace pspsharp.HLE.modules
 			//  Test in real PSP in  "Hatsune Miku Project Diva Extend" chinese patched version, same effect as sceKernelExitGame
 			if (param.NotNull)
 			{
-				Console.WriteLine(string.Format("sceKernelExitVSHKernel param={0}", loadExecVSHParam));
+				System.Console.WriteLine(string.Format("sceKernelExitVSHKernel param={0}", loadExecVSHParam));
 			}
 			Emulator.PauseEmu();
 			RuntimeContext.reset();
@@ -83,14 +83,14 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelLoadExecVSHMs2 param: {0}", loadExecVSHParam));
+				System.Console.WriteLine(string.Format("sceKernelLoadExecVSHMs2 param: {0}", loadExecVSHParam));
 				if (loadExecVSHParam.args > 0)
 				{
-					Console.WriteLine(string.Format("sceKernelLoadExecVSHMs2 argp: {0}", Utilities.getMemoryDump(loadExecVSHParam.argp, loadExecVSHParam.args)));
+					System.Console.WriteLine(string.Format("sceKernelLoadExecVSHMs2 argp: {0}", Utilities.getMemoryDump(loadExecVSHParam.argp, loadExecVSHParam.args)));
 				}
 				if (loadExecVSHParam.vshmainArgsSize > 0)
 				{
-					Console.WriteLine(string.Format("sceKernelLoadExecVSHMs2 vshmainArgs: {0}", Utilities.getMemoryDump(loadExecVSHParam.vshmainArgs, loadExecVSHParam.vshmainArgsSize)));
+					System.Console.WriteLine(string.Format("sceKernelLoadExecVSHMs2 vshmainArgs: {0}", Utilities.getMemoryDump(loadExecVSHParam.vshmainArgs, loadExecVSHParam.vshmainArgsSize)));
 				}
 			}
 
@@ -124,7 +124,7 @@ namespace pspsharp.HLE.modules
 
 			if (param.NotNull)
 			{
-				Console.WriteLine(string.Format("sceKernelExitVSHVSH_660 param={0}", loadExecVSHParam));
+				System.Console.WriteLine(string.Format("sceKernelExitVSHVSH_660 param={0}", loadExecVSHParam));
 			}
 
 			return 0;
@@ -160,12 +160,12 @@ namespace pspsharp.HLE.modules
 			{
 				argSize = loadExecParam.args;
 				argAddr = loadExecParam.argp;
-				Console.WriteLine(string.Format("sceKernelLoadExecBufferVSHUsbWlan param={0}", loadExecParam));
+				System.Console.WriteLine(string.Format("sceKernelLoadExecBufferVSHUsbWlan param={0}", loadExecParam));
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelLoadExecBufferVSHUsbWlan buffAddr: {0}", Utilities.getMemoryDump(bufferAddr.Address, System.Math.Min(bufferSize, 1024))));
+				System.Console.WriteLine(string.Format("sceKernelLoadExecBufferVSHUsbWlan buffAddr: {0}", Utilities.getMemoryDump(bufferAddr.Address, System.Math.Min(bufferSize, 1024))));
 			}
 
 			sbyte[] moduleBytes = bufferAddr.getArray8(bufferSize);

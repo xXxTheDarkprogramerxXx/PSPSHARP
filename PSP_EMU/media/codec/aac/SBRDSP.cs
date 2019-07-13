@@ -205,7 +205,7 @@ namespace pspsharp.media.codec.aac
 					hf_apply_noise(Y, Yoffset, s_m, q_filt, noise, 0.0f, -phiSign, m_max);
 					break;
 				default:
-					Console.WriteLine(string.Format("SBRDSP.hf_apply_noise unknown indexSine {0:D}", indexSine));
+					System.Console.WriteLine(string.Format("SBRDSP.hf_apply_noise unknown indexSine {0:D}", indexSine));
 					break;
 			}
 		}

@@ -50,7 +50,7 @@ namespace pspsharp.format.rco.@object
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("PlaneObject.setTexture {0}", value));
+					System.Console.WriteLine(string.Format("PlaneObject.setTexture {0}", value));
 				}
 				if (value is ImageObject)
 				{

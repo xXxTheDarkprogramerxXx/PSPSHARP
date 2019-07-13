@@ -102,7 +102,7 @@ namespace pspsharp.HLE.modules
 			string urlString = sceHttp.patchUrl(url.String);
 			if (!urlString.Equals(url.String))
 			{
-				Console.WriteLine(string.Format("sceUriParse patched URL '{0}' into '{1}'", url.String, urlString));
+				System.Console.WriteLine(string.Format("sceUriParse patched URL '{0}' into '{1}'", url.String, urlString));
 			}
 
 			// Parse the URL into URI components
@@ -113,7 +113,7 @@ namespace pspsharp.HLE.modules
 			}
 			catch (URISyntaxException e)
 			{
-				Console.WriteLine("parsedUriArea", e);
+				System.Console.WriteLine("parsedUriArea", e);
 				return -1;
 			}
 
@@ -270,7 +270,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceUriBuild returning '{0}'", uri));
+					System.Console.WriteLine(string.Format("sceUriBuild returning '{0}'", uri));
 				}
 			}
 			workAreaSizeAddr.setValue(uri.Length + 1);

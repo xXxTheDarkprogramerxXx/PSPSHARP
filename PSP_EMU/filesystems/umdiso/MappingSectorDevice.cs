@@ -52,11 +52,11 @@ namespace pspsharp.filesystems.umdiso
 			}
 			catch (FileNotFoundException e)
 			{
-				Console.WriteLine("Mapping file not found, creating it", e);
+				System.Console.WriteLine("Mapping file not found, creating it", e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("Error reading mapping file", e);
+				System.Console.WriteLine("Error reading mapping file", e);
 			}
 		}
 

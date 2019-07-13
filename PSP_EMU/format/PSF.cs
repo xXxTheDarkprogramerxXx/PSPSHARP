@@ -77,7 +77,7 @@ namespace pspsharp.format
 			ident = readUWord(f);
 			if (ident != PSF_IDENT)
 			{
-				Console.WriteLine("Not a valid PSF file (ident=" + string.Format("{0:X8}", ident) + ")");
+				System.Console.WriteLine("Not a valid PSF file (ident=" + string.Format("{0:X8}", ident) + ")");
 				return;
 			}
 
@@ -132,7 +132,7 @@ namespace pspsharp.format
 						break;
 
 					default:
-						Console.WriteLine(string.Format("offset={0:X8} key='{1}' unhandled data type {2:D} [len={3:D}]", keyTableOffset + pair.keyOffset, pair.key, pair.dataType, pair.dataSize));
+						System.Console.WriteLine(string.Format("offset={0:X8} key='{1}' unhandled data type {2:D} [len={3:D}]", keyTableOffset + pair.keyOffset, pair.key, pair.dataType, pair.dataSize));
 						break;
 				}
 			}
@@ -209,7 +209,7 @@ namespace pspsharp.format
 						break;
 
 					default:
-						Console.WriteLine("not writing unhandled data type " + pair.dataType);
+						System.Console.WriteLine("not writing unhandled data type " + pair.dataType);
 						break;
 				}
 			}

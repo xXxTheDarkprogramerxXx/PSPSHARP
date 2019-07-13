@@ -304,7 +304,7 @@ namespace pspsharp.memory.mmio
 				handler.read(stream);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Read State for {0} at 0x{1:X8}", handler, baseAddress));
+					System.Console.WriteLine(string.Format("Read State for {0} at 0x{1:X8}", handler, baseAddress));
 				}
 			}
 			CY27040.Instance.read(stream);
@@ -322,7 +322,7 @@ namespace pspsharp.memory.mmio
 				IMMIOHandler handler = sortedHandlers[baseAddress];
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Writing State for {0} at 0x{1:X8}", handler, baseAddress));
+					System.Console.WriteLine(string.Format("Writing State for {0} at 0x{1:X8}", handler, baseAddress));
 				}
 				handler.write(stream);
 			}

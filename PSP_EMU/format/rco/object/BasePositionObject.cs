@@ -93,7 +93,7 @@ namespace pspsharp.format.rco.@object
 				outerInstance.rotateAngle = angle * step;
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("AnimRotateAction to angle={0:F}", outerInstance.rotateAngle));
+					System.Console.WriteLine(string.Format("AnimRotateAction to angle={0:F}", outerInstance.rotateAngle));
 				}
 
 				outerInstance.onDisplayUpdated();
@@ -131,7 +131,7 @@ namespace pspsharp.format.rco.@object
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("AnimPosAction from ({0:F},{1:F},{2:F}) to ({3:F},{4:F},{5:F})", startX, startY, startZ, outerInstance.posX.FloatValue, outerInstance.posY.FloatValue, outerInstance.posZ.FloatValue));
+					System.Console.WriteLine(string.Format("AnimPosAction from ({0:F},{1:F},{2:F}) to ({3:F},{4:F},{5:F})", startX, startY, startZ, outerInstance.posX.FloatValue, outerInstance.posY.FloatValue, outerInstance.posZ.FloatValue));
 				}
 
 				outerInstance.onDisplayUpdated();
@@ -169,7 +169,7 @@ namespace pspsharp.format.rco.@object
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("AnimScaleAction scaling from ({0:F},{1:F},{2:F}) to ({3:F},{4:F},{5:F})", startWidth, startHeight, startDepth, outerInstance.scaleWidth.FloatValue, outerInstance.scaleHeight.FloatValue, outerInstance.scaleDepth.FloatValue));
+					System.Console.WriteLine(string.Format("AnimScaleAction scaling from ({0:F},{1:F},{2:F}) to ({3:F},{4:F},{5:F})", startWidth, startHeight, startDepth, outerInstance.scaleWidth.FloatValue, outerInstance.scaleHeight.FloatValue, outerInstance.scaleDepth.FloatValue));
 				}
 
 				outerInstance.onDisplayUpdated();
@@ -212,7 +212,7 @@ namespace pspsharp.format.rco.@object
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("AnimColorAction scaling from ({0:F},{1:F},{2:F},{3:F}) to ({4:F},{5:F},{6:F},{7:F})", startRed, startGreen, startBlue, startAlpha, red, green, blue, alpha));
+					System.Console.WriteLine(string.Format("AnimColorAction scaling from ({0:F},{1:F},{2:F},{3:F}) to ({4:F},{5:F},{6:F},{7:F})", startRed, startGreen, startBlue, startAlpha, red, green, blue, alpha));
 				}
 
 				outerInstance.onDisplayUpdated();
@@ -342,7 +342,7 @@ namespace pspsharp.format.rco.@object
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Rotating image at ({0:F},{1:F}) by {2:F}", rotateX, rotateY, rotateAngle));
+						System.Console.WriteLine(string.Format("Rotating image at ({0:F},{1:F}) by {2:F}", rotateX, rotateY, rotateAngle));
 					}
 					AffineTransform rotation = new AffineTransform();
 					rotation.rotate(-rotateAngle, rotateX + image.Width / 2, rotateY + image.Height / 2);
@@ -358,7 +358,7 @@ namespace pspsharp.format.rco.@object
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("setPos({0}, {1})", posX, posY));
+				System.Console.WriteLine(string.Format("setPos({0}, {1})", posX, posY));
 			}
 			this.posX.FloatValue = posX.FloatValue;
 			this.posY.FloatValue = posY.FloatValue;
@@ -368,7 +368,7 @@ namespace pspsharp.format.rco.@object
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("setPos({0}, {1}, {2})", posX, posY, posZ));
+				System.Console.WriteLine(string.Format("setPos({0}, {1}, {2})", posX, posY, posZ));
 			}
 			this.posX.FloatValue = posX.FloatValue;
 			this.posY.FloatValue = posY.FloatValue;
@@ -385,7 +385,7 @@ namespace pspsharp.format.rco.@object
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("getPos() returning {0}", pos));
+				System.Console.WriteLine(string.Format("getPos() returning {0}", pos));
 			}
 
 			return pos;
@@ -395,7 +395,7 @@ namespace pspsharp.format.rco.@object
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("setRotate({0}, {1}, {2})", x, y, rotationRads));
+				System.Console.WriteLine(string.Format("setRotate({0}, {1}, {2})", x, y, rotationRads));
 			}
 
 			rotateX = x.FloatValue;
@@ -414,7 +414,7 @@ namespace pspsharp.format.rco.@object
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("getColor() returning {0}", color));
+				System.Console.WriteLine(string.Format("getColor() returning {0}", color));
 			}
 
 			return color;
@@ -424,7 +424,7 @@ namespace pspsharp.format.rco.@object
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("setColor({0}, {1}, {2}, {3})", red, green, blue, alpha));
+				System.Console.WriteLine(string.Format("setColor({0}, {1}, {2}, {3})", red, green, blue, alpha));
 			}
 
 			redScale.FloatValue = red.FloatValue;
@@ -439,7 +439,7 @@ namespace pspsharp.format.rco.@object
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("animColor({0}, {1}, {2}, {3}, {4})", red, green, blue, alpha, duration));
+				System.Console.WriteLine(string.Format("animColor({0}, {1}, {2}, {3}, {4})", red, green, blue, alpha, duration));
 			}
 
 			AnimColorAction action = new AnimColorAction(this, red.FloatValue, green.FloatValue, blue.FloatValue, alpha.FloatValue, duration.IntValue);
@@ -450,7 +450,7 @@ namespace pspsharp.format.rco.@object
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("setScale({0}, {1}, {2})", width, height, depth));
+				System.Console.WriteLine(string.Format("setScale({0}, {1}, {2})", width, height, depth));
 			}
 
 			// TODO To be implemented
@@ -461,7 +461,7 @@ namespace pspsharp.format.rco.@object
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("animScale({0}, {1}, {2}, {3})", width, height, depth, duration));
+				System.Console.WriteLine(string.Format("animScale({0}, {1}, {2}, {3})", width, height, depth, duration));
 			}
 
 			AnimScaleAction action = new AnimScaleAction(this, width.FloatValue, height.FloatValue, depth.FloatValue, duration.IntValue);
@@ -472,7 +472,7 @@ namespace pspsharp.format.rco.@object
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("animPos from ({0},{1},{2}) to ({3}, {4}, {5}), duration={6}", posX, posY, posZ, x, y, z, duration));
+				System.Console.WriteLine(string.Format("animPos from ({0},{1},{2}) to ({3}, {4}, {5}), duration={6}", posX, posY, posZ, x, y, z, duration));
 			}
 
 			AnimPosAction action = new AnimPosAction(this, x.FloatValue, y.FloatValue, z.FloatValue, duration.IntValue);
@@ -483,7 +483,7 @@ namespace pspsharp.format.rco.@object
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("animRotate({0}, {1}, {2}, {3})", x, y, rotationRads, duration));
+				System.Console.WriteLine(string.Format("animRotate({0}, {1}, {2}, {3})", x, y, rotationRads, duration));
 			}
 
 			AnimRotateAction action = new AnimRotateAction(this, x.FloatValue, y.FloatValue, rotationRads.FloatValue, duration.IntValue);
@@ -494,7 +494,7 @@ namespace pspsharp.format.rco.@object
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("setFocus()"));
+				System.Console.WriteLine(string.Format("setFocus()"));
 			}
 			if (display != null)
 			{
@@ -522,7 +522,7 @@ namespace pspsharp.format.rco.@object
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("setSize({0}, {1}, {2})", width, height, depth));
+				System.Console.WriteLine(string.Format("setSize({0}, {1}, {2})", width, height, depth));
 			}
 
 			this.width.FloatValue = width.FloatValue;

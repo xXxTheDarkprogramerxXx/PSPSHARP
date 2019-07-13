@@ -701,7 +701,7 @@ namespace pspsharp.HLE
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Loading default HLE modules"));
+				System.Console.WriteLine(string.Format("Loading default HLE modules"));
 			}
 
 			foreach (ModuleInfo defaultModule in ModuleInfo.values())
@@ -853,7 +853,7 @@ namespace pspsharp.HLE
 			{
 				if (!nidMapper.addHLENid(nid, func.FunctionName, func.ModuleName, func.FirmwareVersion))
 				{
-					Console.WriteLine(string.Format("Tried to register a second handler for NID 0x{0:X8} called {1}", nid, func.FunctionName));
+					System.Console.WriteLine(string.Format("Tried to register a second handler for NID 0x{0:X8} called {1}", nid, func.FunctionName));
 				}
 
 				nidToFunction[nid] = func;
@@ -944,21 +944,21 @@ namespace pspsharp.HLE
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Module {0} already started", defaultModule.module.Name));
+						System.Console.WriteLine(string.Format("Module {0} already started", defaultModule.module.Name));
 					}
 				}
 				else
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Starting module {0}", defaultModule.module.Name));
+						System.Console.WriteLine(string.Format("Starting module {0}", defaultModule.module.Name));
 					}
 
 					defaultModule.module.start();
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Started module {0}", defaultModule.module.Name));
+						System.Console.WriteLine(string.Format("Started module {0}", defaultModule.module.Name));
 					}
 				}
 			}
@@ -1075,7 +1075,7 @@ namespace pspsharp.HLE
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("installModuleWithAnnotations", e);
+				System.Console.WriteLine("installModuleWithAnnotations", e);
 			}
 
 			installedModules.Add(hleModule);
@@ -1097,7 +1097,7 @@ namespace pspsharp.HLE
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("uninstallModuleWithAnnotations", e);
+				System.Console.WriteLine("uninstallModuleWithAnnotations", e);
 			}
 
 			installedModules.remove(hleModule);
@@ -1151,7 +1151,7 @@ namespace pspsharp.HLE
 			{
 				if (log.InfoEnabled)
 				{
-					Console.WriteLine(string.Format("Loading and starting the module '{0}', it will replace the equivalent HLE functions", moduleFileName));
+					System.Console.WriteLine(string.Format("Loading and starting the module '{0}', it will replace the equivalent HLE functions", moduleFileName));
 				}
 
 				IAction onModuleStartAction = null;

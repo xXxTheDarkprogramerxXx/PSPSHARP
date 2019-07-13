@@ -39,7 +39,7 @@ namespace pspsharp.scheduler
 			int vtimerInterruptResult = Emulator.Processor.cpu._v0;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("VTimer returned value " + vtimerInterruptResult);
+				System.Console.WriteLine("VTimer returned value " + vtimerInterruptResult);
 			}
 
 			if (vtimerInterruptResult == 0)

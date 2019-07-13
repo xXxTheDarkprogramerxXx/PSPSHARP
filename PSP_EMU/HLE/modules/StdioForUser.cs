@@ -103,7 +103,7 @@ namespace pspsharp.HLE.modules
 				return SceKernelErrors.ERROR_KERNEL_ILLEGAL_ARGUMENT;
 			}
 
-			Console.WriteLine(string.Format("sceKernelRegisterStdoutPipe {0}", msgPipeInfo));
+			System.Console.WriteLine(string.Format("sceKernelRegisterStdoutPipe {0}", msgPipeInfo));
 
 			Modules.IoFileMgrForUserModule.hleRegisterStdPipe(IoFileMgrForUser.STDOUT_ID, msgPipeInfo);
 

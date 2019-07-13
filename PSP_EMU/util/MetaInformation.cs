@@ -41,7 +41,7 @@ namespace pspsharp.util
 					string customName = Utilities.ToString(@is, true).Trim();
 					if (customName.Length == 0)
 					{
-						Console.Error.WriteLine("first line of title.txt is blank or file is empty");
+						System.Console.Error.WriteLine("first line of title.txt is blank or file is empty");
 					}
 					else
 					{
@@ -51,9 +51,9 @@ namespace pspsharp.util
 			}
 			catch (IOException e)
 			{
-				Console.Error.WriteLine("something went wrong: " + e.Message);
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.Error.WriteLine("something went wrong: " + e.Message);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 			}
 		}
 

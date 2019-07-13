@@ -288,7 +288,7 @@ namespace pspsharp.HLE.modules
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Decoding from 0x{0:X8}, Length=0x{1:X} to 0x{2:X8}, inputBuffer {3}", decodeInputAddr, decodeInputLength, decodeOutputAddr, inputBuffer));
+						System.Console.WriteLine(string.Format("Decoding from 0x{0:X8}, Length=0x{1:X} to 0x{2:X8}, inputBuffer {3}", decodeInputAddr, decodeInputLength, decodeOutputAddr, inputBuffer));
 					}
 
 					result = codec.decode(decodeInputAddr, decodeInputLength, decodeOutputAddr);
@@ -325,7 +325,7 @@ namespace pspsharp.HLE.modules
 						{
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("Looping loopNum={0:D}", loopNum));
+								System.Console.WriteLine(string.Format("Looping loopNum={0:D}", loopNum));
 							}
 
 							if (loopNum > 0)
@@ -396,7 +396,7 @@ namespace pspsharp.HLE.modules
 					size = (size & 0x7F) | ((size & 0x7F00) >> 1) | ((size & 0x7F0000) >> 2) | ((size & 0x7F000000) >> 3);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Skipping ID3 of size 0x{0:X}", size));
+						System.Console.WriteLine(string.Format("Skipping ID3 of size 0x{0:X}", size));
 					}
 					inputBuffer.notifyRead(10 + size);
 					headerAddr = startAddr + 10 + size;
@@ -405,14 +405,14 @@ namespace pspsharp.HLE.modules
 
 				if (!isMp3Magic(header))
 				{
-					Console.WriteLine(string.Format("Invalid MP3 header 0x{0:X8}", header));
+					System.Console.WriteLine(string.Format("Invalid MP3 header 0x{0:X8}", header));
 					return;
 				}
 
 				header = Utilities.endianSwap32(header);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Mp3 header: 0x{0:X8}", header));
+					System.Console.WriteLine(string.Format("Mp3 header: 0x{0:X8}", header));
 				}
 
 				Mp3Header mp3Header = new Mp3Header();
@@ -449,7 +449,7 @@ namespace pspsharp.HLE.modules
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Found TAG 0x{0:X8}, numberOfFrames={1:D}, numberOfBytes=0x{2:X}", tag, numberOfFrames, numberOfBytes));
+						System.Console.WriteLine(string.Format("Found TAG 0x{0:X8}, numberOfFrames={1:D}, numberOfBytes=0x{2:X}", tag, numberOfFrames, numberOfBytes));
 					}
 				}
 			}
@@ -468,7 +468,7 @@ namespace pspsharp.HLE.modules
 
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Found TAG 0x{0:X8}, numberOfFrames={1:D}, numberOfBytes=0x{2:X}", tag, numberOfFrames, numberOfBytes));
+							System.Console.WriteLine(string.Format("Found TAG 0x{0:X8}, numberOfFrames={1:D}, numberOfBytes=0x{2:X}", tag, numberOfFrames, numberOfBytes));
 						}
 					}
 				}
@@ -590,7 +590,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMp3ReserveMp3Handle parameters: startPos=0x{0:X}, endPos=0x{1:X}, " + "bufferAddr=0x{2:X8}, bufferSize=0x{3:X}, outputAddr=0x{4:X8}, outputSize=0x{5:X}", startPos, endPos, bufferAddr, bufferSize, outputAddr, outputSize));
+				System.Console.WriteLine(string.Format("sceMp3ReserveMp3Handle parameters: startPos=0x{0:X}, endPos=0x{1:X}, " + "bufferAddr=0x{2:X8}, bufferSize=0x{3:X}, outputAddr=0x{4:X8}, outputSize=0x{5:X}", startPos, endPos, bufferAddr, bufferSize, outputAddr, outputSize));
 			}
 
 			int id = FreeMp3Id;
@@ -651,7 +651,7 @@ namespace pspsharp.HLE.modules
 			mp3Info.init();
 			if (log.InfoEnabled)
 			{
-				Console.WriteLine(string.Format("Initializing Mp3 data: channels={0:D}, samplerate={1:D}kHz, bitrate={2:D}kbps.", mp3Info.ChannelNum, mp3Info.SampleRate, mp3Info.BitRate));
+				System.Console.WriteLine(string.Format("Initializing Mp3 data: channels={0:D}, samplerate={1:D}kHz, bitrate={2:D}kbps.", mp3Info.ChannelNum, mp3Info.SampleRate, mp3Info.BitRate));
 			}
 
 			return 0;
@@ -673,7 +673,7 @@ namespace pspsharp.HLE.modules
 			Mp3Info mp3Info = getMp3Info(id);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMp3GetSamplingRate returning 0x{0:X}", mp3Info.SampleRate));
+				System.Console.WriteLine(string.Format("sceMp3GetSamplingRate returning 0x{0:X}", mp3Info.SampleRate));
 			}
 			return mp3Info.SampleRate;
 		}
@@ -690,7 +690,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMp3GetInfoToAddStreamData returning writeAddr=0x{0:X8}, writableBytes=0x{1:X}, readOffset=0x{2:X}", writeAddr.getValue(), writableBytesAddr.getValue(), readOffsetAddr.getValue()));
+				System.Console.WriteLine(string.Format("sceMp3GetInfoToAddStreamData returning writeAddr=0x{0:X8}, writableBytes=0x{1:X}, readOffset=0x{2:X}", writeAddr.getValue(), writableBytesAddr.getValue(), readOffsetAddr.getValue()));
 			}
 			return 0;
 		}
@@ -704,7 +704,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMp3Decode bufferAddress={0}(0x{1:X8}) returning 0x{2:X}", bufferAddress, bufferAddress.getValue(), result));
+				System.Console.WriteLine(string.Format("sceMp3Decode bufferAddress={0}(0x{1:X8}) returning 0x{2:X}", bufferAddress, bufferAddress.getValue(), result));
 			}
 
 			if (result >= 0)
@@ -741,7 +741,7 @@ namespace pspsharp.HLE.modules
 			int sumDecodedSamples = getMp3Info(id).SumDecodedSamples;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMp3GetSumDecodedSample returning 0x{0:X}", sumDecodedSamples));
+				System.Console.WriteLine(string.Format("sceMp3GetSumDecodedSample returning 0x{0:X}", sumDecodedSamples));
 			}
 
 			return sumDecodedSamples;
@@ -763,7 +763,7 @@ namespace pspsharp.HLE.modules
 			Mp3Info mp3Info = getMp3Info(id);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMp3GetMaxOutputSample returning 0x{0:X}", mp3Info.MaxSamples));
+				System.Console.WriteLine(string.Format("sceMp3GetMaxOutputSample returning 0x{0:X}", mp3Info.MaxSamples));
 			}
 			return mp3Info.MaxSamples;
 		}
@@ -821,7 +821,7 @@ namespace pspsharp.HLE.modules
 			int result = mp3Info.Codec.decode(sourceAddr.Address, 10000, samplesAddr.Address);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMp3LowLevelDecode result=0x{0:X8}, samples=0x{1:X}", result, mp3Info.Codec.NumberOfSamples));
+				System.Console.WriteLine(string.Format("sceMp3LowLevelDecode result=0x{0:X8}, samples=0x{1:X}", result, mp3Info.Codec.NumberOfSamples));
 			}
 			if (result < 0)
 			{

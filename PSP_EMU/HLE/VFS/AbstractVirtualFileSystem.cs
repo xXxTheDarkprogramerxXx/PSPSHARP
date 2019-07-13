@@ -158,14 +158,14 @@ namespace pspsharp.HLE.VFS
 		{
 			if (log.isEnabledFor(Level.WARN))
 			{
-				Console.WriteLine(string.Format("ioDevctl on '{0}', 0x{1:X8} unsupported command, inlen={2:D}, outlen={3:D}", deviceName, command, inputLength, outputLength));
+				System.Console.WriteLine(string.Format("ioDevctl on '{0}', 0x{1:X8} unsupported command, inlen={2:D}, outlen={3:D}", deviceName, command, inputLength, outputLength));
 				if (inputPointer.AddressGood)
 				{
-					Console.WriteLine(string.Format("ioDevctl indata: {0}", Utilities.getMemoryDump(inputPointer.Address, inputLength)));
+					System.Console.WriteLine(string.Format("ioDevctl indata: {0}", Utilities.getMemoryDump(inputPointer.Address, inputLength)));
 				}
 				if (outputPointer.AddressGood)
 				{
-					Console.WriteLine(string.Format("ioDevctl outdata: {0}", Utilities.getMemoryDump(outputPointer.Address, outputLength)));
+					System.Console.WriteLine(string.Format("ioDevctl outdata: {0}", Utilities.getMemoryDump(outputPointer.Address, outputLength)));
 				}
 			}
 

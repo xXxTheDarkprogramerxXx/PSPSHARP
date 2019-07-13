@@ -84,7 +84,7 @@ namespace pspsharp.memory.mmio.wm8750
 		public virtual void executeTransmitReceiveCommand(int[] transmitData, int[] receiveData)
 		{
 			// This seems to not be used for WM8750
-			Console.WriteLine(string.Format("Unimplemented executeTransmitReceiveCommand transmitData: 0x{0:X2} 0x{1:X2}", transmitData[0], transmitData[1]));
+			System.Console.WriteLine(string.Format("Unimplemented executeTransmitReceiveCommand transmitData: 0x{0:X2} 0x{1:X2}", transmitData[0], transmitData[1]));
 		}
 
 		public virtual void executeTransmitCommand(int[] transmitData)
@@ -98,12 +98,12 @@ namespace pspsharp.memory.mmio.wm8750
 			}
 			else
 			{
-				Console.WriteLine(string.Format("executeTransmitCommand unknown register {0:D}", register));
+				System.Console.WriteLine(string.Format("executeTransmitCommand unknown register {0:D}", register));
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("executeTransmitCommand register={0:D}, value=0x{1:X3} on {2}", register, value, this));
+				System.Console.WriteLine(string.Format("executeTransmitCommand register={0:D}, value=0x{1:X3} on {2}", register, value, this));
 			}
 		}
 

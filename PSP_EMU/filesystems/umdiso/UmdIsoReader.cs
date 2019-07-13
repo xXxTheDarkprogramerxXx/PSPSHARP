@@ -215,7 +215,7 @@ namespace pspsharp.filesystems.umdiso
 			if (sectorNumber < 0 || (sectorNumber + numberSectors) > numSectors)
 			{
 				Arrays.Fill(buffer, offset, offset + numberSectors * sectorLength, (sbyte) 0);
-				Emulator.Console.WriteLine(string.Format("Sectors start={0:D}, end={1:D} out of ISO (numSectors={2:D})", sectorNumber, sectorNumber + numberSectors, numSectors));
+				Emulator.System.Console.WriteLine(string.Format("Sectors start={0:D}, end={1:D} out of ISO (numSectors={2:D})", sectorNumber, sectorNumber + numberSectors, numSectors));
 				return numberSectors;
 			}
 
@@ -236,7 +236,7 @@ namespace pspsharp.filesystems.umdiso
 			if (sectorNumber < 0 || sectorNumber >= numSectors)
 			{
 				Arrays.Fill(buffer, offset, offset + sectorLength, (sbyte) 0);
-				Emulator.Console.WriteLine(string.Format("Sector number {0:D} out of ISO (numSectors={1:D})", sectorNumber, numSectors));
+				Emulator.System.Console.WriteLine(string.Format("Sector number {0:D} out of ISO (numSectors={1:D})", sectorNumber, numSectors));
 				return;
 			}
 

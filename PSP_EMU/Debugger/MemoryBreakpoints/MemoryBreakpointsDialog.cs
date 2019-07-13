@@ -743,7 +743,7 @@ namespace pspsharp.Debugger.MemoryBreakpoints
 				File f = fc.SelectedFile;
 				if (f.exists())
 				{
-					int rc = MessageBox.Show(this, bundle.getString("ConsoleWindow.strFileExists.text"), bundle.getString("ConsoleWindow.strFileExistsTitle.text"), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+					int rc = MessageBox.Show(this, bundle.getString("System.ConsoleWindow.strFileExists.text"), bundle.getString("System.ConsoleWindow.strFileExistsTitle.text"), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
 					if (rc != DialogResult.Yes)
 					{

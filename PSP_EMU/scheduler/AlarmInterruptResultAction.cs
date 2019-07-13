@@ -37,7 +37,7 @@ namespace pspsharp.scheduler
 			int alarmInterruptResult = Emulator.Processor.cpu._v0;
 			if (Modules.log.DebugEnabled)
 			{
-				Modules.Console.WriteLine("Alarm returned value " + alarmInterruptResult);
+				Modules.System.Console.WriteLine("Alarm returned value " + alarmInterruptResult);
 			}
 
 			if (alarmInterruptResult == 0)

@@ -125,7 +125,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("doAudioOutput({0}, 0x{1:X8})", channel.ToString(), pvoid_buf));
+					System.Console.WriteLine(string.Format("doAudioOutput({0}, 0x{1:X8})", channel.ToString(), pvoid_buf));
 				}
 				int bytesPerSample = channel.FormatStereo ? 4 : 2;
 				int nbytes = bytesPerSample * channel.SampleLength;
@@ -166,7 +166,7 @@ namespace pspsharp.HLE.modules
 			}
 			else
 			{
-				Console.WriteLine("doAudioOutput: channel " + channel.Index + " not reserved");
+				System.Console.WriteLine("doAudioOutput: channel " + channel.Index + " not reserved");
 			}
 			return ret;
 		}
@@ -186,7 +186,7 @@ namespace pspsharp.HLE.modules
 			long schedule = Emulator.Clock.microTime() + delayMicros;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("blockThreadOutput micros={0:D}, schedule={1:D}", delayMicros, schedule));
+				System.Console.WriteLine(string.Format("blockThreadOutput micros={0:D}, schedule={1:D}", delayMicros, schedule));
 			}
 			Emulator.Scheduler.addAction(schedule, action);
 		}
@@ -195,7 +195,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("hleAudioBlockingOutput {0}", channel.ToString()));
+				System.Console.WriteLine(string.Format("hleAudioBlockingOutput {0}", channel.ToString()));
 			}
 
 			if (addr == 0)
@@ -262,14 +262,14 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("hleAudioGetChannelRestLength truncating rest Length {0:D} to 0", len));
+					System.Console.WriteLine(string.Format("hleAudioGetChannelRestLength truncating rest Length {0:D} to 0", len));
 				}
 				len = 0;
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("hleAudioGetChannelRestLength({0:D}) = {1:D}", channel.Index, len));
+				System.Console.WriteLine(string.Format("hleAudioGetChannelRestLength({0:D}) = {1:D}", channel.Index, len));
 			}
 
 			return len;
@@ -297,7 +297,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("hleAudioSRCChReserve returning ERROR_AUDIO_CHANNEL_ALREADY_RESERVED"));
+					System.Console.WriteLine(string.Format("hleAudioSRCChReserve returning ERROR_AUDIO_CHANNEL_ALREADY_RESERVED"));
 				}
 				return SceKernelErrors.ERROR_AUDIO_CHANNEL_ALREADY_RESERVED;
 			}
@@ -322,7 +322,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Invalid channel number {0:D}", channel));
+					System.Console.WriteLine(string.Format("Invalid channel number {0:D}", channel));
 				}
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_AUDIO_INVALID_CHANNEL);
 			}
@@ -337,7 +337,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Channel not reserved {0:D}", channel));
+					System.Console.WriteLine(string.Format("Channel not reserved {0:D}", channel));
 				}
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_AUDIO_CHANNEL_NOT_INIT);
 			}
@@ -351,7 +351,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Invalid sampleCount 0x{0:X}", sampleCount));
+					System.Console.WriteLine(string.Format("Invalid sampleCount 0x{0:X}", sampleCount));
 				}
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_AUDIO_OUTPUT_SAMPLE_DATA_SIZE_NOT_ALIGNED);
 			}
@@ -365,7 +365,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Invalid small sampleCount 0x{0:X}", sampleCount));
+					System.Console.WriteLine(string.Format("Invalid small sampleCount 0x{0:X}", sampleCount));
 				}
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_AUDIO_OUTPUT_SAMPLE_DATA_SIZE_NOT_ALIGNED);
 			}
@@ -379,7 +379,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Invalid reserve sampleCount 0x{0:X}", sampleCount));
+					System.Console.WriteLine(string.Format("Invalid reserve sampleCount 0x{0:X}", sampleCount));
 				}
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_INVALID_SIZE);
 			}
@@ -394,7 +394,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Invalid volume 0x{0:X}", volume));
+					System.Console.WriteLine(string.Format("Invalid volume 0x{0:X}", volume));
 				}
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_AUDIO_INVALID_VOLUME);
 			}
@@ -408,7 +408,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Invalid volume 0x{0:X}", volume));
+					System.Console.WriteLine(string.Format("Invalid volume 0x{0:X}", volume));
 				}
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_AUDIO_INVALID_VOLUME);
 			}
@@ -422,7 +422,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Invalid format 0x{0:X}", format));
+					System.Console.WriteLine(string.Format("Invalid format 0x{0:X}", format));
 				}
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_AUDIO_INVALID_FORMAT);
 			}
@@ -576,7 +576,7 @@ namespace pspsharp.HLE.modules
 				IntBuffer minorVersion = BufferUtils.createIntBuffer(1);
 				ALC10.alcGetInteger(null, ALC10.ALC_MAJOR_VERSION, majorVersion);
 				ALC10.alcGetInteger(null, ALC10.ALC_MINOR_VERSION, minorVersion);
-				Console.WriteLine(string.Format("OpenAL Version {0:D}.{1:D}, extensions {2}", majorVersion.get(0), minorVersion.get(0), ALC10.alcGetString(null, ALC10.ALC_EXTENSIONS)));
+				System.Console.WriteLine(string.Format("OpenAL Version {0:D}.{1:D}, extensions {2}", majorVersion.get(0), minorVersion.get(0), ALC10.alcGetString(null, ALC10.ALC_EXTENSIONS)));
 
 				inputDevice = ALC11.alcCaptureOpenDevice(null, frequency, AL10.AL_FORMAT_MONO16, 10 * 1024);
 				if (inputDevice != null)
@@ -585,7 +585,7 @@ namespace pspsharp.HLE.modules
 				}
 				else
 				{
-					Console.WriteLine(string.Format("No audio input device available, faking."));
+					System.Console.WriteLine(string.Format("No audio input device available, faking."));
 				}
 
 				inputDeviceInitialized = true;
@@ -673,7 +673,7 @@ namespace pspsharp.HLE.modules
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine("sceAudioOutputBlocking[pvoid_buf==0] blocking " + pspPCMChannels[channel].ToString());
+						System.Console.WriteLine("sceAudioOutputBlocking[pvoid_buf==0] blocking " + pspPCMChannels[channel].ToString());
 					}
 					blockThreadOutput(pspPCMChannels[channel], pvoid_buf.Address, vol, vol);
 				}
@@ -683,13 +683,13 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("sceAudioOutputBlocking[not blocking] " + pspPCMChannels[channel].ToString());
+					System.Console.WriteLine("sceAudioOutputBlocking[not blocking] " + pspPCMChannels[channel].ToString());
 				}
 				changeChannelVolume(pspPCMChannels[channel], vol, vol);
 				result = doAudioOutput(pspPCMChannels[channel], pvoid_buf.Address);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceAudioOutputBlocking[not blocking] returning {0:D} ({1})", result, pspPCMChannels[channel]));
+					System.Console.WriteLine(string.Format("sceAudioOutputBlocking[not blocking] returning {0:D} ({1})", result, pspPCMChannels[channel]));
 				}
 				Modules.ThreadManForUserModule.hleRescheduleCurrentThread();
 			}
@@ -697,7 +697,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("sceAudioOutputBlocking[blocking] " + pspPCMChannels[channel].ToString());
+					System.Console.WriteLine("sceAudioOutputBlocking[blocking] " + pspPCMChannels[channel].ToString());
 				}
 				blockThreadOutput(pspPCMChannels[channel], pvoid_buf.Address, vol, vol);
 			}
@@ -746,7 +746,7 @@ namespace pspsharp.HLE.modules
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine("sceAudioOutputPannedBlocking[pvoid_buf==0] blocking " + pspPCMChannels[channel].ToString());
+						System.Console.WriteLine("sceAudioOutputPannedBlocking[pvoid_buf==0] blocking " + pspPCMChannels[channel].ToString());
 					}
 					blockThreadOutput(pspPCMChannels[channel], pvoid_buf.Address, leftvol, rightvol);
 				}
@@ -756,7 +756,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceAudioOutputPannedBlocking[not blocking] leftVol={0:D}, rightVol={1:D}, channel={2}", leftvol, rightvol, pspPCMChannels[channel].ToString()));
+					System.Console.WriteLine(string.Format("sceAudioOutputPannedBlocking[not blocking] leftVol={0:D}, rightVol={1:D}, channel={2}", leftvol, rightvol, pspPCMChannels[channel].ToString()));
 				}
 				changeChannelVolume(pspPCMChannels[channel], leftvol, rightvol);
 				result = doAudioOutput(pspPCMChannels[channel], pvoid_buf.Address);
@@ -766,7 +766,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceAudioOutputPannedBlocking[blocking] leftVol={0:D}, rightVol={1:D}, channel={2}", leftvol, rightvol, pspPCMChannels[channel].ToString()));
+					System.Console.WriteLine(string.Format("sceAudioOutputPannedBlocking[blocking] leftVol={0:D}, rightVol={1:D}, channel={2}", leftvol, rightvol, pspPCMChannels[channel].ToString()));
 				}
 				blockThreadOutput(pspPCMChannels[channel], pvoid_buf.Address, leftvol, rightvol);
 			}
@@ -784,7 +784,7 @@ namespace pspsharp.HLE.modules
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceAudioChReserve failed - channel {0:D} already in use", channel));
+						System.Console.WriteLine(string.Format("sceAudioChReserve failed - channel {0:D} already in use", channel));
 					}
 					return SceKernelErrors.ERROR_AUDIO_INVALID_CHANNEL;
 				}
@@ -803,7 +803,7 @@ namespace pspsharp.HLE.modules
 
 				if (channel < 0)
 				{
-					Console.WriteLine("sceAudioChReserve failed - no free channels available");
+					System.Console.WriteLine("sceAudioChReserve failed - no free channels available");
 					return SceKernelErrors.ERROR_AUDIO_NO_CHANNELS_AVAILABLE;
 				}
 			}
@@ -908,7 +908,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceAudioOutput2GetRestSample returning ERROR_AUDIO_CHANNEL_NOT_RESERVED"));
+					System.Console.WriteLine(string.Format("sceAudioOutput2GetRestSample returning ERROR_AUDIO_CHANNEL_NOT_RESERVED"));
 				}
 				return SceKernelErrors.ERROR_AUDIO_CHANNEL_NOT_RESERVED;
 			}
@@ -919,7 +919,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceAudioOutput2GetRestSample returning 0x{0:X} (rest1=0x{1:X}, rest2=0x{2:X})", rest, rest1, rest2));
+				System.Console.WriteLine(string.Format("sceAudioOutput2GetRestSample returning 0x{0:X} (rest1=0x{1:X}, rest2=0x{2:X})", rest, rest1, rest2));
 			}
 
 			return rest;
@@ -934,7 +934,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceAudioOutput2ChangeLength returning ERROR_AUDIO_CHANNEL_NOT_RESERVED"));
+					System.Console.WriteLine(string.Format("sceAudioOutput2ChangeLength returning ERROR_AUDIO_CHANNEL_NOT_RESERVED"));
 				}
 				return SceKernelErrors.ERROR_AUDIO_CHANNEL_NOT_RESERVED;
 			}
@@ -960,7 +960,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceAudioSRCChRelease returning ERROR_AUDIO_CHANNEL_NOT_RESERVED"));
+					System.Console.WriteLine(string.Format("sceAudioSRCChRelease returning ERROR_AUDIO_CHANNEL_NOT_RESERVED"));
 				}
 				return SceKernelErrors.ERROR_AUDIO_CHANNEL_NOT_RESERVED;
 			}
@@ -999,7 +999,7 @@ namespace pspsharp.HLE.modules
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine("sceAudioSRCOutputBlocking[buf==0] blocking " + pspSRCChannel);
+						System.Console.WriteLine("sceAudioSRCOutputBlocking[buf==0] blocking " + pspSRCChannel);
 					}
 					// Do not update volume, it has already been updated above
 					blockThreadOutput(pspSRCChannel, buf.Address, -1, -1);
@@ -1014,7 +1014,7 @@ namespace pspsharp.HLE.modules
 				// Channel is automatically reserved. The audio data (buf) is not used in this case.
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceAudioSRCOutputBlocking automatically reserving channel {0}", pspSRCChannel));
+					System.Console.WriteLine(string.Format("sceAudioSRCOutputBlocking automatically reserving channel {0}", pspSRCChannel));
 				}
 				pspSRC1Channel.Reserved = true;
 				pspSRC2Channel.Reserved = true;
@@ -1025,7 +1025,7 @@ namespace pspsharp.HLE.modules
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceAudioSRCOutputBlocking[not blocking] {0} to {1}", buf, pspSRCChannel.ToString()));
+						System.Console.WriteLine(string.Format("sceAudioSRCOutputBlocking[not blocking] {0} to {1}", buf, pspSRCChannel.ToString()));
 					}
 					Modules.ThreadManForUserModule.hleRescheduleCurrentThread();
 					return doAudioOutput(pspSRCChannel, buf.Address);
@@ -1033,7 +1033,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceAudioSRCOutputBlocking[blocking] {0} to {1}", buf, pspSRCChannel.ToString()));
+					System.Console.WriteLine(string.Format("sceAudioSRCOutputBlocking[blocking] {0} to {1}", buf, pspSRCChannel.ToString()));
 				}
 				// Do not update volume, it has already been updated above
 				blockThreadOutput(pspSRCChannel, buf.Address, -1, -1);

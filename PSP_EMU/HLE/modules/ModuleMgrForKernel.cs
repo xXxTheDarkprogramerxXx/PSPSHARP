@@ -67,7 +67,7 @@ namespace pspsharp.HLE.modules
 				lmOption.read(optionAddr);
 				if (log.InfoEnabled)
 				{
-					Console.WriteLine(string.Format("sceKernelLoadModuleBuffer options: {0}", lmOption));
+					System.Console.WriteLine(string.Format("sceKernelLoadModuleBuffer options: {0}", lmOption));
 				}
 			}
 
@@ -102,7 +102,7 @@ namespace pspsharp.HLE.modules
 				lmOption.read(optionAddr);
 				if (log.InfoEnabled)
 				{
-					Console.WriteLine(string.Format("sceKernelLoadModuleVSH options: {0}", lmOption));
+					System.Console.WriteLine(string.Format("sceKernelLoadModuleVSH options: {0}", lmOption));
 				}
 			}
 
@@ -170,7 +170,7 @@ namespace pspsharp.HLE.modules
 				lmOption.read(optionAddr);
 				if (log.InfoEnabled)
 				{
-					Console.WriteLine(string.Format("sceKernelLoadModuleToBlock options: {0}", lmOption));
+					System.Console.WriteLine(string.Format("sceKernelLoadModuleToBlock options: {0}", lmOption));
 				}
 			}
 
@@ -182,7 +182,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelLoadModuleToBlock sysMemInfo={0}", sysMemInfo));
+				System.Console.WriteLine(string.Format("sceKernelLoadModuleToBlock sysMemInfo={0}", sysMemInfo));
 			}
 
 			modulesWithMemoryAllocated.Add(path.String);
@@ -208,7 +208,7 @@ namespace pspsharp.HLE.modules
 
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("sceKernelLoadModuleToBlock module requiring 0x{0:X} bytes", size));
+							System.Console.WriteLine(string.Format("sceKernelLoadModuleToBlock module requiring 0x{0:X} bytes", size));
 						}
 
 						// Aligned on 256 bytes boundary
@@ -219,7 +219,7 @@ namespace pspsharp.HLE.modules
 
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("sceKernelLoadModuleToBlock separatedSysMemInfo={0}", separatedSysMemInfo));
+							System.Console.WriteLine(string.Format("sceKernelLoadModuleToBlock separatedSysMemInfo={0}", separatedSysMemInfo));
 						}
 					}
 				}

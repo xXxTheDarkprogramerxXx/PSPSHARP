@@ -47,7 +47,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelRegisterSysEventHandler handler: {0}", sysEventHandler));
+				System.Console.WriteLine(string.Format("sceKernelRegisterSysEventHandler handler: {0}", sysEventHandler));
 			}
 
 			if ("SceFatfsSysEvent".Equals(sysEventHandler.name))

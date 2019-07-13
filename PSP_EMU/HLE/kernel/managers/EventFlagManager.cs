@@ -105,7 +105,7 @@ namespace pspsharp.HLE.kernel.managers
 			}
 			else
 			{
-				Console.WriteLine("EventFlag deleted while we were waiting for it! (timeout expired)");
+				System.Console.WriteLine("EventFlag deleted while we were waiting for it! (timeout expired)");
 				// Return WAIT_DELETE
 				thread.cpuContext._v0 = ERROR_KERNEL_WAIT_DELETE;
 			}
@@ -121,7 +121,7 @@ namespace pspsharp.HLE.kernel.managers
 			}
 			else
 			{
-				Console.WriteLine("EventFlag deleted while we were waiting for it!");
+				System.Console.WriteLine("EventFlag deleted while we were waiting for it!");
 				// Return WAIT_DELETE
 				thread.cpuContext._v0 = ERROR_KERNEL_WAIT_DELETE;
 			}
@@ -185,7 +185,7 @@ namespace pspsharp.HLE.kernel.managers
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("onEventFlagModified waking thread {0}", thread));
+						System.Console.WriteLine(string.Format("onEventFlagModified waking thread {0}", thread));
 					}
 					@event.threadWaitingList.removeWaitingThread(thread);
 					thread.cpuContext._v0 = 0;
@@ -224,7 +224,7 @@ namespace pspsharp.HLE.kernel.managers
 				outBitsAddr.setValue(@event.currentPattern);
 				if (log.DebugEnabled && outBitsAddr.NotNull)
 				{
-					Console.WriteLine(string.Format("checkEventFlag returning outBits=0x{0:X} at {1}", outBitsAddr.getValue(), outBitsAddr));
+					System.Console.WriteLine(string.Format("checkEventFlag returning outBits=0x{0:X} at {1}", outBitsAddr.getValue(), outBitsAddr));
 				}
 
 				if ((wait & PSP_EVENT_WAITCLEARALL) == PSP_EVENT_WAITCLEARALL)
@@ -246,7 +246,7 @@ namespace pspsharp.HLE.kernel.managers
 			{
 				if (uid != 0)
 				{
-					Console.WriteLine(string.Format("checkEventFlagID unknown uid=0x{0:X}", uid));
+					System.Console.WriteLine(string.Format("checkEventFlagID unknown uid=0x{0:X}", uid));
 				}
 				throw new SceKernelErrorException(ERROR_KERNEL_NOT_FOUND_EVENT_FLAG);
 			}
@@ -268,7 +268,7 @@ namespace pspsharp.HLE.kernel.managers
 
 			if (@event.NumWaitThreads > 0)
 			{
-				Console.WriteLine(string.Format("sceKernelDeleteEventFlag numWaitThreads {0:D}", @event.NumWaitThreads));
+				System.Console.WriteLine(string.Format("sceKernelDeleteEventFlag numWaitThreads {0:D}", @event.NumWaitThreads));
 			}
 			onEventFlagDeleted(uid);
 
@@ -312,7 +312,7 @@ namespace pspsharp.HLE.kernel.managers
 			SceKernelEventFlagInfo @event = eventMap[uid];
 			if (@event.NumWaitThreads >= 1 && (@event.attr & PSP_EVENT_WAITMULTIPLE) != PSP_EVENT_WAITMULTIPLE)
 			{
-				Console.WriteLine("hleKernelWaitEventFlag already another thread waiting on it");
+				System.Console.WriteLine("hleKernelWaitEventFlag already another thread waiting on it");
 				return ERROR_KERNEL_EVENT_FLAG_NO_MULTI_PERM;
 			}
 
@@ -321,7 +321,7 @@ namespace pspsharp.HLE.kernel.managers
 				// Failed, but it's ok, just wait a little
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("hleKernelWaitEventFlag - {0} fast check failed", @event));
+					System.Console.WriteLine(string.Format("hleKernelWaitEventFlag - {0} fast check failed", @event));
 				}
 				ThreadManForUser threadMan = Modules.ThreadManForUserModule;
 				SceKernelThreadInfo currentThread = threadMan.CurrentThread;
@@ -339,7 +339,7 @@ namespace pspsharp.HLE.kernel.managers
 				// Success, do not reschedule the current thread.
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("hleKernelWaitEventFlag - {0} fast check succeeded", @event));
+					System.Console.WriteLine(string.Format("hleKernelWaitEventFlag - {0} fast check succeeded", @event));
 				}
 			}
 
@@ -391,7 +391,7 @@ namespace pspsharp.HLE.kernel.managers
 			SceKernelEventFlagInfo @event = eventMap[uid];
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelReferEventFlagStatus event={0}", @event));
+				System.Console.WriteLine(string.Format("sceKernelReferEventFlagStatus event={0}", @event));
 			}
 			@event.write(addr);
 

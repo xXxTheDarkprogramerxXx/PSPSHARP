@@ -318,7 +318,7 @@ namespace pspsharp.GUI
 
 			if (k != null)
 			{
-				Emulator.Console.WriteLine("Key already used for " + k);
+				Emulator.System.Console.WriteLine("Key already used for " + k);
 				sender.Text = KeyEvent.getKeyText(revertKeys[targetKey]);
 				return;
 			}
@@ -433,7 +433,7 @@ namespace pspsharp.GUI
 						setControllerMapping(keyCode.RIGHT, identifierName, fieldRight);
 						break;
 					default:
-						pspsharp.Controller.Console.WriteLine(string.Format("Unknown Controller POV Event on {0}({1}): {2:F} for {3}", component.Name, identifier.Name, value, targetKey.ToString()));
+						pspsharp.Controller.System.Console.WriteLine(string.Format("Unknown Controller POV Event on {0}({1}): {2:F} for {3}", component.Name, identifier.Name, value, targetKey.ToString()));
 						break;
 				}
 			}
@@ -470,11 +470,11 @@ namespace pspsharp.GUI
 			{
 				if (identifier is Component.Identifier.Axis && pspsharp.Controller.isInDeadZone(component, value))
 				{
-					pspsharp.Controller.Console.WriteLine(string.Format("Unknown Controller Event in DeadZone on {0}({1}): {2:F} for {3}", component.Name, identifier.Name, value, targetKey.ToString()));
+					pspsharp.Controller.System.Console.WriteLine(string.Format("Unknown Controller Event in DeadZone on {0}({1}): {2:F} for {3}", component.Name, identifier.Name, value, targetKey.ToString()));
 				}
 				else
 				{
-					pspsharp.Controller.Console.WriteLine(string.Format("Unknown Controller Event on {0}({1}): {2:F} for {3}", component.Name, identifier.Name, value, targetKey.ToString()));
+					pspsharp.Controller.System.Console.WriteLine(string.Format("Unknown Controller Event on {0}({1}): {2:F} for {3}", component.Name, identifier.Name, value, targetKey.ToString()));
 				}
 			}
 		}

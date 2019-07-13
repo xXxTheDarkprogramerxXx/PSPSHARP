@@ -64,7 +64,7 @@ namespace pspsharp.memory.mmio.audio
 				this.frequency = value;
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("AudioLine frequency=0x{0:X}", value));
+					System.Console.WriteLine(string.Format("AudioLine frequency=0x{0:X}", value));
 				}
 			}
 		}
@@ -76,7 +76,7 @@ namespace pspsharp.memory.mmio.audio
 				float gain = value / (float) PSP_AUDIO_VOLUME_MAX;
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("AudioLine volume=0x{0:X}, gain={1:F}", value, gain));
+					System.Console.WriteLine(string.Format("AudioLine volume=0x{0:X}, gain={1:F}", value, gain));
 				}
 				AL10.alSourcef(alSource, AL10.AL_GAIN, gain);
 			}

@@ -276,7 +276,7 @@ namespace pspsharp.format.psmf
 				}
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("StartCode 0x{0:X8}, offset {1:X8}, skipped {2:D}", startCode, vFile.Position, vFile.Position - startIndex - 4));
+					System.Console.WriteLine(string.Format("StartCode 0x{0:X8}, offset {1:X8}, skipped {2:D}", startCode, vFile.Position, vFile.Position - startIndex - 4));
 				}
 
 				switch (startCode)
@@ -369,7 +369,7 @@ namespace pspsharp.format.psmf
 		}
 					default:
 					{
-						Console.WriteLine(string.Format("Unknown StartCode 0x{0:X8}, offset {1:X8}", startCode, vFile.Position));
+						System.Console.WriteLine(string.Format("Unknown StartCode 0x{0:X8}, offset {1:X8}", startCode, vFile.Position));
 					}
 				break;
 				}

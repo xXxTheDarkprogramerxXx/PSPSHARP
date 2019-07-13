@@ -59,19 +59,19 @@ namespace pspsharp.graphics.RE.software
 
 		public RESoftware()
 		{
-			Console.WriteLine("Using SoftwareRenderer");
+			System.Console.WriteLine("Using SoftwareRenderer");
 		}
 
 		public override void exit()
 		{
 			if (DurationStatistics.collectStatistics)
 			{
-				Console.WriteLine(drawArraysStatistics);
-				Console.WriteLine(triangleRender3DStatistics);
-				Console.WriteLine(triangleRender2DStatistics);
-				Console.WriteLine(spriteRenderStatistics);
-				Console.WriteLine(cachedTextureStatistics);
-				Console.WriteLine(textureResamplingStatistics);
+				System.Console.WriteLine(drawArraysStatistics);
+				System.Console.WriteLine(triangleRender3DStatistics);
+				System.Console.WriteLine(triangleRender2DStatistics);
+				System.Console.WriteLine(spriteRenderStatistics);
+				System.Console.WriteLine(cachedTextureStatistics);
+				System.Console.WriteLine(textureResamplingStatistics);
 			}
 		}
 

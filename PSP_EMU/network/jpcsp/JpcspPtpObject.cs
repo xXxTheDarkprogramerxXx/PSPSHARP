@@ -80,11 +80,11 @@ namespace pspsharp.network.pspsharp
 			}
 			catch (SocketException e)
 			{
-				Console.WriteLine("connect", e);
+				System.Console.WriteLine("connect", e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("connect", e);
+				System.Console.WriteLine("connect", e);
 			}
 
 			return result;
@@ -111,7 +111,7 @@ namespace pspsharp.network.pspsharp
 
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("pollAccept: received message {0}", adhocPtpMessage));
+							System.Console.WriteLine(string.Format("pollAccept: received message {0}", adhocPtpMessage));
 						}
 					}
 				}
@@ -119,7 +119,7 @@ namespace pspsharp.network.pspsharp
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("pollAccept: processing pending message {0}", adhocPtpMessage));
+						System.Console.WriteLine(string.Format("pollAccept: processing pending message {0}", adhocPtpMessage));
 					}
 				}
 
@@ -133,7 +133,7 @@ namespace pspsharp.network.pspsharp
 							{
 								//if (log.DebugEnabled)
 								{
-									Console.WriteLine(string.Format("Connect message received for an id={0:D} already accepted. Dropping message.", acceptedId));
+									System.Console.WriteLine(string.Format("Connect message received for an id={0:D} already accepted. Dropping message.", acceptedId));
 								}
 							}
 							else
@@ -175,7 +175,7 @@ namespace pspsharp.network.pspsharp
 
 								//if (log.DebugEnabled)
 								{
-									Console.WriteLine(string.Format("accept completed, creating new Ptp object {0}", ptpObject));
+									System.Console.WriteLine(string.Format("accept completed, creating new Ptp object {0}", ptpObject));
 								}
 
 								acceptCompleted = true;
@@ -188,13 +188,13 @@ namespace pspsharp.network.pspsharp
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("pollAccept: received a message not for me: {0}", adhocPtpMessage));
+						System.Console.WriteLine(string.Format("pollAccept: received a message not for me: {0}", adhocPtpMessage));
 					}
 				}
 			}
 			catch (SocketException e)
 			{
-				Console.WriteLine("pollAccept", e);
+				System.Console.WriteLine("pollAccept", e);
 			}
 			catch (SocketTimeoutException)
 			{
@@ -202,7 +202,7 @@ namespace pspsharp.network.pspsharp
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("pollAccept", e);
+				System.Console.WriteLine("pollAccept", e);
 			}
 
 			return acceptCompleted;
@@ -225,7 +225,7 @@ namespace pspsharp.network.pspsharp
 						adhocPtpMessage = new JpcspAdhocPtpMessage(bytes, Length);
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("pollConnect: received message {0}", adhocPtpMessage));
+							System.Console.WriteLine(string.Format("pollConnect: received message {0}", adhocPtpMessage));
 						}
 					}
 				}
@@ -233,7 +233,7 @@ namespace pspsharp.network.pspsharp
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("pollConnect: processing pending message {0}", adhocPtpMessage));
+						System.Console.WriteLine(string.Format("pollConnect: processing pending message {0}", adhocPtpMessage));
 					}
 				}
 
@@ -246,7 +246,7 @@ namespace pspsharp.network.pspsharp
 							int port = Modules.sceNetAdhocModule.getClientPortFromRealPort(adhocPtpMessage.FromMacAddress, adhocPtpMessage.DataInt32);
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("Received connect confirmation, changing destination port from {0:D} to {1:D}", DestPort, port));
+								System.Console.WriteLine(string.Format("Received connect confirmation, changing destination port from {0:D} to {1:D}", DestPort, port));
 							}
 							DestPort = port;
 							setReturnValue(thread, 0);
@@ -259,13 +259,13 @@ namespace pspsharp.network.pspsharp
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("pollConnect: received a message not for me: {0}", adhocPtpMessage));
+						System.Console.WriteLine(string.Format("pollConnect: received a message not for me: {0}", adhocPtpMessage));
 					}
 				}
 			}
 			catch (SocketException e)
 			{
-				Console.WriteLine("pollConnect", e);
+				System.Console.WriteLine("pollConnect", e);
 			}
 			catch (SocketTimeoutException)
 			{
@@ -273,7 +273,7 @@ namespace pspsharp.network.pspsharp
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("pollConnect", e);
+				System.Console.WriteLine("pollConnect", e);
 			}
 
 			if (connectCompleted)
@@ -296,14 +296,14 @@ namespace pspsharp.network.pspsharp
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Received connect confirmation but already connected, discarding"));
+							System.Console.WriteLine(string.Format("Received connect confirmation but already connected, discarding"));
 						}
 					}
 					else
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Received connect confirmation, processing later"));
+							System.Console.WriteLine(string.Format("Received connect confirmation, processing later"));
 						}
 						connectConfirm = adhocPtpMessage;
 					}
@@ -313,7 +313,7 @@ namespace pspsharp.network.pspsharp
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Received connect request, processing later"));
+						System.Console.WriteLine(string.Format("Received connect request, processing later"));
 					}
 					connectRequest = adhocPtpMessage;
 					connectRequestPort = port;

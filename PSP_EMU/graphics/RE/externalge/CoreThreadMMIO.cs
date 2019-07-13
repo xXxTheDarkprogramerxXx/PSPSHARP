@@ -107,7 +107,7 @@ namespace pspsharp.graphics.RE.externalge
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("CoreThreadMMIO processing 0x{0:X8}", NativeUtils.CoreMadr));
+						System.Console.WriteLine(string.Format("CoreThreadMMIO processing 0x{0:X8}", NativeUtils.CoreMadr));
 					}
 
 					while (coreInterpret())
@@ -116,7 +116,7 @@ namespace pspsharp.graphics.RE.externalge
 
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("CoreThreadMMIO looping at 0x{0:X8}", NativeUtils.CoreMadr));
+							System.Console.WriteLine(string.Format("CoreThreadMMIO looping at 0x{0:X8}", NativeUtils.CoreMadr));
 						}
 
 						if (numberRendererThread > 0 && RendererIndexCount > 0)
@@ -138,7 +138,7 @@ namespace pspsharp.graphics.RE.externalge
 				}
 			}
 
-			Console.WriteLine(string.Format("CoreThreadMMIO exited"));
+			System.Console.WriteLine(string.Format("CoreThreadMMIO exited"));
 		}
 
 		public virtual void sync()
@@ -170,7 +170,7 @@ namespace pspsharp.graphics.RE.externalge
 				catch (InterruptedException e)
 				{
 					// Ignore exception and retry again
-					Console.WriteLine(string.Format("CoreThreadMMIO waitForSync {0}", e));
+					System.Console.WriteLine(string.Format("CoreThreadMMIO waitForSync {0}", e));
 				}
 			}
 

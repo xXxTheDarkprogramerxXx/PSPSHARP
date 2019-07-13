@@ -266,15 +266,15 @@ namespace pspsharp.network.adhoc
 			}
 			catch (SocketException e)
 			{
-				Console.WriteLine("start", e);
+				System.Console.WriteLine("start", e);
 			}
 			catch (UnknownHostException e)
 			{
-				Console.WriteLine("start", e);
+				System.Console.WriteLine("start", e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("start", e);
+				System.Console.WriteLine("start", e);
 			}
 
 			return 0;
@@ -286,7 +286,7 @@ namespace pspsharp.network.adhoc
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Sending disconnect to port {0:D}", Port));
+					System.Console.WriteLine(string.Format("Sending disconnect to port {0:D}", Port));
 				}
 
 				try
@@ -296,7 +296,7 @@ namespace pspsharp.network.adhoc
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("stop", e);
+					System.Console.WriteLine("stop", e);
 				}
 			}
 
@@ -312,7 +312,7 @@ namespace pspsharp.network.adhoc
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Sending hello to port {0:D}", Port));
+				System.Console.WriteLine(string.Format("Sending hello to port {0:D}", Port));
 			}
 			AdhocMatchingEventMessage adhocMatchingEventMessage = createMessage(PSP_ADHOC_MATCHING_EVENT_HELLO);
 			if (HelloOptLen > 0)
@@ -330,7 +330,7 @@ namespace pspsharp.network.adhoc
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Sending ping to port {0:D}", Port));
+				System.Console.WriteLine(string.Format("Sending ping to port {0:D}", Port));
 			}
 			AdhocMatchingEventMessage adhocMatchingEventMessage = createMessage(PSP_ADHOC_MATCHING_EVENT_INTERNAL_PING);
 			send(adhocMatchingEventMessage);
@@ -359,15 +359,15 @@ namespace pspsharp.network.adhoc
 			}
 			catch (SocketException e)
 			{
-				Console.WriteLine("send", e);
+				System.Console.WriteLine("send", e);
 			}
 			catch (UnknownHostException e)
 			{
-				Console.WriteLine("send", e);
+				System.Console.WriteLine("send", e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("send", e);
+				System.Console.WriteLine("send", e);
 			}
 
 			return result;
@@ -385,7 +385,7 @@ namespace pspsharp.network.adhoc
 					@event = PSP_ADHOC_MATCHING_EVENT_ACCEPT;
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Sending accept to port {0:D}", Port));
+						System.Console.WriteLine(string.Format("Sending accept to port {0:D}", Port));
 					}
 
 					if (Mode == sceNetAdhocMatching.PSP_ADHOC_MATCHING_MODE_HOST)
@@ -400,7 +400,7 @@ namespace pspsharp.network.adhoc
 					@event = PSP_ADHOC_MATCHING_EVENT_JOIN;
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Sending join to port {0:D}", Port));
+						System.Console.WriteLine(string.Format("Sending join to port {0:D}", Port));
 					}
 				}
 				AdhocMatchingEventMessage adhocMatchingEventMessage = createMessage(@event, optData, optLen, macAddress.macAddress);
@@ -410,15 +410,15 @@ namespace pspsharp.network.adhoc
 			}
 			catch (SocketException e)
 			{
-				Console.WriteLine("selectTarget", e);
+				System.Console.WriteLine("selectTarget", e);
 			}
 			catch (UnknownHostException e)
 			{
-				Console.WriteLine("selectTarget", e);
+				System.Console.WriteLine("selectTarget", e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("selectTarget", e);
+				System.Console.WriteLine("selectTarget", e);
 			}
 
 			return result;
@@ -441,7 +441,7 @@ namespace pspsharp.network.adhoc
 					@event = PSP_ADHOC_MATCHING_EVENT_LEFT;
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Sending leave to port {0:D}", Port));
+						System.Console.WriteLine(string.Format("Sending leave to port {0:D}", Port));
 					}
 				}
 				else
@@ -449,7 +449,7 @@ namespace pspsharp.network.adhoc
 					@event = PSP_ADHOC_MATCHING_EVENT_CANCEL;
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Sending cancel to port {0:D}", Port));
+						System.Console.WriteLine(string.Format("Sending cancel to port {0:D}", Port));
 					}
 				}
 				AdhocMatchingEventMessage adhocMatchingEventMessage = createMessage(@event, optData, optLen, macAddress.macAddress);
@@ -457,15 +457,15 @@ namespace pspsharp.network.adhoc
 			}
 			catch (SocketException e)
 			{
-				Console.WriteLine("cancelTarget", e);
+				System.Console.WriteLine("cancelTarget", e);
 			}
 			catch (UnknownHostException e)
 			{
-				Console.WriteLine("cancelTarget", e);
+				System.Console.WriteLine("cancelTarget", e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("cancelTarget", e);
+				System.Console.WriteLine("cancelTarget", e);
 			}
 			removeMember(macAddress.macAddress);
 			connected = false;
@@ -517,7 +517,7 @@ namespace pspsharp.network.adhoc
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Notify callback 0x{0:X8}, event={1:D}, macAddr=0x{2:X8}, optLen={3:D}, optData=0x{4:X8}", Callback, @event, macAddr, optLen, optData));
+				System.Console.WriteLine(string.Format("Notify callback 0x{0:X8}, event={1:D}, macAddr=0x{2:X8}, optLen={3:D}, optData=0x{4:X8}", Callback, @event, macAddr, optLen, optData));
 			}
 			Modules.ThreadManForUserModule.executeCallback(eventThread, Callback, null, true, Id, @event, macAddr, optLen, optData);
 		}
@@ -537,7 +537,7 @@ namespace pspsharp.network.adhoc
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("eventLoop ping", e);
+					System.Console.WriteLine("eventLoop ping", e);
 				}
 			}
 
@@ -553,7 +553,7 @@ namespace pspsharp.network.adhoc
 						}
 						catch (IOException e)
 						{
-							Console.WriteLine("eventLoop hello", e);
+							System.Console.WriteLine("eventLoop hello", e);
 						}
 					}
 				}
@@ -579,7 +579,7 @@ namespace pspsharp.network.adhoc
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Adding member {0}", member));
+				System.Console.WriteLine(string.Format("Adding member {0}", member));
 			}
 		}
 
@@ -591,7 +591,7 @@ namespace pspsharp.network.adhoc
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Removing member {0}", member));
+						System.Console.WriteLine(string.Format("Removing member {0}", member));
 					}
 //JAVA TO C# CONVERTER TODO TASK: There is no .NET LinkedList equivalent to the Java 'remove' method:
 					members.remove(member);
@@ -644,7 +644,7 @@ namespace pspsharp.network.adhoc
 
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Received message Length={0:D}, event={1:D}, fromMac={2}, port={3:D}: {4}", adhocMatchingEventMessage.DataLength, @event, macAddress, socket.ReceivedPort, adhocMatchingEventMessage));
+							System.Console.WriteLine(string.Format("Received message Length={0:D}, event={1:D}, fromMac={2}, port={3:D}: {4}", adhocMatchingEventMessage.DataLength, @event, macAddress, socket.ReceivedPort, adhocMatchingEventMessage));
 							if (log.TraceEnabled && optLen > 0)
 							{
 								log.trace(string.Format("Message data: {0}", Utilities.getMemoryDump(optData, optLen)));
@@ -666,7 +666,7 @@ namespace pspsharp.network.adhoc
 							addMember(adhocMatchingEventMessage.FromMacAddress);
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("Sending complete to port {0:D}", Port));
+								System.Console.WriteLine(string.Format("Sending complete to port {0:D}", Port));
 							}
 							adhocMatchingEventMessage = createMessage(PSP_ADHOC_MATCHING_EVENT_COMPLETE, optData, optLen, macAddress.macAddress);
 							send(adhocMatchingEventMessage);
@@ -682,7 +682,7 @@ namespace pspsharp.network.adhoc
 							{
 								//if (log.DebugEnabled)
 								{
-									Console.WriteLine(string.Format("Sending complete to port {0:D}", Port));
+									System.Console.WriteLine(string.Format("Sending complete to port {0:D}", Port));
 								}
 								adhocMatchingEventMessage = createMessage(PSP_ADHOC_MATCHING_EVENT_COMPLETE, optData, optLen, macAddress.macAddress);
 								send(adhocMatchingEventMessage);
@@ -694,7 +694,7 @@ namespace pspsharp.network.adhoc
 						{
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("Sending data confirm to port {0:D}", Port));
+								System.Console.WriteLine(string.Format("Sending data confirm to port {0:D}", Port));
 							}
 							adhocMatchingEventMessage = createMessage(PSP_ADHOC_MATCHING_EVENT_DATA_CONFIRM, 0, 0, macAddress.macAddress);
 							send(adhocMatchingEventMessage);
@@ -703,7 +703,7 @@ namespace pspsharp.network.adhoc
 						{
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("Received disconnect/leave from {0}", macAddress));
+								System.Console.WriteLine(string.Format("Received disconnect/leave from {0}", macAddress));
 							}
 							removeMember(adhocMatchingEventMessage.FromMacAddress);
 							if (members.Count <= 1)
@@ -717,7 +717,7 @@ namespace pspsharp.network.adhoc
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Received message not for me: {0}", adhocMatchingEventMessage));
+							System.Console.WriteLine(string.Format("Received message not for me: {0}", adhocMatchingEventMessage));
 						}
 					}
 				}
@@ -728,7 +728,7 @@ namespace pspsharp.network.adhoc
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("inputLoop", e);
+				System.Console.WriteLine("inputLoop", e);
 			}
 
 			return true;

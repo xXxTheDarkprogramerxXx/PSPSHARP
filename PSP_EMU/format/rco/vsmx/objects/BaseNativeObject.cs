@@ -62,7 +62,7 @@ namespace pspsharp.format.rco.vsmx.objects
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("callCallback {0}, arguments={1}", name, arguments));
+					System.Console.WriteLine(string.Format("callCallback {0}, arguments={1}", name, arguments));
 				}
 
 				interpreter.interpretFunction((VSMXFunction) function, null, arguments);

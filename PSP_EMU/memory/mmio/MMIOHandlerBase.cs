@@ -60,35 +60,35 @@ namespace pspsharp.memory.mmio
 
 		public virtual int read8(int address)
 		{
-			Console.WriteLine(string.Format("0x{0:X8} - Unimplemented read8(0x{1:X8})", Pc, address));
+			System.Console.WriteLine(string.Format("0x{0:X8} - Unimplemented read8(0x{1:X8})", Pc, address));
 			return 0;
 		}
 
 		public virtual int read16(int address)
 		{
-			Console.WriteLine(string.Format("0x{0:X8} - Unimplemented read16(0x{1:X8})", Pc, address));
+			System.Console.WriteLine(string.Format("0x{0:X8} - Unimplemented read16(0x{1:X8})", Pc, address));
 			return 0;
 		}
 
 		public virtual int read32(int address)
 		{
-			Console.WriteLine(string.Format("0x{0:X8} - Unimplemented read32(0x{1:X8})", Pc, address));
+			System.Console.WriteLine(string.Format("0x{0:X8} - Unimplemented read32(0x{1:X8})", Pc, address));
 			return 0;
 		}
 
 		public virtual void write8(int address, sbyte value)
 		{
-			Console.WriteLine(string.Format("0x{0:X8} - Unimplemented write8(0x{1:X8}, 0x{2:X2})", Pc, address, value));
+			System.Console.WriteLine(string.Format("0x{0:X8} - Unimplemented write8(0x{1:X8}, 0x{2:X2})", Pc, address, value));
 		}
 
 		public virtual void write16(int address, short value)
 		{
-			Console.WriteLine(string.Format("0x{0:X8} - Unimplemented write16(0x{1:X8}, 0x{2:X4})", Pc, address, value));
+			System.Console.WriteLine(string.Format("0x{0:X8} - Unimplemented write16(0x{1:X8}, 0x{2:X4})", Pc, address, value));
 		}
 
 		public virtual void write32(int address, int value)
 		{
-			Console.WriteLine(string.Format("0x{0:X8} - Unimplemented write32(0x{1:X8}, 0x{2:X8})", Pc, address, value));
+			System.Console.WriteLine(string.Format("0x{0:X8} - Unimplemented write32(0x{1:X8}, 0x{2:X8})", Pc, address, value));
 		}
 
 		public virtual Logger Logger

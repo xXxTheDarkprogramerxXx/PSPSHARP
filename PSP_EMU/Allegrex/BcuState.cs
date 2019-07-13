@@ -230,7 +230,7 @@ namespace pspsharp.Allegrex
 			npc = jumpTarget(pc, uimm26);
 			if (npc == pc - 4)
 			{
-				Console.WriteLine("Pausing emulator - jump to self (death loop)");
+				System.Console.WriteLine("Pausing emulator - jump to self (death loop)");
 				Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_JUMPSELF);
 			}
 			return true;
@@ -248,7 +248,7 @@ namespace pspsharp.Allegrex
 			npc = (getRegister(rs) == getRegister(rt)) ? branchTarget(pc, simm16) : (pc + 4);
 			if (npc == pc - 4 && rs == rt)
 			{
-				Console.WriteLine("Pausing emulator - branch to self (death loop)");
+				System.Console.WriteLine("Pausing emulator - branch to self (death loop)");
 				Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_JUMPSELF);
 			}
 			return true;
@@ -336,7 +336,7 @@ namespace pspsharp.Allegrex
 
 			if (Emulator.log.DebugEnabled)
 			{
-				Emulator.Console.WriteLine(string.Format("0x{0:X8} - eret with status=0x{1:X}, epc=0x{2:X8}", processor.cpu.pc, status, epc));
+				Emulator.System.Console.WriteLine(string.Format("0x{0:X8} - eret with status=0x{1:X}, epc=0x{2:X8}", processor.cpu.pc, status, epc));
 			}
 
 			return epc;

@@ -82,8 +82,8 @@ namespace pspsharp.format.rco.vsmx.objects
 			//if (log.DebugEnabled)
 			{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("MoviePlayer.play pauseMode=%d, menuMode=%d, playListNumber=%d, chapterNumber=%d, videoNumber=0x%X, audioNumber=0x%X, audioFlag=0x%X, subtitleNumber=%d, subtitleFlag=0x%X, unknownBool=%b", pauseMode.getIntValue(), menuMode.getIntValue(), playListNumber.getIntValue(), chapterNumber.getIntValue(), videoNumber.getIntValue(), audioNumber.getIntValue(), audioFlag.getIntValue(), subtitleNumber.getIntValue(), subtitleFlag.getIntValue(), unknownBool.getBooleanValue()));
-				Console.WriteLine(string.Format("MoviePlayer.play pauseMode=%d, menuMode=%d, playListNumber=%d, chapterNumber=%d, videoNumber=0x%X, audioNumber=0x%X, audioFlag=0x%X, subtitleNumber=%d, subtitleFlag=0x%X, unknownBool=%b", pauseMode.IntValue, menuMode.IntValue, playListNumber.IntValue, chapterNumber.IntValue, videoNumber.IntValue, audioNumber.IntValue, audioFlag.IntValue, subtitleNumber.IntValue, subtitleFlag.IntValue, unknownBool.BooleanValue));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("MoviePlayer.play pauseMode=%d, menuMode=%d, playListNumber=%d, chapterNumber=%d, videoNumber=0x%X, audioNumber=0x%X, audioFlag=0x%X, subtitleNumber=%d, subtitleFlag=0x%X, unknownBool=%b", pauseMode.getIntValue(), menuMode.getIntValue(), playListNumber.getIntValue(), chapterNumber.getIntValue(), videoNumber.getIntValue(), audioNumber.getIntValue(), audioFlag.getIntValue(), subtitleNumber.getIntValue(), subtitleFlag.getIntValue(), unknownBool.getBooleanValue()));
+				System.Console.WriteLine(string.Format("MoviePlayer.play pauseMode=%d, menuMode=%d, playListNumber=%d, chapterNumber=%d, videoNumber=0x%X, audioNumber=0x%X, audioFlag=0x%X, subtitleNumber=%d, subtitleFlag=0x%X, unknownBool=%b", pauseMode.IntValue, menuMode.IntValue, playListNumber.IntValue, chapterNumber.IntValue, videoNumber.IntValue, audioNumber.IntValue, audioFlag.IntValue, subtitleNumber.IntValue, subtitleFlag.IntValue, unknownBool.BooleanValue));
 			}
 			playing = true;
 			bool previousMenuMode = this.menuMode;
@@ -119,8 +119,8 @@ namespace pspsharp.format.rco.vsmx.objects
 			//if (log.DebugEnabled)
 			{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("MoviePlayer.stop unknownInt=%d, unknownBool=%b", unknownInt.getIntValue(), unknownBool.getBooleanValue()));
-				Console.WriteLine(string.Format("MoviePlayer.stop unknownInt=%d, unknownBool=%b", unknownInt.IntValue, unknownBool.BooleanValue));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("MoviePlayer.stop unknownInt=%d, unknownBool=%b", unknownInt.getIntValue(), unknownBool.getBooleanValue()));
+				System.Console.WriteLine(string.Format("MoviePlayer.stop unknownInt=%d, unknownBool=%b", unknownInt.IntValue, unknownBool.BooleanValue));
 			}
 			playing = false;
 		}
@@ -145,7 +145,7 @@ namespace pspsharp.format.rco.vsmx.objects
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("MoviePlayer.getResumeInfo() returning {0}", resumeInfo));
+				System.Console.WriteLine(string.Format("MoviePlayer.getResumeInfo() returning {0}", resumeInfo));
 			}
 
 			return resumeInfo;
@@ -155,7 +155,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("MoviePlayer.changeResumeInfo videoNumber=0x{0:X}, audioNumber=0x{1:X}, audioFlag=0x{2:X}, subtitleNumber={3:D}, subtitleFlag=0x{4:X}", videoNumber.IntValue, audioNumber.IntValue, audioFlag.IntValue, subtitleNumber.IntValue, subtitleFlag.IntValue));
+				System.Console.WriteLine(string.Format("MoviePlayer.changeResumeInfo videoNumber=0x{0:X}, audioNumber=0x{1:X}, audioFlag=0x{2:X}, subtitleNumber={3:D}, subtitleFlag=0x{4:X}", videoNumber.IntValue, audioNumber.IntValue, audioFlag.IntValue, subtitleNumber.IntValue, subtitleFlag.IntValue));
 			}
 			this.videoNumber = videoNumber.IntValue;
 			this.audioNumber = audioNumber.IntValue;
@@ -185,7 +185,7 @@ namespace pspsharp.format.rco.vsmx.objects
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("MoviePlayer.getPlayerStatus() returning {0}", playerStatus));
+				System.Console.WriteLine(string.Format("MoviePlayer.getPlayerStatus() returning {0}", playerStatus));
 			}
 
 			return playerStatus;
@@ -195,7 +195,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("MoviePlayer.onPlayListEnd playListNumber={0:D}", playListNumber));
+				System.Console.WriteLine(string.Format("MoviePlayer.onPlayListEnd playListNumber={0:D}", playListNumber));
 			}
 
 			VSMXBaseObject callback = object.getPropertyValue("onPlayListEnd");
@@ -214,7 +214,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("MoviePlayer.onChapter chapterNumber={0:D}", chapterNumber));
+				System.Console.WriteLine(string.Format("MoviePlayer.onChapter chapterNumber={0:D}", chapterNumber));
 			}
 
 			VSMXBaseObject callback = object.getPropertyValue("onChapter");
@@ -243,7 +243,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("MoviePlayer.setSize({0}, {1})", width, height));
+				System.Console.WriteLine(string.Format("MoviePlayer.setSize({0}, {1})", width, height));
 			}
 
 			this.width = width.IntValue;
@@ -264,7 +264,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("MoviePlayer.setPos({0}, {1})", x, y));
+				System.Console.WriteLine(string.Format("MoviePlayer.setPos({0}, {1})", x, y));
 			}
 
 			this.x = x.IntValue;

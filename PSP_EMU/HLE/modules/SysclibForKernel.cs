@@ -72,7 +72,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("strcmp '{0}', '{1}'", Utilities.readStringZ(src1Addr.Address), Utilities.readStringZ(src2Addr.Address)));
+				System.Console.WriteLine(string.Format("strcmp '{0}', '{1}'", Utilities.readStringZ(src1Addr.Address), Utilities.readStringZ(src2Addr.Address)));
 			}
 			return AbstractNativeCodeSequence.strcmp(src1Addr.Address, src2Addr.Address);
 		}
@@ -175,7 +175,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sprintf returning '{0}'", formattedString));
+				System.Console.WriteLine(string.Format("sprintf returning '{0}'", formattedString));
 			}
 
 			return formattedString.Length;
@@ -229,7 +229,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("snprintf returning '{0}'", formattedString));
+				System.Console.WriteLine(string.Format("snprintf returning '{0}'", formattedString));
 			}
 
 			return formattedString.Length;
@@ -301,11 +301,11 @@ namespace pspsharp.HLE.modules
 			{
 				if (@base == 10)
 				{
-					Console.WriteLine(string.Format("strtol on '{0}' returning {1:D}", s, result));
+					System.Console.WriteLine(string.Format("strtol on '{0}' returning {1:D}", s, result));
 				}
 				else
 				{
-					Console.WriteLine(string.Format("strtol on '{0}' returning 0x{1:X}", s, result));
+					System.Console.WriteLine(string.Format("strtol on '{0}' returning 0x{1:X}", s, result));
 				}
 			}
 

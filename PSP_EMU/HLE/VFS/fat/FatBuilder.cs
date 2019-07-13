@@ -69,13 +69,13 @@ namespace pspsharp.HLE.VFS.fat
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Using 0x{0:X} clusters out of 0x{1:X}", firstFreeCluster, maxNumberClusters));
+				System.Console.WriteLine(string.Format("Using 0x{0:X} clusters out of 0x{1:X}", firstFreeCluster, maxNumberClusters));
 				debugScan(rootDirectory);
 			}
 
 			if (firstFreeCluster > maxNumberClusters)
 			{
-				Console.WriteLine(string.Format("Too many files in the Fat partition: required clusters=0x{0:X}, max clusters=0x{1:X}", firstFreeCluster, maxNumberClusters));
+				System.Console.WriteLine(string.Format("Too many files in the Fat partition: required clusters=0x{0:X}, max clusters=0x{1:X}", firstFreeCluster, maxNumberClusters));
 			}
 
 			return rootDirectory;
@@ -83,7 +83,7 @@ namespace pspsharp.HLE.VFS.fat
 
 		private void debugScan(FatFileInfo fileInfo)
 		{
-			Console.WriteLine(string.Format("scan {0}", fileInfo));
+			System.Console.WriteLine(string.Format("scan {0}", fileInfo));
 			IList<FatFileInfo> children = fileInfo.Children;
 			if (children != null)
 			{

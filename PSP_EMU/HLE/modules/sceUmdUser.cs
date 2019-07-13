@@ -234,7 +234,7 @@ namespace pspsharp.HLE.modules
 
 		public virtual void onThreadWaitTimeout(SceKernelThreadInfo thread)
 		{
-			Console.WriteLine("UMD stat timedout");
+			System.Console.WriteLine("UMD stat timedout");
 			removeWaitingThread(thread);
 			// Return WAIT_TIMEOUT
 			thread.cpuContext._v0 = ERROR_KERNEL_WAIT_TIMEOUT;
@@ -242,7 +242,7 @@ namespace pspsharp.HLE.modules
 
 		public virtual void onThreadWaitReleased(SceKernelThreadInfo thread)
 		{
-			Console.WriteLine("UMD stat released");
+			System.Console.WriteLine("UMD stat released");
 			removeWaitingThread(thread);
 			// Return ERROR_WAIT_STATUS_RELEASED
 			thread.cpuContext._v0 = ERROR_KERNEL_WAIT_STATUS_RELEASED;
@@ -269,7 +269,7 @@ namespace pspsharp.HLE.modules
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine("sceUmdUser - checkWaitingThreads waking " + waitingThread.uid.ToString("x") + " thread:'" + waitingThread.name + "'");
+							System.Console.WriteLine("sceUmdUser - checkWaitingThreads waking " + waitingThread.uid.ToString("x") + " thread:'" + waitingThread.name + "'");
 						}
 //JAVA TO C# CONVERTER TODO TASK: .NET enumerators are read-only:
 						lit.remove();
@@ -481,13 +481,13 @@ namespace pspsharp.HLE.modules
 				SceKernelThreadInfo waitingThread = lit.Current;
 				if (!waitingThread.Waiting || waitingThread.waitType != JPCSP_WAIT_UMD)
 				{
-					Console.WriteLine(string.Format("sceUmdCancelWaitDriveStat thread {0} not waiting on umd", waitingThread));
+					System.Console.WriteLine(string.Format("sceUmdCancelWaitDriveStat thread {0} not waiting on umd", waitingThread));
 				}
 				else
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceUmdCancelWaitDriveStat waking thread {0}", waitingThread));
+						System.Console.WriteLine(string.Format("sceUmdCancelWaitDriveStat waking thread {0}", waitingThread));
 					}
 					lit.remove();
 					// Return WAIT_CANCELLED.
@@ -505,7 +505,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceUmdGetDriveStat returning 0x{0:X}", UmdStat));
+				System.Console.WriteLine(string.Format("sceUmdGetDriveStat returning 0x{0:X}", UmdStat));
 			}
 
 			return UmdStat;

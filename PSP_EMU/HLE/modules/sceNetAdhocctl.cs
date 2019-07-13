@@ -263,7 +263,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Adding new Game Mode MAC: {0}", macAddress));
+				System.Console.WriteLine(string.Format("Adding new Game Mode MAC: {0}", macAddress));
 			}
 		}
 
@@ -323,7 +323,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("hleNetAdhocctlThread");
+				System.Console.WriteLine("hleNetAdhocctlThread");
 			}
 
 			if (doTerminate)
@@ -354,7 +354,7 @@ namespace pspsharp.HLE.modules
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("All GameMode MACs have joined, GameMode Join is now complete"));
+							System.Console.WriteLine(string.Format("All GameMode MACs have joined, GameMode Join is now complete"));
 						}
 						hleNetAdhocctlSetGameModeJoinComplete(true);
 
@@ -444,7 +444,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("hleNetAdhocctlConnect groupName='{0}'", groupName));
+				System.Console.WriteLine(string.Format("hleNetAdhocctlConnect groupName='{0}'", groupName));
 			}
 
 			if (string.ReferenceEquals(hleNetAdhocctlGetGroupName(), null) || !hleNetAdhocctlGetGroupName().Equals(groupName))
@@ -459,7 +459,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("hleNetAdhocctlConnectGame groupName='{0}'", groupName));
+				System.Console.WriteLine(string.Format("hleNetAdhocctlConnectGame groupName='{0}'", groupName));
 			}
 			setGroupName(groupName, PSP_ADHOCCTL_MODE_GAMEMODE);
 		}
@@ -475,7 +475,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Notifying handler {0} with event={1:D}, error={2:D}", handler, @event, error));
+					System.Console.WriteLine(string.Format("Notifying handler {0} with event={1:D}, error={2:D}", handler, @event, error));
 				}
 				handler.Event = @event;
 				handler.Error = error;
@@ -536,7 +536,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("New network discovered {0}", network));
+					System.Console.WriteLine(string.Format("New network discovered {0}", network));
 				}
 			}
 		}
@@ -570,7 +570,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("New peer discovered {0}", peer));
+					System.Console.WriteLine(string.Format("New peer discovered {0}", peer));
 				}
 			   }
 		}
@@ -621,7 +621,7 @@ namespace pspsharp.HLE.modules
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Peer deleted {0}", peer));
+						System.Console.WriteLine(string.Format("Peer deleted {0}", peer));
 					}
 					break;
 				}
@@ -711,7 +711,7 @@ namespace pspsharp.HLE.modules
 				adhocctlCurrentAdhocID = product.getStringNZ(4, ADHOC_ID_LENGTH);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Found product data: type={0:D}, AdhocID='{1}'", adhocctlCurrentType, adhocctlCurrentAdhocID));
+					System.Console.WriteLine(string.Format("Found product data: type={0:D}, AdhocID='{1}'", adhocctlCurrentType, adhocctlCurrentAdhocID));
 				}
 			}
 
@@ -807,7 +807,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNetAdhocctlJoin nextAddr 0x{0:X8}, ch {1:D}, groupName '{2}', bssID '{3}', mode {4:D}", nextAddr, ch, groupName, bssID, mode));
+					System.Console.WriteLine(string.Format("sceNetAdhocctlJoin nextAddr 0x{0:X8}, ch {1:D}, groupName '{2}', bssID '{3}', mode {4:D}", nextAddr, ch, groupName, bssID, mode));
 				}
 				doJoin = true;
 				setGroupName(groupName, PSP_ADHOCCTL_MODE_NORMAL);
@@ -878,7 +878,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetAdhocctlAddHandler returning id=0x{0:X}", id));
+				System.Console.WriteLine(string.Format("sceNetAdhocctlAddHandler returning id=0x{0:X}", id));
 			}
 			adhocctlIdMap[id] = adhocctlHandler;
 
@@ -936,7 +936,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetAdhocctlGetAdhocId returning type={0:D}, adhocID='{1}'", adhocctlCurrentType, adhocctlCurrentAdhocID));
+				System.Console.WriteLine(string.Format("sceNetAdhocctlGetAdhocId returning type={0:D}, adhocID='{1}'", adhocctlCurrentType, adhocctlCurrentAdhocID));
 			}
 			addr.setValue32(0, adhocctlCurrentType);
 			addr.setStringNZ(4, ADHOC_ID_LENGTH, adhocctlCurrentAdhocID);
@@ -963,7 +963,7 @@ namespace pspsharp.HLE.modules
 			sizeAddr.setValue(peerInfo.@sizeof() * peers.Count);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetAdhocctlGetPeerList returning size={0:D}", sizeAddr.getValue()));
+				System.Console.WriteLine(string.Format("sceNetAdhocctlGetPeerList returning size={0:D}", sizeAddr.getValue()));
 			}
 
 			if (buf.NotNull)
@@ -979,7 +979,7 @@ namespace pspsharp.HLE.modules
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceNetAdhocctlGetPeerList returning {0} at 0x{1:X8}", peer, buf.Address + offset));
+						System.Console.WriteLine(string.Format("sceNetAdhocctlGetPeerList returning {0} at 0x{1:X8}", peer, buf.Address + offset));
 					}
 
 					peerInfo.nickName = peer.nickName;
@@ -1022,7 +1022,7 @@ namespace pspsharp.HLE.modules
 				peerInfo.write(peerInfoAddr);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNetAdhocctlGetPeerInfo for own MAC address, returning {0}", peerInfo));
+					System.Console.WriteLine(string.Format("sceNetAdhocctlGetPeerInfo for own MAC address, returning {0}", peerInfo));
 				}
 				result = 0;
 			}
@@ -1039,7 +1039,7 @@ namespace pspsharp.HLE.modules
 						peerInfo.write(peerInfoAddr);
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("sceNetAdhocctlGetPeerInfo returning {0}", peerInfo));
+							System.Console.WriteLine(string.Format("sceNetAdhocctlGetPeerInfo returning {0}", peerInfo));
 						}
 						result = 0;
 						break;
@@ -1050,7 +1050,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNetAdhocctlGetPeerInfo returning 0x{0:X8}", result));
+					System.Console.WriteLine(string.Format("sceNetAdhocctlGetPeerInfo returning 0x{0:X8}", result));
 				}
 			}
 
@@ -1087,7 +1087,7 @@ namespace pspsharp.HLE.modules
 			sizeAddr.setValue(peerInfo.@sizeof() * matchingPeers.Count);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetAdhocctlGetAddrByName returning size={0:D}", sizeAddr.getValue()));
+				System.Console.WriteLine(string.Format("sceNetAdhocctlGetAddrByName returning size={0:D}", sizeAddr.getValue()));
 			}
 
 			if (buf.NotNull)
@@ -1103,7 +1103,7 @@ namespace pspsharp.HLE.modules
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceNetAdhocctlGetAddrByName returning {0} at 0x{1:X8}", peer, buf.Address + offset));
+						System.Console.WriteLine(string.Format("sceNetAdhocctlGetAddrByName returning {0} at 0x{1:X8}", peer, buf.Address + offset));
 					}
 
 					peerInfo.nickName = peer.nickName;
@@ -1160,7 +1160,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetAdhocctlGetParameter returning channel={0:D}, group='{1}', IBSS='{2}', nickName='{3}'", adhocctlCurrentChannel, adhocctlCurrentGroup, adhocctlCurrentIBSS, sceUtility.SystemParamNickname));
+				System.Console.WriteLine(string.Format("sceNetAdhocctlGetParameter returning channel={0:D}, group='{1}', IBSS='{2}', nickName='{3}'", adhocctlCurrentChannel, adhocctlCurrentGroup, adhocctlCurrentIBSS, sceUtility.SystemParamNickname));
 			}
 			paramsAddr.setValue32(0, adhocctlCurrentChannel);
 			paramsAddr.setStringNZ(4, GROUP_NAME_LENGTH, adhocctlCurrentGroup);
@@ -1190,7 +1190,7 @@ namespace pspsharp.HLE.modules
 			sizeAddr.setValue(scanInfoSize * networks.Count);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetAdhocctlGetScanInfo returning size={0:D}", sizeAddr.getValue()));
+				System.Console.WriteLine(string.Format("sceNetAdhocctlGetScanInfo returning size={0:D}", sizeAddr.getValue()));
 			}
 
 			if (buf.NotNull)
@@ -1206,7 +1206,7 @@ namespace pspsharp.HLE.modules
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceNetAdhocctlGetScanInfo returning {0} at 0x{1:X8}", network, buf.Address + offset));
+						System.Console.WriteLine(string.Format("sceNetAdhocctlGetScanInfo returning {0} at 0x{1:X8}", network, buf.Address + offset));
 					}
 
 					/// <summary>
@@ -1282,7 +1282,7 @@ namespace pspsharp.HLE.modules
 				requiredGameModeMacs.AddLast(macAddress);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNetAdhocctlCreateEnterGameMode macAddress#{0:D}={1}", i, macAddress));
+					System.Console.WriteLine(string.Format("sceNetAdhocctlCreateEnterGameMode macAddress#{0:D}={1}", i, macAddress));
 				}
 			}
 
@@ -1358,7 +1358,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNetAdhocctlGetGameModeInfo returning {0}", macAddress));
+					System.Console.WriteLine(string.Format("sceNetAdhocctlGetGameModeInfo returning {0}", macAddress));
 				}
 				macAddress.write(gameModeInfoAddr, offset);
 				offset += macAddress.@sizeof();

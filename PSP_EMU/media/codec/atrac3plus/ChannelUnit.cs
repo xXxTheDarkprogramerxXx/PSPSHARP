@@ -203,7 +203,7 @@ namespace pspsharp.media.codec.atrac3plus
 			ctx.numQuantUnits = br.read(5) + 1;
 			if (ctx.numQuantUnits > 28 && ctx.numQuantUnits < 32)
 			{
-				Console.WriteLine(string.Format("Invalid number of quantization units: {0:D}", ctx.numQuantUnits));
+				System.Console.WriteLine(string.Format("Invalid number of quantization units: {0:D}", ctx.numQuantUnits));
 				return AT3P_ERROR;
 			}
 
@@ -279,7 +279,7 @@ namespace pspsharp.media.codec.atrac3plus
 				chan.numCodedVals = br.read(5);
 				if (chan.numCodedVals > ctx.numQuantUnits)
 				{
-					Console.WriteLine(string.Format("Invalid number of transmitted units"));
+					System.Console.WriteLine(string.Format("Invalid number of transmitted units"));
 					return AT3P_ERROR;
 				}
 
@@ -340,7 +340,7 @@ namespace pspsharp.media.codec.atrac3plus
 				chan.quWordlen[i] += weigthsTab[i];
 				if (chan.quWordlen[i] < 0 || chan.quWordlen[i] > 7)
 				{
-					Console.WriteLine(string.Format("WL index out of range pos={0:D}, val={1:D}", i, chan.quWordlen[i]));
+					System.Console.WriteLine(string.Format("WL index out of range pos={0:D}, val={1:D}", i, chan.quWordlen[i]));
 					return AT3P_ERROR;
 				}
 			}
@@ -404,7 +404,7 @@ namespace pspsharp.media.codec.atrac3plus
 							int pos = br.read(5);
 							if (pos > chan.numCodedVals)
 							{
-								Console.WriteLine(string.Format("WL mode 1: invalid position {0:D}", pos));
+								System.Console.WriteLine(string.Format("WL mode 1: invalid position {0:D}", pos));
 								return AT3P_ERROR;
 							}
 
@@ -541,7 +541,7 @@ namespace pspsharp.media.codec.atrac3plus
 				chan.quSfIdx[i] -= weigthsTab[i];
 				if (chan.quSfIdx[i] < 0 || chan.quSfIdx[i] > 63)
 				{
-					Console.WriteLine(string.Format("SF index out of range pos={0:D}, val={1:D}", i, chan.quSfIdx[i]));
+					System.Console.WriteLine(string.Format("SF index out of range pos={0:D}, val={1:D}", i, chan.quSfIdx[i]));
 					return AT3P_ERROR;
 				}
 			}
@@ -610,7 +610,7 @@ namespace pspsharp.media.codec.atrac3plus
 							int minVal = br.read(6);
 							if (numLongVals > ctx.usedQuantUnits || deltaBits == 7)
 							{
-								Console.WriteLine(string.Format("SF mode 1: invalid parameters"));
+								System.Console.WriteLine(string.Format("SF mode 1: invalid parameters"));
 								return AT3P_ERROR;
 							}
 
@@ -779,7 +779,7 @@ namespace pspsharp.media.codec.atrac3plus
 				int numCodedVals = br.read(5);
 				if (numCodedVals > ctx.usedQuantUnits)
 				{
-					Console.WriteLine(string.Format("Invalid number of code table indexes: {0:D}", numCodedVals));
+					System.Console.WriteLine(string.Format("Invalid number of code table indexes: {0:D}", numCodedVals));
 					return AT3P_ERROR;
 				}
 				return numCodedVals;
@@ -1519,7 +1519,7 @@ namespace pspsharp.media.codec.atrac3plus
 				{
 					if (dst.locCode[i] < 0 || dst.locCode[i] > 31 || (i > 0 && dst.locCode[i] <= dst.locCode[i - 1]))
 					{
-						Console.WriteLine(string.Format("Invalid gain location: ch={0:D}, sb={1:D}, pos={2:D}, val={3:D}", chNum, sb, i, dst.locCode[i]));
+						System.Console.WriteLine(string.Format("Invalid gain location: ch={0:D}, sb={1:D}, pos={2:D}, val={3:D}", chNum, sb, i, dst.locCode[i]));
 						return AT3P_ERROR;
 					}
 				}
@@ -1689,7 +1689,7 @@ namespace pspsharp.media.codec.atrac3plus
 				{
 					if (ctx.wavesInfo.tonesIndex + dst[sb].numWavs > 48)
 					{
-						Console.WriteLine(string.Format("Too many tones: {0:D} (max. 48)", ctx.wavesInfo.tonesIndex + dst[sb].numWavs));
+						System.Console.WriteLine(string.Format("Too many tones: {0:D} (max. 48)", ctx.wavesInfo.tonesIndex + dst[sb].numWavs));
 						return AT3P_ERROR;
 					}
 					dst[sb].startIndex = ctx.wavesInfo.tonesIndex;
@@ -1956,7 +1956,7 @@ namespace pspsharp.media.codec.atrac3plus
 			ctx.wavesInfo.amplitudeMode = br.read1();
 			if (ctx.wavesInfo.amplitudeMode == 0)
 			{
-				Console.WriteLine(string.Format("GHA amplitude mode 0"));
+				System.Console.WriteLine(string.Format("GHA amplitude mode 0"));
 				return AT3P_ERROR;
 			}
 
@@ -1968,7 +1968,7 @@ namespace pspsharp.media.codec.atrac3plus
 				getSubbandFlags(ctx.wavesInfo.toneMaster, ctx.wavesInfo.numToneBands);
 				if (getSubbandFlags(ctx.wavesInfo.phaseShift, ctx.wavesInfo.numToneBands))
 				{
-					Console.WriteLine(string.Format("GHA Phase shifting"));
+					System.Console.WriteLine(string.Format("GHA Phase shifting"));
 				}
 			}
 

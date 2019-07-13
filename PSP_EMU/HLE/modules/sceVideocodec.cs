@@ -104,7 +104,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("Exiting the VideocodecDecoderThread");
+					System.Console.WriteLine("Exiting the VideocodecDecoderThread");
 				}
 				done = true;
 			}
@@ -197,7 +197,7 @@ namespace pspsharp.HLE.modules
 			int result = videoCodec.decode(mp4Buffer, 0, mp4Size);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceVideocodecDecode videoCodec returned 0x{0:X} from 0x{1:X} data bytes", result, mp4Size));
+				System.Console.WriteLine(string.Format("sceVideocodecDecode videoCodec returned 0x{0:X} from 0x{1:X} data bytes", result, mp4Size));
 			}
 
 			releaseIntBuffer(mp4Buffer);
@@ -594,7 +594,7 @@ namespace pspsharp.HLE.modules
 					buffer2.setValue32(104, frameBufferWidthCb);
 					break;
 				default:
-					Console.WriteLine(string.Format("sceVideocodecDecode unknown type=0x{0:X}", type));
+					System.Console.WriteLine(string.Format("sceVideocodecDecode unknown type=0x{0:X}", type));
 					break;
 			}
 
@@ -609,7 +609,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Further delaying thread=0x{0:X} by {1:D} microseconds", threadUid, delayMicros));
+					System.Console.WriteLine(string.Format("Further delaying thread=0x{0:X} by {1:D} microseconds", threadUid, delayMicros));
 				}
 				action = new DelayThreadAction(threadUid, (int) delayMicros, false, true);
 			}
@@ -617,7 +617,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Unblocking thread=0x{0:X}", threadUid));
+					System.Console.WriteLine(string.Format("Unblocking thread=0x{0:X}", threadUid));
 				}
 				action = new UnblockThreadAction(threadUid);
 			}
@@ -686,7 +686,7 @@ namespace pspsharp.HLE.modules
 					buffer.setValue32(32, VIDEOCODEC_OPEN_TYPE1_UNKNOWN32);
 					break;
 				default:
-					Console.WriteLine(string.Format("sceVideocodecOpen unknown type {0:D}", type));
+					System.Console.WriteLine(string.Format("sceVideocodecOpen unknown type {0:D}", type));
 					return -1;
 			}
 
@@ -762,7 +762,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (type != 0 && type != 1)
 			{
-				Console.WriteLine(string.Format("sceVideocodecDecode unknown type=0x{0:X}", type));
+				System.Console.WriteLine(string.Format("sceVideocodecDecode unknown type=0x{0:X}", type));
 				return -1;
 			}
 
@@ -841,7 +841,7 @@ namespace pspsharp.HLE.modules
 			TPointer decodeSEI = buffer.getPointer(80);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceVideocodecGetSEI storing decodeSEI to {0}", decodeSEI));
+				System.Console.WriteLine(string.Format("sceVideocodecGetSEI storing decodeSEI to {0}", decodeSEI));
 			}
 			decodeSEI.setValue32(28, 0);
 
@@ -860,7 +860,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceVideocodecSetMemory unknown1=0x{0:X8}, unknown2=0x{1:X8}, unknown3=0x{2:X8}, unknown4=0x{3:X8}", unknown1, unknown2, unknown3, unknown4));
+				System.Console.WriteLine(string.Format("sceVideocodecSetMemory unknown1=0x{0:X8}, unknown2=0x{1:X8}, unknown3=0x{2:X8}, unknown4=0x{3:X8}", unknown1, unknown2, unknown3, unknown4));
 			}
 
 			return 0;

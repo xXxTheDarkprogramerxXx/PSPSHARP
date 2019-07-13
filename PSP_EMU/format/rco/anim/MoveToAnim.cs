@@ -66,7 +66,7 @@ namespace pspsharp.format.rco.anim
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("MoveToAnim '{0}' from ({1:F},{2:F},{3:F}) to ({4:F},{5:F},{6:F})", positionObject.Name, startX, startY, startZ, positionObject.animX, positionObject.animY, positionObject.animZ));
+					System.Console.WriteLine(string.Format("MoveToAnim '{0}' from ({1:F},{2:F},{3:F}) to ({4:F},{5:F},{6:F})", positionObject.Name, startX, startY, startZ, positionObject.animX, positionObject.animY, positionObject.animZ));
 				}
 			}
 		}
@@ -75,7 +75,7 @@ namespace pspsharp.format.rco.anim
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("MoveToAnim play {0} on {1}", ToString(), @object));
+				System.Console.WriteLine(string.Format("MoveToAnim play {0} on {1}", ToString(), @object));
 			}
 
 			Scheduler.addAction(new MoveToAnimAction(this, duration.IntValue, @object));

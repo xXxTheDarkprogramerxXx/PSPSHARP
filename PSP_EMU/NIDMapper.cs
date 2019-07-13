@@ -447,7 +447,7 @@ namespace pspsharp
 				}
 				if (log.InfoEnabled)
 				{
-					Console.WriteLine(string.Format("NID {0}[0x{1:X8}] at address 0x{2:X8} from module '{3}' overwriting an HLE syscall", info.Name, nid, address, moduleName));
+					System.Console.WriteLine(string.Format("NID {0}[0x{1:X8}] at address 0x{2:X8} from module '{3}' overwriting an HLE syscall", info.Name, nid, address, moduleName));
 				}
 				info.overwrite(address);
 				addressMap[address] = info;
@@ -505,7 +505,7 @@ namespace pspsharp
 
 			if (!string.ReferenceEquals(moduleName, null) && !info.isFromModule(moduleName))
 			{
-				Console.WriteLine(string.Format("Trying to resolve {0} from module '{1}'", info, moduleName));
+				System.Console.WriteLine(string.Format("Trying to resolve {0} from module '{1}'", info, moduleName));
 			}
 
 			return info.Address;
@@ -548,7 +548,7 @@ namespace pspsharp
 
 			if (!string.ReferenceEquals(moduleName, null) && !info.isFromModule(moduleName))
 			{
-				Console.WriteLine(string.Format("Trying to resolve {0} from module '{1}'", info, moduleName));
+				System.Console.WriteLine(string.Format("Trying to resolve {0} from module '{1}'", info, moduleName));
 			}
 
 			return info.Syscall;

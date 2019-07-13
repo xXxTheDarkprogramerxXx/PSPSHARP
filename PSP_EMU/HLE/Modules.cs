@@ -190,7 +190,7 @@ namespace pspsharp.HLE
 			}
 			catch (LWJGLException e)
 			{
-				Console.WriteLine("Error while creating sceDisplay", e);
+				System.Console.WriteLine("Error while creating sceDisplay", e);
 			}
 		}
 	}

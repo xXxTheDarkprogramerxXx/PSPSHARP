@@ -107,7 +107,7 @@ namespace pspsharp.HLE.kernel.managers
 			}
 			else
 			{
-				Console.WriteLine("MsgPipe deleted while we were waiting for it! (timeout expired)");
+				System.Console.WriteLine("MsgPipe deleted while we were waiting for it! (timeout expired)");
 				// Return WAIT_DELETE
 				thread.cpuContext._v0 = ERROR_KERNEL_WAIT_DELETE;
 			}
@@ -123,7 +123,7 @@ namespace pspsharp.HLE.kernel.managers
 			}
 			else
 			{
-				Console.WriteLine("EventFlag deleted while we were waiting for it!");
+				System.Console.WriteLine("EventFlag deleted while we were waiting for it!");
 				// Return WAIT_DELETE
 				thread.cpuContext._v0 = ERROR_KERNEL_WAIT_DELETE;
 			}
@@ -183,7 +183,7 @@ namespace pspsharp.HLE.kernel.managers
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("onMsgPipeSendModified waking thread {0}", thread));
+						System.Console.WriteLine(string.Format("onMsgPipeSendModified waking thread {0}", thread));
 					}
 					info.sendThreadWaitingList.removeWaitingThread(thread);
 					thread.cpuContext._v0 = 0;
@@ -220,7 +220,7 @@ namespace pspsharp.HLE.kernel.managers
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("onMsgPipeReceiveModified waking thread {0}", thread));
+						System.Console.WriteLine(string.Format("onMsgPipeReceiveModified waking thread {0}", thread));
 					}
 					info.receiveThreadWaitingList.removeWaitingThread(thread);
 					thread.cpuContext._v0 = 0;
@@ -315,7 +315,7 @@ namespace pspsharp.HLE.kernel.managers
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("tryReceiveMsgPipe waking thread {0}", thread));
+							System.Console.WriteLine(string.Format("tryReceiveMsgPipe waking thread {0}", thread));
 						}
 						ThreadManForUser threadMan = Modules.ThreadManForUserModule;
 						info.sendThreadWaitingList.removeWaitingThread(thread);
@@ -334,7 +334,7 @@ namespace pspsharp.HLE.kernel.managers
 		{
 			if (!msgMap.ContainsKey(uid))
 			{
-				Console.WriteLine(string.Format("checkMsgPipeID unknown uid=0x{0:X}", uid));
+				System.Console.WriteLine(string.Format("checkMsgPipeID unknown uid=0x{0:X}", uid));
 				throw new SceKernelErrorException(ERROR_KERNEL_NOT_FOUND_MESSAGE_PIPE);
 			}
 
@@ -351,7 +351,7 @@ namespace pspsharp.HLE.kernel.managers
 			if (option.NotNull)
 			{
 				int optionSize = option.getValue32();
-				Console.WriteLine(string.Format("sceKernelCreateMsgPipe option at {0}, size={1:D}", option, optionSize));
+				System.Console.WriteLine(string.Format("sceKernelCreateMsgPipe option at {0}, size={1:D}", option, optionSize));
 			}
 
 			int memType = PSP_SMEM_Low;
@@ -363,14 +363,14 @@ namespace pspsharp.HLE.kernel.managers
 			SceKernelMppInfo info = new SceKernelMppInfo(name, partitionid, attr, size, memType);
 			if (!info.MemoryAllocated)
 			{
-				Console.WriteLine(string.Format("sceKernelCreateMsgPipe name='{0}', partitionId={1:D}, attr=0x{2:X}, size=0x{3:X}, option={4} not enough memory", name, partitionid, attr, size, option));
+				System.Console.WriteLine(string.Format("sceKernelCreateMsgPipe name='{0}', partitionId={1:D}, attr=0x{2:X}, size=0x{3:X}, option={4} not enough memory", name, partitionid, attr, size, option));
 				info.delete();
 				return SceKernelErrors.ERROR_KERNEL_NO_MEMORY;
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelCreateMsgPipe returning {0}", info));
+				System.Console.WriteLine(string.Format("sceKernelCreateMsgPipe returning {0}", info));
 			}
 			msgMap[info.uid] = info;
 
@@ -391,7 +391,7 @@ namespace pspsharp.HLE.kernel.managers
 			SceKernelMppInfo info = msgMap[uid];
 			if (info.bufSize != 0 && size > info.bufSize)
 			{
-				Console.WriteLine(string.Format("hleKernelSendMsgPipe illegal size 0x{0:X} max 0x{1:X}", size, info.bufSize));
+				System.Console.WriteLine(string.Format("hleKernelSendMsgPipe illegal size 0x{0:X} max 0x{1:X}", size, info.bufSize));
 				return ERROR_KERNEL_ILLEGAL_SIZE;
 			}
 			ThreadManForUser threadMan = Modules.ThreadManForUserModule;
@@ -402,7 +402,7 @@ namespace pspsharp.HLE.kernel.managers
 					// Failed, but it's ok, just wait a little
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("hleKernelSendMsgPipe {0} waiting for 0x{1:X} bytes to become available", info, size));
+						System.Console.WriteLine(string.Format("hleKernelSendMsgPipe {0} waiting for 0x{1:X} bytes to become available", info, size));
 					}
 					SceKernelThreadInfo currentThread = threadMan.CurrentThread;
 					info.sendThreadWaitingList.addWaitingThread(currentThread);
@@ -416,7 +416,7 @@ namespace pspsharp.HLE.kernel.managers
 				}
 				else
 				{
-					Console.WriteLine(string.Format("hleKernelSendMsgPipe illegal size 0x{0:X}, max 0x{1:X} (pipe needs consuming)", size, info.freeSize));
+					System.Console.WriteLine(string.Format("hleKernelSendMsgPipe illegal size 0x{0:X}, max 0x{1:X} (pipe needs consuming)", size, info.freeSize));
 					return ERROR_KERNEL_MESSAGE_PIPE_FULL;
 				}
 			}
@@ -425,7 +425,7 @@ namespace pspsharp.HLE.kernel.managers
 				// Success, do not reschedule the current thread.
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("hleKernelSendMsgPipe {0} fast check succeeded", info));
+					System.Console.WriteLine(string.Format("hleKernelSendMsgPipe {0} fast check succeeded", info));
 				}
 				onMsgPipeReceiveModified(info);
 			}
@@ -453,7 +453,7 @@ namespace pspsharp.HLE.kernel.managers
 			SceKernelMppInfo info = msgMap[uid];
 			if (info.bufSize != 0 && size > info.bufSize)
 			{
-				Console.WriteLine(string.Format("hleKernelReceiveMsgPipe illegal size 0x{0:X}, max 0x{1:X}", size, info.bufSize));
+				System.Console.WriteLine(string.Format("hleKernelReceiveMsgPipe illegal size 0x{0:X}, max 0x{1:X}", size, info.bufSize));
 				return ERROR_KERNEL_ILLEGAL_SIZE;
 			}
 
@@ -465,7 +465,7 @@ namespace pspsharp.HLE.kernel.managers
 					// Failed, but it's ok, just wait a little
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("hleKernelReceiveMsgPipe {0} waiting for 0x{1:X} bytes to become available", info, size));
+						System.Console.WriteLine(string.Format("hleKernelReceiveMsgPipe {0} waiting for 0x{1:X} bytes to become available", info, size));
 					}
 					SceKernelThreadInfo currentThread = threadMan.CurrentThread;
 					info.receiveThreadWaitingList.addWaitingThread(currentThread);
@@ -481,7 +481,7 @@ namespace pspsharp.HLE.kernel.managers
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("hleKernelReceiveMsgPipe trying to read more than is available size 0x{0:X}, available 0x{1:X}", size, info.bufSize - info.freeSize));
+						System.Console.WriteLine(string.Format("hleKernelReceiveMsgPipe trying to read more than is available size 0x{0:X}, available 0x{1:X}", size, info.bufSize - info.freeSize));
 					}
 					return ERROR_KERNEL_MESSAGE_PIPE_EMPTY;
 				}
@@ -491,7 +491,7 @@ namespace pspsharp.HLE.kernel.managers
 				// Success, do not reschedule the current thread.
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("hleKernelReceiveMsgPipe {0} fast check succeeded", info));
+					System.Console.WriteLine(string.Format("hleKernelReceiveMsgPipe {0} fast check succeeded", info));
 				}
 				onMsgPipeSendModified(info);
 			}

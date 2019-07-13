@@ -64,7 +64,7 @@ namespace pspsharp.HLE
 		{
 			if (!installedHLEModuleFunctions.ContainsKey(functionName))
 			{
-				Modules.Console.WriteLine(string.Format("Can't find HLE function '{0}' in module '{1}'", functionName, this));
+				Modules.System.Console.WriteLine(string.Format("Can't find HLE function '{0}' in module '{1}'", functionName, this));
 				return null;
 			}
 
@@ -117,7 +117,7 @@ namespace pspsharp.HLE
 			{
 				if (Modules.log.DebugEnabled)
 				{
-					Modules.Console.WriteLine(string.Format("Allocating 0x{0:X} bytes for HLE module {1}", memoryUsage, Name));
+					Modules.System.Console.WriteLine(string.Format("Allocating 0x{0:X} bytes for HLE module {1}", memoryUsage, Name));
 				}
 
 				memory = Modules.SysMemUserForUserModule.malloc(SysMemUserForUser.USER_PARTITION_ID, string.Format("Module-{0}", Name), SysMemUserForUser.PSP_SMEM_Low, memoryUsage, 0);
@@ -134,7 +134,7 @@ namespace pspsharp.HLE
 			{
 				if (Modules.log.DebugEnabled)
 				{
-					Modules.Console.WriteLine(string.Format("Freeing 0x{0:X} bytes for HLE module {1}", memory.size, Name));
+					Modules.System.Console.WriteLine(string.Format("Freeing 0x{0:X} bytes for HLE module {1}", memory.size, Name));
 				}
 
 				Modules.SysMemUserForUserModule.free(memory);

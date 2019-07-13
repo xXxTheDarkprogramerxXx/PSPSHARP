@@ -247,7 +247,7 @@ namespace pspsharp.Allegrex
 
 			public override void interpret(Processor processor, int insn)
 			{
-				Modules.Console.WriteLine(string.Format("{0:X8} {1}", processor.cpu.pc, disasm(processor.cpu.pc, insn)));
+				Modules.System.Console.WriteLine(string.Format("{0:X8} {1}", processor.cpu.pc, disasm(processor.cpu.pc, insn)));
 			}
 
 			public override void compile(ICompilerContext context, int insn)

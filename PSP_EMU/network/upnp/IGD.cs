@@ -73,19 +73,19 @@ namespace pspsharp.network.upnp
 			}
 			catch (ParserConfigurationException e)
 			{
-				Console.WriteLine("Discovery", e);
+				System.Console.WriteLine("Discovery", e);
 			}
 			catch (SAXException e)
 			{
-				Console.WriteLine("Discovery", e);
+				System.Console.WriteLine("Discovery", e);
 			}
 			catch (MalformedURLException e)
 			{
-				Console.WriteLine("Discovery", e);
+				System.Console.WriteLine("Discovery", e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("Discovery", e);
+				System.Console.WriteLine("Discovery", e);
 			}
 		}
 
@@ -135,7 +135,7 @@ namespace pspsharp.network.upnp
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("IGD data: {0}", ToString()));
+				System.Console.WriteLine(string.Format("IGD data: {0}", ToString()));
 			}
 		}
 

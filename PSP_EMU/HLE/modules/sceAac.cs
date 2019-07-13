@@ -191,7 +191,7 @@ namespace pspsharp.HLE.modules
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Decoding from 0x{0:X8}, Length=0x{1:X} to 0x{2:X8}", decodeInputAddr, decodeInputLength, decodeOutputAddr));
+						System.Console.WriteLine(string.Format("Decoding from 0x{0:X8}, Length=0x{1:X} to 0x{2:X8}", decodeInputAddr, decodeInputLength, decodeOutputAddr));
 					}
 
 					result = codec.decode(decodeInputAddr, decodeInputLength, decodeOutputAddr);
@@ -226,7 +226,7 @@ namespace pspsharp.HLE.modules
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Looping loopNum={0:D}", loopNum));
+							System.Console.WriteLine(string.Format("Looping loopNum={0:D}", loopNum));
 						}
 
 						if (loopNum > 0)
@@ -379,7 +379,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceAacInit parameters: startPos=0x{0:X}, endPos=0x{1:X}, " + "bufferAddr=0x{2:X8}, bufferSize=0x{3:X}, outputAddr=0x{4:X8}, outputSize=0x{5:X}, freq={6:D}, reserved=0x{7:X8}", startPos, endPos, bufferAddr, bufferSize, outputAddr, outputSize, freq, reserved));
+				System.Console.WriteLine(string.Format("sceAacInit parameters: startPos=0x{0:X}, endPos=0x{1:X}, " + "bufferAddr=0x{2:X8}, bufferSize=0x{3:X}, outputAddr=0x{4:X8}, outputSize=0x{5:X}, freq={6:D}, reserved=0x{7:X8}", startPos, endPos, bufferAddr, bufferSize, outputAddr, outputSize, freq, reserved));
 			}
 
 			if (bufferAddr == 0 || outputAddr == 0)
@@ -459,7 +459,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceAacDecode bufferAddress={0}(0x{1:X8}) returning 0x{2:X}", bufferAddress, bufferAddress.getValue(), result));
+				System.Console.WriteLine(string.Format("sceAacDecode bufferAddress={0}(0x{1:X8}) returning 0x{2:X}", bufferAddress, bufferAddress.getValue(), result));
 			}
 
 			if (result >= 0)
@@ -515,7 +515,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceAacGetInfoToAddStreamData returning writeAddr=0x{0:X8}, writableBytes=0x{1:X}, readOffset=0x{2:X}", writeAddr.getValue(), writableBytesAddr.getValue(), readOffsetAddr.getValue()));
+				System.Console.WriteLine(string.Format("sceAacGetInfoToAddStreamData returning writeAddr=0x{0:X8}, writableBytes=0x{1:X}, readOffset=0x{2:X}", writeAddr.getValue(), writableBytesAddr.getValue(), readOffsetAddr.getValue()));
 			}
 			return 0;
 		}
@@ -536,7 +536,7 @@ namespace pspsharp.HLE.modules
 			int sumDecodedSamples = getAacInfo(id).SumDecodedSamples;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceAacGetSumDecodedSample returning 0x{0:X}", sumDecodedSamples));
+				System.Console.WriteLine(string.Format("sceAacGetSumDecodedSample returning 0x{0:X}", sumDecodedSamples));
 			}
 
 			return sumDecodedSamples;

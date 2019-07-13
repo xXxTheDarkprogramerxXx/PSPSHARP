@@ -80,13 +80,13 @@ namespace pspsharp.util
 			}
 			catch (FileNotFoundException e)
 			{
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 			}
 		}
 	}

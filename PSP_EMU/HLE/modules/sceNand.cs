@@ -124,7 +124,7 @@ namespace pspsharp.HLE.modules
 							}
 						}
 
-						Console.WriteLine(string.Format("Free blocks ppn=0x{0:X}-0x{1:X}", startFreePpn, endFreePpn));
+						System.Console.WriteLine(string.Format("Free blocks ppn=0x{0:X}-0x{1:X}", startFreePpn, endFreePpn));
 					}
 				}
 			}
@@ -579,7 +579,7 @@ namespace pspsharp.HLE.modules
 			int sectorNumber = (lbn - lbnStart) * pagesPerBlock + (ppn % pagesPerBlock);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("readFile ppn=0x{0:X}, lbnStart=0x{1:X}, lbn=0x{2:X}, sectorNumber=0x{3:X}", ppn, lbnStart, lbn, sectorNumber));
+				System.Console.WriteLine(string.Format("readFile ppn=0x{0:X}, lbnStart=0x{1:X}, lbn=0x{2:X}, sectorNumber=0x{3:X}", ppn, lbnStart, lbn, sectorNumber));
 			}
 			readFile(buffer, vFile, sectorNumber);
 		}
@@ -617,7 +617,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("readIdStoragePage page=0x{0:X}", page));
+				System.Console.WriteLine(string.Format("readIdStoragePage page=0x{0:X}", page));
 			}
 
 			switch (page)
@@ -1033,7 +1033,7 @@ namespace pspsharp.HLE.modules
 			int sectorNumber = (lbn - lbnStart) * pagesPerBlock + (ppn % pagesPerBlock);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("writeFile ppn=0x{0:X}, lbnStart=0x{1:X}, lbn=0x{2:X}, sectorNumber=0x{3:X}", ppn, lbnStart, lbn, sectorNumber));
+				System.Console.WriteLine(string.Format("writeFile ppn=0x{0:X}, lbnStart=0x{1:X}, lbn=0x{2:X}, sectorNumber=0x{3:X}", ppn, lbnStart, lbn, sectorNumber));
 			}
 			writeFile(buffer, vFile, sectorNumber);
 		}
@@ -1071,7 +1071,7 @@ namespace pspsharp.HLE.modules
 							{
 								//if (log.DebugEnabled)
 								{
-									Console.WriteLine(string.Format("hleNandWriteSparePages moving lbn=0x{0:X4} from ppn=0x{1:X} to ppn=0x{2:X}", sceNandSpare.lbn, j, ppn + i));
+									System.Console.WriteLine(string.Format("hleNandWriteSparePages moving lbn=0x{0:X4} from ppn=0x{1:X} to ppn=0x{2:X}", sceNandSpare.lbn, j, ppn + i));
 								}
 								ppnToLbn[j] = 0xFFFF;
 								break;
@@ -1084,7 +1084,7 @@ namespace pspsharp.HLE.modules
 						}
 						else
 						{
-							Console.WriteLine(string.Format("hleNandWriteSparePages moving lbn=0x{0:X4} to ppn=0x{1:X} not being free", sceNandSpare.lbn, ppn + i));
+							System.Console.WriteLine(string.Format("hleNandWriteSparePages moving lbn=0x{0:X4} to ppn=0x{1:X} not being free", sceNandSpare.lbn, ppn + i));
 						}
 					}
 				}
@@ -1118,7 +1118,7 @@ namespace pspsharp.HLE.modules
 					}
 					else
 					{
-						Console.WriteLine(string.Format("hleNandWriteUserPages unimplemented write on ppn=0x{0:X}, lbn=0x{1:X}", ppn + i, ppnToLbn[ppn + i]));
+						System.Console.WriteLine(string.Format("hleNandWriteUserPages unimplemented write on ppn=0x{0:X}, lbn=0x{1:X}", ppn + i, ppnToLbn[ppn + i]));
 					}
 					user.add(pageSize);
 				}

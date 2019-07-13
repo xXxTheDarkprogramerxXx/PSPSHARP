@@ -91,7 +91,7 @@ namespace pspsharp.graphics.capture
 			data.writeInt(pixelformatFb);
 			data.writeInt(sync);
 
-			//VideoEngine.Console.WriteLine("CaptureDisplayDetails write " + (4 + packetSize));
+			//VideoEngine.System.Console.WriteLine("CaptureDisplayDetails write " + (4 + packetSize));
 
 			if (captureRenderTargets)
 			{

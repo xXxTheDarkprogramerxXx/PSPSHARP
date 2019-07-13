@@ -83,7 +83,7 @@ namespace pspsharp.network.proonline
 					bool isTimeout = DateTimeHelper.CurrentUnixTimeMillis() - lastReceiveTimestamp > 15000;
 					if (isTimeout)
 					{
-						Console.WriteLine(string.Format("User timed out now={0:D}, lastReceiveTimestamp={1:D}", DateTimeHelper.CurrentUnixTimeMillis(), lastReceiveTimestamp));
+						System.Console.WriteLine(string.Format("User timed out now={0:D}, lastReceiveTimestamp={1:D}", DateTimeHelper.CurrentUnixTimeMillis(), lastReceiveTimestamp));
 					}
 					return isTimeout;
 				}
@@ -140,7 +140,7 @@ namespace pspsharp.network.proonline
 
 			public override void run()
 			{
-				Console.WriteLine(string.Format("Starting ProOnlineServerThread"));
+				System.Console.WriteLine(string.Format("Starting ProOnlineServerThread"));
 				while (!exit_Renamed)
 				{
 					try
@@ -155,7 +155,7 @@ namespace pspsharp.network.proonline
 					}
 					catch (IOException e)
 					{
-						Console.WriteLine("Accept server socket", e);
+						System.Console.WriteLine("Accept server socket", e);
 					}
 
 					foreach (User user in outerInstance.users)
@@ -172,7 +172,7 @@ namespace pspsharp.network.proonline
 						}
 						catch (IOException e)
 						{
-							Console.WriteLine("Receive user socket", e);
+							System.Console.WriteLine("Receive user socket", e);
 						}
 
 						if (Length > 0)
@@ -208,7 +208,7 @@ namespace pspsharp.network.proonline
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(string.Format("Server socket at port {0:D} not available: {1}", port, e));
+				System.Console.WriteLine(string.Format("Server socket at port {0:D} not available: {1}", port, e));
 				return;
 			}
 
@@ -237,7 +237,7 @@ namespace pspsharp.network.proonline
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("Closing server socket", e);
+					System.Console.WriteLine("Closing server socket", e);
 				}
 				serverSocket = null;
 			}
@@ -274,7 +274,7 @@ namespace pspsharp.network.proonline
 	//		for (User user : users) {
 	//			if (user.ipString.equals(ip)) {
 	//				// Duplicate user (same IP & same port)
-	//				Console.WriteLine(String.format("Duplicate user IP: %s", ip));
+	//				System.Console.WriteLine(String.format("Duplicate user IP: %s", ip));
 	//				socket.close();
 	//				return;
 	//			}
@@ -287,7 +287,7 @@ namespace pspsharp.network.proonline
 			user.lastReceiveTimestamp = DateTimeHelper.CurrentUnixTimeMillis();
 			users.Add(user);
 
-			Console.WriteLine(string.Format("New Connection from {0}", user.ipString));
+			System.Console.WriteLine(string.Format("New Connection from {0}", user.ipString));
 		}
 
 		private void logoutUser(User user)
@@ -308,7 +308,7 @@ namespace pspsharp.network.proonline
 
 			if (user.game != null)
 			{
-				Console.WriteLine(string.Format("{0} stopped playing {1}.", user, user.game.name));
+				System.Console.WriteLine(string.Format("{0} stopped playing {1}.", user, user.game.name));
 
 				user.game.playerCount--;
 
@@ -322,7 +322,7 @@ namespace pspsharp.network.proonline
 			}
 			else
 			{
-				Console.WriteLine(string.Format("Dropped Connection {0}.", user));
+				System.Console.WriteLine(string.Format("Dropped Connection {0}.", user));
 			}
 
 			users.Remove(user);
@@ -346,7 +346,7 @@ namespace pspsharp.network.proonline
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Incoming client packet {0}", packet));
+					System.Console.WriteLine(string.Format("Incoming client packet {0}", packet));
 				}
 
 				currentUser = user;
@@ -392,11 +392,11 @@ namespace pspsharp.network.proonline
 				currentUser.mac = mac;
 				currentUser.nickName = nickName;
 
-				Console.WriteLine(string.Format("{0} started playing {1}.", currentUser, currentUser.game.name));
+				System.Console.WriteLine(string.Format("{0} started playing {1}.", currentUser, currentUser.game.name));
 			}
 			else
 			{
-				Console.WriteLine(string.Format("Invalid login for game '{0}'", gameName));
+				System.Console.WriteLine(string.Format("Invalid login for game '{0}'", gameName));
 			}
 		}
 
@@ -416,11 +416,11 @@ namespace pspsharp.network.proonline
 					}
 					catch (IOException e)
 					{
-						Console.WriteLine("disconnectUser", e);
+						System.Console.WriteLine("disconnectUser", e);
 					}
 				}
 
-				Console.WriteLine(string.Format("{0} left {1} group {2}.", user, user.game.name, group.name));
+				System.Console.WriteLine(string.Format("{0} left {1} group {2}.", user, user.game.name, group.name));
 
 				user.group = null;
 
@@ -432,7 +432,7 @@ namespace pspsharp.network.proonline
 			}
 			else
 			{
-				Console.WriteLine(string.Format("{0} attempted to leave {1} without joining one first.", user, user.game.name));
+				System.Console.WriteLine(string.Format("{0} attempted to leave {1} without joining one first.", user, user.game.name));
 				logoutUser(user);
 			}
 		}
@@ -462,13 +462,13 @@ namespace pspsharp.network.proonline
 					}
 					catch (IOException e)
 					{
-						Console.WriteLine("processScan", e);
+						System.Console.WriteLine("processScan", e);
 					}
 				}
 			}
 			else
 			{
-				Console.WriteLine(string.Format("{0} attempted to scan for {1} groups without disconnecting from {2} first.", currentUser, currentUser.game.name, currentUser.group.name));
+				System.Console.WriteLine(string.Format("{0} attempted to scan for {1} groups without disconnecting from {2} first.", currentUser, currentUser.game.name, currentUser.group.name));
 				logoutUser(currentUser);
 			}
 		}
@@ -490,7 +490,7 @@ namespace pspsharp.network.proonline
 						}
 						catch (IOException e)
 						{
-							Console.WriteLine("spreadMessage global notice", e);
+							System.Console.WriteLine("spreadMessage global notice", e);
 						}
 					}
 				}
@@ -511,20 +511,20 @@ namespace pspsharp.network.proonline
 						}
 						catch (IOException e)
 						{
-							Console.WriteLine("spreadMessage", e);
+							System.Console.WriteLine("spreadMessage", e);
 						}
 					}
 				}
 
 				if (messageCount > 0)
 				{
-					Console.WriteLine(string.Format("{0} sent '{1}' to {2:D} players in {3} group {4}", fromUser, message, messageCount, fromUser.game.name, fromUser.group.name));
+					System.Console.WriteLine(string.Format("{0} sent '{1}' to {2:D} players in {3} group {4}", fromUser, message, messageCount, fromUser.game.name, fromUser.group.name));
 				}
 			}
 			else
 			{
 				// User is disconnected
-				Console.WriteLine(string.Format("{0} attempted to send a text message without joining a {1} group first", fromUser, fromUser.game.name));
+				System.Console.WriteLine(string.Format("{0} attempted to send a text message without joining a {1} group first", fromUser, fromUser.game.name));
 			}
 		}
 
@@ -564,7 +564,7 @@ namespace pspsharp.network.proonline
 						}
 						catch (IOException e)
 						{
-							Console.WriteLine("processConnect", e);
+							System.Console.WriteLine("processConnect", e);
 						}
 
 						packet = new SceNetAdhocctlConnectPacketS2C(user.nickName, user.mac, user.ip);
@@ -574,7 +574,7 @@ namespace pspsharp.network.proonline
 						}
 						catch (IOException e)
 						{
-							Console.WriteLine("processConnect", e);
+							System.Console.WriteLine("processConnect", e);
 						}
 					}
 
@@ -586,20 +586,20 @@ namespace pspsharp.network.proonline
 					}
 					catch (IOException e)
 					{
-						Console.WriteLine("processConnect", e);
+						System.Console.WriteLine("processConnect", e);
 					}
-					Console.WriteLine(string.Format("{0} joined {1} group '{2}'.", currentUser, currentUser.game == null ? "" : currentUser.game.name, currentUser.group.name));
+					System.Console.WriteLine(string.Format("{0} joined {1} group '{2}'.", currentUser, currentUser.game == null ? "" : currentUser.game.name, currentUser.group.name));
 				}
 				else
 				{
 					// Already connected to another group
-					Console.WriteLine(string.Format("{0} attempted to join {1} group '{2}' without disconnecting from {3} first.", currentUser, currentUser.game == null ? "" : currentUser.game.name, groupName, currentUser.group.name));
+					System.Console.WriteLine(string.Format("{0} attempted to join {1} group '{2}' without disconnecting from {3} first.", currentUser, currentUser.game == null ? "" : currentUser.game.name, groupName, currentUser.group.name));
 					logoutUser(currentUser);
 				}
 			}
 			else
 			{
-				Console.WriteLine(string.Format("{0} attempted to join invalid {1} group '{2}'.", currentUser, currentUser.game == null ? "" : currentUser.game.name, groupName));
+				System.Console.WriteLine(string.Format("{0} attempted to join invalid {1} group '{2}'.", currentUser, currentUser.game == null ? "" : currentUser.game.name, groupName));
 				logoutUser(currentUser);
 			}
 		}

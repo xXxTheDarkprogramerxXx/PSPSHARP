@@ -104,12 +104,12 @@ namespace pspsharp.graphics.RE.externalge
 //							System.loadLibrary(library);
 							RuntimeContext.updateMemory();
 							initNative();
-							Console.WriteLine(string.Format("Loaded {0} library", library));
+							System.Console.WriteLine(string.Format("Loaded {0} library", library));
 							isAvailable = true;
 						}
 						catch (UnsatisfiedLinkError e)
 						{
-							Console.WriteLine(string.Format("Could not load external software library {0}: {1}", library, e));
+							System.Console.WriteLine(string.Format("Could not load external software library {0}: {1}", library, e));
 							isAvailable = false;
 						}
 						break;
@@ -117,7 +117,7 @@ namespace pspsharp.graphics.RE.externalge
 				}
 				if (!libraryExisting)
 				{
-					Console.WriteLine(string.Format("Missing external software library"));
+					System.Console.WriteLine(string.Format("Missing external software library"));
 				}
 
 				isInitialized = true;
@@ -128,7 +128,7 @@ namespace pspsharp.graphics.RE.externalge
 		{
 			if (DurationStatistics.collectStatistics)
 			{
-				Console.WriteLine(coreInterpret.ToString());
+				System.Console.WriteLine(coreInterpret.ToString());
 			}
 		}
 
@@ -153,11 +153,11 @@ namespace pspsharp.graphics.RE.externalge
 			int x = @unsafe.getInt(memoryIntAddress);
 			if (x != memoryInt[0])
 			{
-				Console.WriteLine(string.Format("Non matching value 0x{0:X8} - 0x{1:X8}", x, memoryInt[0]));
+				System.Console.WriteLine(string.Format("Non matching value 0x{0:X8} - 0x{1:X8}", x, memoryInt[0]));
 			}
 			else
 			{
-				Console.WriteLine(string.Format("Matching value 0x{0:X8} - 0x{1:X8}", x, memoryInt[0]));
+				System.Console.WriteLine(string.Format("Matching value 0x{0:X8} - 0x{1:X8}", x, memoryInt[0]));
 			}
 			memoryInt[0] = 0;
 		}
@@ -187,38 +187,38 @@ namespace pspsharp.graphics.RE.externalge
     
 							if (log.InfoEnabled)
 							{
-								Console.WriteLine(string.Format("Unsafe address information: addressSize={0:D}, arrayBaseOffset={1:D}, indexScale={2:D}", addressSize, arrayObjectBaseOffset, arrayObjectIndexScale));
+								System.Console.WriteLine(string.Format("Unsafe address information: addressSize={0:D}, arrayBaseOffset={1:D}, indexScale={2:D}", addressSize, arrayObjectBaseOffset, arrayObjectIndexScale));
 							}
     
 							if (addressSize != 4 && addressSize != 8)
 							{
-								Console.WriteLine(string.Format("Unknown addressSize={0:D}", addressSize));
+								System.Console.WriteLine(string.Format("Unknown addressSize={0:D}", addressSize));
 							}
 							if (arrayObjectIndexScale != 4 && arrayObjectIndexScale != 8)
 							{
-								Console.WriteLine(string.Format("Unknown addressSize={0:D}, indexScale={1:D}", addressSize, arrayObjectIndexScale));
+								System.Console.WriteLine(string.Format("Unknown addressSize={0:D}, indexScale={1:D}", addressSize, arrayObjectIndexScale));
 							}
 							if (arrayObjectIndexScale > addressSize)
 							{
-								Console.WriteLine(string.Format("Unknown addressSize={0:D}, indexScale={1:D}", addressSize, arrayObjectIndexScale));
+								System.Console.WriteLine(string.Format("Unknown addressSize={0:D}, indexScale={1:D}", addressSize, arrayObjectIndexScale));
 							}
 						}
 					}
 					catch (NoSuchFieldException e)
 					{
-						Console.WriteLine("getMemoryUnsafeAddr", e);
+						System.Console.WriteLine("getMemoryUnsafeAddr", e);
 					}
 					catch (SecurityException e)
 					{
-						Console.WriteLine("getMemoryUnsafeAddr", e);
+						System.Console.WriteLine("getMemoryUnsafeAddr", e);
 					}
 					catch (System.ArgumentException e)
 					{
-						Console.WriteLine("getMemoryUnsafeAddr", e);
+						System.Console.WriteLine("getMemoryUnsafeAddr", e);
 					}
 					catch (IllegalAccessException e)
 					{
-						Console.WriteLine("getMemoryUnsafeAddr", e);
+						System.Console.WriteLine("getMemoryUnsafeAddr", e);
 					}
 					unsafeInitialized = true;
 				}
@@ -270,7 +270,7 @@ namespace pspsharp.graphics.RE.externalge
 					memoryInt[0] = originalValue;
 					if (resultValue != testValue)
 					{
-						Console.WriteLine(string.Format("Unsafe self-test failed: 0x{0:X8} != 0x{1:X8}", testValue, resultValue));
+						System.Console.WriteLine(string.Format("Unsafe self-test failed: 0x{0:X8} != 0x{1:X8}", testValue, resultValue));
 					}
 				}
     
@@ -285,11 +285,11 @@ namespace pspsharp.graphics.RE.externalge
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("memoryInt at 0x{0:X}", address));
+					System.Console.WriteLine(string.Format("memoryInt at 0x{0:X}", address));
 				}
 				if (log.InfoEnabled && memoryIntAddress != 0L)
 				{
-					Console.WriteLine(string.Format("memoryInt MOVED from 0x{0:X} to 0x{1:X}", memoryIntAddress, address));
+					System.Console.WriteLine(string.Format("memoryInt MOVED from 0x{0:X} to 0x{1:X}", memoryIntAddress, address));
 				}
 
 				memoryIntAddress = address;

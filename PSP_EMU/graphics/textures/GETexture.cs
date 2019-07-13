@@ -245,7 +245,7 @@ namespace pspsharp.graphics.textures
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("GETexture.copyScreenToTexture {0}", ToString()));
+				System.Console.WriteLine(string.Format("GETexture.copyScreenToTexture {0}", ToString()));
 			}
 
 			bind(re, false);
@@ -279,7 +279,7 @@ namespace pspsharp.graphics.textures
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("GETexture.copyTextureToScreen {0} at {1:D}x{2:D}", ToString(), x, y));
+				System.Console.WriteLine(string.Format("GETexture.copyTextureToScreen {0} at {1:D}x{2:D}", ToString(), x, y));
 			}
 
 			bind(re, true);
@@ -399,7 +399,7 @@ namespace pspsharp.graphics.textures
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("GETexture.copyTextureToMemory {0}", ToString()));
+				System.Console.WriteLine(string.Format("GETexture.copyTextureToMemory {0}", ToString()));
 			}
 
 			Buffer memoryBuffer = Memory.Instance.getBuffer(address, Length);
@@ -572,7 +572,7 @@ namespace pspsharp.graphics.textures
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("GETexture.capture {0}", ToString()));
+				System.Console.WriteLine(string.Format("GETexture.capture {0}", ToString()));
 			}
 
 			prepareBuffer();

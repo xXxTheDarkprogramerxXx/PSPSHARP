@@ -40,7 +40,7 @@ namespace pspsharp.HLE.VFS.crypto
 			if (header[0] != 0 || header[1] != (sbyte)'P' || header[2] != (sbyte)'S' || header[3] != (sbyte)'P' || header[4] != (sbyte)'E' || header[5] != (sbyte)'D' || header[6] != (sbyte)'A' || header[7] != (sbyte)'T')
 			{
 				// No "EDAT" found in the header,
-				Console.WriteLine("PSPEDAT header not found!");
+				System.Console.WriteLine("PSPEDAT header not found!");
 				return false;
 			}
 

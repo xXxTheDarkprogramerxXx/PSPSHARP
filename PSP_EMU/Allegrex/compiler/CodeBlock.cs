@@ -405,7 +405,7 @@ namespace pspsharp.Allegrex.compiler
 				sequencesToBeSplit.Add(codeSequence);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("Sequence to be split: " + codeSequence.ToString());
+					System.Console.WriteLine("Sequence to be split: " + codeSequence.ToString());
 				}
 				currentMethodInstructions -= codeSequence.Length;
 				if (currentMethodInstructions <= methodMaxInstructions)
@@ -520,7 +520,7 @@ namespace pspsharp.Allegrex.compiler
 			{
 				if (log.InfoEnabled)
 				{
-					Console.WriteLine("Splitting " + ClassName + " (" + codeInstructions.Count + "/" + methodMaxInstructions + ")");
+					System.Console.WriteLine("Splitting " + ClassName + " (" + codeInstructions.Count + "/" + methodMaxInstructions + ")");
 				}
 				splitCodeSequences(context, methodMaxInstructions);
 			}
@@ -562,7 +562,7 @@ namespace pspsharp.Allegrex.compiler
 			string className = InternalClassName;
 			if (log.InfoEnabled)
 			{
-				Console.WriteLine("Compiling for Interpreter " + className);
+				System.Console.WriteLine("Compiling for Interpreter " + className);
 			}
 
 			int computeFlag = ClassWriter.COMPUTE_FRAMES;
@@ -604,7 +604,7 @@ namespace pspsharp.Allegrex.compiler
 
 			if (debugOutput != null)
 			{
-				Console.WriteLine(debugOutput.ToString());
+				System.Console.WriteLine(debugOutput.ToString());
 			}
 
 			compiledClass = loadExecutable(context, className, cw.toByteArray());
@@ -626,11 +626,11 @@ namespace pspsharp.Allegrex.compiler
 
 				if (!string.ReferenceEquals(functionName, null))
 				{
-					Console.WriteLine(string.Format("Compiling {0} ({1})", className, functionName));
+					System.Console.WriteLine(string.Format("Compiling {0} ({1})", className, functionName));
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Compiling {0}", className));
+					System.Console.WriteLine(string.Format("Compiling {0}", className));
 				}
 			}
 
@@ -680,7 +680,7 @@ namespace pspsharp.Allegrex.compiler
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("Compiling Sequence " + sequenceCodeInstruction.getMethodName(context));
+					System.Console.WriteLine("Compiling Sequence " + sequenceCodeInstruction.getMethodName(context));
 				}
 				currentSequence = sequenceCodeInstruction;
 				mv = cv.visitMethod(Opcodes.ACC_PUBLIC | Opcodes.ACC_STATIC, sequenceCodeInstruction.getMethodName(context), "()V", null, exceptions);
@@ -709,7 +709,7 @@ namespace pspsharp.Allegrex.compiler
 			}
 			catch (System.NullReferenceException e)
 			{
-				Console.WriteLine("Error while compiling " + className + ": " + e);
+				System.Console.WriteLine("Error while compiling " + className + ": " + e);
 			}
 
 			return compiledClass;
@@ -740,11 +740,11 @@ namespace pspsharp.Allegrex.compiler
 						}
 						catch (InstantiationException e)
 						{
-							Console.WriteLine(e);
+							System.Console.WriteLine(e);
 						}
 						catch (IllegalAccessException e)
 						{
-							Console.WriteLine(e);
+							System.Console.WriteLine(e);
 						}
 					}
 				}
@@ -768,11 +768,11 @@ namespace pspsharp.Allegrex.compiler
 						}
 						catch (InstantiationException e)
 						{
-							Console.WriteLine(e);
+							System.Console.WriteLine(e);
 						}
 						catch (IllegalAccessException e)
 						{
-							Console.WriteLine(e);
+							System.Console.WriteLine(e);
 						}
 					}
 				}

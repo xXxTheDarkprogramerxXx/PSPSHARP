@@ -171,7 +171,7 @@ namespace pspsharp.format.rco
 					this.focus = value;
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Display.setFocus {0}", value));
+						System.Console.WriteLine(string.Format("Display.setFocus {0}", value));
 					}
 					repaint();
 				}

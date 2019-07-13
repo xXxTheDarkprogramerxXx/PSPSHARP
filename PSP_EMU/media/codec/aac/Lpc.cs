@@ -35,7 +35,7 @@ namespace pspsharp.media.codec.aac
 
 			if (!(normalize || !fail))
 			{
-				Console.WriteLine(string.Format("computeLpcCoefs invalid parameters"));
+				System.Console.WriteLine(string.Format("computeLpcCoefs invalid parameters"));
 			}
 
 			if (normalize)

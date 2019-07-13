@@ -167,7 +167,7 @@ namespace pspsharp.Allegrex.compiler
 			if (executable == null)
 			{
 				// TODO Return to interpreter
-				Console.WriteLine("jumpCall - Cannot find executable");
+				System.Console.WriteLine("jumpCall - Cannot find executable");
 				throw new Exception("Cannot find executable");
 			}
 
@@ -179,7 +179,7 @@ namespace pspsharp.Allegrex.compiler
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("jumpCall stack already reached maxSize, returning 0x{0:X8}", address));
+					System.Console.WriteLine(string.Format("jumpCall stack already reached maxSize, returning 0x{0:X8}", address));
 				}
 				throw new StackPopException(address);
 			}
@@ -194,7 +194,7 @@ namespace pspsharp.Allegrex.compiler
 			}
 			catch (StackOverflowError e)
 			{
-				Console.WriteLine(string.Format("StackOverflowError stackSize={0:D}", stackThread.StackSize));
+				System.Console.WriteLine(string.Format("StackOverflowError stackSize={0:D}", stackThread.StackSize));
 				throw e;
 			}
 			finally
@@ -209,14 +209,14 @@ namespace pspsharp.Allegrex.compiler
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("jumpCall returning 0x{0:X8} with $sp=0x{1:X8}, start $sp=0x{2:X8}", returnValue, cpu._sp, sp));
+					System.Console.WriteLine(string.Format("jumpCall returning 0x{0:X8} with $sp=0x{1:X8}, start $sp=0x{2:X8}", returnValue, cpu._sp, sp));
 				}
 				throw new StackPopException(returnValue);
 			}
 
 			if (debugCodeBlockCalls && log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("jumpCall returning 0x{0:X8}", returnValue));
+				System.Console.WriteLine(string.Format("jumpCall returning 0x{0:X8}", returnValue));
 			}
 
 			return returnValue;
@@ -228,7 +228,7 @@ namespace pspsharp.Allegrex.compiler
 		{
 			if (debugCodeBlockCalls && log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("jump starting address=0x{0:X8}, returnAddress=0x{1:X8}, $sp=0x{2:X8}", address, returnAddress, cpu._sp));
+				System.Console.WriteLine(string.Format("jump starting address=0x{0:X8}, returnAddress=0x{1:X8}, $sp=0x{2:X8}", address, returnAddress, cpu._sp));
 			}
 
 			int sp = cpu._sp;
@@ -242,7 +242,7 @@ namespace pspsharp.Allegrex.compiler
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("jump catching StackPopException 0x{0:X8} with $sp=0x{1:X8}, start $sp=0x{2:X8}", e.Ra, cpu._sp, sp));
+						System.Console.WriteLine(string.Format("jump catching StackPopException 0x{0:X8} with $sp=0x{1:X8}, start $sp=0x{2:X8}", e.Ra, cpu._sp, sp));
 					}
 					if ((e.Ra & addressMask) != (returnAddress & addressMask))
 					{
@@ -254,7 +254,7 @@ namespace pspsharp.Allegrex.compiler
 
 			if (debugCodeBlockCalls && log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("jump returning address=0x{0:X8}, returnAddress=0x{1:X8}, $sp=0x{2:X8}", address, returnAddress, cpu._sp));
+				System.Console.WriteLine(string.Format("jump returning address=0x{0:X8}, returnAddress=0x{1:X8}, $sp=0x{2:X8}", address, returnAddress, cpu._sp));
 			}
 		}
 
@@ -264,7 +264,7 @@ namespace pspsharp.Allegrex.compiler
 		{
 			if (debugCodeBlockCalls && log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("call address=0x{0:X8}, $ra=0x{1:X8}", address, cpu._ra));
+				System.Console.WriteLine(string.Format("call address=0x{0:X8}, $ra=0x{1:X8}", address, cpu._ra));
 			}
 			int returnValue = jumpCall(address);
 
@@ -277,7 +277,7 @@ namespace pspsharp.Allegrex.compiler
 		{
 			if (debugCodeBlockCalls && log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("executeInterpreter address=0x{0:X8}", address));
+				System.Console.WriteLine(string.Format("executeInterpreter address=0x{0:X8}", address));
 			}
 
 			bool useMMIO = false;
@@ -394,12 +394,12 @@ namespace pspsharp.Allegrex.compiler
 			{
 				if (log.InfoEnabled)
 				{
-					Console.WriteLine(getDebugCodeBlockStart(cpu, address));
+					System.Console.WriteLine(getDebugCodeBlockStart(cpu, address));
 				}
 			}
 			else //if (log.DebugEnabled)
 			{
-				Console.WriteLine(getDebugCodeBlockStart(cpu, address));
+				System.Console.WriteLine(getDebugCodeBlockStart(cpu, address));
 			}
 		}
 
@@ -409,12 +409,12 @@ namespace pspsharp.Allegrex.compiler
 			{
 				if (log.InfoEnabled)
 				{
-					Console.WriteLine(getDebugCodeBlockStart(cpu, address));
+					System.Console.WriteLine(getDebugCodeBlockStart(cpu, address));
 				}
 			}
 			else //if (log.DebugEnabled)
 			{
-				Console.WriteLine(getDebugCodeBlockStart(cpu, address));
+				System.Console.WriteLine(getDebugCodeBlockStart(cpu, address));
 			}
 		}
 
@@ -439,7 +439,7 @@ namespace pspsharp.Allegrex.compiler
 				addAddressHex(s, cpu._sp);
 				s.Append(", $v0=0x");
 				addAddressHex(s, cpu._v0);
-				Console.WriteLine(s.ToString());
+				System.Console.WriteLine(s.ToString());
 			}
 		}
 
@@ -533,7 +533,7 @@ namespace pspsharp.Allegrex.compiler
 				// if some action has been executed, the current thread might be changed. Resync.
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("A pending action has been executed for the thread"));
+					System.Console.WriteLine(string.Format("A pending action has been executed for the thread"));
 				}
 				wantSync = true;
 			}
@@ -547,7 +547,7 @@ namespace pspsharp.Allegrex.compiler
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Start of Callback 0x{0:X8}", pc));
+				System.Console.WriteLine(string.Format("Start of Callback 0x{0:X8}", pc));
 			}
 
 			// Switch to the real active thread, even if it is an idle thread
@@ -557,7 +557,7 @@ namespace pspsharp.Allegrex.compiler
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("End of Callback 0x{0:X8}", pc));
+				System.Console.WriteLine(string.Format("End of Callback 0x{0:X8}", pc));
 			}
 
 			if (cpu.pc == ThreadManForUser.CALLBACK_EXIT_HANDLER_ADDRESS || callbackExited)
@@ -648,11 +648,11 @@ namespace pspsharp.Allegrex.compiler
 
 				if (currentThread == null)
 				{
-					Console.WriteLine("Switching to Thread " + name);
+					System.Console.WriteLine("Switching to Thread " + name);
 				}
 				else
 				{
-					Console.WriteLine("Switching from Thread " + currentThread.name + " to " + name);
+					System.Console.WriteLine("Switching from Thread " + currentThread.name + " to " + name);
 				}
 			}
 
@@ -684,7 +684,7 @@ namespace pspsharp.Allegrex.compiler
 				ThreadManForUser threadMan = Modules.ThreadManForUserModule;
 				Scheduler scheduler = Emulator.Scheduler;
 
-				Console.WriteLine("Starting Idle State...");
+				System.Console.WriteLine("Starting Idle State...");
 				idleDuration.start();
 				while (isIdle)
 				{
@@ -746,7 +746,7 @@ namespace pspsharp.Allegrex.compiler
 					}
 				}
 				idleDuration.end();
-				Console.WriteLine("Ending Idle State");
+				System.Console.WriteLine("Ending Idle State");
 			}
 		}
 
@@ -764,9 +764,9 @@ namespace pspsharp.Allegrex.compiler
 					RuntimeThread runtimeThread = (RuntimeThread) currentThread;
 					if (!alreadyStoppedThreads.ContainsValue(runtimeThread))
 					{
-						Console.WriteLine("Waiting to be scheduled...");
+						System.Console.WriteLine("Waiting to be scheduled...");
 						runtimeThread.suspendRuntimeExecution();
-						Console.WriteLine("Scheduled, restarting...");
+						System.Console.WriteLine("Scheduled, restarting...");
 						checkStoppedThread();
 
 						updateStaticVariables();
@@ -795,7 +795,7 @@ namespace pspsharp.Allegrex.compiler
 			Thread currentThread = Thread.CurrentThread;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("syncThread currentThread=" + currentThread.Name + ", currentRuntimeThread=" + currentRuntimeThread.Name);
+				System.Console.WriteLine("syncThread currentThread=" + currentThread.Name + ", currentRuntimeThread=" + currentRuntimeThread.Name);
 			}
 			syncThreadImmediately();
 		}
@@ -903,7 +903,7 @@ namespace pspsharp.Allegrex.compiler
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("syncEmulator immediately=" + immediately);
+				System.Console.WriteLine("syncEmulator immediately=" + immediately);
 			}
 
 			Modules.sceGe_userModule.step();
@@ -1041,7 +1041,7 @@ namespace pspsharp.Allegrex.compiler
 				}
 				catch (StackPopException e)
 				{
-					Console.WriteLine("Stack exceeded maximum size, shrinking to top level");
+					System.Console.WriteLine("Stack exceeded maximum size, shrinking to top level");
 					executable = getExecutable(e.Ra);
 					if (executable == null)
 					{
@@ -1068,7 +1068,7 @@ namespace pspsharp.Allegrex.compiler
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Catched Throwable in executeCallback:", e);
+				System.Console.WriteLine("Catched Throwable in executeCallback:", e);
 				exception = true;
 			}
 			cpu.pc = newPc;
@@ -1126,9 +1126,9 @@ namespace pspsharp.Allegrex.compiler
 				if (!Modules.ThreadManForUserModule.exitCalled)
 				{
 					// Log error in log file and command box
-					Console.WriteLine("Catched Throwable in RuntimeThread:", e);
-					Console.WriteLine(e.ToString());
-					Console.Write(e.StackTrace);
+					System.Console.WriteLine("Catched Throwable in RuntimeThread:", e);
+					System.Console.WriteLine(e.ToString());
+					System.Console.Write(e.StackTrace);
 				}
 			}
 
@@ -1137,7 +1137,7 @@ namespace pspsharp.Allegrex.compiler
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("End of Thread " + threadInfo.name + " - stopped");
+				System.Console.WriteLine("End of Thread " + threadInfo.name + " - stopped");
 			}
 
 			// Tell stopAllThreads that this thread is stopped.
@@ -1154,7 +1154,7 @@ namespace pspsharp.Allegrex.compiler
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine("End of Thread " + threadInfo.name + " - sync");
+						System.Console.WriteLine("End of Thread " + threadInfo.name + " - sync");
 					}
 
 					// Be careful to not execute Interrupts or Callbacks by this thread,
@@ -1173,7 +1173,7 @@ namespace pspsharp.Allegrex.compiler
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine("End of Thread " + thread.Name);
+				System.Console.WriteLine("End of Thread " + thread.Name);
 			}
 
 			lock (waitForEnd)
@@ -1320,7 +1320,7 @@ namespace pspsharp.Allegrex.compiler
 				return;
 			}
 
-			Console.WriteLine("Using Compiler");
+			System.Console.WriteLine("Using Compiler");
 
 			while (toBeStoppedThreads.Count > 0)
 			{
@@ -1344,7 +1344,7 @@ namespace pspsharp.Allegrex.compiler
 
 				if (currentRuntimeThread == null)
 				{
-					Console.WriteLine("RuntimeContext.run: nothing to run!");
+					System.Console.WriteLine("RuntimeContext.run: nothing to run!");
 					Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_UNKNOWN);
 					return;
 				}
@@ -1374,7 +1374,7 @@ namespace pspsharp.Allegrex.compiler
 				}
 			}
 
-			Console.WriteLine("End of run");
+			System.Console.WriteLine("End of run");
 		}
 
 		private static IList<RuntimeThread> wakeupToBeStoppedThreads()
@@ -1393,7 +1393,7 @@ namespace pspsharp.Allegrex.compiler
 			foreach (RuntimeThread runtimeThread in threadList)
 			{
 				Thread.State threadState = runtimeThread.State;
-				Console.WriteLine("Thread " + runtimeThread.Name + ", State=" + threadState);
+				System.Console.WriteLine("Thread " + runtimeThread.Name + ", State=" + threadState);
 				if (threadState == Thread.State.TERMINATED)
 				{
 					toBeStoppedThreads.Remove(runtimeThread.ThreadInfo);
@@ -1419,13 +1419,13 @@ namespace pspsharp.Allegrex.compiler
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("Deleting Thread " + thread.ToString());
+					System.Console.WriteLine("Deleting Thread " + thread.ToString());
 				}
 				toBeStoppedThreads[thread] = runtimeThread;
 				if (runtimeThread.InSyscall && Thread.CurrentThread != runtimeThread)
 				{
 					toBeDeletedThreads[thread] = runtimeThread;
-					Console.WriteLine("Continue Thread " + runtimeThread.Name);
+					System.Console.WriteLine("Continue Thread " + runtimeThread.Name);
 					runtimeThread.continueRuntimeExecution();
 				}
 			}
@@ -1438,7 +1438,7 @@ namespace pspsharp.Allegrex.compiler
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("Exiting Thread " + thread.ToString());
+					System.Console.WriteLine("Exiting Thread " + thread.ToString());
 				}
 				toBeStoppedThreads[thread] = runtimeThread;
 				threads.Remove(thread);
@@ -1490,11 +1490,11 @@ namespace pspsharp.Allegrex.compiler
 		{
 			if (compilerEnabled)
 			{
-				Console.WriteLine("RuntimeContext.exit");
+				System.Console.WriteLine("RuntimeContext.exit");
 				stopAllThreads();
 				if (DurationStatistics.collectStatistics)
 				{
-					Console.WriteLine(idleDuration);
+					System.Console.WriteLine(idleDuration);
 				}
 
 				if (enableInstructionTypeCounting)
@@ -1520,7 +1520,7 @@ namespace pspsharp.Allegrex.compiler
 							}
 						}
 						instructionTypeCounts.Remove(highestCountInsn);
-						Console.WriteLine(string.Format("  {0,10} {1} {2:D} ({3,2:F2}%)", highestCountInsn.name(), (highestCountInsn.hasFlags(Common.Instruction.FLAG_INTERPRETED) ? "I" : "C"), highestCount, highestCount * 100.0 / totalCount));
+						System.Console.WriteLine(string.Format("  {0,10} {1} {2:D} ({3,2:F2}%)", highestCountInsn.name(), (highestCountInsn.hasFlags(Common.Instruction.FLAG_INTERPRETED) ? "I" : "C"), highestCount, highestCount * 100.0 / totalCount));
 					}
 				}
 			}
@@ -1530,7 +1530,7 @@ namespace pspsharp.Allegrex.compiler
 		{
 			if (compilerEnabled)
 			{
-				Console.WriteLine("RuntimeContext.reset");
+				System.Console.WriteLine("RuntimeContext.reset");
 				Compiler.Instance.reset();
 				codeBlocks.Clear();
 				if (fastExecutableLookup != null)
@@ -1560,7 +1560,7 @@ namespace pspsharp.Allegrex.compiler
 				{
 					// Simple method: invalidate all the code blocks,
 					// independently if their were modified or not.
-					Console.WriteLine("RuntimeContext.invalidateAll simple");
+					System.Console.WriteLine("RuntimeContext.invalidateAll simple");
 					codeBlocks.Clear();
 					Arrays.Fill(fastExecutableLookup, null);
 					Arrays.Fill(fastCodeBlockLookup, null);
@@ -1571,15 +1571,15 @@ namespace pspsharp.Allegrex.compiler
 					// Advanced method: check all the code blocks for a modification
 					// of their opcodes and invalidate only those code blocks that
 					// have been modified.
-					Console.WriteLine("RuntimeContext.invalidateAll advanced");
+					System.Console.WriteLine("RuntimeContext.invalidateAll advanced");
 					Compiler compiler = Compiler.Instance;
 					foreach (CodeBlock codeBlock in codeBlocks.Values)
 					{
 						//if (log.DebugEnabled)
 						{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("invalidateAll %s: opcodes changed %b", codeBlock, codeBlock.areOpcodesChanged()));
-							Console.WriteLine(string.Format("invalidateAll %s: opcodes changed %b", codeBlock, codeBlock.areOpcodesChanged()));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("invalidateAll %s: opcodes changed %b", codeBlock, codeBlock.areOpcodesChanged()));
+							System.Console.WriteLine(string.Format("invalidateAll %s: opcodes changed %b", codeBlock, codeBlock.areOpcodesChanged()));
 						}
 
 						if (codeBlock.areOpcodesChanged())
@@ -1615,7 +1615,7 @@ namespace pspsharp.Allegrex.compiler
 			int size = 1 << fastCodeBlockLookupShift;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Creating new fastCodeBlockList for 0x{0:X8}", startAddr));
+				System.Console.WriteLine(string.Format("Creating new fastCodeBlockList for 0x{0:X8}", startAddr));
 			}
 
 			CodeBlockList codeBlockList = new CodeBlockList();
@@ -1639,7 +1639,7 @@ namespace pspsharp.Allegrex.compiler
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("RuntimeContext.invalidateRange(addr=0x{0:X8}, size={1:D})", addr, size));
+					System.Console.WriteLine(string.Format("RuntimeContext.invalidateRange(addr=0x{0:X8}, size={1:D})", addr, size));
 				}
 
 				// Fast check: if the address range is outside the largest code blocks range,
@@ -1668,7 +1668,7 @@ namespace pspsharp.Allegrex.compiler
 							{
 								//if (log.DebugEnabled)
 								{
-									Console.WriteLine(string.Format("Reusing fastCodeBlockList for 0x{0:X8} (size={1:D})", addr, codeBlockList.Count));
+									System.Console.WriteLine(string.Format("Reusing fastCodeBlockList for 0x{0:X8} (size={1:D})", addr, codeBlockList.Count));
 								}
 							}
 
@@ -1715,7 +1715,7 @@ namespace pspsharp.Allegrex.compiler
 
 		public static void logInfo(string message)
 		{
-			Console.WriteLine(message);
+			System.Console.WriteLine(message);
 		}
 
 		public static bool checkMemoryPointer(int address)
@@ -2040,7 +2040,7 @@ namespace pspsharp.Allegrex.compiler
 		public static void onCodeModification(int pc, int opcode)
 		{
 			cpu.pc = pc;
-			Console.WriteLine(string.Format("Code instruction at 0x{0:X8} has been modified, expected 0x{1:X8}, current 0x{2:X8}", pc, opcode, memory.read32(pc)));
+			System.Console.WriteLine(string.Format("Code instruction at 0x{0:X8} has been modified, expected 0x{1:X8}, current 0x{2:X8}", pc, opcode, memory.read32(pc)));
 			Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_MEM_WRITE);
 		}
 
@@ -2124,7 +2124,7 @@ namespace pspsharp.Allegrex.compiler
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Allegrex halt pendingInterruptIPbits=0x{0:X}", RuntimeContextLLE.pendingInterruptIPbits));
+						System.Console.WriteLine(string.Format("Allegrex halt pendingInterruptIPbits=0x{0:X}", RuntimeContextLLE.pendingInterruptIPbits));
 					}
 					reboot.dumpAllThreads();
 					if (false)
@@ -2165,7 +2165,7 @@ namespace pspsharp.Allegrex.compiler
 			}
 			else
 			{
-				Console.WriteLine("Allegrex halt");
+				System.Console.WriteLine("Allegrex halt");
 				Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_HALT);
 			}
 		}
@@ -2177,8 +2177,8 @@ namespace pspsharp.Allegrex.compiler
 			//if (log.DebugEnabled)
 			{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("idle wantSync=%b", wantSync));
-				Console.WriteLine(string.Format("idle wantSync=%b", wantSync));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("idle wantSync=%b", wantSync));
+				System.Console.WriteLine(string.Format("idle wantSync=%b", wantSync));
 			}
 
 			if (RuntimeContextLLE.LLEActive)

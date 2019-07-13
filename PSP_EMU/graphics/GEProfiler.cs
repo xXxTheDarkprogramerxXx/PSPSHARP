@@ -100,17 +100,17 @@ namespace pspsharp.graphics
 				return;
 			}
 
-			Console.WriteLine("------------------ GEProfiler ----------------------");
-			Console.WriteLine(string.Format("GE list count: {0:D}", geListCount));
-			Console.WriteLine(string.Format("Texture load count: {0:D}, average {1:F1} per GE list", textureLoadCount, textureLoadCount / (double) geListCount));
-			Console.WriteLine(string.Format("Copy GE to memory: {0:D}, average {1:F1} per GE list", copyGeToMemoryCount, copyGeToMemoryCount / (double) geListCount));
-			Console.WriteLine(string.Format("Copy Stencil to memory: {0:D}, average {1:F1} per GE list", copyStencilToMemoryCount, copyStencilToMemoryCount / (double) geListCount));
-			Console.WriteLine(string.Format("GE list duration: {0:D}ms, average {1:F1}ms per GE list, max FPS is {2:F1}", geListDurationMicros / 1000, geListDurationMicros / (double) geListCount / 1000, 1000000 / (geListDurationMicros / (double) geListCount)));
+			System.Console.WriteLine("------------------ GEProfiler ----------------------");
+			System.Console.WriteLine(string.Format("GE list count: {0:D}", geListCount));
+			System.Console.WriteLine(string.Format("Texture load count: {0:D}, average {1:F1} per GE list", textureLoadCount, textureLoadCount / (double) geListCount));
+			System.Console.WriteLine(string.Format("Copy GE to memory: {0:D}, average {1:F1} per GE list", copyGeToMemoryCount, copyGeToMemoryCount / (double) geListCount));
+			System.Console.WriteLine(string.Format("Copy Stencil to memory: {0:D}, average {1:F1} per GE list", copyStencilToMemoryCount, copyStencilToMemoryCount / (double) geListCount));
+			System.Console.WriteLine(string.Format("GE list duration: {0:D}ms, average {1:F1}ms per GE list, max FPS is {2:F1}", geListDurationMicros / 1000, geListDurationMicros / (double) geListCount / 1000, 1000000 / (geListDurationMicros / (double) geListCount)));
 			GeCommands geCommands = GeCommands.Instance;
 			foreach (int? cmd in cmdCounts.Keys)
 			{
 				long? cmdCount = cmdCounts[cmd];
-				Console.WriteLine(string.Format("{0}: called {1:D} times, average {2:F1} per GE list", geCommands.getCommandString(cmd.Value), cmdCount.Value, cmdCount.Value / (double) geListCount));
+				System.Console.WriteLine(string.Format("{0}: called {1:D} times, average {2:F1} per GE list", geCommands.getCommandString(cmd.Value), cmdCount.Value, cmdCount.Value / (double) geListCount));
 			}
 
 			// Sort the primVtypeCounts based on their counts (highest count first).
@@ -120,7 +120,7 @@ namespace pspsharp.graphics
 			foreach (int? vtype in primVtypeSorted)
 			{
 				long? vtypeCount = primVtypeCounts[vtype];
-				Console.WriteLine(string.Format("{0}: used {1:D} times in PRIM, average {2:F1} per GE list", vtypeNames[vtype], vtypeCount.Value, vtypeCount.Value / (double) geListCount));
+				System.Console.WriteLine(string.Format("{0}: used {1:D} times in PRIM, average {2:F1} per GE list", vtypeNames[vtype], vtypeCount.Value, vtypeCount.Value / (double) geListCount));
 			}
 		}
 

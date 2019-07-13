@@ -80,7 +80,7 @@ namespace pspsharp.format.rco.vsmx.objects
 			}
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("write: '{0}'", writeBuffer.ToString()));
+				System.Console.WriteLine(string.Format("write: '{0}'", writeBuffer.ToString()));
 			}
 		}
 
@@ -128,7 +128,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("parseFloat: {0}", value));
+				System.Console.WriteLine(string.Format("parseFloat: {0}", value));
 			}
 
 			return new VSMXNumber(@object.Interpreter, value.FloatValue);
@@ -138,7 +138,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("parseInt: {0}", value));
+				System.Console.WriteLine(string.Format("parseInt: {0}", value));
 			}
 
 			return new VSMXNumber(@object.Interpreter, value.IntValue);
@@ -148,7 +148,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("isNaN: {0}", value));
+				System.Console.WriteLine(string.Format("isNaN: {0}", value));
 			}
 
 			bool isNaN = float.IsNaN(value.FloatValue);
@@ -160,7 +160,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Float: {0}", value));
+				System.Console.WriteLine(string.Format("Float: {0}", value));
 			}
 
 			return new VSMXNumber(@object.Interpreter, value.FloatValue);
@@ -170,7 +170,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Int: {0}", value));
+				System.Console.WriteLine(string.Format("Int: {0}", value));
 			}
 
 			return new VSMXNumber(@object.Interpreter, value.IntValue);

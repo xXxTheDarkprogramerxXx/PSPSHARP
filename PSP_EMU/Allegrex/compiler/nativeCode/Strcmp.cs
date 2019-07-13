@@ -58,7 +58,7 @@ namespace pspsharp.Allegrex.compiler.nativeCode
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("strcmp src1={0}, src2={1}", Utilities.getMemoryDump(str1, getStrlen(str1)), Utilities.getMemoryDump(str2, getStrlen(str2))));
+					System.Console.WriteLine(string.Format("strcmp src1={0}, src2={1}", Utilities.getMemoryDump(str1, getStrlen(str1)), Utilities.getMemoryDump(str2, getStrlen(str2))));
 				}
 
 				GprV0 = strcmp(str1, str2);
@@ -99,7 +99,7 @@ namespace pspsharp.Allegrex.compiler.nativeCode
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("strcmp src1={0}, src2={1}", Utilities.getMemoryDump(str1, getStrlen(str1)), Utilities.getMemoryDump(str2, getStrlen(str2))));
+					System.Console.WriteLine(string.Format("strcmp src1={0}, src2={1}", Utilities.getMemoryDump(str1, getStrlen(str1)), Utilities.getMemoryDump(str2, getStrlen(str2))));
 				}
 
 				int cmp = strcmp(str1, str2);

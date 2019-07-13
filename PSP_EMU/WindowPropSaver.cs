@@ -103,7 +103,7 @@ namespace pspsharp
 			if (Settings.Instance.readBool("gui.saveWindowPos") && Settings.Instance.readWindowPos(identifierForConfig) != null)
 			{
 
-				Emulator.Console.WriteLine("loading window position of '" + identifierForConfig + "'");
+				Emulator.System.Console.WriteLine("loading window position of '" + identifierForConfig + "'");
 
 				// LogWindow needs special handling if it shall be attached to the MainGUI
 				if (!(identifierForConfig.Equals("LogWindow") && Settings.Instance.readBool("gui.snapLogwindow")))
@@ -154,7 +154,7 @@ namespace pspsharp
 					return;
 				}
 
-				Emulator.Console.WriteLine("saving window position of '" + identifierForConfig + "'");
+				Emulator.System.Console.WriteLine("saving window position of '" + identifierForConfig + "'");
 
 				Settings.Instance.writeWindowPos(identifierForConfig, window.Location);
 

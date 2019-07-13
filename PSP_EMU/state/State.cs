@@ -42,7 +42,7 @@ namespace pspsharp.state
 
 			if (log.InfoEnabled)
 			{
-				Console.WriteLine(string.Format("Reading state from file '{0}'", fileName));
+				System.Console.WriteLine(string.Format("Reading state from file '{0}'", fileName));
 			}
 
 			try
@@ -50,7 +50,7 @@ namespace pspsharp.state
 				read(stream);
 				if (stream.read() >= 0)
 				{
-					Console.WriteLine(string.Format("State file '{0}' containing too much data", fileName));
+					System.Console.WriteLine(string.Format("State file '{0}' containing too much data", fileName));
 				}
 			}
 			finally
@@ -60,7 +60,7 @@ namespace pspsharp.state
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Done reading state from file '{0}'", fileName));
+				System.Console.WriteLine(string.Format("Done reading state from file '{0}'", fileName));
 			}
 		}
 
@@ -75,7 +75,7 @@ namespace pspsharp.state
 
 			if (log.InfoEnabled)
 			{
-				Console.WriteLine(string.Format("Writing state to file '{0}'", fileName));
+				System.Console.WriteLine(string.Format("Writing state to file '{0}'", fileName));
 			}
 
 			try
@@ -89,7 +89,7 @@ namespace pspsharp.state
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Done writing state to file '{0}'", fileName));
+				System.Console.WriteLine(string.Format("Done writing state to file '{0}'", fileName));
 			}
 		}
 

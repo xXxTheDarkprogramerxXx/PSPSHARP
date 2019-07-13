@@ -50,7 +50,7 @@ namespace pspsharp.network.proonline
 						SocketAddress remoteSocketAddress = proOnline.getSocketAddress(macIp.mac, port);
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Sending broadcasted message to {0}: {1}", macIp, adhocMessage));
+							System.Console.WriteLine(string.Format("Sending broadcasted message to {0}: {1}", macIp, adhocMessage));
 						}
 						base.send(remoteSocketAddress, adhocMessage);
 					}

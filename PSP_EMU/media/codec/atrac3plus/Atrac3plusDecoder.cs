@@ -91,7 +91,7 @@ namespace pspsharp.media.codec.atrac3plus
 			ctx.br = new BitReader(inputAddr, inputLength);
 			if (ctx.br.readBool())
 			{
-				Console.WriteLine(string.Format("Invalid start bit"));
+				System.Console.WriteLine(string.Format("Invalid start bit"));
 				return AT3P_ERROR;
 			}
 
@@ -106,13 +106,13 @@ namespace pspsharp.media.codec.atrac3plus
 				}
 				if (chUnitId == CH_UNIT_EXTENSION)
 				{
-					Console.WriteLine(string.Format("Non implemented channel unit extension"));
+					System.Console.WriteLine(string.Format("Non implemented channel unit extension"));
 					return AT3P_ERROR;
 				}
 
 				if (chBlock >= ctx.channelUnits.Length)
 				{
-					Console.WriteLine(string.Format("Too many channel blocks"));
+					System.Console.WriteLine(string.Format("Too many channel blocks"));
 					return AT3P_ERROR;
 				}
 
@@ -138,7 +138,7 @@ namespace pspsharp.media.codec.atrac3plus
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Bytes read 0x{0:X}", ctx.br.BytesRead));
+				System.Console.WriteLine(string.Format("Bytes read 0x{0:X}", ctx.br.BytesRead));
 			}
 
 			return ctx.br.BytesRead;

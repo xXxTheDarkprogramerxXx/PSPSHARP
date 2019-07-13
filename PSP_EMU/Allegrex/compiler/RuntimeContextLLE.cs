@@ -102,7 +102,7 @@ namespace pspsharp.Allegrex.compiler
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("triggerInterrupt 0x{0:X}({1})", interruptNumber, IntrManager.getInterruptName(interruptNumber)));
+					System.Console.WriteLine(string.Format("triggerInterrupt 0x{0:X}({1})", interruptNumber, IntrManager.getInterruptName(interruptNumber)));
 				}
 
 				interruptMan.triggerInterrupt(interruptNumber);
@@ -121,7 +121,7 @@ namespace pspsharp.Allegrex.compiler
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("clearInterrupt 0x{0:X}({1})", interruptNumber, IntrManager.getInterruptName(interruptNumber)));
+					System.Console.WriteLine(string.Format("clearInterrupt 0x{0:X}({1})", interruptNumber, IntrManager.getInterruptName(interruptNumber)));
 				}
 
 				interruptMan.clearInterrupt(interruptNumber);
@@ -146,7 +146,7 @@ namespace pspsharp.Allegrex.compiler
         
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("triggerInterruptException IPbits=0x{0:X}, pendingInterruptIPbits=0x{1:X}", IPbits, pendingInterruptIPbits));
+						System.Console.WriteLine(string.Format("triggerInterruptException IPbits=0x{0:X}, pendingInterruptIPbits=0x{1:X}", IPbits, pendingInterruptIPbits));
 					}
 				}
 			}
@@ -159,7 +159,7 @@ namespace pspsharp.Allegrex.compiler
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Calling exception handler for Syscall at 0x{0:X8}, epc=0x{1:X8}", ebase, processor.cp0.Epc));
+				System.Console.WriteLine(string.Format("Calling exception handler for Syscall at 0x{0:X8}, epc=0x{1:X8}", ebase, processor.cp0.Epc));
 			}
 
 			return ebase;
@@ -171,7 +171,7 @@ namespace pspsharp.Allegrex.compiler
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Calling exception handler for Break at 0x{0:X8}, epc=0x{1:X8}", ebase, processor.cp0.Epc));
+				System.Console.WriteLine(string.Format("Calling exception handler for Break at 0x{0:X8}, epc=0x{1:X8}", ebase, processor.cp0.Epc));
 			}
 
 			return ebase;
@@ -254,20 +254,20 @@ namespace pspsharp.Allegrex.compiler
 		{
 			if (IPbits == 0)
 			{
-				Console.WriteLine("IPbits == 0");
+				System.Console.WriteLine("IPbits == 0");
 				return false;
 			}
 
 			if (processor.InterruptsDisabled)
 			{
-				Console.WriteLine("Interrupts disabled");
+				System.Console.WriteLine("Interrupts disabled");
 				return false;
 			}
 
 			int status = processor.cp0.Status;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("cp0 Status=0x{0:X}", status));
+				System.Console.WriteLine(string.Format("cp0 Status=0x{0:X}", status));
 			}
 
 			// Is the processor already in an exception state?
@@ -341,7 +341,7 @@ namespace pspsharp.Allegrex.compiler
         
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Calling exception handler for {0} at 0x{1:X8}, epc=0x{2:X8}, cause=0x{3:X}", MMIOHandlerInterruptMan.getInstance(processor).toStringInterruptTriggered(), ebase, processor.cp0.Epc, processor.cp0.Cause));
+						System.Console.WriteLine(string.Format("Calling exception handler for {0} at 0x{1:X8}, epc=0x{2:X8}, cause=0x{3:X}", MMIOHandlerInterruptMan.getInstance(processor).toStringInterruptTriggered(), ebase, processor.cp0.Epc, processor.cp0.Cause));
 					}
         
 					return ebase;

@@ -76,13 +76,13 @@ namespace pspsharp.media.codec.h264
 			}
 			catch (System.IndexOutOfRangeException e)
 			{
-				Console.WriteLine("H264Decoder.decode", e);
+				System.Console.WriteLine("H264Decoder.decode", e);
 				return -1;
 			}
 
 			if (consumedLength < 0)
 			{
-				Console.WriteLine(string.Format("H264 decode error 0x{0:X8}", consumedLength));
+				System.Console.WriteLine(string.Format("H264 decode error 0x{0:X8}", consumedLength));
 				gotPicture[0] = 0;
 				return consumedLength;
 			}

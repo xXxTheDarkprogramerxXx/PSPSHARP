@@ -90,7 +90,7 @@ namespace pspsharp.graphics.RE.software
 		{
 			if (log.InfoEnabled)
 			{
-				Console.WriteLine(string.Format("Compiling Renderer {0}", id));
+				System.Console.WriteLine(string.Format("Compiling Renderer {0}", id));
 			}
 
 			Dictionary<string, object> variables = new Dictionary<string, object>();
@@ -179,11 +179,11 @@ namespace pspsharp.graphics.RE.software
 				}
 				catch (InstantiationException e)
 				{
-					Console.WriteLine("Error while instanciating compiled renderer", e);
+					System.Console.WriteLine("Error while instanciating compiled renderer", e);
 				}
 				catch (IllegalAccessException e)
 				{
-					Console.WriteLine("Error while instanciating compiled renderer", e);
+					System.Console.WriteLine("Error while instanciating compiled renderer", e);
 				}
 			}
 
@@ -208,7 +208,7 @@ namespace pspsharp.graphics.RE.software
 				Array.Sort(statistics, 0, n);
 				for (int i = 0; i < n; i++)
 				{
-					Console.WriteLine(statistics[i]);
+					System.Console.WriteLine(statistics[i]);
 				}
 			}
 		}

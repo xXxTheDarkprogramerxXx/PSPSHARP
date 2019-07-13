@@ -43,7 +43,7 @@ namespace pspsharp.HLE.VFS.memoryStick
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("ioIoctl msstor cmd 0x{0:X8}", command));
+							System.Console.WriteLine(string.Format("ioIoctl msstor cmd 0x{0:X8}", command));
 						}
 						// Output value 0x11 or 0x41: the Memory Stick is locked
 						outputPointer.setValue32(0);

@@ -108,7 +108,7 @@ namespace pspsharp.memory.mmio
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Triggering PSP_THREAD0_INTR interrupt for {0}", this));
+				System.Console.WriteLine(string.Format("Triggering PSP_THREAD0_INTR interrupt for {0}", this));
 			}
 			triggerInterrupt(Processor, PSP_THREAD0_INTR);
 		}

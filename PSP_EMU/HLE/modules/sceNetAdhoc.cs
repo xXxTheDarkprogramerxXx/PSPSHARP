@@ -325,7 +325,7 @@ namespace pspsharp.HLE.modules
 			set
 			{
 				this.netClientPortShift = value;
-				Console.WriteLine(string.Format("Using netClientPortShift={0:D}", value));
+				System.Console.WriteLine(string.Format("Using netClientPortShift={0:D}", value));
 			}
 		}
 
@@ -334,7 +334,7 @@ namespace pspsharp.HLE.modules
 			set
 			{
 				this.netServerPortShift = value;
-				Console.WriteLine(string.Format("Using netServerPortShift={0:D}", value));
+				System.Console.WriteLine(string.Format("Using netServerPortShift={0:D}", value));
 			}
 		}
 
@@ -394,7 +394,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("hleGameModeUpdate"));
+				System.Console.WriteLine(string.Format("hleGameModeUpdate"));
 			}
 
 			try
@@ -422,7 +422,7 @@ namespace pspsharp.HLE.modules
 
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("GameMode message sent to {0}: {1}", socketAddress[i], adhocGameModeMessage));
+								System.Console.WriteLine(string.Format("GameMode message sent to {0}: {1}", socketAddress[i], adhocGameModeMessage));
 							}
 						}
 					}
@@ -444,7 +444,7 @@ namespace pspsharp.HLE.modules
 
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("GameMode received: {0}", adhocGameModeMessage));
+							System.Console.WriteLine(string.Format("GameMode received: {0}", adhocGameModeMessage));
 						}
 
 						foreach (GameModeArea gameModeArea in replicaGameModeAreas)
@@ -453,7 +453,7 @@ namespace pspsharp.HLE.modules
 							{
 								//if (log.DebugEnabled)
 								{
-									Console.WriteLine(string.Format("Received new Data for GameMode Area {0}", gameModeArea));
+									System.Console.WriteLine(string.Format("Received new Data for GameMode Area {0}", gameModeArea));
 								}
 								gameModeArea.NewData = adhocGameModeMessage.Data;
 								break;
@@ -469,7 +469,7 @@ namespace pspsharp.HLE.modules
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("hleGameModeUpdate", e);
+				System.Console.WriteLine("hleGameModeUpdate", e);
 			}
 		}
 
@@ -479,7 +479,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Starting GameMode"));
+					System.Console.WriteLine(string.Format("Starting GameMode"));
 				}
 				gameModeScheduledAction = new GameModeScheduledAction(GAME_MODE_UPDATE_MICROS);
 				gameModeScheduledAction.start();
@@ -492,7 +492,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Stopping GameMode"));
+					System.Console.WriteLine(string.Format("Stopping GameMode"));
 				}
 				gameModeScheduledAction.stop();
 				gameModeScheduledAction = null;
@@ -578,7 +578,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Invalid Pdp Id={0:D}", pdpId));
+					System.Console.WriteLine(string.Format("Invalid Pdp Id={0:D}", pdpId));
 				}
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_NET_ADHOC_INVALID_SOCKET_ID);
 			}
@@ -594,7 +594,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Invalid Ptp Id={0:D}", ptpId));
+					System.Console.WriteLine(string.Format("Invalid Ptp Id={0:D}", ptpId));
 				}
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_NET_ADHOC_INVALID_SOCKET_ID);
 			}
@@ -622,7 +622,7 @@ namespace pspsharp.HLE.modules
 		[HLEFunction(nid : 0xE1D621D7, version : 150, checkInsideInterrupt : true)]
 		public virtual int sceNetAdhocInit()
 		{
-			Console.WriteLine(string.Format("sceNetAdhocInit: using MAC address={0}, nick name='{1}'", sceNet.convertMacAddressToString(Wlan.MacAddress), sceUtility.SystemParamNickname));
+			System.Console.WriteLine(string.Format("sceNetAdhocInit: using MAC address={0}, nick name='{1}'", sceNet.convertMacAddressToString(Wlan.MacAddress), sceUtility.SystemParamNickname));
 
 			if (isInitialized)
 			{
@@ -710,7 +710,7 @@ namespace pspsharp.HLE.modules
 
 				pollId.write(mem);
 
-				Console.WriteLine(string.Format("sceNetAdhocPollSocket pollId[{0:D}]={1}", i, pollId));
+				System.Console.WriteLine(string.Format("sceNetAdhocPollSocket pollId[{0:D}]={1}", i, pollId));
 			}
 
 			return countEvents;
@@ -752,7 +752,7 @@ namespace pspsharp.HLE.modules
 				port = FreePort;
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNetAdhocPdpCreate: using free port {0:D}", port));
+					System.Console.WriteLine(string.Format("sceNetAdhocPdpCreate: using free port {0:D}", port));
 				}
 			}
 
@@ -764,14 +764,14 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNetAdhocPdpCreate: returning id=0x{0:X}", result));
+					System.Console.WriteLine(string.Format("sceNetAdhocPdpCreate: returning id=0x{0:X}", result));
 				}
 			}
 			else
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNetAdhocPdpCreate: returning error=0x{0:X8}", result));
+					System.Console.WriteLine(string.Format("sceNetAdhocPdpCreate: returning error=0x{0:X8}", result));
 				}
 			}
 
@@ -871,7 +871,7 @@ namespace pspsharp.HLE.modules
 			sizeAddr.setValue(objectInfoSize * pdpObjects.Count);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetAdhocGetPdpStat returning size={0:D}", sizeAddr.getValue()));
+				System.Console.WriteLine(string.Format("sceNetAdhocGetPdpStat returning size={0:D}", sizeAddr.getValue()));
 			}
 
 			if (buf.NotNull)
@@ -898,7 +898,7 @@ namespace pspsharp.HLE.modules
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceNetAdhocGetPdpStat returning {0} at 0x{1:X8}", pdpObject, buf.Address + offset));
+						System.Console.WriteLine(string.Format("sceNetAdhocGetPdpStat returning {0} at 0x{1:X8}", pdpObject, buf.Address + offset));
 					}
 
 					/// <summary>
@@ -970,7 +970,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetAdhocPtpOpen: returning id=0x{0:X}", ptpObject.Id));
+				System.Console.WriteLine(string.Format("sceNetAdhocPtpOpen: returning id=0x{0:X}", ptpObject.Id));
 			}
 
 			return ptpObject.Id;
@@ -1028,7 +1028,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetAdhocPtpListen: returning id=0x{0:X}", ptpObject.Id));
+				System.Console.WriteLine(string.Format("sceNetAdhocPtpListen: returning id=0x{0:X}", ptpObject.Id));
 			}
 
 			return ptpObject.Id;
@@ -1161,7 +1161,7 @@ namespace pspsharp.HLE.modules
 			sizeAddr.setValue(objectInfoSize * ptpObjects.Count);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetAdhocGetPtpStat returning size={0:D}", sizeAddr.getValue()));
+				System.Console.WriteLine(string.Format("sceNetAdhocGetPtpStat returning size={0:D}", sizeAddr.getValue()));
 			}
 
 			if (buf.NotNull)
@@ -1189,7 +1189,7 @@ namespace pspsharp.HLE.modules
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceNetAdhocGetPtpStat returning {0} at 0x{1:X8}", ptpObject, buf.Address + offset));
+						System.Console.WriteLine(string.Format("sceNetAdhocGetPtpStat returning {0} at 0x{1:X8}", ptpObject, buf.Address + offset));
 					}
 
 					/// <summary>
@@ -1302,7 +1302,7 @@ namespace pspsharp.HLE.modules
 				GameModeArea gameModeArea = new GameModeArea(macAddress, data.Address, size);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Adding GameMode Replica {0}", gameModeArea));
+					System.Console.WriteLine(string.Format("Adding GameMode Replica {0}", gameModeArea));
 				}
 				result = gameModeArea.id;
 				replicaGameModeAreas.AddLast(gameModeArea);
@@ -1362,7 +1362,7 @@ namespace pspsharp.HLE.modules
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Updating GameMode Area with new data: {0}", gameModeArea));
+							System.Console.WriteLine(string.Format("Updating GameMode Area with new data: {0}", gameModeArea));
 						}
 						gameModeArea.writeNewData();
 						gameModeArea.resetNewData();

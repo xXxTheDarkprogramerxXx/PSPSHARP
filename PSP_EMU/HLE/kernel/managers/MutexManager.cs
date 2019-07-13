@@ -96,7 +96,7 @@ namespace pspsharp.HLE.kernel.managers
 			}
 			else
 			{
-				Console.WriteLine("Mutex deleted while we were waiting for it! (timeout expired)");
+				System.Console.WriteLine("Mutex deleted while we were waiting for it! (timeout expired)");
 				// Return WAIT_DELETE
 				thread.cpuContext._v0 = ERROR_KERNEL_WAIT_DELETE;
 			}
@@ -112,7 +112,7 @@ namespace pspsharp.HLE.kernel.managers
 			}
 			else
 			{
-				Console.WriteLine("EventFlag deleted while we were waiting for it!");
+				System.Console.WriteLine("EventFlag deleted while we were waiting for it!");
 				// Return WAIT_DELETE
 				thread.cpuContext._v0 = ERROR_KERNEL_WAIT_DELETE;
 			}
@@ -129,7 +129,7 @@ namespace pspsharp.HLE.kernel.managers
 			{
 				if (info.threadid == thread.uid)
 				{
-					Console.WriteLine(string.Format("onThreadDeleted: thread {0} owning mutex {1}", thread, info));
+					System.Console.WriteLine(string.Format("onThreadDeleted: thread {0} owning mutex {1}", thread, info));
 				}
 			}
 		}
@@ -183,7 +183,7 @@ namespace pspsharp.HLE.kernel.managers
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("onMutexModified waking thread {0}", thread));
+						System.Console.WriteLine(string.Format("onMutexModified waking thread {0}", thread));
 					}
 					info.threadWaitingList.removeWaitingThread(thread);
 					thread.cpuContext._v0 = 0;
@@ -244,7 +244,7 @@ namespace pspsharp.HLE.kernel.managers
 			SceKernelMutexInfo info = mutexMap.Remove(uid);
 			if (info == null)
 			{
-				Console.WriteLine("sceKernelDeleteMutex unknown UID " + uid.ToString("x"));
+				System.Console.WriteLine("sceKernelDeleteMutex unknown UID " + uid.ToString("x"));
 				return ERROR_KERNEL_MUTEX_NOT_FOUND;
 			}
 
@@ -259,22 +259,22 @@ namespace pspsharp.HLE.kernel.managers
 			if (info == null)
 			{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("hleKernelLockMutex uid=%d, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - unknown UID", uid, count, timeout_addr, wait, doCallbacks));
-				Console.WriteLine(string.Format("hleKernelLockMutex uid=%d, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - unknown UID", uid, count, timeout_addr, wait, doCallbacks));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("hleKernelLockMutex uid=%d, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - unknown UID", uid, count, timeout_addr, wait, doCallbacks));
+				System.Console.WriteLine(string.Format("hleKernelLockMutex uid=%d, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - unknown UID", uid, count, timeout_addr, wait, doCallbacks));
 				return ERROR_KERNEL_MUTEX_NOT_FOUND;
 			}
 			if (count <= 0)
 			{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("hleKernelLockMutex uid=%d, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - illegal count", uid, count, timeout_addr, wait, doCallbacks));
-				Console.WriteLine(string.Format("hleKernelLockMutex uid=%d, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - illegal count", uid, count, timeout_addr, wait, doCallbacks));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("hleKernelLockMutex uid=%d, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - illegal count", uid, count, timeout_addr, wait, doCallbacks));
+				System.Console.WriteLine(string.Format("hleKernelLockMutex uid=%d, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - illegal count", uid, count, timeout_addr, wait, doCallbacks));
 				return SceKernelErrors.ERROR_KERNEL_ILLEGAL_COUNT;
 			}
 			if (count > 1 && (info.attr & PSP_MUTEX_ATTR_ALLOW_RECURSIVE) == 0)
 			{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("hleKernelLockMutex uid=%d, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - illegal count", uid, count, timeout_addr, wait, doCallbacks));
-				Console.WriteLine(string.Format("hleKernelLockMutex uid=%d, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - illegal count", uid, count, timeout_addr, wait, doCallbacks));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("hleKernelLockMutex uid=%d, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - illegal count", uid, count, timeout_addr, wait, doCallbacks));
+				System.Console.WriteLine(string.Format("hleKernelLockMutex uid=%d, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - illegal count", uid, count, timeout_addr, wait, doCallbacks));
 				return SceKernelErrors.ERROR_KERNEL_ILLEGAL_COUNT;
 			}
 
@@ -286,8 +286,8 @@ namespace pspsharp.HLE.kernel.managers
 				//if (log.DebugEnabled)
 				{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("hleKernelLockMutex %s, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - fast check failed", info.toString(), count, timeout_addr, wait, doCallbacks));
-					Console.WriteLine(string.Format("hleKernelLockMutex %s, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - fast check failed", info.ToString(), count, timeout_addr, wait, doCallbacks));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("hleKernelLockMutex %s, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - fast check failed", info.toString(), count, timeout_addr, wait, doCallbacks));
+					System.Console.WriteLine(string.Format("hleKernelLockMutex %s, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - fast check failed", info.ToString(), count, timeout_addr, wait, doCallbacks));
 				}
 				if (wait && info.threadid != currentThread.uid)
 				{
@@ -313,8 +313,8 @@ namespace pspsharp.HLE.kernel.managers
 				//if (log.DebugEnabled)
 				{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("hleKernelLockMutex %s, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - fast check succeeded", info.toString(), count, timeout_addr, wait, doCallbacks));
-					Console.WriteLine(string.Format("hleKernelLockMutex %s, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - fast check succeeded", info.ToString(), count, timeout_addr, wait, doCallbacks));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("hleKernelLockMutex %s, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - fast check succeeded", info.toString(), count, timeout_addr, wait, doCallbacks));
+					System.Console.WriteLine(string.Format("hleKernelLockMutex %s, count=%d, timeout_addr=0x%08X, wait=%b, doCallbacks=%b - fast check succeeded", info.ToString(), count, timeout_addr, wait, doCallbacks));
 				}
 			}
 
@@ -341,18 +341,18 @@ namespace pspsharp.HLE.kernel.managers
 			SceKernelMutexInfo info = mutexMap[uid];
 			if (info == null)
 			{
-				Console.WriteLine("sceKernelUnlockMutex unknown uid");
+				System.Console.WriteLine("sceKernelUnlockMutex unknown uid");
 				return ERROR_KERNEL_MUTEX_NOT_FOUND;
 			}
 			if (info.lockedCount == 0)
 			{
 				// log only as debug to avoid warning spams on some games
-				Console.WriteLine("sceKernelUnlockMutex not locked");
+				System.Console.WriteLine("sceKernelUnlockMutex not locked");
 				return ERROR_KERNEL_MUTEX_UNLOCKED;
 			}
 			if ((info.lockedCount - count) < 0)
 			{
-				Console.WriteLine("sceKernelUnlockMutex underflow");
+				System.Console.WriteLine("sceKernelUnlockMutex underflow");
 				return ERROR_KERNEL_MUTEX_UNLOCK_UNDERFLOW;
 			}
 
@@ -371,12 +371,12 @@ namespace pspsharp.HLE.kernel.managers
 			SceKernelMutexInfo info = mutexMap[uid];
 			if (info == null)
 			{
-				Console.WriteLine("sceKernelCancelMutex unknown UID " + uid.ToString("x"));
+				System.Console.WriteLine("sceKernelCancelMutex unknown UID " + uid.ToString("x"));
 				return ERROR_KERNEL_MUTEX_NOT_FOUND;
 			}
 			if (info.lockedCount == 0)
 			{
-				Console.WriteLine("sceKernelCancelMutex UID " + uid.ToString("x") + " not locked");
+				System.Console.WriteLine("sceKernelCancelMutex UID " + uid.ToString("x") + " not locked");
 				return -1;
 			}
 			if (newcount < 0)
@@ -385,7 +385,7 @@ namespace pspsharp.HLE.kernel.managers
 			}
 			if (newcount > 1 && (info.attr & PSP_MUTEX_ATTR_ALLOW_RECURSIVE) == 0)
 			{
-				Console.WriteLine(string.Format("sceKernelCancelMutex uid={0:D}, newcount={1:D} - illegal count", uid, newcount));
+				System.Console.WriteLine(string.Format("sceKernelCancelMutex uid={0:D}, newcount={1:D} - illegal count", uid, newcount));
 				return SceKernelErrors.ERROR_KERNEL_ILLEGAL_COUNT;
 			}
 
@@ -406,7 +406,7 @@ namespace pspsharp.HLE.kernel.managers
 			SceKernelMutexInfo info = mutexMap[uid];
 			if (info == null)
 			{
-				Console.WriteLine("sceKernelReferMutexStatus unknown UID " + uid.ToString("x"));
+				System.Console.WriteLine("sceKernelReferMutexStatus unknown UID " + uid.ToString("x"));
 				return ERROR_KERNEL_MUTEX_NOT_FOUND;
 			}
 

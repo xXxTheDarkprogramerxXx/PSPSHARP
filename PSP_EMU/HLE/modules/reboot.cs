@@ -165,7 +165,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceReboot arg0={0}, arg1={1}", sceLoadCoreBootInfoAddr, sceKernelLoadExecVSHParamAddr));
+				System.Console.WriteLine(string.Format("sceReboot arg0={0}, arg1={1}", sceLoadCoreBootInfoAddr, sceKernelLoadExecVSHParamAddr));
 			}
 
 			return true;
@@ -285,7 +285,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Module '{0}': text 0x{1:X8}-0x{2:X8}", moduleName, textAddr, textAddr + textSize));
+					System.Console.WriteLine(string.Format("Module '{0}': text 0x{1:X8}-0x{2:X8}", moduleName, textAddr, textAddr + textSize));
 				}
 				// Next
 				address = mem.read32(address);
@@ -302,7 +302,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Library '{0}':", libName));
+					System.Console.WriteLine(string.Format("Library '{0}':", libName));
 				}
 				for (int i = 0; i < numExports; i++)
 				{
@@ -310,7 +310,7 @@ namespace pspsharp.HLE.modules
 					int entryAddress = mem.read32(entryTable + (i + numExports) * 4);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("   0x{0:X8}: 0x{1:X8}", nid, entryAddress));
+						System.Console.WriteLine(string.Format("   0x{0:X8}: 0x{1:X8}", nid, entryAddress));
 					}
 				}
 
@@ -447,7 +447,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("{0}: uid=0x{1:X}, name='{2}', status=0x{3:X}({4}), currentPriority=0x{5:X}{6}", comment, uid, sceSysmemUidCB.name, status, SceKernelThreadInfo.getStatusName(status), currentPriority, waitInfo));
+				System.Console.WriteLine(string.Format("{0}: uid=0x{1:X}, name='{2}', status=0x{3:X}({4}), currentPriority=0x{5:X}{6}", comment, uid, sceSysmemUidCB.name, status, SceKernelThreadInfo.getStatusName(status), currentPriority, waitInfo));
 				if (log.TraceEnabled)
 				{
 					log.trace(Utilities.getMemoryDump(address, 0x140));

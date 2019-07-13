@@ -116,7 +116,7 @@ namespace pspsharp.memory
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unknown token '{0}'", value));
+					System.Console.WriteLine(string.Format("Unknown token '{0}'", value));
 				}
 			}
 		}
@@ -304,7 +304,7 @@ namespace pspsharp.memory
 				Utilities.close(@in);
 			}
 
-			Console.WriteLine(string.Format("{0:D} memory breakpoint(s) imported", memoryBreakpoints.Count));
+			System.Console.WriteLine(string.Format("{0:D} memory breakpoint(s) imported", memoryBreakpoints.Count));
 		}
 
 		public static bool Installed
@@ -319,7 +319,7 @@ namespace pspsharp.memory
 		{
 			if (!Installed)
 			{
-				Console.WriteLine("Using DebuggerMemory");
+				System.Console.WriteLine("Using DebuggerMemory");
 				DebuggerMemory debuggerMemory = new DebuggerMemory(Memory.Instance);
 				Memory.Instance = debuggerMemory;
 				RuntimeContext.updateMemory();
@@ -468,7 +468,7 @@ namespace pspsharp.memory
 
 			if ((pauseEmulatorOnMemoryBreakpoint || log.InfoEnabled) && memoryReadBreakpoint.Contains(address))
 			{
-				Console.WriteLine(getMemoryReadMessage(address, width));
+				System.Console.WriteLine(getMemoryReadMessage(address, width));
 				if (pauseEmulatorOnMemoryBreakpoint)
 				{
 					Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_BREAKPOINT);
@@ -515,7 +515,7 @@ namespace pspsharp.memory
 
 			if ((pauseEmulatorOnMemoryBreakpoint || log.InfoEnabled) && memoryWriteBreakpoint.Contains(address))
 			{
-				Console.WriteLine(getMemoryWriteMessage(address, value, width));
+				System.Console.WriteLine(getMemoryWriteMessage(address, value, width));
 				if (pauseEmulatorOnMemoryBreakpoint)
 				{
 					Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_BREAKPOINT);

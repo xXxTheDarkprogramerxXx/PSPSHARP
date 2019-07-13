@@ -66,7 +66,7 @@ namespace pspsharp.HLE.VFS.crypto
 			if (inBuf[0] != 0 || inBuf[1] != (sbyte)'P' || inBuf[2] != (sbyte)'G' || inBuf[3] != (sbyte)'D')
 			{
 				// No "PGD" found in the header,
-				Console.WriteLine(string.Format("No PGD header detected {0:X2} {1:X2} {2:X2} {3:X2} ('{4}{5}{6}{7}') detected in file '{8}'", inBuf[0] & 0xFF, inBuf[1] & 0xFF, inBuf[2] & 0xFF, inBuf[3] & 0xFF, (char) inBuf[0], (char) inBuf[1], (char) inBuf[2], (char) inBuf[3], vFile));
+				System.Console.WriteLine(string.Format("No PGD header detected {0:X2} {1:X2} {2:X2} {3:X2} ('{4}{5}{6}{7}') detected in file '{8}'", inBuf[0] & 0xFF, inBuf[1] & 0xFF, inBuf[2] & 0xFF, inBuf[3] & 0xFF, (char) inBuf[0], (char) inBuf[1], (char) inBuf[2], (char) inBuf[3], vFile));
 				return;
 			}
 			headerPresent = true;
@@ -88,7 +88,7 @@ namespace pspsharp.HLE.VFS.crypto
 			dataOffset = decryptedHeader.get(7);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("PGD dataSize={0:D}, blockSize={1:D}, dataOffset={2:D}", dataSize, blockSize, dataOffset));
+				System.Console.WriteLine(string.Format("PGD dataSize={0:D}, blockSize={1:D}, dataOffset={2:D}", dataSize, blockSize, dataOffset));
 				if (log.TraceEnabled)
 				{
 					log.trace(string.Format("PGD Header: {0}", Utilities.getMemoryDump(inBuf, 0, pgdHeaderSize)));
@@ -99,7 +99,7 @@ namespace pspsharp.HLE.VFS.crypto
 			if (dataOffset < 0 || dataOffset > base.Length() || dataSize < 0)
 			{
 				// The decrypted PGD header is incorrect...
-				Console.WriteLine(string.Format("Incorrect PGD header: dataSize={0:D}, chunkSize={1:D}, hashOffset={2:D}", dataSize, blockSize, dataOffset));
+				System.Console.WriteLine(string.Format("Incorrect PGD header: dataSize={0:D}, chunkSize={1:D}, hashOffset={2:D}", dataSize, blockSize, dataOffset));
 				return;
 			}
 

@@ -77,7 +77,7 @@ namespace pspsharp.util
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("Cannot read class", e);
+				System.Console.WriteLine("Cannot read class", e);
 			}
 
 			return parameters;

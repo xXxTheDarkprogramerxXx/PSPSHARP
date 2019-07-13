@@ -375,7 +375,7 @@ namespace pspsharp.memory.mmio
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Starting cmd=0x{0:X}({1})", cmd, MECommand.getCommandName(cmd)));
+				System.Console.WriteLine(string.Format("Starting cmd=0x{0:X}({1})", cmd, MECommand.getCommandName(cmd)));
 			}
 		}
 

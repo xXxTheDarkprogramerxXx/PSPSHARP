@@ -276,7 +276,7 @@ namespace pspsharp.Debugger.FileLogger
 				if (f.exists())
 				{
 
-					int rc = MessageBox.Show(this, bundle.getString("ConsoleWindow.strFileExists.text"), bundle.getString("ConsoleWindow.strFileExistsTitle.text"), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+					int rc = MessageBox.Show(this, bundle.getString("System.ConsoleWindow.strFileExists.text"), bundle.getString("System.ConsoleWindow.strFileExistsTitle.text"), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
 					if (rc != DialogResult.Yes)
 					{
@@ -389,8 +389,8 @@ namespace pspsharp.Debugger.FileLogger
 				}
 				catch (Exception e)
 				{
-					Console.WriteLine(e.ToString());
-					Console.Write(e.StackTrace);
+					System.Console.WriteLine(e.ToString());
+					System.Console.Write(e.StackTrace);
 				}
 			}
 		}
@@ -608,7 +608,7 @@ namespace pspsharp.Debugger.FileLogger
 
 		public virtual void test()
 		{
-			Console.Error.WriteLine("test start");
+			System.Console.Error.WriteLine("test start");
 
 			resetLogging();
 
@@ -623,7 +623,7 @@ namespace pspsharp.Debugger.FileLogger
 			// file command table
 			sceIoRead(0x0, 1, 0x08800000, 0x400, 0x0, 0, null, null);
 
-			Console.Error.WriteLine("test done");
+			System.Console.Error.WriteLine("test done");
 		}
 
 		private class FileCommandInfo

@@ -144,13 +144,13 @@ namespace pspsharp.graphics.RE.externalge
 
 					if ((allLineMasks & lineMask) != 0)
 					{
-						Console.WriteLine(string.Format("Incorrect line masks for the renderer threads (number={0:D})", numberRendererThread));
+						System.Console.WriteLine(string.Format("Incorrect line masks for the renderer threads (number={0:D})", numberRendererThread));
 					}
 					allLineMasks |= lineMask;
 				}
 				if (allLineMasks != unchecked((int)0xFFFFFFFF))
 				{
-					Console.WriteLine(string.Format("Incorrect line masks for the renderer threads (number={0:D})", numberRendererThread));
+					System.Console.WriteLine(string.Format("Incorrect line masks for the renderer threads (number={0:D})", numberRendererThread));
 				}
 
 				rendererThreadsDone = new Semaphore(0);
@@ -554,7 +554,7 @@ namespace pspsharp.graphics.RE.externalge
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("ExternalGE starting rendering"));
+				System.Console.WriteLine(string.Format("ExternalGE starting rendering"));
 			}
 
 			for (int i = 0; i < rendererThreads.Length; i++)
@@ -566,25 +566,25 @@ namespace pspsharp.graphics.RE.externalge
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Waiting for async rendering completion"));
+					System.Console.WriteLine(string.Format("Waiting for async rendering completion"));
 				}
 				rendererThreadsDone.acquire(rendererThreads.Length);
 			}
 			catch (InterruptedException e)
 			{
-				Console.WriteLine("render", e);
+				System.Console.WriteLine("render", e);
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Async rendering completion"));
+				System.Console.WriteLine(string.Format("Async rendering completion"));
 			}
 
 			NativeUtils.rendererTerminate();
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("ExternalGE terminating rendering"));
+				System.Console.WriteLine(string.Format("ExternalGE terminating rendering"));
 			}
 		}
 
@@ -594,14 +594,14 @@ namespace pspsharp.graphics.RE.externalge
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Saving Core context to 0x{0:X8} - Core busy", addr));
+					System.Console.WriteLine(string.Format("Saving Core context to 0x{0:X8} - Core busy", addr));
 				}
 				return -1;
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Saving Core context to 0x{0:X8}", addr));
+				System.Console.WriteLine(string.Format("Saving Core context to 0x{0:X8}", addr));
 			}
 
 			NativeUtils.saveCoreContext(addr);
@@ -615,14 +615,14 @@ namespace pspsharp.graphics.RE.externalge
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Restoring Core context from 0x{0:X8} - Core busy", addr));
+					System.Console.WriteLine(string.Format("Restoring Core context from 0x{0:X8} - Core busy", addr));
 				}
 				return SceKernelErrors.ERROR_BUSY;
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Restoring Core context from 0x{0:X8}", addr));
+				System.Console.WriteLine(string.Format("Restoring Core context from 0x{0:X8}", addr));
 			}
 
 			NativeUtils.restoreCoreContext(addr);
@@ -691,7 +691,7 @@ namespace pspsharp.graphics.RE.externalge
 			}
 			set
 			{
-				Console.WriteLine(string.Format("Setting screen scale to factor {0:D}", value));
+				System.Console.WriteLine(string.Format("Setting screen scale to factor {0:D}", value));
 				ExternalGE.screenScale = value;
 			}
 		}
@@ -764,7 +764,7 @@ namespace pspsharp.graphics.RE.externalge
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("hasDrawList(0x{0:X8}) waiting on finished list {1}", listAddr, currentList));
+						System.Console.WriteLine(string.Format("hasDrawList(0x{0:X8}) waiting on finished list {1}", listAddr, currentList));
 					}
 					Utilities.sleep(1, 0);
 					lock (drawListQueue)

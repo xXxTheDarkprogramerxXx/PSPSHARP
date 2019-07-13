@@ -31,7 +31,7 @@ namespace pspsharp.Allegrex.compiler.nativeCode
 			int doubleHigh = getRegisterValue(regDoubleHigh);
 			double? sleepSeconds = Double.longBitsToDouble(getLong(doubleLow, doubleHigh));
 
-			Compiler.Console.WriteLine("Sleeping " + sleepSeconds + " s");
+			Compiler.System.Console.WriteLine("Sleeping " + sleepSeconds + " s");
 
 			try
 			{

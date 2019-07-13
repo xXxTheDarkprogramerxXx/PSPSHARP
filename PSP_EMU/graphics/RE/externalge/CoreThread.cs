@@ -94,7 +94,7 @@ namespace pspsharp.graphics.RE.externalge
 				{
 					if (!Emulator.pause && log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("CoreThread no current list available... waiting"));
+						System.Console.WriteLine(string.Format("CoreThread no current list available... waiting"));
 					}
 
 					waitForSync(100);
@@ -109,7 +109,7 @@ namespace pspsharp.graphics.RE.externalge
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("CoreThread processing {0}", list));
+						System.Console.WriteLine(string.Format("CoreThread processing {0}", list));
 					}
 
 					while (NativeUtils.coreInterpret())
@@ -119,7 +119,7 @@ namespace pspsharp.graphics.RE.externalge
 						//if (log.DebugEnabled)
 						{
 							list.Pc = NativeUtils.CoreMadr;
-							Console.WriteLine(string.Format("CoreThread looping {0}", list));
+							System.Console.WriteLine(string.Format("CoreThread looping {0}", list));
 						}
 
 						if (ExternalGE.numberRendererThread > 0 && NativeUtils.RendererIndexCount > 0)
@@ -155,7 +155,7 @@ namespace pspsharp.graphics.RE.externalge
 				}
 			}
 
-			Console.WriteLine(string.Format("CoreThread exited"));
+			System.Console.WriteLine(string.Format("CoreThread exited"));
 		}
 
 		public virtual void sync()
@@ -187,7 +187,7 @@ namespace pspsharp.graphics.RE.externalge
 				catch (InterruptedException e)
 				{
 					// Ignore exception and retry again
-					Console.WriteLine(string.Format("CoreThread waitForSync {0}", e));
+					System.Console.WriteLine(string.Format("CoreThread waitForSync {0}", e));
 				}
 			}
 
@@ -203,7 +203,7 @@ namespace pspsharp.graphics.RE.externalge
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("FINISH {0}", list));
+				System.Console.WriteLine(string.Format("FINISH {0}", list));
 			}
 
 			list.clearRestart();
@@ -221,7 +221,7 @@ namespace pspsharp.graphics.RE.externalge
 			int signal = args & 0xFFFF;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("SIGNAL (behavior={0:D}, signal=0x{1:X})", behavior, signal));
+				System.Console.WriteLine(string.Format("SIGNAL (behavior={0:D}, signal=0x{1:X})", behavior, signal));
 			}
 
 			switch (behavior)
@@ -240,7 +240,7 @@ namespace pspsharp.graphics.RE.externalge
 					}
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("PSP_GE_SIGNAL_SYNC ignored PC: 0x{0:X8}", list.Pc));
+						System.Console.WriteLine(string.Format("PSP_GE_SIGNAL_SYNC ignored PC: 0x{0:X8}", list.Pc));
 					}
 					break;
 				}
@@ -255,7 +255,7 @@ namespace pspsharp.graphics.RE.externalge
 					int newPc = list.Pc;
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("PSP_GE_SIGNAL_CALL old PC: 0x{0:X8}, new PC: 0x{1:X8}", oldPc, newPc));
+						System.Console.WriteLine(string.Format("PSP_GE_SIGNAL_CALL old PC: 0x{0:X8}, new PC: 0x{1:X8}", oldPc, newPc));
 					}
 					break;
 				}
@@ -267,7 +267,7 @@ namespace pspsharp.graphics.RE.externalge
 					int newPc = list.Pc;
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("PSP_GE_SIGNAL_RETURN old PC: 0x{0:X8}, new PC: 0x{1:X8}", oldPc, newPc));
+						System.Console.WriteLine(string.Format("PSP_GE_SIGNAL_RETURN old PC: 0x{0:X8}, new PC: 0x{1:X8}", oldPc, newPc));
 					}
 					break;
 				}
@@ -328,7 +328,7 @@ namespace pspsharp.graphics.RE.externalge
 				{
 					if (log.InfoEnabled)
 					{
-						Console.WriteLine(string.Format("SIGNAL (behavior={0:D}, signal=0x{1:X}) unknown behavior at 0x{2:X8}", behavior, signal, list.Pc - 4));
+						System.Console.WriteLine(string.Format("SIGNAL (behavior={0:D}, signal=0x{1:X}) unknown behavior at 0x{2:X8}", behavior, signal, list.Pc - 4));
 					}
 				}
 			break;

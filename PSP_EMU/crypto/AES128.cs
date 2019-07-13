@@ -69,7 +69,7 @@ namespace pspsharp.crypto
 				}
 				catch (Exception e)
 				{
-					Console.WriteLine("AES128 Cipher", e);
+					System.Console.WriteLine("AES128 Cipher", e);
 				}
 			}
 		}
@@ -115,19 +115,19 @@ namespace pspsharp.crypto
 			}
 			catch (InvalidKeyException e)
 			{
-				Console.WriteLine("encrypt", e);
+				System.Console.WriteLine("encrypt", e);
 			}
 			catch (InvalidAlgorithmParameterException e)
 			{
-				Console.WriteLine("encrypt", e);
+				System.Console.WriteLine("encrypt", e);
 			}
 			catch (IllegalBlockSizeException e)
 			{
-				Console.WriteLine("encrypt", e);
+				System.Console.WriteLine("encrypt", e);
 			}
 			catch (BadPaddingException e)
 			{
-				Console.WriteLine("encrypt", e);
+				System.Console.WriteLine("encrypt", e);
 			}
 
 			return result;
@@ -146,7 +146,7 @@ namespace pspsharp.crypto
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("decrypt", e);
+				System.Console.WriteLine("decrypt", e);
 			}
 
 			return result;

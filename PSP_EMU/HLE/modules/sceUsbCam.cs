@@ -249,14 +249,14 @@ namespace pspsharp.HLE.modules
 						}
 						else
 						{
-							Console.WriteLine(string.Format("VideoListener.onVideoPicture: {0}", videoPicture), e);
+							System.Console.WriteLine(string.Format("VideoListener.onVideoPicture: {0}", videoPicture), e);
 						}
 					}
 				}
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("onVideoPicture event={0}, image={1}", @event, image));
+					System.Console.WriteLine(string.Format("onVideoPicture event={0}, image={1}", @event, image));
 				}
 				if (image != null)
 				{
@@ -346,7 +346,7 @@ namespace pspsharp.HLE.modules
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("dumping yuyv422 image", e);
+					System.Console.WriteLine("dumping yuyv422 image", e);
 				}
 			}
 
@@ -446,7 +446,7 @@ namespace pspsharp.HLE.modules
 			{
 				container.close();
 				format.delete();
-				Console.WriteLine(string.Format("USB Cam: cannot open WebCam ('vfwcap' device)"));
+				System.Console.WriteLine(string.Format("USB Cam: cannot open WebCam ('vfwcap' device)"));
 				return false;
 			}
 			ret = container.open("0", IContainer.Type.READ, format);
@@ -454,7 +454,7 @@ namespace pspsharp.HLE.modules
 			{
 				container.close();
 				format.delete();
-				Console.WriteLine(string.Format("USB Cam: cannot open WebCam ('0')"));
+				System.Console.WriteLine(string.Format("USB Cam: cannot open WebCam ('0')"));
 				return false;
 			}
 			IMediaReader reader = ToolFactory.makeReader(container);
@@ -489,7 +489,7 @@ namespace pspsharp.HLE.modules
 					}
 					catch (IOException e)
 					{
-						Console.WriteLine("setCurrentVideoImage", e);
+						System.Console.WriteLine("setCurrentVideoImage", e);
 					}
     
 					currentVideoFrameCount++;
@@ -591,7 +591,7 @@ namespace pspsharp.HLE.modules
 
 			if (!setupVideo())
 			{
-				Console.WriteLine(string.Format("Cannot find webcam"));
+				System.Console.WriteLine(string.Format("Cannot find webcam"));
 				return SceKernelErrors.ERROR_USBCAM_NOT_READY;
 			}
 
@@ -626,7 +626,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (!setupVideo())
 			{
-				Console.WriteLine(string.Format("Cannot find webcam"));
+				System.Console.WriteLine(string.Format("Cannot find webcam"));
 			}
 
 			return 0;
@@ -722,7 +722,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceUsbCamPollReadVideoFrameEnd not frame end ({0:D} - {1:D})", currentVideoFrameCount, lastVideoFrameCount));
+					System.Console.WriteLine(string.Format("sceUsbCamPollReadVideoFrameEnd not frame end ({0:D} - {1:D})", currentVideoFrameCount, lastVideoFrameCount));
 				}
 				return SceKernelErrors.ERROR_USBCAM_NO_VIDEO_FRAME_AVAILABLE;
 			}
@@ -895,7 +895,7 @@ namespace pspsharp.HLE.modules
 
 			if (!setupVideo())
 			{
-				Console.WriteLine(string.Format("Cannot find webcam"));
+				System.Console.WriteLine(string.Format("Cannot find webcam"));
 				return SceKernelErrors.ERROR_USBCAM_NOT_READY;
 			}
 

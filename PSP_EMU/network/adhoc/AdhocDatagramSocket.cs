@@ -34,14 +34,14 @@ namespace pspsharp.network.adhoc
 				socket = new DatagramSocket();
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Opening socket on free local port {0:D}", socket.LocalPort));
+					System.Console.WriteLine(string.Format("Opening socket on free local port {0:D}", socket.LocalPort));
 				}
 			}
 			else
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Opening socket on real port {0:D}", port));
+					System.Console.WriteLine(string.Format("Opening socket on real port {0:D}", port));
 				}
 				socket = new DatagramSocket(port);
 			}

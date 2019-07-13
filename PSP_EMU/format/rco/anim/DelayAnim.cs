@@ -29,7 +29,7 @@ namespace pspsharp.format.rco.anim
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("DelayAnim {0:D}", time.IntValue));
+				System.Console.WriteLine(string.Format("DelayAnim {0:D}", time.IntValue));
 			}
 
 			return time.IntValue;

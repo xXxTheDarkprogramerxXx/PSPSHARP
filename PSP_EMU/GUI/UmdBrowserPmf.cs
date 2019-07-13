@@ -96,8 +96,8 @@ namespace pspsharp.GUI
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine(e.ToString());
-					Console.Write(e.StackTrace);
+					System.Console.WriteLine(e.ToString());
+					System.Console.Write(e.StackTrace);
 				}
 			}
 		}
@@ -191,7 +191,7 @@ namespace pspsharp.GUI
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("readPsmfHeader", e);
+				System.Console.WriteLine("readPsmfHeader", e);
 				return false;
 			}
 

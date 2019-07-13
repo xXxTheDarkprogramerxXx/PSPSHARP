@@ -130,7 +130,7 @@ namespace pspsharp.HLE.modules
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("Error reading Jpeg image", e);
+				System.Console.WriteLine("Error reading Jpeg image", e);
 			}
 
 			return System.Drawing.Bitmap;
@@ -174,7 +174,7 @@ namespace pspsharp.HLE.modules
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("Error dumping Jpeg file", e);
+				System.Console.WriteLine("Error dumping Jpeg file", e);
 			}
 		}
 
@@ -259,7 +259,7 @@ namespace pspsharp.HLE.modules
 			int addressCr = addressCb + sizeCb;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("hleJpegDecodeYCbCr 0x{0:X8}, 0x{1:X8}, 0x{2:X8}", addressY, addressCb, addressCr));
+				System.Console.WriteLine(string.Format("hleJpegDecodeYCbCr 0x{0:X8}, 0x{1:X8}, 0x{2:X8}", addressY, addressCb, addressCr));
 			}
 
 			// Store all the Cb and Cr values into an array as they will not be accessed sequentially.
@@ -363,7 +363,7 @@ namespace pspsharp.HLE.modules
 			int addressCr = addressCb + sizeCb;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("hleJpegCsc 0x{0:X8}, 0x{1:X8}, 0x{2:X8}", addressY, addressCb, addressCr));
+				System.Console.WriteLine(string.Format("hleJpegCsc 0x{0:X8}, 0x{1:X8}, 0x{2:X8}", addressY, addressCb, addressCr));
 			}
 
 			// Read all the Cb and Cr values into an array as they will not be accessed sequentially.

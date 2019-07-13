@@ -135,7 +135,7 @@ namespace pspsharp.HLE.modules
 			int random = MT19937.getInt(mt19937);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMt19937UInt returning 0x{0:X8}", random));
+				System.Console.WriteLine(string.Format("sceMt19937UInt returning 0x{0:X8}", random));
 			}
 			mt19937.write(Memory.Instance);
 

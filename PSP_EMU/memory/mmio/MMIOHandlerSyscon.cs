@@ -253,7 +253,7 @@ namespace pspsharp.memory.mmio
 			int buttons = State.controller.Buttons;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("addButtonsResponseData buttons=0x{0:X8}", buttons));
+				System.Console.WriteLine(string.Format("addButtonsResponseData buttons=0x{0:X8}", buttons));
 			}
 			buttons ^= kernel ? 0x20F7F3F9 : 0x7F3F9;
 			responseData = Utilities.add(responseData, ((buttons & 0xF000) >> 8) | ((buttons & 0xF0) >> 4));
@@ -282,7 +282,7 @@ namespace pspsharp.memory.mmio
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("addAnalogResponseData lx=0x{0:X2}, ly=0x{1:X2}", lx & 0xFF, ly & 0xFF));
+				System.Console.WriteLine(string.Format("addAnalogResponseData lx=0x{0:X2}, ly=0x{1:X2}", lx & 0xFF, ly & 0xFF));
 			}
 			responseData = Utilities.add(responseData, lx & 0xFF);
 			responseData = Utilities.add(responseData, ly & 0xFF);
@@ -295,7 +295,7 @@ namespace pspsharp.memory.mmio
 			int cmd = data[PSP_SYSCON_TX_CMD];
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("startSysconCmd cmd=0x{0:X2}({1}), {2}", cmd, getSysconCmdName(cmd), this));
+				System.Console.WriteLine(string.Format("startSysconCmd cmd=0x{0:X2}({1}), {2}", cmd, getSysconCmdName(cmd), this));
 			}
 
 			// The default response
@@ -325,8 +325,8 @@ namespace pspsharp.memory.mmio
 							deviceName = "WLAN";
 						}
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("PSP_SYSCON_CMD_RESET_DEVICE device=0x%X(%s), reset=%b", device, deviceName, reset));
-						Console.WriteLine(string.Format("PSP_SYSCON_CMD_RESET_DEVICE device=0x%X(%s), reset=%b", device, deviceName, reset));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("PSP_SYSCON_CMD_RESET_DEVICE device=0x%X(%s), reset=%b", device, deviceName, reset));
+						System.Console.WriteLine(string.Format("PSP_SYSCON_CMD_RESET_DEVICE device=0x%X(%s), reset=%b", device, deviceName, reset));
 					}
 					break;
 				case PSP_SYSCON_CMD_GET_DIGITAL_KEY:
@@ -384,7 +384,7 @@ namespace pspsharp.memory.mmio
 							LED.LedBluetoothOn = setOn;
 							break;
 						default:
-							Console.WriteLine(string.Format("startSysconCmd PSP_SYSCON_CMD_CTRL_LED unknown flag value 0x{0:X2}", flag));
+							System.Console.WriteLine(string.Format("startSysconCmd PSP_SYSCON_CMD_CTRL_LED unknown flag value 0x{0:X2}", flag));
 							break;
 					}
 					break;
@@ -399,7 +399,7 @@ namespace pspsharp.memory.mmio
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("startSysconCmd PSP_SYSCON_CMD_RECEIVE_SETPARAM parameterId=0x{0:X}", parameterId));
+						System.Console.WriteLine(string.Format("startSysconCmd PSP_SYSCON_CMD_RECEIVE_SETPARAM parameterId=0x{0:X}", parameterId));
 					}
 
 					// 8 bytes response data:
@@ -425,7 +425,7 @@ namespace pspsharp.memory.mmio
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("startSysconCmd PSP_SYSCON_CMD_SEND_SETPARAM parameterId=0x{0:X}, forceSuspendCapacity=0x{1:X}", parameterId, forceSuspendCapacity));
+						System.Console.WriteLine(string.Format("startSysconCmd PSP_SYSCON_CMD_SEND_SETPARAM parameterId=0x{0:X}, forceSuspendCapacity=0x{1:X}", parameterId, forceSuspendCapacity));
 					}
 					break;
 				}
@@ -533,7 +533,7 @@ namespace pspsharp.memory.mmio
 					sceSysconModule.sceSysconCtrlVoltage(unknown & 0xFF, (unknown >> 8) & 0xFFFF);
 					break;
 				default:
-					Console.WriteLine(string.Format("startSysconCmd: unknown cmd=0x{0:X2}({1}), {2}", cmd, getSysconCmdName(cmd), this));
+					System.Console.WriteLine(string.Format("startSysconCmd: unknown cmd=0x{0:X2}({1}), {2}", cmd, getSysconCmdName(cmd), this));
 					break;
 			}
 
@@ -546,7 +546,7 @@ namespace pspsharp.memory.mmio
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("endSysconCmd {0}", this));
+				System.Console.WriteLine(string.Format("endSysconCmd {0}", this));
 			}
 			MMIOHandlerGpio.Instance.Port = GPIO_PORT_SYSCON_END_CMD;
 		}

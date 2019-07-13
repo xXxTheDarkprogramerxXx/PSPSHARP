@@ -3920,7 +3920,7 @@ namespace pspsharp.Allegrex
 				int address = getRegister(rs) + simm14_a16;
 				if ((address & 3) != 0)
 				{
-					Memory.Console.WriteLine(string.Format("SV.S unaligned addr:0x{0:x8} pc:0x{1:x8}", address, pc));
+					Memory.System.Console.WriteLine(string.Format("SV.S unaligned addr:0x{0:x8} pc:0x{1:x8}", address, pc));
 				}
 			}
 
@@ -3939,7 +3939,7 @@ namespace pspsharp.Allegrex
 			{
 				if ((address & 15) != 0)
 				{
-					Memory.Console.WriteLine(string.Format("LV.Q unaligned addr:0x{0:x8} pc:0x{1:x8}", address, pc));
+					Memory.System.Console.WriteLine(string.Format("LV.Q unaligned addr:0x{0:x8} pc:0x{1:x8}", address, pc));
 				}
 			}
 
@@ -3971,7 +3971,7 @@ namespace pspsharp.Allegrex
 			{
 				if ((address & 3) != 0)
 				{
-					Memory.Console.WriteLine(string.Format("LVL.Q unaligned addr:0x{0:x8} pc:0x{1:x8}", address, pc));
+					Memory.System.Console.WriteLine(string.Format("LVL.Q unaligned addr:0x{0:x8} pc:0x{1:x8}", address, pc));
 				}
 			}
 
@@ -4007,7 +4007,7 @@ namespace pspsharp.Allegrex
 			{
 				if ((address & 3) != 0)
 				{
-					Memory.Console.WriteLine(string.Format("LVR.Q unaligned addr:0x{0:x8} pc:0x{1:x8}", address, pc));
+					Memory.System.Console.WriteLine(string.Format("LVR.Q unaligned addr:0x{0:x8} pc:0x{1:x8}", address, pc));
 				}
 			}
 
@@ -4041,7 +4041,7 @@ namespace pspsharp.Allegrex
 			{
 				if ((address & 15) != 0)
 				{
-					Memory.Console.WriteLine(string.Format("SV.Q unaligned addr:0x{0:x8} pc:0x{1:x8}", address, pc));
+					Memory.System.Console.WriteLine(string.Format("SV.Q unaligned addr:0x{0:x8} pc:0x{1:x8}", address, pc));
 				}
 			}
 
@@ -4073,7 +4073,7 @@ namespace pspsharp.Allegrex
 			{
 				if ((address & 3) != 0)
 				{
-					Memory.Console.WriteLine(string.Format("SVL.Q unaligned addr:0x{0:x8} pc:0x{1:x8}", address, pc));
+					Memory.System.Console.WriteLine(string.Format("SVL.Q unaligned addr:0x{0:x8} pc:0x{1:x8}", address, pc));
 				}
 			}
 
@@ -4109,7 +4109,7 @@ namespace pspsharp.Allegrex
 			{
 				if ((address & 3) != 0)
 				{
-					Memory.Console.WriteLine(string.Format("SVR.Q unaligned addr:0x{0:x8} pc:0x{1:x8}", address, pc));
+					Memory.System.Console.WriteLine(string.Format("SVR.Q unaligned addr:0x{0:x8} pc:0x{1:x8}", address, pc));
 				}
 			}
 

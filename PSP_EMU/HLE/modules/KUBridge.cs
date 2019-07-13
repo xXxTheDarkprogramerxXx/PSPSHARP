@@ -41,7 +41,7 @@ namespace pspsharp.HLE.modules
 				lmOption.read(optionAddr);
 				if (log.InfoEnabled)
 				{
-					Console.WriteLine(string.Format("kuKernelLoadModule options: {0}", lmOption));
+					System.Console.WriteLine(string.Format("kuKernelLoadModule options: {0}", lmOption));
 				}
 			}
 
@@ -65,7 +65,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("kuKernelGetModel returning {0:D}({1})", result, Model.getModelName(result)));
+				System.Console.WriteLine(string.Format("kuKernelGetModel returning {0:D}({1})", result, Model.getModelName(result)));
 			}
 
 			return result;

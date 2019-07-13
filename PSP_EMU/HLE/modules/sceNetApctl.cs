@@ -144,7 +144,7 @@ namespace pspsharp.HLE.modules
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Triggering hanlder 0x{0:X8}, oldState={1:D}, newState={2:D}, event={3:D}, error=0x{4:X8}", addr, oldState, newState, @event, error));
+						System.Console.WriteLine(string.Format("Triggering hanlder 0x{0:X8}, oldState={1:D}, newState={2:D}, event={3:D}, error=0x{4:X8}", addr, oldState, newState, @event, error));
 					}
 					Modules.ThreadManForUserModule.executeCallback(thread, addr, null, true, oldState, newState, @event, error, pArg);
 				}
@@ -239,11 +239,11 @@ namespace pspsharp.HLE.modules
 				}
 				catch (SocketException e)
 				{
-					Console.WriteLine(e);
+					System.Console.WriteLine(e);
 				}
 				catch (UnknownHostException e)
 				{
-					Console.WriteLine(e);
+					System.Console.WriteLine(e);
 				}
     
 				return ssid;
@@ -341,7 +341,7 @@ namespace pspsharp.HLE.modules
 						{
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("IP address of local host: {0}", allLocalIPs[i].HostAddress));
+								System.Console.WriteLine(string.Format("IP address of local host: {0}", allLocalIPs[i].HostAddress));
 							}
 							sbyte[] bytes = allLocalIPs[i].Address;
 							if (bytes != null && bytes.Length == 4 && bytes[3] != 1)
@@ -351,12 +351,12 @@ namespace pspsharp.HLE.modules
 						}
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Using IP address of local host: {0}, Subnet Mask {1}", localHostIP, SubnetMask));
+							System.Console.WriteLine(string.Format("Using IP address of local host: {0}, Subnet Mask {1}", localHostIP, SubnetMask));
 						}
 					}
 					catch (UnknownHostException e)
 					{
-						Console.WriteLine(e);
+						System.Console.WriteLine(e);
 					}
 				}
     
@@ -368,7 +368,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("hleNetApctlConnect index={0:D}", index));
+				System.Console.WriteLine(string.Format("hleNetApctlConnect index={0:D}", index));
 			}
 			connectionIndex = index;
 
@@ -392,7 +392,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("hleNetApctlThread state={0:D}", state));
+				System.Console.WriteLine(string.Format("hleNetApctlThread state={0:D}", state));
 			}
 
 			if (sceNetApctlThreadTerminate)
@@ -443,7 +443,7 @@ namespace pspsharp.HLE.modules
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("hleNetApctlThread sleeping with state={0:D}", state));
+						System.Console.WriteLine(string.Format("hleNetApctlThread sleeping with state={0:D}", state));
 					}
 
 					// Wait for a new state reset... wakeup is done by triggerNetApctlThread()
@@ -453,7 +453,7 @@ namespace pspsharp.HLE.modules
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("hleNetApctlThread waiting for {0:D} us with state={1:D}", stateTransitionDelay, state));
+						System.Console.WriteLine(string.Format("hleNetApctlThread waiting for {0:D} us with state={1:D}", stateTransitionDelay, state));
 					}
 
 					// Wait a little bit before moving to the next state...
@@ -535,7 +535,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceNetApctlGetInfo code=0x{0:X}({1})", code, getApctlInfoName(code)));
+				System.Console.WriteLine(string.Format("sceNetApctlGetInfo code=0x{0:X}({1})", code, getApctlInfoName(code)));
 			}
 
 			switch (code)
@@ -546,7 +546,7 @@ namespace pspsharp.HLE.modules
 					pInfo.setStringNZ(128, name);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceNetApctlGetInfo returning Profile name '{0}'", name));
+						System.Console.WriteLine(string.Format("sceNetApctlGetInfo returning Profile name '{0}'", name));
 					}
 					break;
 				}
@@ -556,7 +556,7 @@ namespace pspsharp.HLE.modules
 					pInfo.setStringNZ(16, ip);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceNetApctlGetInfo returning IP address '{0}'", ip));
+						System.Console.WriteLine(string.Format("sceNetApctlGetInfo returning IP address '{0}'", ip));
 					}
 					break;
 				}
@@ -570,7 +570,7 @@ namespace pspsharp.HLE.modules
 					pInfo.setStringNZ(SSID_NAME_LENGTH, ssid);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceNetApctlGetInfo returning SSID '{0}'", ssid));
+						System.Console.WriteLine(string.Format("sceNetApctlGetInfo returning SSID '{0}'", ssid));
 					}
 					break;
 				}
@@ -635,7 +635,7 @@ namespace pspsharp.HLE.modules
 				}
 				default:
 				{
-					Console.WriteLine(string.Format("sceNetApctlGetInfo unimplemented code=0x{0:X}({1})", code, getApctlInfoName(code)));
+					System.Console.WriteLine(string.Format("sceNetApctlGetInfo unimplemented code=0x{0:X}({1})", code, getApctlInfoName(code)));
 					return -1;
 				}
 			}
@@ -673,7 +673,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (!apctlHandlers.ContainsKey(handlerId))
 			{
-				Console.WriteLine(string.Format("sceNetApctlDelHandler unknown handlerId=0x{0:X}", handlerId));
+				System.Console.WriteLine(string.Format("sceNetApctlDelHandler unknown handlerId=0x{0:X}", handlerId));
 				return -1;
 			}
 			SceUidManager.releaseUid(handlerId, uidPurpose);
@@ -781,7 +781,7 @@ namespace pspsharp.HLE.modules
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceNetApctlGetBSSDescIDListUser returning {0:D} at 0x{1:X8}", i, buf.Address + offset));
+						System.Console.WriteLine(string.Format("sceNetApctlGetBSSDescIDListUser returning {0:D} at 0x{1:X8}", i, buf.Address + offset));
 					}
 
 					/// <summary>
@@ -828,7 +828,7 @@ namespace pspsharp.HLE.modules
 					result.setValue32(PSP_NET_APCTL_INFO_SECURITY_TYPE_WPA_AES);
 					break;
 				default:
-					Console.WriteLine(string.Format("sceNetApctlGetBSSDescEntryUser unknown id {0:D}", infoId));
+					System.Console.WriteLine(string.Format("sceNetApctlGetBSSDescEntryUser unknown id {0:D}", infoId));
 					return -1;
 			}
 

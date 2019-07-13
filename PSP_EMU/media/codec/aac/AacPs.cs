@@ -261,7 +261,7 @@ namespace pspsharp.media.codec.aac
 					int iidMode = br.read(3);
 					if (iidMode > 5)
 					{
-						Console.WriteLine(string.Format("iidMode {0:D} is reserved", iidMode));
+						System.Console.WriteLine(string.Format("iidMode {0:D} is reserved", iidMode));
 						return readDataError(ac, ps, bitCountStart, bitsLeft);
 					}
 					ps.nrIidPar = nr_iidiccPar_tab[iidMode];
@@ -274,7 +274,7 @@ namespace pspsharp.media.codec.aac
 					ps.iccMode = br.read(3);
 					if (ps.iccMode > 5)
 					{
-						Console.WriteLine(string.Format("iic_mode {0:D} is reserved", ps.iccMode));
+						System.Console.WriteLine(string.Format("iic_mode {0:D} is reserved", ps.iccMode));
 						return readDataError(ac, ps, bitCountStart, bitsLeft);
 					}
 					ps.nrIccPar = nr_iidiccPar_tab[ps.iccMode];
@@ -349,7 +349,7 @@ namespace pspsharp.media.codec.aac
 				}
 				if (cnt < 0)
 				{
-					Console.WriteLine(string.Format("ps extension overflow {0:D}", cnt));
+					System.Console.WriteLine(string.Format("ps extension overflow {0:D}", cnt));
 					return readDataError(ac, ps, bitCountStart, bitsLeft);
 				}
 				br.skip(cnt);
@@ -382,7 +382,7 @@ namespace pspsharp.media.codec.aac
 					{
 						if (System.Math.Abs(ps.iidPar[ps.numEnv][b]) > 7 + 8 * ps.iidQuant)
 						{
-							Console.WriteLine(string.Format("iidPar invalid"));
+							System.Console.WriteLine(string.Format("iidPar invalid"));
 							return readDataError(ac, ps, bitCountStart, bitsLeft);
 						}
 					}
@@ -393,7 +393,7 @@ namespace pspsharp.media.codec.aac
 					{
 						if (System.Math.Abs(ps.iccPar[ps.numEnv][b]) > 7)
 						{
-							Console.WriteLine(string.Format("iccPar invalid"));
+							System.Console.WriteLine(string.Format("iccPar invalid"));
 							return readDataError(ac, ps, bitCountStart, bitsLeft);
 						}
 					}
@@ -423,7 +423,7 @@ namespace pspsharp.media.codec.aac
 			int bitsConsumed = br.BitsRead - bitCountStart;
 			if (bitsConsumed > bitsLeft)
 			{
-				Console.WriteLine(string.Format("Expected to read {0:D} PS bits actually read {1:D}", bitsLeft, bitsConsumed));
+				System.Console.WriteLine(string.Format("Expected to read {0:D} PS bits actually read {1:D}", bitsLeft, bitsConsumed));
 				return readDataError(ac, ps, bitCountStart, bitsLeft);
 			}
 

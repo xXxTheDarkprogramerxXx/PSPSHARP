@@ -66,7 +66,7 @@ namespace pspsharp.HLE.modules
 			}
 			catch (FileNotFoundException e)
 			{
-				Console.WriteLine("sceMeAudio_8D5A07D2", e);
+				System.Console.WriteLine("sceMeAudio_8D5A07D2", e);
 			}
 
 			return ebootPbpUid;

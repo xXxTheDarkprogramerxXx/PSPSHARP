@@ -38,7 +38,7 @@ namespace pspsharp.HLE.modules
 			}
 			catch (NoSuchAlgorithmException e)
 			{
-				Console.WriteLine("Cannot find MD5", e);
+				System.Console.WriteLine("Cannot find MD5", e);
 			}
 
 			base.start();

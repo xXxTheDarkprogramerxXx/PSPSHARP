@@ -34,7 +34,7 @@ namespace pspsharp.HLE.modules
 			if (addr.NotNull)
 			{
 				// addr is pointing to five 32-bit values (20 bytes)
-				Console.WriteLine(string.Format("mp4msv_3C2183C7 unknown values: {0}", Utilities.getMemoryDump(addr.Address, 20, 4, 20)));
+				System.Console.WriteLine(string.Format("mp4msv_3C2183C7 unknown values: {0}", Utilities.getMemoryDump(addr.Address, 20, 4, 20)));
 			}
 
 			// mp4msv_3C2183C7 is called by sceMp4Init
@@ -51,7 +51,7 @@ namespace pspsharp.HLE.modules
 			if (addr.NotNull)
 			{
 				// addr is pointing to 17 32-bit values (68 bytes)
-				Console.WriteLine(string.Format("mp4msv_9CA13D1A unknown values: {0}", Utilities.getMemoryDump(addr.Address, 68, 4, 16)));
+				System.Console.WriteLine(string.Format("mp4msv_9CA13D1A unknown values: {0}", Utilities.getMemoryDump(addr.Address, 68, 4, 16)));
 			}
 
 			// mp4msv_9CA13D1A is called by sceMp4Init

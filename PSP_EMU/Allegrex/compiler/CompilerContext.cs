@@ -849,7 +849,7 @@ namespace pspsharp.Allegrex.compiler
 			}
 			else
 			{
-				Console.WriteLine("storeVRegister with non-prepared register is not supported");
+				System.Console.WriteLine("storeVRegister with non-prepared register is not supported");
 			}
 		}
 
@@ -1054,7 +1054,7 @@ namespace pspsharp.Allegrex.compiler
 					// Call NativeCodeSequence
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Inlining call at 0x{0:X8} to {1}", CodeInstruction.Address, preparedCallNativeCodeBlock));
+						System.Console.WriteLine(string.Format("Inlining call at 0x{0:X8} to {1}", CodeInstruction.Address, preparedCallNativeCodeBlock));
 					}
 
 					visitNativeCodeSequence(preparedCallNativeCodeBlock, address, null);
@@ -1372,7 +1372,7 @@ namespace pspsharp.Allegrex.compiler
 				else
 				{
 //JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
-					Console.WriteLine(string.Format("Unsupported sycall parameter type '{0}'", parameterType.FullName));
+					System.Console.WriteLine(string.Format("Unsupported sycall parameter type '{0}'", parameterType.FullName));
 					Emulator.PauseEmuWithStatus(Emulator.EMU_STATUS_UNIMPLEMENTED);
 				}
 			}
@@ -1391,7 +1391,7 @@ namespace pspsharp.Allegrex.compiler
 						}
 						catch (Exception e)
 						{
-							Console.WriteLine(string.Format("CheckArgument method '{0}' not found in {1}", checkArgument.value(), func.ModuleName), e);
+							System.Console.WriteLine(string.Format("CheckArgument method '{0}' not found in {1}", checkArgument.value(), func.ModuleName), e);
 						}
 						break;
 					}
@@ -1510,7 +1510,7 @@ namespace pspsharp.Allegrex.compiler
 				else
 				{
 //JAVA TO C# CONVERTER WARNING: The .NET Type.FullName property will not always yield results identical to the Java Class.getName method:
-					Console.WriteLine(string.Format("Unsupported sycall return value type '{0}'", returnType.FullName));
+					System.Console.WriteLine(string.Format("Unsupported sycall return value type '{0}'", returnType.FullName));
 				}
 			}
 		}
@@ -1699,7 +1699,7 @@ namespace pspsharp.Allegrex.compiler
 								}
 								break;
 							default:
-								Console.WriteLine(string.Format("Unimplemented lengthInfo={0}", lengthInfo));
+								System.Console.WriteLine(string.Format("Unimplemented lengthInfo={0}", lengthInfo));
 								break;
 						}
 
@@ -1985,7 +1985,7 @@ namespace pspsharp.Allegrex.compiler
 									}
 									break;
 								default:
-									Console.WriteLine(string.Format("Unimplemented lengthInfo={0}", lengthInfo));
+									System.Console.WriteLine(string.Format("Unimplemented lengthInfo={0}", lengthInfo));
 									break;
 							}
 
@@ -2143,7 +2143,7 @@ namespace pspsharp.Allegrex.compiler
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("syscall from a flash0 module({0}, '{1}'), no firmware version check", module, module.pspfilename));
+						System.Console.WriteLine(string.Format("syscall from a flash0 module({0}, '{1}'), no firmware version check", module, module.pspfilename));
 					}
 					needFirmwareVersionCheck = false;
 				}
@@ -2296,7 +2296,7 @@ namespace pspsharp.Allegrex.compiler
 			// catch (SceKernelErrorException e) {
 			//     errorCode = e.errorCode;
 			//     if (Modules.log.isDebugEnabled()) {
-			//         Modules.Console.WriteLine(String.format("<function name> return errorCode 0x%08X", errorCode));
+			//         Modules.System.Console.WriteLine(String.format("<function name> return errorCode 0x%08X", errorCode));
 			//     }
 			//     if (hasErrorPointer()) {
 			//         errorPointer.setValue(errorCode);
@@ -2381,7 +2381,7 @@ namespace pspsharp.Allegrex.compiler
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Calling overwritten HLE method '{0}' instead of syscall", NIDMapper.Instance.getNameBySyscall(code)));
+					System.Console.WriteLine(string.Format("Calling overwritten HLE method '{0}' instead of syscall", NIDMapper.Instance.getNameBySyscall(code)));
 				}
 				mv.visitMethodInsn(Opcodes.INVOKESTATIC, getClassName(syscallAddr, instanceIndex), StaticExecMethodName, StaticExecMethodDesc);
 			}
@@ -4085,12 +4085,12 @@ namespace pspsharp.Allegrex.compiler
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Replacing CodeBlock at 0x{0:X8} ({1:X8}-0x{2:X8}, Length {3:D}) by {4}", CodeBlock.StartAddress, CodeBlock.LowestAddress, codeBlock.HighestAddress, codeBlock.Length, nativeCodeSequence));
+						System.Console.WriteLine(string.Format("Replacing CodeBlock at 0x{0:X8} ({1:X8}-0x{2:X8}, Length {3:D}) by {4}", CodeBlock.StartAddress, CodeBlock.LowestAddress, codeBlock.HighestAddress, codeBlock.Length, nativeCodeSequence));
 					}
 				}
 				//else if (log.InfoEnabled)
 				{
-					Console.WriteLine(string.Format("Replacing CodeBlock at 0x{0:X8} by Native Code '{1}'", CodeBlock.StartAddress, nativeCodeSequence.Name));
+					System.Console.WriteLine(string.Format("Replacing CodeBlock at 0x{0:X8} by Native Code '{1}'", CodeBlock.StartAddress, nativeCodeSequence.Name));
 				}
 			}
 			else
@@ -4099,11 +4099,11 @@ namespace pspsharp.Allegrex.compiler
 				int endAddress = CodeInstruction.Address + (nativeCodeSequence.NumOpcodes - 1) * 4;
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Replacing CodeSequence at 0x{0:X8}-0x{1:X8} by Native Code {2}", CodeInstruction.Address, endAddress, nativeCodeSequence));
+					System.Console.WriteLine(string.Format("Replacing CodeSequence at 0x{0:X8}-0x{1:X8} by Native Code {2}", CodeInstruction.Address, endAddress, nativeCodeSequence));
 				}
 				if (log.InfoEnabled)
 				{
-					Console.WriteLine(string.Format("Replacing CodeSequence at 0x{0:X8}-0x{1:X8} by Native Code '{2}'", CodeInstruction.Address, endAddress, nativeCodeSequence.Name));
+					System.Console.WriteLine(string.Format("Replacing CodeSequence at 0x{0:X8}-0x{1:X8} by Native Code '{2}'", CodeInstruction.Address, endAddress, nativeCodeSequence.Name));
 				}
 			}
 		}

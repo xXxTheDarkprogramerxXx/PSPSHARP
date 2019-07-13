@@ -2020,13 +2020,13 @@ namespace pspsharp.Debugger.DisassemblerModule
 			}
 			catch (FileNotFoundException ex)
 			{
-				Console.WriteLine(ex.ToString());
-				Console.Write(ex.StackTrace);
+				System.Console.WriteLine(ex.ToString());
+				System.Console.Write(ex.StackTrace);
 			}
 			catch (IOException ex)
 			{
-				Console.WriteLine(ex.ToString());
-				Console.Write(ex.StackTrace);
+				System.Console.WriteLine(ex.ToString());
+				System.Console.Write(ex.StackTrace);
 			}
 			finally
 			{
@@ -2471,9 +2471,9 @@ namespace pspsharp.Debugger.DisassemblerModule
 			}
 			else
 			{
-				Console.WriteLine("dpc: " + DebuggerPC.ToString("x"));
-				Console.WriteLine("idx: " + index.ToString("x"));
-				Console.WriteLine("npc: " + (DebuggerPC + index * 4).ToString("x"));
+				System.Console.WriteLine("dpc: " + DebuggerPC.ToString("x"));
+				System.Console.WriteLine("idx: " + index.ToString("x"));
+				System.Console.WriteLine("npc: " + (DebuggerPC + index * 4).ToString("x"));
 			}
 	} //GEN-LAST:event_SetPCToCursorActionPerformed
 
@@ -2499,7 +2499,7 @@ namespace pspsharp.Debugger.DisassemblerModule
 			{
 				if (f.exists())
 				{
-					int res = MessageBox.Show(this, bundle.getString("ConsoleWindow.strFileExists.text"), bundle.getString("DisassemblerFrame.miExportBreakpoints.text"), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+					int res = MessageBox.Show(this, bundle.getString("System.ConsoleWindow.strFileExists.text"), bundle.getString("DisassemblerFrame.miExportBreakpoints.text"), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
 					if (res != DialogResult.Yes)
 					{
@@ -2517,8 +2517,8 @@ namespace pspsharp.Debugger.DisassemblerModule
 			}
 			catch (Exception ex)
 			{
-				Console.WriteLine(ex.ToString());
-				Console.Write(ex.StackTrace);
+				System.Console.WriteLine(ex.ToString());
+				System.Console.Write(ex.StackTrace);
 			}
 			finally
 			{
@@ -2568,8 +2568,8 @@ namespace pspsharp.Debugger.DisassemblerModule
 			}
 			catch (Exception ex)
 			{
-				Console.WriteLine(ex.ToString());
-				Console.Write(ex.StackTrace);
+				System.Console.WriteLine(ex.ToString());
+				System.Console.Write(ex.StackTrace);
 			}
 			finally
 			{

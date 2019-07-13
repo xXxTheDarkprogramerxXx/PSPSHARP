@@ -143,7 +143,7 @@ namespace pspsharp.GUI
 			string message = chatMessage.Text;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Sending chat message '{0}'", message));
+				System.Console.WriteLine(string.Format("Sending chat message '{0}'", message));
 			}
 
 			// Send the chat message to the network adapter

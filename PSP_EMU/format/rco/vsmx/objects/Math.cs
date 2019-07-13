@@ -55,7 +55,7 @@ namespace pspsharp.format.rco.vsmx.objects
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Math.random() returns {0:F}", value));
+				System.Console.WriteLine(string.Format("Math.random() returns {0:F}", value));
 			}
 
 			return new VSMXNumber(interpreter, value);

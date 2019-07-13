@@ -107,12 +107,12 @@ namespace pspsharp.graphics.RE
 
 		protected internal virtual void initShader()
 		{
-			Console.WriteLine("Using shaders with Skinning");
+			System.Console.WriteLine("Using shaders with Skinning");
 
 			useDynamicShaders = Settings.Instance.readBool("emu.enabledynamicshaders");
 			if (useDynamicShaders)
 			{
-				Console.WriteLine("Using dynamic shaders");
+				System.Console.WriteLine("Using dynamic shaders");
 				shaderProgramManager = new ShaderProgramManager();
 			}
 
@@ -124,7 +124,7 @@ namespace pspsharp.graphics.RE
 			}
 			if (useGeometryShader)
 			{
-				Console.WriteLine("Using Geometry Shader for SPRITES");
+				System.Console.WriteLine("Using Geometry Shader for SPRITES");
 			}
 
 			if (!ShaderContextUBO.useUBO(re))
@@ -133,7 +133,7 @@ namespace pspsharp.graphics.RE
 			}
 			if (useUniformBufferObject)
 			{
-				Console.WriteLine("Using Uniform Buffer Object (UBO)");
+				System.Console.WriteLine("Using Uniform Buffer Object (UBO)");
 			}
 
 			useNativeClut = Settings.Instance.readBool("emu.enablenativeclut");
@@ -141,12 +141,12 @@ namespace pspsharp.graphics.RE
 			{
 				if (!base.canNativeClut(0, -1, false))
 				{
-					Console.WriteLine("Disabling Native Color Lookup Tables (CLUT)");
+					System.Console.WriteLine("Disabling Native Color Lookup Tables (CLUT)");
 					useNativeClut = false;
 				}
 				else
 				{
-					Console.WriteLine("Using Native Color Lookup Tables (CLUT)");
+					System.Console.WriteLine("Using Native Color Lookup Tables (CLUT)");
 				}
 			}
 
@@ -188,11 +188,11 @@ namespace pspsharp.graphics.RE
 				{
 					useRenderToTexture = true;
 					useTextureBarrier = re.TextureBarrierAvailable;
-					Console.WriteLine(string.Format("Rendering to a texture with {0}", useTextureBarrier ? "texture barrier" : "texture blit (slow)"));
+					System.Console.WriteLine(string.Format("Rendering to a texture with {0}", useTextureBarrier ? "texture barrier" : "texture blit (slow)"));
 				}
 				else
 				{
-					Console.WriteLine("Not rendering to a texture, FBO's are not supported by your graphics card. This will have a negative performance impact.");
+					System.Console.WriteLine("Not rendering to a texture, FBO's are not supported by your graphics card. This will have a negative performance impact.");
 				}
 			}
 
@@ -272,7 +272,7 @@ namespace pspsharp.graphics.RE
 				Matcher matcher = Pattern.compile("(\\d+)\\.(\\d+).*").matcher(shadingLanguageVersion);
 				if (!matcher.matches())
 				{
-					Console.WriteLine(string.Format("Cannot parse Shading Language Version '{0}'", shadingLanguageVersion));
+					System.Console.WriteLine(string.Format("Cannot parse Shading Language Version '{0}'", shadingLanguageVersion));
 					return availableVersion;
 				}
     
@@ -285,7 +285,7 @@ namespace pspsharp.graphics.RE
 				}
 				catch (System.FormatException)
 				{
-					Console.WriteLine(string.Format("Cannot parse Shading Language Version '{0}'", shadingLanguageVersion));
+					System.Console.WriteLine(string.Format("Cannot parse Shading Language Version '{0}'", shadingLanguageVersion));
 				}
     
 				return availableVersion;
@@ -329,7 +329,7 @@ namespace pspsharp.graphics.RE
 			addDefine(staticDefines, "USE_BIT_OPERATORS", useBitOperators);
 			if (!useBitOperators)
 			{
-				Console.WriteLine("Extension GL_EXT_gpu_shader4 not available: not using bit operators in shader");
+				System.Console.WriteLine("Extension GL_EXT_gpu_shader4 not available: not using bit operators in shader");
 			}
 
 			shaderStaticDefines = staticDefines.ToString();
@@ -337,7 +337,7 @@ namespace pspsharp.graphics.RE
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Using shader version {0:D}, available shading language version {1:D}", shaderVersion, AvailableShadingLanguageVersion));
+				System.Console.WriteLine(string.Format("Using shader version {0:D}, available shading language version {1:D}", shaderVersion, AvailableShadingLanguageVersion));
 			}
 		}
 
@@ -379,7 +379,7 @@ namespace pspsharp.graphics.RE
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 				return false;
 			}
 
@@ -477,14 +477,14 @@ namespace pspsharp.graphics.RE
 				compiled = loadShader(geometryShader, "/pspsharp/graphics/shader-150.geom", false, shaderProgram);
 				if (compiled)
 				{
-					Console.WriteLine("Using Geometry Shader shader-150.geom");
+					System.Console.WriteLine("Using Geometry Shader shader-150.geom");
 				}
 				else
 				{
 					compiled = loadShader(geometryShader, "/pspsharp/graphics/shader-120.geom", false, shaderProgram);
 					if (compiled)
 					{
-						Console.WriteLine("Using Geometry Shader shader-120.geom");
+						System.Console.WriteLine("Using Geometry Shader shader-120.geom");
 					}
 				}
 
@@ -532,7 +532,7 @@ namespace pspsharp.graphics.RE
 				int shaderAttribNormal = re.getAttribLocation(program, attributeNameNormal);
 				int shaderAttribColor = re.getAttribLocation(program, attributeNameColor);
 				int shaderAttribTexture = re.getAttribLocation(program, attributeNameTexture);
-				Console.WriteLine(string.Format("Program {0:D} attribute locations: weights1={1:D}, weights2={2:D}, position={3:D}, normal={4:D}, color={5:D}, texture={6:D}", program, shaderAttribWeights1, shaderAttribWeights2, shaderAttribPosition, shaderAttribNormal, shaderAttribColor, shaderAttribTexture));
+				System.Console.WriteLine(string.Format("Program {0:D} attribute locations: weights1={1:D}, weights2={2:D}, position={3:D}, normal={4:D}, color={5:D}, texture={6:D}", program, shaderAttribWeights1, shaderAttribWeights2, shaderAttribPosition, shaderAttribNormal, shaderAttribColor, shaderAttribTexture));
 			}
 
 			foreach (Uniforms uniform in Uniforms.values())
@@ -573,14 +573,14 @@ namespace pspsharp.graphics.RE
 
 			if (!re.ShaderAvailable)
 			{
-				Console.WriteLine("Shaders are not available on your computer. They have been automatically disabled.");
+				System.Console.WriteLine("Shaders are not available on your computer. They have been automatically disabled.");
 				return false;
 			}
 
 			REShader reTestShader = new REShader(re);
 			if (!reTestShader.ValidShader)
 			{
-				Console.WriteLine("Shaders do not run correctly on your computer. They have been automatically disabled.");
+				System.Console.WriteLine("Shaders do not run correctly on your computer. They have been automatically disabled.");
 				return false;
 			}
 
@@ -593,7 +593,7 @@ namespace pspsharp.graphics.RE
 			{
 				if (isError)
 				{
-					Console.WriteLine("Shader error log: " + infoLogs);
+					System.Console.WriteLine("Shader error log: " + infoLogs);
 				}
 				else
 				{
@@ -609,7 +609,7 @@ namespace pspsharp.graphics.RE
 
 					if (infoLog.Length > 0)
 					{
-						Console.WriteLine("Shader log: " + infoLog);
+						System.Console.WriteLine("Shader log: " + infoLog);
 					}
 				}
 			}
@@ -713,7 +713,7 @@ namespace pspsharp.graphics.RE
 			{
 				if (useNativeClut)
 				{
-					Console.WriteLine(textureCacheLookupStatistics);
+					System.Console.WriteLine(textureCacheLookupStatistics);
 				}
 			}
 			base.exit();
@@ -1052,11 +1052,11 @@ namespace pspsharp.graphics.RE
 						shaderProgram = createShader(hasGeometryShader, shaderProgram);
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine("Created shader " + shaderProgram);
+							System.Console.WriteLine("Created shader " + shaderProgram);
 						}
 						if (shaderProgram == null)
 						{
-							Console.WriteLine("Cannot create shader");
+							System.Console.WriteLine("Cannot create shader");
 							return;
 						}
 					}

@@ -2532,7 +2532,7 @@ namespace pspsharp.graphics
 			if (isLogDebugEnabled)
 			{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("getIndexedNumberOfVertexInfo %d: [%d..%d], sequence %b", numberOfVertex, minIndex, maxIndex, sequence));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("getIndexedNumberOfVertexInfo %d: [%d..%d], sequence %b", numberOfVertex, minIndex, maxIndex, sequence));
 				log_Renamed.debug(string.Format("getIndexedNumberOfVertexInfo %d: [%d..%d], sequence %b", numberOfVertex, minIndex, maxIndex, sequence));
 			}
 
@@ -2570,7 +2570,7 @@ namespace pspsharp.graphics
 			if (isLogDebugEnabled)
 			{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("isVertexDiscarded (%.0f,%.0f,%.0f) %s=%b returning %b", xs, ys, zs, context.clipPlanesFlag.toString(), context.clipPlanesFlag.isEnabled(), discarded));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("isVertexDiscarded (%.0f,%.0f,%.0f) %s=%b returning %b", xs, ys, zs, context.clipPlanesFlag.toString(), context.clipPlanesFlag.isEnabled(), discarded));
 				log_Renamed.debug(string.Format("isVertexDiscarded (%.0f,%.0f,%.0f) %s=%b returning %b", xs, ys, zs, context.clipPlanesFlag.ToString(), context.clipPlanesFlag.Enabled, discarded));
 			}
 
@@ -8149,7 +8149,7 @@ namespace pspsharp.graphics
 					// }
 					// mipmapMaxLevel = mipmapBaseLevel;
 					// if (isLogDebugEnabled) {
-					//     Console.WriteLine("TBIAS_MODE_AUTO " + context.tex_mipmap_bias + ", param=" + maxValue);
+					//     System.Console.WriteLine("TBIAS_MODE_AUTO " + context.tex_mipmap_bias + ", param=" + maxValue);
 					// }
 				}
 				else if (context.tex_mipmap_mode == TBIAS_MODE_SLOPE)
@@ -9189,7 +9189,7 @@ namespace pspsharp.graphics
 				{
 					this.doubleTexture2DCoords = value;
 	//JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-	//ORIGINAL LINE: Console.WriteLine(String.format("Using DoubleTexture2DCoords %b", value));
+	//ORIGINAL LINE: System.Console.WriteLine(String.format("Using DoubleTexture2DCoords %b", value));
 					log_Renamed.info(string.Format("Using DoubleTexture2DCoords %b", value));
 				}
 			}

@@ -64,7 +64,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Invalid sampleCount 0x{0:X}", sampleCount));
+					System.Console.WriteLine(string.Format("Invalid sampleCount 0x{0:X}", sampleCount));
 				}
 				throw new SceKernelErrorException(SceKernelErrors.ERROR_INVALID_SIZE);
 			}
@@ -189,7 +189,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceVaudioOutputBlocking[not blocking] {0}", pspVaudioChannel));
+					System.Console.WriteLine(string.Format("sceVaudioOutputBlocking[not blocking] {0}", pspVaudioChannel));
 				}
 				if ((vol & PSP_VAUDIO_VOLUME_BASE) != PSP_VAUDIO_VOLUME_BASE)
 				{
@@ -198,7 +198,7 @@ namespace pspsharp.HLE.modules
 				result = doAudioOutput(pspVaudioChannel, buf.Address);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceVaudioOutputBlocking[not blocking] returning {0:D} ({1})", result, pspVaudioChannel));
+					System.Console.WriteLine(string.Format("sceVaudioOutputBlocking[not blocking] returning {0:D} ({1})", result, pspVaudioChannel));
 				}
 				Modules.ThreadManForUserModule.hleRescheduleCurrentThread();
 			}
@@ -206,7 +206,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceVaudioOutputBlocking[blocking] {0}", pspVaudioChannel));
+					System.Console.WriteLine(string.Format("sceVaudioOutputBlocking[blocking] {0}", pspVaudioChannel));
 				}
 				blockThreadOutput(pspVaudioChannel, buf.Address, vol, vol);
 			}

@@ -125,7 +125,7 @@ namespace pspsharp.HLE.modules
 					catch (Exception e)
 					{
 						// Ignore...
-						Console.WriteLine(string.Format("SceKernelUtilsContext({0}).result", algorithm), e);
+						System.Console.WriteLine(string.Format("SceKernelUtilsContext({0}).result", algorithm), e);
 					}
 				}
 
@@ -149,7 +149,7 @@ namespace pspsharp.HLE.modules
 				catch (Exception e)
 				{
 					// Ignore...
-					Console.WriteLine(string.Format("SceKernelUtilsContext({0}).digest", algorithm), e);
+					System.Console.WriteLine(string.Format("SceKernelUtilsContext({0}).digest", algorithm), e);
 				}
 				if (hash != null)
 				{
@@ -212,7 +212,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (log.InfoEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelIcacheInvalidateRange addr={0}, size={1:D}", addr, size));
+				System.Console.WriteLine(string.Format("sceKernelIcacheInvalidateRange addr={0}, size={1:D}", addr, size));
 			}
 
 			RuntimeContext.invalidateRange(addr.Address, size);
@@ -228,7 +228,7 @@ namespace pspsharp.HLE.modules
 			int result = SceKernelUtilsMd5Context.digest(inAddr, inSize, outAddr);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelUtilsMd5Digest input:{0}, output:{1}", Utilities.getMemoryDump(inAddr.Address, inSize), Utilities.getMemoryDump(outAddr.Address, 16)));
+				System.Console.WriteLine(string.Format("sceKernelUtilsMd5Digest input:{0}, output:{1}", Utilities.getMemoryDump(inAddr.Address, inSize), Utilities.getMemoryDump(outAddr.Address, 16)));
 			}
 			return result;
 		}
@@ -295,7 +295,7 @@ namespace pspsharp.HLE.modules
 			SceKernelUtilsMt19937Context ctx = Mt19937List[ctxAddr.Address];
 			if (ctx == null)
 			{
-				Console.WriteLine(string.Format("sceKernelUtilsMt19937UInt uninitialised context {0}", ctxAddr));
+				System.Console.WriteLine(string.Format("sceKernelUtilsMt19937UInt uninitialised context {0}", ctxAddr));
 				return 0;
 			}
 
@@ -312,7 +312,7 @@ namespace pspsharp.HLE.modules
 				gpi = State.debugger.GetGPI();
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceKernelGetGPI returning 0x{0:X2}", gpi));
+					System.Console.WriteLine(string.Format("sceKernelGetGPI returning 0x{0:X2}", gpi));
 				}
 			}
 			else
@@ -320,7 +320,7 @@ namespace pspsharp.HLE.modules
 				gpi = 0;
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("sceKernelGetGPI debugger not enabled");
+					System.Console.WriteLine("sceKernelGetGPI debugger not enabled");
 				}
 			}
 
@@ -338,7 +338,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("sceKernelSetGPO debugger not enabled");
+					System.Console.WriteLine("sceKernelSetGPO debugger not enabled");
 				}
 			}
 

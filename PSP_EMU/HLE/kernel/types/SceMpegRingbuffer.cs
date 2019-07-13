@@ -60,7 +60,7 @@ namespace pspsharp.HLE.kernel.types
 			if (dataUpperBound > data + size)
 			{
 				dataUpperBound = data + size;
-				Modules.Console.WriteLine("SceMpegRingbuffer clamping dataUpperBound to " + dataUpperBound);
+				Modules.System.Console.WriteLine("SceMpegRingbuffer clamping dataUpperBound to " + dataUpperBound);
 			}
 
 			reset();

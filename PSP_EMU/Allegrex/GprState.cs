@@ -291,7 +291,7 @@ namespace pspsharp.Allegrex
 					return _ra;
 			}
 
-			Emulator.Console.WriteLine(string.Format("Unknown register {0:D}", reg));
+			Emulator.System.Console.WriteLine(string.Format("Unknown register {0:D}", reg));
 			return 0;
 		}
 
@@ -396,7 +396,7 @@ namespace pspsharp.Allegrex
 					return;
 			}
 
-			Emulator.Console.WriteLine(string.Format("Unknown register {0:D}, value=0x{1:X8}", reg, value));
+			Emulator.System.Console.WriteLine(string.Format("Unknown register {0:D}, value=0x{1:X8}", reg, value));
 		}
 
 //JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
@@ -425,7 +425,7 @@ namespace pspsharp.Allegrex
 
 		public virtual void doUNK(string reason)
 		{
-			Emulator.Console.WriteLine("Interpreter : " + reason);
+			Emulator.System.Console.WriteLine("Interpreter : " + reason);
 		}
 
 		public static int extractBits(int x, int pos, int len)

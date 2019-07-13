@@ -537,7 +537,7 @@ namespace pspsharp.memory.mmio
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("readGeCmd({0})=0x{1:X8}", GeCommands.Instance.getCommandString(cmd), value));
+				System.Console.WriteLine(string.Format("readGeCmd({0})=0x{1:X8}", GeCommands.Instance.getCommandString(cmd), value));
 			}
 
 			return value;
@@ -572,7 +572,7 @@ namespace pspsharp.memory.mmio
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("readMatrix(matrixType={0:D}, matrixIndex={1:D})=0x{2:X}({3:F})", matrixType, matrixIndex, value, matrix[matrixIndex]));
+				System.Console.WriteLine(string.Format("readMatrix(matrixType={0:D}, matrixIndex={1:D})=0x{2:X}({3:F})", matrixType, matrixIndex, value, matrix[matrixIndex]));
 			}
 
 			return value;

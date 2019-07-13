@@ -472,7 +472,7 @@ namespace pspsharp.media.codec.util
 					fft512(z, 0);
 					break;
 				default:
-					Console.WriteLine(string.Format("FFT nbits={0:D} not implemented", nbits));
+					System.Console.WriteLine(string.Format("FFT nbits={0:D} not implemented", nbits));
 					break;
 			}
 		}

@@ -159,7 +159,7 @@ namespace pspsharp.HLE.modules
 			SysMemInfo memInfo = Modules.SysMemUserForUserModule.malloc(KERNEL_PARTITION_ID, "LoadCore-StartModuleParameters", PSP_SMEM_Low, size, 0);
 			if (memInfo == null)
 			{
-				Console.WriteLine(string.Format("Cannot allocate memory for loadcore.prx start parameters"));
+				System.Console.WriteLine(string.Format("Cannot allocate memory for loadcore.prx start parameters"));
 				return TPointer.NULL;
 			}
 
@@ -190,7 +190,7 @@ namespace pspsharp.HLE.modules
 				if (syscallStubAddr.Null)
 				{
 					availableSyscallStubs = 0;
-					Console.WriteLine(string.Format("No more free memory to create a new Syscall stub!"));
+					System.Console.WriteLine(string.Format("No more free memory to create a new Syscall stub!"));
 					return 0;
 				}
 			}
@@ -201,7 +201,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Adding a syscall 0x{0:X} stub at 0x{1:X8}", syscallCode, stubAddr));
+				System.Console.WriteLine(string.Format("Adding a syscall 0x{0:X} stub at 0x{1:X8}", syscallCode, stubAddr));
 			}
 
 			syscallStubAddr.add(stubSize);
@@ -288,7 +288,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("createDummyModule moduleName='{0}', entryPointCode={1}", moduleName, entryPointCode));
+				System.Console.WriteLine(string.Format("createDummyModule moduleName='{0}', entryPointCode={1}", moduleName, entryPointCode));
 			}
 			return entryPointCode;
 		}
@@ -343,8 +343,8 @@ namespace pspsharp.HLE.modules
 				//if (log.DebugEnabled)
 				{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("Registering library '%s' NID 0x%08X at address 0x%08X (variableExport=%b)", libName, nid, address, isVariableExport));
-					Console.WriteLine(string.Format("Registering library '%s' NID 0x%08X at address 0x%08X (variableExport=%b)", libName, nid, address, isVariableExport));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("Registering library '%s' NID 0x%08X at address 0x%08X (variableExport=%b)", libName, nid, address, isVariableExport));
+					System.Console.WriteLine(string.Format("Registering library '%s' NID 0x%08X at address 0x%08X (variableExport=%b)", libName, nid, address, isVariableExport));
 				}
 
 				addresses[i] = address;
@@ -395,7 +395,7 @@ namespace pspsharp.HLE.modules
 			int[] nids = NIDMapper.Instance.getModuleNids(libName);
 			if (nids == null)
 			{
-				Console.WriteLine(string.Format("Unknown library '{0}', no NIDs found", libName));
+				System.Console.WriteLine(string.Format("Unknown library '{0}', no NIDs found", libName));
 				return;
 			}
 
@@ -424,7 +424,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("addExistingModule could not find module '{0}'", moduleName));
+					System.Console.WriteLine(string.Format("addExistingModule could not find module '{0}'", moduleName));
 				}
 				return;
 			}
@@ -544,7 +544,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("onModuleStart sceLoadCoreBootInfoAddr={0}, sysMemThreadConfigAddr={1}, loadCoreExecInfoAddr={2}, sysMemExecInfoAddr={3}", sceLoadCoreBootInfoAddr, sysMemThreadConfigAddr, loadCoreExecInfoAddr, sysMemExecInfoAddr));
+				System.Console.WriteLine(string.Format("onModuleStart sceLoadCoreBootInfoAddr={0}, sysMemThreadConfigAddr={1}, loadCoreExecInfoAddr={2}, sysMemExecInfoAddr={3}", sceLoadCoreBootInfoAddr, sysMemThreadConfigAddr, loadCoreExecInfoAddr, sysMemExecInfoAddr));
 			}
 
 			// Set the thread start parameters
@@ -941,18 +941,18 @@ namespace pspsharp.HLE.modules
 			SceModule module = Managers.modules.getModuleByName(moduleName.String);
 			if (module == null)
 			{
-				Console.WriteLine(string.Format("sceKernelFindModuleByName not found moduleName={0}", moduleName));
+				System.Console.WriteLine(string.Format("sceKernelFindModuleByName not found moduleName={0}", moduleName));
 				return 0; // return NULL
 			}
 
 			if (!Modules.ThreadManForUserModule.KernelMode)
 			{
-				Console.WriteLine("kernel mode required (sceKernelFindModuleByName)");
+				System.Console.WriteLine("kernel mode required (sceKernelFindModuleByName)");
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelFindModuleByName returning 0x{0:X8}", module.address));
+				System.Console.WriteLine(string.Format("sceKernelFindModuleByName returning 0x{0:X8}", module.address));
 			}
 
 			return module.address;
@@ -964,18 +964,18 @@ namespace pspsharp.HLE.modules
 			SceModule module = Managers.modules.getModuleByAddress(address.Address);
 			if (module == null)
 			{
-				Console.WriteLine(string.Format("sceKernelFindModuleByAddress not found module address={0}", address));
+				System.Console.WriteLine(string.Format("sceKernelFindModuleByAddress not found module address={0}", address));
 				return 0; // return NULL
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelFindModuleByAddress found module '{0}'", module.modname));
+				System.Console.WriteLine(string.Format("sceKernelFindModuleByAddress found module '{0}'", module.modname));
 			}
 
 			if (!Modules.ThreadManForUserModule.KernelMode)
 			{
-				Console.WriteLine("kernel mode required (sceKernelFindModuleByAddress)");
+				System.Console.WriteLine("kernel mode required (sceKernelFindModuleByAddress)");
 			}
 
 			return module.address;
@@ -987,7 +987,7 @@ namespace pspsharp.HLE.modules
 			SceModule module = Managers.modules.getModuleByUID(uid);
 			if (module == null)
 			{
-				Console.WriteLine(string.Format("sceKernelFindModuleByUID not found module uid=0x{0:X}", uid));
+				System.Console.WriteLine(string.Format("sceKernelFindModuleByUID not found module uid=0x{0:X}", uid));
 				return 0; // return NULL
 			}
 
@@ -1009,7 +1009,7 @@ namespace pspsharp.HLE.modules
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("sceKernelFindModuleByUID banning module '{0}' for a homebrew", module.modname));
+							System.Console.WriteLine(string.Format("sceKernelFindModuleByUID banning module '{0}' for a homebrew", module.modname));
 						}
 						return 0; // NULL
 					}
@@ -1018,12 +1018,12 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelFindModuleByUID found module '{0}'", module.modname));
+				System.Console.WriteLine(string.Format("sceKernelFindModuleByUID found module '{0}'", module.modname));
 			}
 
 			if (!Modules.ThreadManForUserModule.KernelMode)
 			{
-				Console.WriteLine("kernel mode required (sceKernelFindModuleByUID)");
+				System.Console.WriteLine("kernel mode required (sceKernelFindModuleByUID)");
 			}
 
 			return module.address;

@@ -101,8 +101,8 @@ namespace pspsharp.graphics.capture
 			catch (Exception e)
 			{
 				VideoEngine.log_Renamed.error("Failed to start replay: " + e.Message);
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 			}
 		}
 
@@ -160,8 +160,8 @@ namespace pspsharp.graphics.capture
 			catch (Exception e)
 			{
 				VideoEngine.log_Renamed.error("Failed to start capture: " + e.Message);
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 				Emulator.PauseEmu();
 			}
 		}
@@ -184,8 +184,8 @@ namespace pspsharp.graphics.capture
 			catch (Exception e)
 			{
 				VideoEngine.log_Renamed.error("Failed to end capture: " + e.Message);
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 				Emulator.PauseEmu();
 			}
 
@@ -221,8 +221,8 @@ namespace pspsharp.graphics.capture
 			catch (Exception e)
 			{
 				VideoEngine.log_Renamed.error("Failed to capture RAM: " + e.Message);
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 			}
 		}
 
@@ -241,8 +241,8 @@ namespace pspsharp.graphics.capture
 			catch (Exception e)
 			{
 				VideoEngine.log_Renamed.error("Failed to capture Image: " + e.Message);
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 				Emulator.PauseEmu();
 			}
 		}
@@ -276,8 +276,8 @@ namespace pspsharp.graphics.capture
 			catch (Exception e)
 			{
 				VideoEngine.log_Renamed.error("Failed to capture frame buf details: " + e.Message);
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 				Emulator.PauseEmu();
 			}
 		}

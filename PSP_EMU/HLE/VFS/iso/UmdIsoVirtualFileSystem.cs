@@ -59,7 +59,7 @@ namespace pspsharp.HLE.VFS.iso
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("ioOpen", e);
+				System.Console.WriteLine("ioOpen", e);
 				return null;
 			}
 
@@ -98,18 +98,18 @@ namespace pspsharp.HLE.VFS.iso
 				}
 				catch (FileNotFoundException)
 				{
-					Console.WriteLine(string.Format("ioGetstat - '{0}' umd file/dir not found", fileName));
+					System.Console.WriteLine(string.Format("ioGetstat - '{0}' umd file/dir not found", fileName));
 					return SceKernelErrors.ERROR_ERRNO_FILE_NOT_FOUND;
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("ioGetstat", e);
+					System.Console.WriteLine("ioGetstat", e);
 					return SceKernelErrors.ERROR_ERRNO_FILE_NOT_FOUND;
 				}
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("ioGetstat", e);
+				System.Console.WriteLine("ioGetstat", e);
 				return SceKernelErrors.ERROR_ERRNO_FILE_NOT_FOUND;
 			}
 
@@ -143,16 +143,16 @@ namespace pspsharp.HLE.VFS.iso
 				}
 				else
 				{
-					Console.WriteLine(string.Format("ioDopen file '{0}' is not a directory", dirName));
+					System.Console.WriteLine(string.Format("ioDopen file '{0}' is not a directory", dirName));
 				}
 			}
 			catch (FileNotFoundException)
 			{
-				Console.WriteLine(string.Format("ioDopen directory '{0}' not found", dirName));
+				System.Console.WriteLine(string.Format("ioDopen directory '{0}' not found", dirName));
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("ioDopen", e);
+				System.Console.WriteLine("ioDopen", e);
 			}
 
 			return fileNames;
@@ -167,7 +167,7 @@ namespace pspsharp.HLE.VFS.iso
 				// Get UMD disc type.
 				case 0x01F20001:
 				{
-					Console.WriteLine("ioDevctl get disc type");
+					System.Console.WriteLine("ioDevctl get disc type");
 					if (outputPointer.AddressGood && outputLength >= 8)
 					{
 						// 0 = No disc.
@@ -196,7 +196,7 @@ namespace pspsharp.HLE.VFS.iso
 				// Get UMD current LBA.
 				case 0x01F20002:
 				{
-					Console.WriteLine("ioDevctl get current LBA");
+					System.Console.WriteLine("ioDevctl get current LBA");
 					if (outputPointer.AddressGood && outputLength >= 4)
 					{
 						outputPointer.setValue32(0); // Assume first sector.
@@ -211,13 +211,13 @@ namespace pspsharp.HLE.VFS.iso
 				// Seek UMD disc (raw).
 				case 0x01F100A3:
 				{
-					Console.WriteLine("ioDevctl seek UMD disc");
+					System.Console.WriteLine("ioDevctl seek UMD disc");
 					if (inputPointer.AddressGood && inputLength >= 4)
 					{
 						int sector = inputPointer.getValue32();
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("ioDevctl seek UMD disc: sector={0:D}", sector));
+							System.Console.WriteLine(string.Format("ioDevctl seek UMD disc: sector={0:D}", sector));
 						}
 						result = 0;
 					}
@@ -230,7 +230,7 @@ namespace pspsharp.HLE.VFS.iso
 				// Prepare UMD data into cache.
 				case 0x01F100A4:
 				{
-					Console.WriteLine("ioDevctl prepare UMD data to cache");
+					System.Console.WriteLine("ioDevctl prepare UMD data to cache");
 					if (inputPointer.AddressGood && inputLength >= 16)
 					{
 						// UMD cache read struct (16-bytes).
@@ -240,7 +240,7 @@ namespace pspsharp.HLE.VFS.iso
 						int sectorNum = inputPointer.getValue32(12); // Length of data to read.
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("ioDevctl prepare UMD data to cache: sector={0:D}, sectorNum={1:D}, unk1={2:D}, unk2={3:D}", sector, sectorNum, unk1, unk2));
+							System.Console.WriteLine(string.Format("ioDevctl prepare UMD data to cache: sector={0:D}, sectorNum={1:D}, unk1={2:D}, unk2={3:D}", sector, sectorNum, unk1, unk2));
 						}
 						result = 0;
 					}
@@ -253,7 +253,7 @@ namespace pspsharp.HLE.VFS.iso
 				// Prepare UMD data into cache and get status.
 				case 0x01F300A5:
 				{
-					Console.WriteLine("ioDevctl prepare UMD data to cache and get status");
+					System.Console.WriteLine("ioDevctl prepare UMD data to cache and get status");
 					if (inputPointer.AddressGood && inputLength >= 16 && outputPointer.AddressGood && outputLength >= 4)
 					{
 						// UMD cache read struct (16-bytes).
@@ -263,7 +263,7 @@ namespace pspsharp.HLE.VFS.iso
 						int sectorNum = inputPointer.getValue32(12); // Length of data to read.
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("ioDevctl prepare UMD data to cache and get status: sector={0:D}, sectorNum={1:D}, unk1={2:D}, unk2={3:D}", sector, sectorNum, unk1, unk2));
+							System.Console.WriteLine(string.Format("ioDevctl prepare UMD data to cache and get status: sector={0:D}, sectorNum={1:D}, unk1={2:D}, unk2={3:D}", sector, sectorNum, unk1, unk2));
 						}
 						outputPointer.setValue32(1); // Status (unitary index of the requested read, greater or equal to 1).
 						result = 0;

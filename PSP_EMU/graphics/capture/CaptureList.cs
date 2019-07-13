@@ -94,7 +94,7 @@ namespace pspsharp.graphics.capture
 			data.writeInt(list.StallAddr);
 			data.writeInt(list.cbid);
 
-			//VideoEngine.Console.WriteLine("CaptureList write " + (5 * 4));
+			//VideoEngine.System.Console.WriteLine("CaptureList write " + (5 * 4));
 
 			CaptureHeader header = new CaptureHeader(CaptureHeader.PACKET_TYPE_RAM);
 			header.write(@out);

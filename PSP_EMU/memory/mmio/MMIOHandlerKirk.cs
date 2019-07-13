@@ -308,14 +308,14 @@ namespace pspsharp.memory.mmio
 					outSize = 0;
 					break;
 				default:
-					Console.WriteLine(string.Format("MMIOHandlerKirk.hleUtilsBufferCopyWithRange unimplemented KIRK command 0x{0:X}", command));
+					System.Console.WriteLine(string.Format("MMIOHandlerKirk.hleUtilsBufferCopyWithRange unimplemented KIRK command 0x{0:X}", command));
 					result = PSP_KIRK_INVALID_OPERATION;
 					return 0;
 			}
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("hleUtilsBufferCopyWithRange input: {0}", Utilities.getMemoryDump(inAddr, inSize)));
+				System.Console.WriteLine(string.Format("hleUtilsBufferCopyWithRange input: {0}", Utilities.getMemoryDump(inAddr, inSize)));
 			}
 
 			foreach (int commandToBeDumped in commandsToBeDumped)
@@ -323,7 +323,7 @@ namespace pspsharp.memory.mmio
 				if (command == commandToBeDumped)
 				{
 					string dumpFileName = string.Format("dump.hleUtilsBufferCopyWithRange.{0:D}", dumpIndex++);
-					Console.WriteLine(string.Format("MMIOHandlerKirk: hleUtilsBufferCopyWithRange dumping command=0x{0:X}, outputSize=0x{1:X}, inputSize=0x{2:X}, input dumped into file '{3}'", command, outSize, inSize, dumpFileName));
+					System.Console.WriteLine(string.Format("MMIOHandlerKirk: hleUtilsBufferCopyWithRange dumping command=0x{0:X}, outputSize=0x{1:X}, inputSize=0x{2:X}, input dumped into file '{3}'", command, outSize, inSize, dumpFileName));
 					try
 					{
 						System.IO.Stream dump = new System.IO.FileStream(dumpFileName, System.IO.FileMode.Create, System.IO.FileAccess.Write);
@@ -345,13 +345,13 @@ namespace pspsharp.memory.mmio
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("hleUtilsBufferCopyWithRange result=0x{0:X}, output: {1}", result, Utilities.getMemoryDump(outAddr, outSize)));
+				System.Console.WriteLine(string.Format("hleUtilsBufferCopyWithRange result=0x{0:X}, output: {1}", result, Utilities.getMemoryDump(outAddr, outSize)));
 			}
 
 			if (result != 0)
 			{
 				string dumpFileName = string.Format("dump.hleUtilsBufferCopyWithRange.{0:D}", dumpIndex++);
-				Console.WriteLine(string.Format("MMIOHandlerKirk: hleUtilsBufferCopyWithRange returned error result=0x{0:X} for command=0x{1:X}, outputSize=0x{2:X}, inputSize=0x{3:X}, input dumped into file '{4}'", result, command, outSize, inSize, dumpFileName));
+				System.Console.WriteLine(string.Format("MMIOHandlerKirk: hleUtilsBufferCopyWithRange returned error result=0x{0:X} for command=0x{1:X}, outputSize=0x{2:X}, inputSize=0x{3:X}, input dumped into file '{4}'", result, command, outSize, inSize, dumpFileName));
 				try
 				{
 					System.IO.Stream dump = new System.IO.FileStream(dumpFileName, System.IO.FileMode.Create, System.IO.FileAccess.Write);
@@ -391,7 +391,7 @@ namespace pspsharp.memory.mmio
 					setStatus(STATUS_PHASE1_MASK, STATUS_PHASE1_IN_PROGRESS);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("KIRK startProcessing 1 on {0}", this));
+						System.Console.WriteLine(string.Format("KIRK startProcessing 1 on {0}", this));
 					}
 
 					int size = hleUtilsBufferCopyWithRange();
@@ -404,7 +404,7 @@ namespace pspsharp.memory.mmio
 						Scheduler.Instance.addAction(completePhase1Schedule, completePhase1Action);
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("KIRK delaying completion of phase 1 by {0:D} us", delayUs));
+							System.Console.WriteLine(string.Format("KIRK delaying completion of phase 1 by {0:D} us", delayUs));
 						}
 					}
 					else
@@ -414,11 +414,11 @@ namespace pspsharp.memory.mmio
 					break;
 				case 2:
 					setStatus(STATUS_PHASE2_MASK, STATUS_PHASE2_IN_PROGRESS);
-					Console.WriteLine(string.Format("Unimplemented Phase 2 KIRK command 0x{0:X} on {1}", command, this));
-					Console.WriteLine(string.Format("source: {0}", Utilities.getMemoryDump(Memory, normalizeAddress(sourceAddr), 0x100)));
+					System.Console.WriteLine(string.Format("Unimplemented Phase 2 KIRK command 0x{0:X} on {1}", command, this));
+					System.Console.WriteLine(string.Format("source: {0}", Utilities.getMemoryDump(Memory, normalizeAddress(sourceAddr), 0x100)));
 					break;
 				default:
-					Console.WriteLine(string.Format("0x{0:X8} - KIRK unknown startProcessing value 0x{1:X} on {2}", Pc, value, this));
+					System.Console.WriteLine(string.Format("0x{0:X8} - KIRK unknown startProcessing value 0x{1:X} on {2}", Pc, value, this));
 					break;
 			}
 		}
@@ -430,18 +430,18 @@ namespace pspsharp.memory.mmio
 				case 1:
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("KIRK endProcessing 1 on {0}", this));
+						System.Console.WriteLine(string.Format("KIRK endProcessing 1 on {0}", this));
 					}
 					RuntimeContextLLE.clearInterrupt(Processor, PSP_MEMLMD_INTR);
 					break;
 				case 2:
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("KIRK endProcessing 2 on {0}", this));
+						System.Console.WriteLine(string.Format("KIRK endProcessing 2 on {0}", this));
 					}
 					break;
 				default:
-					Console.WriteLine(string.Format("0x{0:X8} - KIRK unknown endProcessing value 0x{1:X} on {2}", Pc, value, this));
+					System.Console.WriteLine(string.Format("0x{0:X8} - KIRK unknown endProcessing value 0x{1:X} on {2}", Pc, value, this));
 					break;
 			}
 		}

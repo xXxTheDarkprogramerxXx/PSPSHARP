@@ -244,7 +244,7 @@ namespace pspsharp.HLE.modules
 					audioDuration = trackDuration;
 					break;
 				default:
-					Console.WriteLine(string.Format("processAtom 'mdhd' unknown track type {0:D}", trackType));
+					System.Console.WriteLine(string.Format("processAtom 'mdhd' unknown track type {0:D}", trackType));
 					break;
 			}
 		}
@@ -278,7 +278,7 @@ namespace pspsharp.HLE.modules
 							case DATA_FORMAT_AVC1:
 								//if (log.DebugEnabled)
 								{
-									Console.WriteLine(string.Format("trackType video {0}", atomToString(dataFormat)));
+									System.Console.WriteLine(string.Format("trackType video {0}", atomToString(dataFormat)));
 								}
 								trackType = TRACK_TYPE_VIDEO;
 
@@ -288,7 +288,7 @@ namespace pspsharp.HLE.modules
 									int videoFrameHeight = read16(content, 42);
 									//if (log.DebugEnabled)
 									{
-										Console.WriteLine(string.Format("Video frame size {0:D}x{1:D}", videoFrameWidth, videoFrameHeight));
+										System.Console.WriteLine(string.Format("Video frame size {0:D}x{1:D}", videoFrameWidth, videoFrameHeight));
 									}
 
 									Modules.sceMpegModule.VideoFrameHeight = videoFrameHeight;
@@ -308,7 +308,7 @@ namespace pspsharp.HLE.modules
 							case DATA_FORMAT_MP4A:
 								//if (log.DebugEnabled)
 								{
-									Console.WriteLine(string.Format("trackType audio {0}", atomToString(dataFormat)));
+									System.Console.WriteLine(string.Format("trackType audio {0}", atomToString(dataFormat)));
 								}
 								trackType = TRACK_TYPE_AUDIO;
 
@@ -318,7 +318,7 @@ namespace pspsharp.HLE.modules
 								}
 								break;
 							default:
-								Console.WriteLine(string.Format("Unknown track type 0x{0:X8}({1})", dataFormat, atomToString(dataFormat)));
+								System.Console.WriteLine(string.Format("Unknown track type 0x{0:X8}({1})", dataFormat, atomToString(dataFormat)));
 								break;
 						}
 
@@ -386,7 +386,7 @@ namespace pspsharp.HLE.modules
 							audioSamplesSize = samplesSize;
 							break;
 						default:
-							Console.WriteLine(string.Format("processAtom 'stsz' unknown track type {0:D}", trackType));
+							System.Console.WriteLine(string.Format("processAtom 'stsz' unknown track type {0:D}", trackType));
 							break;
 					}
 					break;
@@ -418,7 +418,7 @@ namespace pspsharp.HLE.modules
 							audioSamplesDuration = samplesDuration;
 							break;
 						default:
-							Console.WriteLine(string.Format("processAtom 'stts' unknown track type {0:D}", trackType));
+							System.Console.WriteLine(string.Format("processAtom 'stts' unknown track type {0:D}", trackType));
 							break;
 					}
 					break;
@@ -450,7 +450,7 @@ namespace pspsharp.HLE.modules
 							audioSamplesPresentationOffset = samplesPresentationOffset;
 							break;
 						default:
-							Console.WriteLine(string.Format("processAtom 'ctts' unknown track type {0:D}", trackType));
+							System.Console.WriteLine(string.Format("processAtom 'ctts' unknown track type {0:D}", trackType));
 							break;
 					}
 					break;
@@ -527,7 +527,7 @@ namespace pspsharp.HLE.modules
 							audioSamplesOffset = samplesOffset;
 							break;
 						default:
-							Console.WriteLine(string.Format("processAtom 'stco' unknown track type {0:D}", trackType));
+							System.Console.WriteLine(string.Format("processAtom 'stco' unknown track type {0:D}", trackType));
 							break;
 					}
 					break;
@@ -559,7 +559,7 @@ namespace pspsharp.HLE.modules
 							audioSyncSamples = syncSamples;
 							break;
 						default:
-							Console.WriteLine(string.Format("processAtom 'stss' unknown track type {0:D}", trackType));
+							System.Console.WriteLine(string.Format("processAtom 'stss' unknown track type {0:D}", trackType));
 							break;
 					}
 					break;
@@ -614,7 +614,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("parseAtoms atom=0x{0:X8}({1}), size=0x{2:X}, offset=0x{3:X}", atom, atomToString(atom), atomSize, parseOffset + offset));
+					System.Console.WriteLine(string.Format("parseAtoms atom=0x{0:X8}({1}), size=0x{2:X}, offset=0x{3:X}", atom, atomToString(atom), atomSize, parseOffset + offset));
 				}
 
 				if (atomSize <= 0)
@@ -702,7 +702,7 @@ namespace pspsharp.HLE.modules
 				int header3 = read32(mem, readBufferAddr + 8);
 				if (header1 < 12 || header2 != ATOM_FTYP || (header3 != FILE_TYPE_MSNV && header3 != FILE_TYPE_ISOM && header3 != FILE_TYPE_MP42))
 				{
-					Console.WriteLine(string.Format("Invalid MP4 file header 0x{0:X8} 0x{1:X8} 0x{2:X8}: {3}", header1, header2, header3, Utilities.getMemoryDump(readBufferAddr, System.Math.Min(16, readSize))));
+					System.Console.WriteLine(string.Format("Invalid MP4 file header 0x{0:X8} 0x{1:X8} 0x{2:X8}: {3}", header1, header2, header3, Utilities.getMemoryDump(readBufferAddr, System.Math.Min(16, readSize))));
 					readSize = 0;
 				}
 			}
@@ -732,7 +732,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("afterReadHeadersSeek seek=0x{0:X}", seek));
+				System.Console.WriteLine(string.Format("afterReadHeadersSeek seek=0x{0:X}", seek));
 			}
 
 			callReadCallback(null, new AfterReadHeadersRead(this), readBufferAddr, readBufferSize);
@@ -781,7 +781,7 @@ namespace pspsharp.HLE.modules
 				return videoSamplesOffset[sample];
 			}
 
-			Console.WriteLine(string.Format("getSampleOffset unknown trackType=0x{0:X}", trackType));
+			System.Console.WriteLine(string.Format("getSampleOffset unknown trackType=0x{0:X}", trackType));
 
 			return -1;
 		}
@@ -810,7 +810,7 @@ namespace pspsharp.HLE.modules
 				return videoSamplesSize[sample];
 			}
 
-			Console.WriteLine(string.Format("getSampleSize unknown trackType=0x{0:X}", trackType));
+			System.Console.WriteLine(string.Format("getSampleSize unknown trackType=0x{0:X}", trackType));
 
 			return -1;
 		}
@@ -839,7 +839,7 @@ namespace pspsharp.HLE.modules
 				return videoSamplesDuration[sample];
 			}
 
-			Console.WriteLine(string.Format("getSampleDuration unknown trackType=0x{0:X}", trackType));
+			System.Console.WriteLine(string.Format("getSampleDuration unknown trackType=0x{0:X}", trackType));
 
 			return -1;
 		}
@@ -868,7 +868,7 @@ namespace pspsharp.HLE.modules
 				return videoSamplesPresentationOffset[sample];
 			}
 
-			Console.WriteLine(string.Format("getSamplePresentationOffset unknown trackType=0x{0:X}", trackType));
+			System.Console.WriteLine(string.Format("getSamplePresentationOffset unknown trackType=0x{0:X}", trackType));
 
 			return 0;
 		}
@@ -1166,7 +1166,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("callReadCallback readAddr=0x{0:X8}, readBytes=0x{1:X}", readAddr, readBytes));
+				System.Console.WriteLine(string.Format("callReadCallback readAddr=0x{0:X8}, readBytes=0x{1:X}", readAddr, readBytes));
 			}
 			Modules.ThreadManForUserModule.executeCallback(thread, callbackRead, afterAction, false, callbackParam, readAddr, readBytes);
 		}
@@ -1175,7 +1175,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("callGetCurrentPositionCallback"));
+				System.Console.WriteLine(string.Format("callGetCurrentPositionCallback"));
 			}
 			Modules.ThreadManForUserModule.executeCallback(thread, callbackGetCurrentPosition, afterAction, false, callbackParam);
 		}
@@ -1184,7 +1184,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("callSeekCallback offset=0x{0:X}, whence={1}", offset, IoFileMgrForUser.getWhenceName(whence)));
+				System.Console.WriteLine(string.Format("callSeekCallback offset=0x{0:X}, whence={1}", offset, IoFileMgrForUser.getWhenceName(whence)));
 			}
 			Modules.ThreadManForUserModule.executeCallback(thread, callbackSeek, afterAction, false, callbackParam, 0, unchecked((int)(offset & 0xFFFFFFFF)), (int)((long)((ulong)offset >> 32)), whence);
 		}
@@ -1219,7 +1219,7 @@ namespace pspsharp.HLE.modules
 			callbackRead = callbacks.getValue(12);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMp4 callbacks: param=0x{0:X8}, getCurrentPosition=0x{1:X8}, seek=0x{2:X8}, read=0x{3:X8}", callbackParam, callbackGetCurrentPosition, callbackSeek, callbackRead));
+				System.Console.WriteLine(string.Format("sceMp4 callbacks: param=0x{0:X8}, getCurrentPosition=0x{1:X8}, seek=0x{2:X8}, read=0x{3:X8}", callbackParam, callbackGetCurrentPosition, callbackSeek, callbackRead));
 			}
 		}
 
@@ -1315,7 +1315,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMp4GetMovieInfo returning numberOfTracks={0:D}, duration=0x{1:X}", movieInfo.getValue(0), movieInfo.getValue(8)));
+				System.Console.WriteLine(string.Format("sceMp4GetMovieInfo returning numberOfTracks={0:D}, duration=0x{1:X}", movieInfo.getValue(0), movieInfo.getValue(8)));
 			}
 
 			return 0;
@@ -1333,7 +1333,7 @@ namespace pspsharp.HLE.modules
 				return audioSamplesOffset != null ? 1 : 0;
 			}
 
-			Console.WriteLine(string.Format("sceMp4GetNumberOfSpecificTrack unknown trackType={0:X}", trackType));
+			System.Console.WriteLine(string.Format("sceMp4GetNumberOfSpecificTrack unknown trackType={0:X}", trackType));
 
 			return 0;
 		}
@@ -1351,7 +1351,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMp4RegistTrack TRACK_TYPE_VIDEO"));
+					System.Console.WriteLine(string.Format("sceMp4RegistTrack TRACK_TYPE_VIDEO"));
 				}
 				track.timeScale = videoTimeScale;
 				track.duration = videoDuration;
@@ -1362,7 +1362,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMp4RegistTrack TRACK_TYPE_AUDIO"));
+					System.Console.WriteLine(string.Format("sceMp4RegistTrack TRACK_TYPE_AUDIO"));
 				}
 				track.timeScale = audioTimeScale;
 				track.duration = audioDuration;
@@ -1389,7 +1389,7 @@ namespace pspsharp.HLE.modules
 			int value = System.Math.Max(numSamples * sampleSize, unknown << 1) + (numSamples << 6) + readBufferSize + 256;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMp4TrackSampleBufQueryMemSize returning 0x{0:X}", value));
+				System.Console.WriteLine(string.Format("sceMp4TrackSampleBufQueryMemSize returning 0x{0:X}", value));
 			}
 
 			return value;
@@ -1634,7 +1634,7 @@ namespace pspsharp.HLE.modules
 			}
 			else
 			{
-				Console.WriteLine(string.Format("sceMp4SearchSyncSampleNum unknown track type 0x{0:X}", track.trackType));
+				System.Console.WriteLine(string.Format("sceMp4SearchSyncSampleNum unknown track type 0x{0:X}", track.trackType));
 				return -1;
 			}
 
@@ -1664,7 +1664,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMp4SearchSyncSampleNum returning 0x{0:X}", syncSample));
+				System.Console.WriteLine(string.Format("sceMp4SearchSyncSampleNum returning 0x{0:X}", syncSample));
 			}
 
 			return syncSample;
@@ -1723,7 +1723,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMp4TrackSampleBufAvailableSize returning writableSamples=0x{0:X}, writableBytes=0x{1:X}, result=0x{2:X8}", writableSamplesAddr.getValue(), writableBytesAddr.getValue(), result));
+				System.Console.WriteLine(string.Format("sceMp4TrackSampleBufAvailableSize returning writableSamples=0x{0:X}, writableBytes=0x{1:X}, result=0x{2:X8}", writableSamplesAddr.getValue(), writableBytesAddr.getValue(), result));
 			}
 
 			return result;
@@ -1782,7 +1782,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMp4GetAacAu returning ERROR_MP4_NO_MORE_DATA"));
+					System.Console.WriteLine(string.Format("sceMp4GetAacAu returning ERROR_MP4_NO_MORE_DATA"));
 				}
 				return SceKernelErrors.ERROR_MP4_NO_MORE_DATA;
 			}
@@ -1858,7 +1858,7 @@ namespace pspsharp.HLE.modules
 
 			if (result < 0)
 			{
-				Console.WriteLine(string.Format("sceMp4AacDecode audio codec returned 0x{0:X8}", result));
+				System.Console.WriteLine(string.Format("sceMp4AacDecode audio codec returned 0x{0:X8}", result));
 				result = SceKernelErrors.ERROR_MP4_AAC_DECODE_ERROR;
 			}
 			else
@@ -1868,7 +1868,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMp4AacDecode returning 0x{0:X}", result));
+				System.Console.WriteLine(string.Format("sceMp4AacDecode returning 0x{0:X}", result));
 			}
 
 			return result;
@@ -1900,7 +1900,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMp4GetAvcAu returning ERROR_MP4_NO_MORE_DATA"));
+					System.Console.WriteLine(string.Format("sceMp4GetAvcAu returning ERROR_MP4_NO_MORE_DATA"));
 				}
 				return SceKernelErrors.ERROR_MP4_NO_MORE_DATA;
 			}

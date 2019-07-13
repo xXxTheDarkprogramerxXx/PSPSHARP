@@ -56,7 +56,7 @@ namespace pspsharp.graphics.export
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("Error writing export.obj file", e);
+					System.Console.WriteLine("Error writing export.obj file", e);
 				}
 			}
 		}
@@ -72,7 +72,7 @@ namespace pspsharp.graphics.export
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("Error writing export.mtl file", e);
+					System.Console.WriteLine("Error writing export.mtl file", e);
 				}
 			}
 		}
@@ -104,7 +104,7 @@ namespace pspsharp.graphics.export
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("Error creating the export files", e);
+				System.Console.WriteLine("Error creating the export files", e);
 			}
 			exportVertexCount = 1;
 			exportModelCount = 1;

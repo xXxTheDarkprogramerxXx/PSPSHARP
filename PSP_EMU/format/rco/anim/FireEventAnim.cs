@@ -29,7 +29,7 @@ namespace pspsharp.format.rco.anim
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("FireEventAnim {0}", @event.Event));
+				System.Console.WriteLine(string.Format("FireEventAnim {0}", @event.Event));
 			}
 
 			@object.Interpreter.interpretScript(@object, @event.Event);

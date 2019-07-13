@@ -180,7 +180,7 @@ namespace pspsharp.format.rco.vsmx.interpreter
 			{
 				if (hasPropertyValue("toString"))
 				{
-					Console.WriteLine(string.Format("getStringValue on VSMXObject should be calling existing toString: {0}", getPropertyValue("toString")));
+					System.Console.WriteLine(string.Format("getStringValue on VSMXObject should be calling existing toString: {0}", getPropertyValue("toString")));
 				}
 				return base.StringValue;
 			}

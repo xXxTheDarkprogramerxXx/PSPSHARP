@@ -75,8 +75,8 @@ namespace pspsharp.memory
 			catch (System.OutOfMemoryException)
 			{
 				// Not enough memory provided for this VM, cannot use FastMemory model
-				Memory.Console.WriteLine("Cannot allocate FastMemory: add the option '-Xmx256m' to the Java Virtual Machine startup command to improve Performance");
-				Memory.Console.WriteLine("The current Java Virtual Machine has been started using '-Xmx" + (Runtime.Runtime.maxMemory() / (1024 * 1024)) + "m'");
+				Memory.System.Console.WriteLine("Cannot allocate FastMemory: add the option '-Xmx256m' to the Java Virtual Machine startup command to improve Performance");
+				Memory.System.Console.WriteLine("The current Java Virtual Machine has been started using '-Xmx" + (Runtime.Runtime.maxMemory() / (1024 * 1024)) + "m'");
 				return false;
 			}
 

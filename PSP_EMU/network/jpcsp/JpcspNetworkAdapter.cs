@@ -173,7 +173,7 @@ namespace pspsharp.network.pspsharp
 		public override void sendChatMessage(string message)
 		{
 			// TODO Implement Chat
-			Console.WriteLine(string.Format("Chat functionality not supported: {0}", message));
+			System.Console.WriteLine(string.Format("Chat functionality not supported: {0}", message));
 		}
 
 		public override bool ConnectComplete
@@ -223,17 +223,17 @@ namespace pspsharp.network.pspsharp
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("broadcast sent to peer[{0}]: {1}", socketAddress[i], adhocctlMessage));
+						System.Console.WriteLine(string.Format("broadcast sent to peer[{0}]: {1}", socketAddress[i], adhocctlMessage));
 					}
 				}
 			}
 			catch (SocketException e)
 			{
-				Console.WriteLine("broadcastPeers", e);
+				System.Console.WriteLine("broadcastPeers", e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("broadcastPeers", e);
+				System.Console.WriteLine("broadcastPeers", e);
 			}
 		}
 
@@ -254,7 +254,7 @@ namespace pspsharp.network.pspsharp
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("broadcast received from peer: {0}", adhocctlMessage));
+						System.Console.WriteLine(string.Format("broadcast received from peer: {0}", adhocctlMessage));
 					}
 
 					// Ignore messages coming from myself
@@ -291,7 +291,7 @@ namespace pspsharp.network.pspsharp
 			}
 			catch (SocketException e)
 			{
-				Console.WriteLine("broadcastPeers", e);
+				System.Console.WriteLine("broadcastPeers", e);
 			}
 			catch (SocketTimeoutException)
 			{
@@ -299,7 +299,7 @@ namespace pspsharp.network.pspsharp
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("broadcastPeers", e);
+				System.Console.WriteLine("broadcastPeers", e);
 			}
 		}
 

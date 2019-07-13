@@ -248,11 +248,11 @@ namespace pspsharp.HLE.modules
 				}
 				catch (MalformedURLException e)
 				{
-					Console.WriteLine("HttpRequest.send", e);
+					System.Console.WriteLine("HttpRequest.send", e);
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("HttpRequest.send", e);
+					System.Console.WriteLine("HttpRequest.send", e);
 				}
 			}
 
@@ -275,11 +275,11 @@ namespace pspsharp.HLE.modules
 				}
 				catch (FileNotFoundException e)
 				{
-					Console.WriteLine("HttpRequest.readData", e);
+					System.Console.WriteLine("HttpRequest.readData", e);
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine("HttpRequest.readData", e);
+					System.Console.WriteLine("HttpRequest.readData", e);
 				}
 
 				if (bufferLength > 0)
@@ -336,7 +336,7 @@ namespace pspsharp.HLE.modules
 						}
 						catch (IOException e)
 						{
-							Console.WriteLine("HttpRequest.getStatusCode", e);
+							System.Console.WriteLine("HttpRequest.getStatusCode", e);
 						}
 					}
     
@@ -663,7 +663,7 @@ namespace pspsharp.HLE.modules
 			int addr = TempMemory;
 			if (addr == 0)
 			{
-				Console.WriteLine(string.Format("sceHttpInit cannot allocate 0x{0:X} bytes", maxMemSize));
+				System.Console.WriteLine(string.Format("sceHttpInit cannot allocate 0x{0:X} bytes", maxMemSize));
 				return -1;
 			}
 
@@ -724,7 +724,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceHttpGetContentLength request {0} returning 0x{1:X}, contentLength=0x{2:X}", httpRequest, result, contentLengthAddr.Value));
+				System.Console.WriteLine(string.Format("sceHttpGetContentLength request {0} returning 0x{1:X}, contentLength=0x{2:X}", httpRequest, result, contentLengthAddr.Value));
 			}
 
 			return result;
@@ -977,7 +977,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceHttpGetStatusCode on request {0} returning statusCode={1:D}", httpRequest, statusCode.getValue()));
+				System.Console.WriteLine(string.Format("sceHttpGetStatusCode on request {0} returning statusCode={1:D}", httpRequest, statusCode.getValue()));
 			}
 
 			return 0;
@@ -1039,7 +1039,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceHttpAddCookie for URL '{0}': '{1}'", url.String, cookie));
+				System.Console.WriteLine(string.Format("sceHttpAddCookie for URL '{0}': '{1}'", url.String, cookie));
 			}
 
 			return 0;
@@ -1384,7 +1384,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceHttpGetAllHeader returning at 0x{0:X8}: {1}", addr, Utilities.getMemoryDump(addr, headerLengthAddr.getValue())));
+				System.Console.WriteLine(string.Format("sceHttpGetAllHeader returning at 0x{0:X8}: {1}", addr, Utilities.getMemoryDump(addr, headerLengthAddr.getValue())));
 			}
 
 			return 0;
@@ -1416,7 +1416,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceHttpReadData returning 0x{0:X}: {1}", readSize, Utilities.getMemoryDump(data.Address, readSize)));
+				System.Console.WriteLine(string.Format("sceHttpReadData returning 0x{0:X}: {1}", readSize, Utilities.getMemoryDump(data.Address, readSize)));
 			}
 
 			return readSize;

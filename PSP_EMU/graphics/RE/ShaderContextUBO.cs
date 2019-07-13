@@ -358,7 +358,7 @@ namespace pspsharp.graphics.RE
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Uniform {0}", shaderUniformInfo));
+						System.Console.WriteLine(string.Format("Uniform {0}", shaderUniformInfo));
 					}
 
 					previousOffset = offset;
@@ -384,7 +384,7 @@ namespace pspsharp.graphics.RE
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("UBO Structure size: {0:D} (including endOfUBO)", bufferSize));
+					System.Console.WriteLine(string.Format("UBO Structure size: {0:D} (including endOfUBO)", bufferSize));
 				}
 
 				buffer = re.genBuffer();

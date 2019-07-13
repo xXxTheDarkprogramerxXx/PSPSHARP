@@ -125,8 +125,8 @@ namespace pspsharp.log
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine(e.ToString());
-				Console.Write(e.StackTrace);
+				System.Console.WriteLine(e.ToString());
+				System.Console.Write(e.StackTrace);
 			}
 			System.setProperty("log4j.properties", confFile);
 			DOMConfigurator.configure(confFile);

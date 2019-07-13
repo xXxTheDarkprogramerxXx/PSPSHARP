@@ -59,7 +59,7 @@ namespace pspsharp.Allegrex.compiler.nativeCode
 				}
 				else
 				{
-					Compiler.Console.WriteLine(string.Format("Incorrect Branch Instruction at 0x{0:X8} - {1}", branchInstructionAddress, branchInsn.disasm(branchInstructionAddress, branchOpcode)));
+					Compiler.System.Console.WriteLine(string.Format("Incorrect Branch Instruction at 0x{0:X8} - {1}", branchInstructionAddress, branchInsn.disasm(branchInstructionAddress, branchOpcode)));
 				}
 			}
 

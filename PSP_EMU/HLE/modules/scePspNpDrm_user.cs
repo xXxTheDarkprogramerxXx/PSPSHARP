@@ -107,7 +107,7 @@ namespace pspsharp.HLE.modules
 			NpDrmKeyStatus = true;
 			if (log.InfoEnabled)
 			{
-				Console.WriteLine(string.Format("NPDRM Encryption key detected: 0x{0}", key.ToString()));
+				System.Console.WriteLine(string.Format("NPDRM Encryption key detected: 0x{0}", key.ToString()));
 			}
 
 			return 0;
@@ -156,7 +156,7 @@ namespace pspsharp.HLE.modules
 						// Discard the error in this situatuion.
 						if (!DisableDLCStatus)
 						{
-							Console.WriteLine("sceNpDrmRenameCheck: invalid file size");
+							System.Console.WriteLine("sceNpDrmRenameCheck: invalid file size");
 							result = SceKernelErrors.ERROR_NPDRM_INVALID_FILE;
 						}
 						file.Dispose();
@@ -184,7 +184,7 @@ namespace pspsharp.HLE.modules
 							if (!DisableDLCStatus)
 							{
 								result = SceKernelErrors.ERROR_NPDRM_NO_FILENAME_MATCH;
-								Console.WriteLine("sceNpDrmRenameCheck: the file has been renamed");
+								System.Console.WriteLine("sceNpDrmRenameCheck: the file has been renamed");
 							}
 						}
 					}
@@ -194,12 +194,12 @@ namespace pspsharp.HLE.modules
 					result = SceKernelErrors.ERROR_NPDRM_INVALID_FILE;
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceNpDrmRenameCheck: file '{0}' not found: {1}", fileName.String, e.ToString()));
+						System.Console.WriteLine(string.Format("sceNpDrmRenameCheck: file '{0}' not found: {1}", fileName.String, e.ToString()));
 					}
 				}
 				catch (Exception e)
 				{
-					Console.WriteLine("sceNpDrmRenameCheck", e);
+					System.Console.WriteLine("sceNpDrmRenameCheck", e);
 				}
 			}
 
@@ -261,7 +261,7 @@ namespace pspsharp.HLE.modules
 					}
 					catch (IOException e)
 					{
-						Console.WriteLine("sceNpDrmEdataGetDataSize", e);
+						System.Console.WriteLine("sceNpDrmEdataGetDataSize", e);
 					}
 				}
 			}
@@ -295,14 +295,14 @@ namespace pspsharp.HLE.modules
 				lmOption.read(optionAddr);
 				if (log.InfoEnabled)
 				{
-					Console.WriteLine(string.Format("sceKernelLoadModuleNpDrm options: {0}", lmOption));
+					System.Console.WriteLine(string.Format("sceKernelLoadModuleNpDrm options: {0}", lmOption));
 				}
 			}
 
 			// SPRX modules can't be decrypted yet.
 			if (!DisableDLCStatus)
 			{
-				Console.WriteLine(string.Format("sceKernelLoadModuleNpDrm detected encrypted DLC module: {0}", path.String));
+				System.Console.WriteLine(string.Format("sceKernelLoadModuleNpDrm detected encrypted DLC module: {0}", path.String));
 				return SceKernelErrors.ERROR_NPDRM_INVALID_PERM;
 			}
 
@@ -333,14 +333,14 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceKernelLoadExecNpDrm (params: optSize={0:D}, argSize={1:D}, argAddr=0x{2:X8}, keyAddr=0x{3:X8})", optSize, argSize, argAddr, keyAddr));
+					System.Console.WriteLine(string.Format("sceKernelLoadExecNpDrm (params: optSize={0:D}, argSize={1:D}, argAddr=0x{2:X8}, keyAddr=0x{3:X8})", optSize, argSize, argAddr, keyAddr));
 				}
 			}
 
 			// SPRX modules can't be decrypted yet.
 			if (!DisableDLCStatus)
 			{
-				Console.WriteLine(string.Format("sceKernelLoadModuleNpDrm detected encrypted DLC module: {0}", fileName.String));
+				System.Console.WriteLine(string.Format("sceKernelLoadModuleNpDrm detected encrypted DLC module: {0}", fileName.String));
 				return SceKernelErrors.ERROR_NPDRM_INVALID_PERM;
 			}
 
@@ -364,7 +364,7 @@ namespace pspsharp.HLE.modules
 					}
 					else
 					{
-						Console.WriteLine("sceKernelLoadExecNpDrm - failed, target is not an ELF");
+						System.Console.WriteLine("sceKernelLoadExecNpDrm - failed, target is not an ELF");
 						result = SceKernelErrors.ERROR_KERNEL_ILLEGAL_LOADEXEC_FILENAME;
 					}
 				}
@@ -375,12 +375,12 @@ namespace pspsharp.HLE.modules
 			}
 			catch (GeneralJpcspException e)
 			{
-				Console.WriteLine("sceKernelLoadExecNpDrm", e);
+				System.Console.WriteLine("sceKernelLoadExecNpDrm", e);
 				result = SceKernelErrors.ERROR_KERNEL_PROHIBIT_LOADEXEC_DEVICE;
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(string.Format("sceKernelLoadExecNpDrm - Error while loading module '{0}'", fileName), e);
+				System.Console.WriteLine(string.Format("sceKernelLoadExecNpDrm - Error while loading module '{0}'", fileName), e);
 				result = SceKernelErrors.ERROR_KERNEL_PROHIBIT_LOADEXEC_DEVICE;
 			}
 

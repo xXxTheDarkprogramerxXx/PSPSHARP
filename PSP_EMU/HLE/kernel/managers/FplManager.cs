@@ -101,7 +101,7 @@ namespace pspsharp.HLE.kernel.managers
 			}
 			else
 			{
-				Console.WriteLine("FPL deleted while we were waiting for it! (timeout expired)");
+				System.Console.WriteLine("FPL deleted while we were waiting for it! (timeout expired)");
 				// Return WAIT_DELETE
 				thread.cpuContext._v0 = ERROR_KERNEL_WAIT_DELETE;
 			}
@@ -117,7 +117,7 @@ namespace pspsharp.HLE.kernel.managers
 			}
 			else
 			{
-				Console.WriteLine("EventFlag deleted while we were waiting for it!");
+				System.Console.WriteLine("EventFlag deleted while we were waiting for it!");
 				// Return WAIT_DELETE
 				thread.cpuContext._v0 = ERROR_KERNEL_WAIT_DELETE;
 			}
@@ -182,7 +182,7 @@ namespace pspsharp.HLE.kernel.managers
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("onFplFree waking thread {0}", thread));
+						System.Console.WriteLine(string.Format("onFplFree waking thread {0}", thread));
 					}
 					// Return the allocated address
 					thread.wait.Fpl_dataAddr.setValue(addr);
@@ -213,7 +213,7 @@ namespace pspsharp.HLE.kernel.managers
 
 			if (info.freeBlocks == 0 || (block = info.findFreeBlock()) == -1)
 			{
-				Console.WriteLine("tryAllocateFpl no free blocks (numBlocks=" + info.numBlocks + ")");
+				System.Console.WriteLine("tryAllocateFpl no free blocks (numBlocks=" + info.numBlocks + ")");
 				return 0;
 			}
 			addr = info.allocateBlock(block);
@@ -226,7 +226,7 @@ namespace pspsharp.HLE.kernel.managers
 			SceUidManager.checkUidPurpose(uid, "ThreadMan-Fpl", true);
 			if (!fplMap.ContainsKey(uid))
 			{
-				Console.WriteLine(string.Format("checkFplID unknown uid=0x{0:X}", uid));
+				System.Console.WriteLine(string.Format("checkFplID unknown uid=0x{0:X}", uid));
 				throw new SceKernelErrorException(ERROR_KERNEL_NOT_FOUND_FPOOL);
 			}
 
@@ -265,27 +265,27 @@ namespace pspsharp.HLE.kernel.managers
 					}
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceKernelCreateFpl options: struct size={0:D}, alignment=0x{1:X}", optParams.@sizeof(), optParams.align));
+						System.Console.WriteLine(string.Format("sceKernelCreateFpl options: struct size={0:D}, alignment=0x{1:X}", optParams.@sizeof(), optParams.align));
 					}
 				}
 				else
 				{
-					Console.WriteLine(string.Format("sceKernelCreateFpl option at {0}, size={1:D}", option, optionSize));
+					System.Console.WriteLine(string.Format("sceKernelCreateFpl option at {0}, size={1:D}", option, optionSize));
 				}
 			}
 			if ((attr & ~PSP_FPL_ATTR_MASK) != 0)
 			{
-				Console.WriteLine(string.Format("sceKernelCreateFpl bad attr value 0x{0:X}", attr));
+				System.Console.WriteLine(string.Format("sceKernelCreateFpl bad attr value 0x{0:X}", attr));
 				return ERROR_KERNEL_ILLEGAL_ATTR;
 			}
 			if (blocksize <= 0)
 			{
-				Console.WriteLine(string.Format("sceKernelCreateFpl bad blocksize {0:D}", blocksize));
+				System.Console.WriteLine(string.Format("sceKernelCreateFpl bad blocksize {0:D}", blocksize));
 				return ERROR_KERNEL_ILLEGAL_MEMSIZE;
 			}
 			if (blocks <= 0)
 			{
-				Console.WriteLine(string.Format("sceKernelCreateFpl bad number of blocks {0:D}", blocks));
+				System.Console.WriteLine(string.Format("sceKernelCreateFpl bad number of blocks {0:D}", blocks));
 				return ERROR_KERNEL_ILLEGAL_MEMSIZE;
 			}
 			if (blocks * blocksize < 0)
@@ -305,7 +305,7 @@ namespace pspsharp.HLE.kernel.managers
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceKernelCreateFpl returning {0}", info));
+				System.Console.WriteLine(string.Format("sceKernelCreateFpl returning {0}", info));
 			}
 			fplMap[info.uid] = info;
 
@@ -317,7 +317,7 @@ namespace pspsharp.HLE.kernel.managers
 			SceKernelFplInfo info = fplMap.Remove(uid);
 			if (info.freeBlocks < info.numBlocks)
 			{
-				Console.WriteLine(string.Format("sceKernelDeleteFpl {0} unfreed blocks, deleting", info.numBlocks - info.freeBlocks));
+				System.Console.WriteLine(string.Format("sceKernelDeleteFpl {0} unfreed blocks, deleting", info.numBlocks - info.freeBlocks));
 			}
 			info.deleteSysMemInfo();
 			onFplDeleted(uid);
@@ -334,7 +334,7 @@ namespace pspsharp.HLE.kernel.managers
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("hleKernelAllocateFpl {0} fast check failed", fpl));
+					System.Console.WriteLine(string.Format("hleKernelAllocateFpl {0} fast check failed", fpl));
 				}
 				if (!wait)
 				{
@@ -352,7 +352,7 @@ namespace pspsharp.HLE.kernel.managers
 				// Success, do not reschedule the current thread.
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("hleKernelAllocateFpl {0} fast check succeeded", fpl));
+					System.Console.WriteLine(string.Format("hleKernelAllocateFpl {0} fast check succeeded", fpl));
 				}
 				dataAddr.setValue(addr);
 			}
@@ -381,7 +381,7 @@ namespace pspsharp.HLE.kernel.managers
 			int block = info.findBlockByAddress(dataAddr.Address);
 			if (block < 0)
 			{
-				Console.WriteLine(string.Format("sceKernelFreeFpl unknown block address={0}", dataAddr));
+				System.Console.WriteLine(string.Format("sceKernelFreeFpl unknown block address={0}", dataAddr));
 				return ERROR_KERNEL_ILLEGAL_MEMBLOCK;
 			}
 

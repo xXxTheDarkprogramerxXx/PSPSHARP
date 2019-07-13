@@ -158,7 +158,7 @@ namespace pspsharp.graphics.RE.software
 						Array.Copy(pixel.modelViewMatrix, 0, pixel.normalMatrix, 0, pixel.normalMatrix.Length);
 						if (isLogDebugEnabled)
 						{
-							Console.WriteLine(string.Format("ModelView matrix cannot be inverted, taking the Model-View matrix itself!"));
+							System.Console.WriteLine(string.Format("ModelView matrix cannot be inverted, taking the Model-View matrix itself!"));
 						}
 					}
 				}
@@ -1068,7 +1068,7 @@ namespace pspsharp.graphics.RE.software
 			Array.Sort(sortedPixelsStatistics);
 			foreach (DurationStatistics durationStatistics in sortedPixelsStatistics)
 			{
-				Console.WriteLine(durationStatistics);
+				System.Console.WriteLine(durationStatistics);
 			}
 		}
 

@@ -64,17 +64,17 @@ namespace pspsharp.HLE.modules
 				case 0x100: // Called by __sceSasCore
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceMeCore_driver_FA398D71 cmd=0x{0:X}(__sceSasCore), {1}", cmd, logParameters(cpu, _a1, 3)));
+						System.Console.WriteLine(string.Format("sceMeCore_driver_FA398D71 cmd=0x{0:X}(__sceSasCore), {1}", cmd, logParameters(cpu, _a1, 3)));
 					}
 					break;
 				case 0x101: // Called by __sceSasCoreWithMix
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceMeCore_driver_FA398D71 cmd=0x{0:X}(__sceSasCoreWithMix), {1}", cmd, logParameters(cpu, _a1, 5)));
+						System.Console.WriteLine(string.Format("sceMeCore_driver_FA398D71 cmd=0x{0:X}(__sceSasCoreWithMix), {1}", cmd, logParameters(cpu, _a1, 5)));
 					}
 					break;
 				default:
-					Console.WriteLine(string.Format("sceMeCore_driver_FA398D71 unknown cmd=0x{0:X}, {1}", cmd, logParameters(cpu, _a1, 7)));
+					System.Console.WriteLine(string.Format("sceMeCore_driver_FA398D71 unknown cmd=0x{0:X}, {1}", cmd, logParameters(cpu, _a1, 7)));
 				break;
 			}
 			return 0;

@@ -64,7 +64,7 @@ namespace pspsharp.network.adhoc
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("BlockedPdpAction for thread {0}", thread));
+					System.Console.WriteLine(string.Format("BlockedPdpAction for thread {0}", thread));
 				}
 			}
 
@@ -79,7 +79,7 @@ namespace pspsharp.network.adhoc
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("BlockedPdpAction: poll on {0}, thread {1}", pdpObject, thread));
+					System.Console.WriteLine(string.Format("BlockedPdpAction: poll on {0}, thread {1}", pdpObject, thread));
 				}
 
 				try
@@ -88,7 +88,7 @@ namespace pspsharp.network.adhoc
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("BlockedPdpAction: unblocking thread {0}", thread));
+							System.Console.WriteLine(string.Format("BlockedPdpAction: unblocking thread {0}", thread));
 						}
 						Modules.ThreadManForUserModule.hleUnblockThread(threadUid);
 					}
@@ -99,7 +99,7 @@ namespace pspsharp.network.adhoc
 						{
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("BlockedPdpAction: timeout for thread {0}", thread));
+								System.Console.WriteLine(string.Format("BlockedPdpAction: timeout for thread {0}", thread));
 							}
 							// Unblock thread and return timeout error
 							setReturnValue(thread, SceKernelErrors.ERROR_NET_ADHOC_TIMEOUT);
@@ -109,7 +109,7 @@ namespace pspsharp.network.adhoc
 						{
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("BlockedPdpAction: continue polling"));
+								System.Console.WriteLine(string.Format("BlockedPdpAction: continue polling"));
 							}
 							long schedule = now + BLOCKED_OPERATION_POLLING_MICROS;
 							Emulator.Scheduler.addAction(schedule, this);
@@ -119,7 +119,7 @@ namespace pspsharp.network.adhoc
 				catch (IOException e)
 				{
 					setReturnValue(thread, getExceptionResult(e));
-					Console.WriteLine(this.GetType().Name, e);
+					System.Console.WriteLine(this.GetType().Name, e);
 				}
 			}
 
@@ -202,21 +202,21 @@ namespace pspsharp.network.adhoc
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine("create", e);
+					System.Console.WriteLine("create", e);
 				}
 				result = SceKernelErrors.ERROR_NET_ADHOC_PORT_IN_USE;
 			}
 			catch (SocketException e)
 			{
-				Console.WriteLine("create", e);
+				System.Console.WriteLine("create", e);
 			}
 			catch (UnknownHostException e)
 			{
-				Console.WriteLine("create", e);
+				System.Console.WriteLine("create", e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("create", e);
+				System.Console.WriteLine("create", e);
 			}
 
 			return result;
@@ -235,20 +235,20 @@ namespace pspsharp.network.adhoc
 			}
 			catch (SocketException e)
 			{
-				Console.WriteLine("send", e);
+				System.Console.WriteLine("send", e);
 			}
 			catch (UnknownHostException e)
 			{
 				result = SceKernelErrors.ERROR_NET_ADHOC_INVALID_ADDR;
-				Console.WriteLine("send", e);
+				System.Console.WriteLine("send", e);
 			}
 			catch (SocketTimeoutException e)
 			{
-				Console.WriteLine("send", e);
+				System.Console.WriteLine("send", e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("send", e);
+				System.Console.WriteLine("send", e);
 			}
 
 			return result;
@@ -270,7 +270,7 @@ namespace pspsharp.network.adhoc
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Successfully received {0:D} bytes from {1} on port {2:D}({3:D})", bufferMessage.Length, bufferMessage.macAddress, bufferMessage.port, port));
+				System.Console.WriteLine(string.Format("Successfully received {0:D} bytes from {1} on port {2:D}({3:D})", bufferMessage.Length, bufferMessage.macAddress, bufferMessage.port, port));
 				if (log.TraceEnabled)
 				{
 					log.trace(string.Format("Message data: {0}", Utilities.getMemoryDump(buffer.addr + bufferMessage.offset, bufferMessage.Length)));
@@ -330,7 +330,7 @@ namespace pspsharp.network.adhoc
 			catch (IOException e)
 			{
 				result = SceKernelErrors.ERROR_NET_ADHOC_DISCONNECTED;
-				Console.WriteLine("recv", e);
+				System.Console.WriteLine("recv", e);
 			}
 
 			return result;
@@ -376,7 +376,7 @@ namespace pspsharp.network.adhoc
 
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Returned received data: {0:D} bytes from {1} on port {2:D}", dataLengthAddr.getValue(), bufferMessage.macAddress, portAddr.Value));
+						System.Console.WriteLine(string.Format("Returned received data: {0:D} bytes from {1} on port {2:D}", dataLengthAddr.getValue(), bufferMessage.macAddress, portAddr.Value));
 						if (log.TraceEnabled)
 						{
 							log.trace(string.Format("Returned data: {0}", Utilities.getMemoryDump(data.Address, dataLengthAddr.getValue())));
@@ -420,7 +420,7 @@ namespace pspsharp.network.adhoc
 						{
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("Discarded message, receive buffer full ({0:D} of {1:D}): {2}", RcvdData, BufSize, adhocMessage));
+								System.Console.WriteLine(string.Format("Discarded message, receive buffer full ({0:D} of {1:D}): {2}", RcvdData, BufSize, adhocMessage));
 							}
 						}
 					}
@@ -428,13 +428,13 @@ namespace pspsharp.network.adhoc
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Received message not for me: {0}", adhocMessage));
+							System.Console.WriteLine(string.Format("Received message not for me: {0}", adhocMessage));
 						}
 					}
 				}
 				catch (SocketException e)
 				{
-					Console.WriteLine("update", e);
+					System.Console.WriteLine("update", e);
 					break;
 				}
 				catch (SocketTimeoutException)

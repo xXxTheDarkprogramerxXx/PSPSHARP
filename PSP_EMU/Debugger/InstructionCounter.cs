@@ -276,13 +276,13 @@ namespace pspsharp.Debugger
 			}
 			catch (FileNotFoundException ex)
 			{
-				Console.WriteLine(ex.ToString());
-				Console.Write(ex.StackTrace);
+				System.Console.WriteLine(ex.ToString());
+				System.Console.Write(ex.StackTrace);
 			}
 			catch (IOException ex)
 			{
-				Console.WriteLine(ex.ToString());
-				Console.Write(ex.StackTrace);
+				System.Console.WriteLine(ex.ToString());
+				System.Console.Write(ex.StackTrace);
 			}
 			finally
 			{

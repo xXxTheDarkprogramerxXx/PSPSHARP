@@ -272,7 +272,7 @@ namespace pspsharp.HLE.modules
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceMpegBasePESpacketCopy packet at 0x{0:X8}: bufferAddr=0x{1:X8}, destinationAddr=0x{2:X8}, nextInfoAddr=0x{3:X8}, bufferLength=0x{4:X}: {5}", infoAddr, bufferAddr, destinationAddr, nextInfoAddr, bufferLength, Utilities.getMemoryDump(bufferAddr, bufferLength)));
+					System.Console.WriteLine(string.Format("sceMpegBasePESpacketCopy packet at 0x{0:X8}: bufferAddr=0x{1:X8}, destinationAddr=0x{2:X8}, nextInfoAddr=0x{3:X8}, bufferLength=0x{4:X}: {5}", infoAddr, bufferAddr, destinationAddr, nextInfoAddr, bufferLength, Utilities.getMemoryDump(bufferAddr, bufferLength)));
 				}
 				if (bufferLength == 0)
 				{
@@ -301,8 +301,8 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegBaseYCrCbCopyVme destMpegYCrCbBuffer: {0}", destMpegYCrCbBuffer));
-				Console.WriteLine(string.Format("sceMpegBaseYCrCbCopyVme srcMpegYCrCbBuffer: {0}", srcMpegYCrCbBuffer));
+				System.Console.WriteLine(string.Format("sceMpegBaseYCrCbCopyVme destMpegYCrCbBuffer: {0}", destMpegYCrCbBuffer));
+				System.Console.WriteLine(string.Format("sceMpegBaseYCrCbCopyVme srcMpegYCrCbBuffer: {0}", srcMpegYCrCbBuffer));
 			}
 
 			Memory mem = destBufferYCrCb.Memory;
@@ -333,9 +333,9 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegBaseYCrCbCopy dstStruct: {0}", dstStruct));
-				Console.WriteLine(string.Format("sceMpegBaseYCrCbCopy srcStruct: {0}", srcStruct));
-				Console.WriteLine(string.Format("sceMpegBaseYCrCbCopy size1=0x{0:X}, size2=0x{1:X}", size1, size2));
+				System.Console.WriteLine(string.Format("sceMpegBaseYCrCbCopy dstStruct: {0}", dstStruct));
+				System.Console.WriteLine(string.Format("sceMpegBaseYCrCbCopy srcStruct: {0}", srcStruct));
+				System.Console.WriteLine(string.Format("sceMpegBaseYCrCbCopy size1=0x{0:X}, size2=0x{1:X}", size1, size2));
 			}
 
 			Memory mem = Memory.Instance;
@@ -378,7 +378,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegBaseCscVme sceMpegYCrCbBuffer: {0}", sceMpegYCrCbBuffer));
+				System.Console.WriteLine(string.Format("sceMpegBaseCscVme sceMpegYCrCbBuffer: {0}", sceMpegYCrCbBuffer));
 			}
 
 			int width2 = width >> 1;
@@ -465,7 +465,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegBaseCscAvc {0}", mp4AvcCscStruct));
+				System.Console.WriteLine(string.Format("sceMpegBaseCscAvc {0}", mp4AvcCscStruct));
 			}
 
 			return hleMpegBaseCscAvcRange(bufferRGB, unknown, bufferWidth, mp4AvcCscStruct, rangeX, rangeY, rangeWidth, rangeHeight);
@@ -486,7 +486,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceMpegBaseCscAvcRange range x={0:D}, y={1:D}, width={2:D}, height={3:D}, {4}", rangeX, rangeY, rangeWidth, rangeHeight, mp4AvcCscStruct));
+				System.Console.WriteLine(string.Format("sceMpegBaseCscAvcRange range x={0:D}, y={1:D}, width={2:D}, height={3:D}, {4}", rangeX, rangeY, rangeWidth, rangeHeight, mp4AvcCscStruct));
 			}
 
 			return hleMpegBaseCscAvcRange(bufferRGB, unknown, bufferWidth, mp4AvcCscStruct, rangeX, rangeY, rangeWidth, rangeHeight);

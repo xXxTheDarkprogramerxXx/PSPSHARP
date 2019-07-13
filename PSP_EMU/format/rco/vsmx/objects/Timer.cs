@@ -80,7 +80,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Timer.onTimer id={0:D}, object={1}, function={2}, parameters={3}", id, @object, function, parameters));
+				System.Console.WriteLine(string.Format("Timer.onTimer id={0:D}, object={1}, function={2}, parameters={3}", id, @object, function, parameters));
 			}
 
 			if (function is VSMXFunction)
@@ -93,10 +93,10 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Timer.setInterval function={0}, interval={1:D}, numberOfParameters={2:D}", function, interval.IntValue, parameters.Length));
+				System.Console.WriteLine(string.Format("Timer.setInterval function={0}, interval={1:D}, numberOfParameters={2:D}", function, interval.IntValue, parameters.Length));
 				for (int i = 0; i < parameters.Length; i++)
 				{
-					Console.WriteLine(string.Format("Timer.setInterval param{0:D}={1}", i, parameters[i]));
+					System.Console.WriteLine(string.Format("Timer.setInterval param{0:D}={1}", i, parameters[i]));
 				}
 			}
 
@@ -153,7 +153,7 @@ namespace pspsharp.format.rco.vsmx.objects
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Timer.clearInterval {0:D}", id.getPropertyValue(0).IntValue));
+				System.Console.WriteLine(string.Format("Timer.clearInterval {0:D}", id.getPropertyValue(0).IntValue));
 			}
 		}
 	}

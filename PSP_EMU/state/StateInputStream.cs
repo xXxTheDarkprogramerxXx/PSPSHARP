@@ -140,7 +140,7 @@ namespace pspsharp.state
 			}
 			catch (ClassNotFoundException e)
 			{
-				Emulator.Console.WriteLine("readString", e);
+				Emulator.System.Console.WriteLine("readString", e);
 				return null;
 			}
 		}

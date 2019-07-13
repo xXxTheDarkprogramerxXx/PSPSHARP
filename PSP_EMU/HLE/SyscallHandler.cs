@@ -59,7 +59,7 @@ namespace pspsharp.HLE
 				ignoreUnmappedImports = value;
 				if (value)
 				{
-					Console.WriteLine("Ignore Unmapped Imports enabled");
+					System.Console.WriteLine("Ignore Unmapped Imports enabled");
 				}
 			}
 		}
@@ -69,7 +69,7 @@ namespace pspsharp.HLE
 		{
 			if (Memory.isAddressGood(address))
 			{
-				Console.WriteLine(string.Format("Memory at {0}:{1}", registerName, Utilities.getMemoryDump(address, 64)));
+				System.Console.WriteLine(string.Format("Memory at {0}:{1}", registerName, Utilities.getMemoryDump(address, 64)));
 			}
 		}
 
@@ -103,23 +103,23 @@ namespace pspsharp.HLE
 
 				if (EnableIgnoreUnmappedImports)
 				{
-					Console.WriteLine(string.Format("IGNORING: Unmapped import at {0} - $a0=0x{1:X8} $a1=0x{2:X8} $a2=0x{3:X8}", description, cpu._a0, cpu._a1, cpu._a2));
+					System.Console.WriteLine(string.Format("IGNORING: Unmapped import at {0} - $a0=0x{1:X8} $a1=0x{2:X8} $a2=0x{3:X8}", description, cpu._a0, cpu._a1, cpu._a2));
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unmapped import at {0}:", description));
-					Console.WriteLine(string.Format("Registers: $a0=0x{0:X8}, $a1=0x{1:X8}, $a2=0x{2:X8}, $a3=0x{3:X8}", cpu._a0, cpu._a1, cpu._a2, cpu._a3));
-					Console.WriteLine(string.Format("           $t0=0x{0:X8}, $t1=0x{1:X8}, $t2=0x{2:X8}, $t3=0x{3:X8}", cpu._t0, cpu._t1, cpu._t2, cpu._t3));
-					Console.WriteLine(string.Format("           $ra=0x{0:X8}, $sp=0x{1:X8}", cpu._ra, cpu._sp));
+					System.Console.WriteLine(string.Format("Unmapped import at {0}:", description));
+					System.Console.WriteLine(string.Format("Registers: $a0=0x{0:X8}, $a1=0x{1:X8}, $a2=0x{2:X8}, $a3=0x{3:X8}", cpu._a0, cpu._a1, cpu._a2, cpu._a3));
+					System.Console.WriteLine(string.Format("           $t0=0x{0:X8}, $t1=0x{1:X8}, $t2=0x{2:X8}, $t3=0x{3:X8}", cpu._t0, cpu._t1, cpu._t2, cpu._t3));
+					System.Console.WriteLine(string.Format("           $ra=0x{0:X8}, $sp=0x{1:X8}", cpu._ra, cpu._sp));
 					Memory mem = Emulator.Memory;
-					Console.WriteLine(string.Format("Caller code:"));
+					System.Console.WriteLine(string.Format("Caller code:"));
 					for (int i = -96; i <= 40; i += 4)
 					{
 						int address = cpu._ra + i;
 						int opcode = mem.read32(address);
 						Instruction insn = Decoder.instruction(opcode);
 						string disasm = insn.disasm(address, opcode);
-						Console.WriteLine(string.Format("{0} 0x{1:X8}:[{2:X8}]: {3}", i == -8 ? '>' : ' ', address, opcode, disasm));
+						System.Console.WriteLine(string.Format("{0} 0x{1:X8}:[{2:X8}]: {3}", i == -8 ? '>' : ' ', address, opcode, disasm));
 					}
 					logMem(mem, cpu._a0, Common.gprNames[Common._a0]);
 					logMem(mem, cpu._a1, Common.gprNames[Common._a1]);
@@ -151,23 +151,23 @@ namespace pspsharp.HLE
 
 				if (EnableIgnoreUnmappedImports)
 				{
-					Console.WriteLine(string.Format("IGNORING: Unmapped import at {0} - $a0=0x{1:X8} $a1=0x{2:X8} $a2=0x{3:X8}", description, cpu._a0, cpu._a1, cpu._a2));
+					System.Console.WriteLine(string.Format("IGNORING: Unmapped import at {0} - $a0=0x{1:X8} $a1=0x{2:X8} $a2=0x{3:X8}", description, cpu._a0, cpu._a1, cpu._a2));
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Unmapped import at {0}:", description));
-					Console.WriteLine(string.Format("Registers: $a0=0x{0:X8}, $a1=0x{1:X8}, $a2=0x{2:X8}, $a3=0x{3:X8}", cpu._a0, cpu._a1, cpu._a2, cpu._a3));
-					Console.WriteLine(string.Format("           $t0=0x{0:X8}, $t1=0x{1:X8}, $t2=0x{2:X8}, $t3=0x{3:X8}", cpu._t0, cpu._t1, cpu._t2, cpu._t3));
-					Console.WriteLine(string.Format("           $ra=0x{0:X8}, $sp=0x{1:X8}", cpu._ra, cpu._sp));
+					System.Console.WriteLine(string.Format("Unmapped import at {0}:", description));
+					System.Console.WriteLine(string.Format("Registers: $a0=0x{0:X8}, $a1=0x{1:X8}, $a2=0x{2:X8}, $a3=0x{3:X8}", cpu._a0, cpu._a1, cpu._a2, cpu._a3));
+					System.Console.WriteLine(string.Format("           $t0=0x{0:X8}, $t1=0x{1:X8}, $t2=0x{2:X8}, $t3=0x{3:X8}", cpu._t0, cpu._t1, cpu._t2, cpu._t3));
+					System.Console.WriteLine(string.Format("           $ra=0x{0:X8}, $sp=0x{1:X8}", cpu._ra, cpu._sp));
 					Memory mem = Emulator.Memory;
-					Console.WriteLine(string.Format("Caller code:"));
+					System.Console.WriteLine(string.Format("Caller code:"));
 					for (int i = -96; i <= 40; i += 4)
 					{
 						int address = cpu._ra + i;
 						int opcode = mem.read32(address);
 						Instruction insn = Decoder.instruction(opcode);
 						string disasm = insn.disasm(address, opcode);
-						Console.WriteLine(string.Format("{0} 0x{1:X8}:[{2:X8}]: {3}", i == -8 ? '>' : ' ', address, opcode, disasm));
+						System.Console.WriteLine(string.Format("{0} 0x{1:X8}:[{2:X8}]: {3}", i == -8 ? '>' : ' ', address, opcode, disasm));
 					}
 					logMem(mem, cpu._a0, Common.gprNames[Common._a0]);
 					logMem(mem, cpu._a1, Common.gprNames[Common._a1]);
@@ -193,11 +193,11 @@ namespace pspsharp.HLE
 						int nid = nidMapper.getNidBySyscall(code);
 						if (!string.ReferenceEquals(name, null))
 						{
-							Console.WriteLine(string.Format("Jumping to 0x{0:X8} instead of overwritten syscall {1}[0x{2:X8}]", address, name, nid));
+							System.Console.WriteLine(string.Format("Jumping to 0x{0:X8} instead of overwritten syscall {1}[0x{2:X8}]", address, name, nid));
 						}
 						else
 						{
-							Console.WriteLine(string.Format("Jumping to 0x{0:X8} instead of overwritten syscall NID 0x{1:X8}", address, nid));
+							System.Console.WriteLine(string.Format("Jumping to 0x{0:X8} instead of overwritten syscall NID 0x{1:X8}", address, nid));
 						}
 					}
 
@@ -210,18 +210,18 @@ namespace pspsharp.HLE
 					string name = nidMapper.getNameBySyscall(code);
 					if (!string.ReferenceEquals(name, null))
 					{
-						Console.WriteLine(string.Format("HLE Function {0} not activated by default for Firmware Version {1:D}", name, Emulator.Instance.FirmwareVersion));
+						System.Console.WriteLine(string.Format("HLE Function {0} not activated by default for Firmware Version {1:D}", name, Emulator.Instance.FirmwareVersion));
 					}
 					else
 					{
 						int nid = nidMapper.getNidBySyscall(code);
 						if (nid != 0)
 						{
-							Console.WriteLine(string.Format("NID 0x{0:X8} not activated by default for Firmware Version {1:D}", nid, Emulator.Instance.FirmwareVersion));
+							System.Console.WriteLine(string.Format("NID 0x{0:X8} not activated by default for Firmware Version {1:D}", nid, Emulator.Instance.FirmwareVersion));
 						}
 						else
 						{
-							Console.WriteLine(string.Format("Unknown syscall 0x{0:X5}", code));
+							System.Console.WriteLine(string.Format("Unknown syscall 0x{0:X5}", code));
 						}
 					}
 				}
@@ -237,7 +237,7 @@ namespace pspsharp.HLE
 				Processor processor = Emulator.Processor;
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("0x{0:X8} - syscall 0x{1:X5}", processor.cpu.pc, code));
+					System.Console.WriteLine(string.Format("0x{0:X8} - syscall 0x{1:X5}", processor.cpu.pc, code));
 				}
 
 				// For LLE syscalls, trigger a syscall exception

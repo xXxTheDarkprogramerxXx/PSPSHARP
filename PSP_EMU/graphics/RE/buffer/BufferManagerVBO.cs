@@ -44,7 +44,7 @@ namespace pspsharp.graphics.RE.buffer
 			bufferDataSize = new int[100];
 
 			base.init();
-			Console.WriteLine("Using VBO");
+			System.Console.WriteLine("Using VBO");
 		}
 
 		public override bool useVBO()

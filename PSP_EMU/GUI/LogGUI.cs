@@ -87,7 +87,7 @@ namespace pspsharp.GUI
 			jTabbedPane1 = new javax.swing.JTabbedPane();
 			LoggerGeneralPanel = new javax.swing.JPanel();
 			openLogWindowCheck = new javax.swing.JCheckBox();
-			snapConsoleCheck = new javax.swing.JCheckBox();
+			snapSystem.ConsoleCheck = new javax.swing.JCheckBox();
 			logKeywordField = new javax.swing.JTextField();
 			logByKeywordCheck = new javax.swing.JCheckBox();
 			LoggerSettingsPanel = new javax.swing.JPanel();
@@ -166,7 +166,7 @@ namespace pspsharp.GUI
 
 			openLogWindowCheck.Text = bundle.getString("LogGUI.openLogWindowCheck.text"); // NOI18N
 
-			snapConsoleCheck.Text = bundle.getString("LogGUI.snapConsoleCheck.text"); // NOI18N
+			snapSystem.ConsoleCheck.Text = bundle.getString("LogGUI.snapSystem.ConsoleCheck.text"); // NOI18N
 
 			logKeywordField.Editable = false;
 			logKeywordField.Text = "LOG_ALL"; // NOI18N
@@ -176,8 +176,8 @@ namespace pspsharp.GUI
 
 			javax.swing.GroupLayout LoggerGeneralPanelLayout = new javax.swing.GroupLayout(LoggerGeneralPanel);
 			LoggerGeneralPanel.Layout = LoggerGeneralPanelLayout;
-			LoggerGeneralPanelLayout.HorizontalGroup = LoggerGeneralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(LoggerGeneralPanelLayout.createSequentialGroup().addContainerGap().addGroup(LoggerGeneralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(LoggerGeneralPanelLayout.createSequentialGroup().addComponent(logByKeywordCheck).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(logKeywordField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(0, 306, short.MaxValue)).addComponent(openLogWindowCheck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, short.MaxValue).addComponent(snapConsoleCheck, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, short.MaxValue)).addContainerGap());
-			LoggerGeneralPanelLayout.VerticalGroup = LoggerGeneralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(LoggerGeneralPanelLayout.createSequentialGroup().addContainerGap().addComponent(openLogWindowCheck).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(snapConsoleCheck).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addGroup(LoggerGeneralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(logByKeywordCheck).addComponent(logKeywordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)).addContainerGap(248, short.MaxValue));
+			LoggerGeneralPanelLayout.HorizontalGroup = LoggerGeneralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(LoggerGeneralPanelLayout.createSequentialGroup().addContainerGap().addGroup(LoggerGeneralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(LoggerGeneralPanelLayout.createSequentialGroup().addComponent(logByKeywordCheck).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(logKeywordField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(0, 306, short.MaxValue)).addComponent(openLogWindowCheck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, short.MaxValue).addComponent(snapSystem.ConsoleCheck, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, short.MaxValue)).addContainerGap());
+			LoggerGeneralPanelLayout.VerticalGroup = LoggerGeneralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(LoggerGeneralPanelLayout.createSequentialGroup().addContainerGap().addComponent(openLogWindowCheck).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(snapSystem.ConsoleCheck).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addGroup(LoggerGeneralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(logByKeywordCheck).addComponent(logKeywordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)).addContainerGap(248, short.MaxValue));
 
 			jTabbedPane1.addTab(bundle.getString("LogGUI.LoggerGeneralPanel.TabConstraints.tabTitle"), LoggerGeneralPanel); // NOI18N
 
@@ -558,7 +558,7 @@ namespace pspsharp.GUI
 		public void RefreshWindow()
 		{
 			openLogWindowCheck.Selected = Settings.Instance.readBool("gui.openLogwindow");
-			snapConsoleCheck.Selected = Settings.Instance.readBool("gui.snapLogwindow");
+			snapSystem.ConsoleCheck.Selected = Settings.Instance.readBool("gui.snapLogwindow");
 
 			string keyword = Settings.Instance.readString("log.keyword");
 			if (!keyword.Equals("LOG_ALL"))
@@ -974,7 +974,7 @@ namespace pspsharp.GUI
 	private void jButtonOKActionPerformed(java.awt.@event.ActionEvent evt)
 	{ //GEN-FIRST:event_jButtonOKActionPerformed
 			Settings.Instance.writeBool("gui.openLogwindow", openLogWindowCheck.Selected);
-			Settings.Instance.writeBool("gui.snapLogwindow", snapConsoleCheck.Selected);
+			Settings.Instance.writeBool("gui.snapLogwindow", snapSystem.ConsoleCheck.Selected);
 			if (!logKeywordField.Text.Empty)
 			{
 				Settings.Instance.writeString("log.keyword", logKeywordField.Text);
@@ -984,9 +984,9 @@ namespace pspsharp.GUI
 				Settings.Instance.writeString("log.keyword", "LOG_ALL");
 			}
 
-			if (snapConsoleCheck.Selected && mainWindow != null)
+			if (snapSystem.ConsoleCheck.Selected && mainWindow != null)
 			{
-				mainWindow.updateConsoleWinPosition();
+				mainWindow.updateSystem.ConsoleWinPosition();
 			}
 
 			dispose();
@@ -1211,7 +1211,7 @@ namespace pspsharp.GUI
 		private javax.swing.JCheckBox sasBox;
 		private javax.swing.JButton saveButton;
 		private javax.swing.JTextArea settingsArea;
-		private javax.swing.JCheckBox snapConsoleCheck;
+		private javax.swing.JCheckBox snapSystem.ConsoleCheck;
 		private javax.swing.JCheckBox splitFilesBox;
 		private javax.swing.JCheckBox stderrBox;
 		private javax.swing.JCheckBox stdioBox;

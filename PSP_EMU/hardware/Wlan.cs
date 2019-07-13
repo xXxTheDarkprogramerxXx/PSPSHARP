@@ -87,7 +87,7 @@ namespace pspsharp.hardware
 			set
 			{
 				Wlan.switchState = value;
-				Console.WriteLine(string.Format("WLAN Switch {0}", value == PSP_WLAN_SWITCH_OFF ? "off" : "on"));
+				System.Console.WriteLine(string.Format("WLAN Switch {0}", value == PSP_WLAN_SWITCH_OFF ? "off" : "on"));
 			}
 		}
 

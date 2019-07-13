@@ -32,7 +32,7 @@ namespace pspsharp.HLE.modules
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("setFuseId 0x{0:X}", value));
+					System.Console.WriteLine(string.Format("setFuseId 0x{0:X}", value));
 				}
 				this.fuseId = value;
 			}
@@ -1321,7 +1321,7 @@ namespace pspsharp.HLE.modules
 					tachyon = 0x00500000;
 					break;
 				default:
-					Console.WriteLine(string.Format("sceSysregGetTachyonVersion unknown tachyon version for PSP Model {0}", Model.getModelName(Model.Model)));
+					System.Console.WriteLine(string.Format("sceSysregGetTachyonVersion unknown tachyon version for PSP Model {0}", Model.getModelName(Model.Model)));
 					break;
 			}
 			return tachyon;

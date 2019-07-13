@@ -520,11 +520,11 @@ namespace pspsharp.graphics
 
 			if (Offset > @sizeof())
 			{
-				Console.WriteLine(string.Format("GE context overflow: {0:D} (max allowed={1:D})", Offset, @sizeof()));
+				System.Console.WriteLine(string.Format("GE context overflow: {0:D} (max allowed={1:D})", Offset, @sizeof()));
 			}
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("GE context read size: {0:D} (max allowed={1:D})", Offset, @sizeof()));
+				System.Console.WriteLine(string.Format("GE context read size: {0:D} (max allowed={1:D})", Offset, @sizeof()));
 			}
 		}
 
@@ -694,11 +694,11 @@ namespace pspsharp.graphics
 
 			if (Offset > @sizeof())
 			{
-				Console.WriteLine(string.Format("GE context overflow: {0:D} (max allowed={1:D})", Offset, @sizeof()));
+				System.Console.WriteLine(string.Format("GE context overflow: {0:D} (max allowed={1:D})", Offset, @sizeof()));
 			}
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("GE context write size: {0:D} (max allowed={1:D})", Offset, @sizeof()));
+				System.Console.WriteLine(string.Format("GE context write size: {0:D} (max allowed={1:D})", Offset, @sizeof()));
 			}
 		}
 
@@ -780,7 +780,7 @@ namespace pspsharp.graphics
 
 				if (log.DebugEnabled && !string.ReferenceEquals(name, null))
 				{
-					Console.WriteLine(string.Format("sceGu{0}({1})", enabled ? "Enable" : "Disable", name));
+					System.Console.WriteLine(string.Format("sceGu{0}({1})", enabled ? "Enable" : "Disable", name));
 				}
 			}
 

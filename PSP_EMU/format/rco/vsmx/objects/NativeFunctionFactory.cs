@@ -63,15 +63,15 @@ namespace pspsharp.format.rco.vsmx.objects
 				}
 				catch (System.ArgumentException e)
 				{
-					Console.WriteLine("call", e);
+					System.Console.WriteLine("call", e);
 				}
 				catch (IllegalAccessException e)
 				{
-					Console.WriteLine("call", e);
+					System.Console.WriteLine("call", e);
 				}
 				catch (InvocationTargetException e)
 				{
-					Console.WriteLine("call", e);
+					System.Console.WriteLine("call", e);
 				}
 				return returnValue;
 			}
@@ -113,7 +113,7 @@ namespace pspsharp.format.rco.vsmx.objects
 				}
 				catch (SecurityException e)
 				{
-					Console.WriteLine("getNativeFunction", e);
+					System.Console.WriteLine("getNativeFunction", e);
 				}
 				catch (NoSuchMethodException)
 				{
@@ -123,7 +123,7 @@ namespace pspsharp.format.rco.vsmx.objects
 
 			if (nativeFunction == null && log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Not finding native function {0}.{1}(args={2:D})", @object, name, numberOfArguments + 1));
+				System.Console.WriteLine(string.Format("Not finding native function {0}.{1}(args={2:D})", @object, name, numberOfArguments + 1));
 			}
 
 			return nativeFunction;

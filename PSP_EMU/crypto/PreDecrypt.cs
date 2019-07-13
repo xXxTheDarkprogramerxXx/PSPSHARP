@@ -179,15 +179,15 @@ namespace pspsharp.crypto
 			}
 			catch (ParserConfigurationException e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 			}
 			catch (SAXException e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 			}
 		}
 
@@ -267,7 +267,7 @@ namespace pspsharp.crypto
 			{
 				if (info.Equals(preDecrypts[i]))
 				{
-					Console.WriteLine(string.Format("PreDecrypt.xml: duplicate entry {0}", info));
+					System.Console.WriteLine(string.Format("PreDecrypt.xml: duplicate entry {0}", info));
 					return;
 				}
 			}

@@ -357,7 +357,7 @@ namespace pspsharp.media.codec.aac
 		{
 			if (channelConfig < 1 || channelConfig > 7)
 			{
-				Console.WriteLine(string.Format("invalid default channel configuration ({0:D})", channelConfig));
+				System.Console.WriteLine(string.Format("invalid default channel configuration ({0:D})", channelConfig));
 
 				return AAC_ERROR;
 			}
@@ -385,7 +385,7 @@ namespace pspsharp.media.codec.aac
 			{
 				if (hdrInfo.numAacFrames != 1)
 				{
-					Console.WriteLine(string.Format("More than one AAC RDB per ADTS frame"));
+					System.Console.WriteLine(string.Format("More than one AAC RDB per ADTS frame"));
 				}
 				pushOutputConfiguration();
 				if (hdrInfo.chanConfig != 0)
@@ -613,7 +613,7 @@ namespace pspsharp.media.codec.aac
 				ics.predictorResetGroup = br.read(5);
 				if (ics.predictorResetGroup == 0 || ics.predictorResetGroup > 30)
 				{
-					Console.WriteLine(string.Format("Invalid Predictor Reset Group"));
+					System.Console.WriteLine(string.Format("Invalid Predictor Reset Group"));
 					return AAC_ERROR;
 				}
 			}
@@ -649,14 +649,14 @@ namespace pspsharp.media.codec.aac
 			{
 				if (br.readBool())
 				{
-					Console.WriteLine(string.Format("Reserved bit set"));
+					System.Console.WriteLine(string.Format("Reserved bit set"));
 					return AAC_ERROR;
 				}
 				ics.windowSequence[1] = ics.windowSequence[0];
 				ics.windowSequence[0] = br.read(2);
 				if (aot == AOT_ER_AAC_LD && ics.windowSequence[0] != ONLY_LONG_SEQUENCE)
 				{
-					Console.WriteLine(string.Format("AAC LD is only defined for ONLY_LONG_SEQUENCE but window sequence {0:D} found", ics.windowSequence[0]));
+					System.Console.WriteLine(string.Format("AAC LD is only defined for ONLY_LONG_SEQUENCE but window sequence {0:D} found", ics.windowSequence[0]));
 					ics.windowSequence[0] = ONLY_LONG_SEQUENCE;
 					return AAC_ERROR;
 				}
@@ -727,7 +727,7 @@ namespace pspsharp.media.codec.aac
 					}
 					else if (aot == AOT_AAC_LC || aot == AOT_ER_AAC_LC)
 					{
-						Console.WriteLine(string.Format("Prediction is not allowed in AAC-LC"));
+						System.Console.WriteLine(string.Format("Prediction is not allowed in AAC-LC"));
 						ics.maxSfb = 0;
 						return AAC_ERROR;
 					}
@@ -735,7 +735,7 @@ namespace pspsharp.media.codec.aac
 					{
 						if (aot == AOT_ER_AAC_LD)
 						{
-							Console.WriteLine(string.Format("LTP in ER AAC LD not yet implemented"));
+							System.Console.WriteLine(string.Format("LTP in ER AAC LD not yet implemented"));
 							return AAC_ERROR;
 						}
 						ics.ltp.present = br.readBool();
@@ -749,7 +749,7 @@ namespace pspsharp.media.codec.aac
 
 			if (ics.maxSfb > ics.numSwb)
 			{
-				Console.WriteLine(string.Format("Number of scalefactor bands in group ({0:D}) exceeds limit ({1:D})", ics.maxSfb, ics.numSwb));
+				System.Console.WriteLine(string.Format("Number of scalefactor bands in group ({0:D}) exceeds limit ({1:D})", ics.maxSfb, ics.numSwb));
 				ics.maxSfb = 0;
 				return AAC_ERROR;
 			}
@@ -780,7 +780,7 @@ namespace pspsharp.media.codec.aac
 					int sectBandType = br.read(4);
 					if (sectBandType == 12)
 					{
-						Console.WriteLine(string.Format("invalid band type"));
+						System.Console.WriteLine(string.Format("invalid band type"));
 						return AAC_ERROR;
 					}
 
@@ -791,12 +791,12 @@ namespace pspsharp.media.codec.aac
 						sectEnd += sectLenIncr;
 						if (br.BitsLeft < 0)
 						{
-							Console.WriteLine(string.Format("decodeBandTypes overread error"));
+							System.Console.WriteLine(string.Format("decodeBandTypes overread error"));
 							return AAC_ERROR;
 						}
 						if (sectEnd > ics.maxSfb)
 						{
-							Console.WriteLine(string.Format("Number of bands ({0:D}) exceeds limit ({1:D})", sectEnd, ics.maxSfb));
+							System.Console.WriteLine(string.Format("Number of bands ({0:D}) exceeds limit ({1:D})", sectEnd, ics.maxSfb));
 							return AAC_ERROR;
 						}
 					} while (sectLenIncr == (1 << bits) - 1);
@@ -847,7 +847,7 @@ namespace pspsharp.media.codec.aac
 							int clippedOffset = Utilities.clip(offset[2], -155, 100);
 							if (offset[2] != clippedOffset)
 							{
-								Console.WriteLine(string.Format("Clipped intensity stereo position ({0:D} -> {1:D})", offset[2], clippedOffset));
+								System.Console.WriteLine(string.Format("Clipped intensity stereo position ({0:D} -> {1:D})", offset[2], clippedOffset));
 							}
 							sf[idx] = ff_aac_pow2sf_tab[-clippedOffset + POW_SF2_ZERO];
 						}
@@ -868,7 +868,7 @@ namespace pspsharp.media.codec.aac
 							int clippedOffset = Utilities.clip(offset[1], -100, 155);
 							if (offset[1] != clippedOffset)
 							{
-								Console.WriteLine(string.Format("Clipped intensity stereo position ({0:D} -> {1:D})", offset[1], clippedOffset));
+								System.Console.WriteLine(string.Format("Clipped intensity stereo position ({0:D} -> {1:D})", offset[1], clippedOffset));
 							}
 							sf[idx] = -ff_aac_pow2sf_tab[clippedOffset + POW_SF2_ZERO];
 						}
@@ -880,7 +880,7 @@ namespace pspsharp.media.codec.aac
 							offset[0] += vlc_scalefactors.getVLC2(br, 3) - 60;
 							if (offset[0] > 255)
 							{
-								Console.WriteLine(string.Format("Scalefactor ({0:D}) out of range", offset[0]));
+								System.Console.WriteLine(string.Format("Scalefactor ({0:D}) out of range", offset[0]));
 								return AAC_ERROR;
 							}
 							sf[idx] = -ff_aac_pow2sf_tab[offset[0] - 100 + POW_SF2_ZERO];
@@ -954,7 +954,7 @@ namespace pspsharp.media.codec.aac
 
 						if (tns.order[w][filt] > tnsMaxOrder)
 						{
-							Console.WriteLine(string.Format("TNS filter order {0:D} is greater than maximum {1:D}", tns.order[w][filt], tnsMaxOrder));
+							System.Console.WriteLine(string.Format("TNS filter order {0:D} is greater than maximum {1:D}", tns.order[w][filt], tnsMaxOrder));
 							tns.order[w][filt] = 0;
 							return AAC_ERROR;
 						}
@@ -1204,7 +1204,7 @@ namespace pspsharp.media.codec.aac
 
 												if (b > 8)
 												{
-													Console.WriteLine(string.Format("error in spectral data, ESC overflow"));
+													System.Console.WriteLine(string.Format("error in spectral data, ESC overflow"));
 													return AAC_ERROR;
 												}
 
@@ -1430,12 +1430,12 @@ namespace pspsharp.media.codec.aac
 				{
 					if (ics.windowSequence[0] == EIGHT_SHORT_SEQUENCE)
 					{
-						Console.WriteLine(string.Format("Pulse tool not allowed in eight short sequence"));
+						System.Console.WriteLine(string.Format("Pulse tool not allowed in eight short sequence"));
 						return AAC_ERROR;
 					}
 					if (decodePulses(pulse, ics.swbOffset, ics.numSwb) != 0)
 					{
-						Console.WriteLine(string.Format("Pulse data corrupt or invalid"));
+						System.Console.WriteLine(string.Format("Pulse data corrupt or invalid"));
 						return AAC_ERROR;
 					}
 				}
@@ -1500,7 +1500,7 @@ namespace pspsharp.media.codec.aac
 						synEle = TYPE_LFE;
 						break;
 					default:
-						Console.WriteLine(string.Format("decodeChannelMap invalid type {0:D}", type));
+						System.Console.WriteLine(string.Format("decodeChannelMap invalid type {0:D}", type));
 						return;
 				}
 
@@ -1522,7 +1522,7 @@ namespace pspsharp.media.codec.aac
 			int samplingIndex = br.read(4);
 			if (m4ac.samplingIndex != samplingIndex)
 			{
-				Console.WriteLine(string.Format("Sample rate index in program config element does not match the sample rate index configured by the container"));
+				System.Console.WriteLine(string.Format("Sample rate index in program config element does not match the sample rate index configured by the container"));
 			}
 
 			int numFront = br.read(4);
@@ -1548,7 +1548,7 @@ namespace pspsharp.media.codec.aac
 
 			if (br.BitsLeft < 4 * (numFront + numSide + numBack + numLfe + numAssocData + numCc))
 			{
-				Console.WriteLine(string.Format("decode_pce: overread error"));
+				System.Console.WriteLine(string.Format("decode_pce: overread error"));
 				return AAC_ERROR;
 			}
 
@@ -1572,7 +1572,7 @@ namespace pspsharp.media.codec.aac
 			int commentLen = br.read(8) * 8;
 			if (br.BitsLeft < commentLen)
 			{
-				Console.WriteLine(string.Format("decode_pce: overread error"));
+				System.Console.WriteLine(string.Format("decode_pce: overread error"));
 				return AAC_ERROR;
 			}
 			br.skip(commentLen);
@@ -1818,7 +1818,7 @@ namespace pspsharp.media.codec.aac
 				{
 					if (channels[0] >= MAX_CHANNELS - ((type == TYPE_CPE || (type == TYPE_SCE && ac.oc[1].m4ac.ps == 1)) ? 1 : 0))
 					{
-						Console.WriteLine(string.Format("Too many channels"));
+						System.Console.WriteLine(string.Format("Too many channels"));
 						return AAC_ERROR;
 					}
 					ac.outputElement[channels[0]++] = ac.che[type][id].ch[0];
@@ -1940,7 +1940,7 @@ namespace pspsharp.media.codec.aac
 				msPresent = br.read(2);
 				if (msPresent == 3)
 				{
-					Console.WriteLine(string.Format("ms_present = 3 is reserved"));
+					System.Console.WriteLine(string.Format("ms_present = 3 is reserved"));
 					return AAC_ERROR;
 				}
 				if (msPresent != 0)
@@ -2198,7 +2198,7 @@ namespace pspsharp.media.codec.aac
 
 			if (br.BitsLeft < 8 * count)
 			{
-				Console.WriteLine(string.Format("skipDataStreamElement overread error"));
+				System.Console.WriteLine(string.Format("skipDataStreamElement overread error"));
 				return AAC_ERROR;
 			}
 
@@ -2297,7 +2297,7 @@ namespace pspsharp.media.codec.aac
 				string s = StringHelper.NewString(buf);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("FILL: '{0}'", s));
+					System.Console.WriteLine(string.Format("FILL: '{0}'", s));
 				}
 
                 //Pattern p = Pattern.compile("libfaac (\\d+)\\.(\\d+)");
@@ -2335,18 +2335,18 @@ namespace pspsharp.media.codec.aac
 				case EXT_SBR_DATA:
 					if (che == null)
 					{
-						Console.WriteLine(string.Format("SBR was found before the first channel element"));
+						System.Console.WriteLine(string.Format("SBR was found before the first channel element"));
 						return res;
 					}
 					else if (ac.oc[1].m4ac.sbr == 0)
 					{
-						Console.WriteLine(string.Format("SBR signaled to be not-present but was found in the bitstream"));
+						System.Console.WriteLine(string.Format("SBR signaled to be not-present but was found in the bitstream"));
 						br.skip(8 * cnt - 4);
 						return res;
 					}
 					else if (ac.oc[1].m4ac.sbr == -1 && ac.oc[1].status == OC_LOCKED)
 					{
-						Console.WriteLine(string.Format("Implicit SBR was found with a first occurrence after the first frame"));
+						System.Console.WriteLine(string.Format("Implicit SBR was found with a first occurrence after the first frame"));
 						br.skip(8 * cnt - 4);
 						return res;
 					}
@@ -2805,7 +2805,7 @@ namespace pspsharp.media.codec.aac
 
 			if (ac.oc[1].m4ac.objectType == AOT_AAC_LTP)
 			{
-				Console.WriteLine(string.Format("Dependent coupling is not supported together with LTP"));
+				System.Console.WriteLine(string.Format("Dependent coupling is not supported together with LTP"));
 				return;
 			}
 
@@ -3008,7 +3008,7 @@ namespace pspsharp.media.codec.aac
 				}
 				if (ac.oc[1].m4ac.samplingIndex > 12)
 				{
-					Console.WriteLine(string.Format("Invalid sampling rate index {0:D}", ac.oc[1].m4ac.samplingIndex));
+					System.Console.WriteLine(string.Format("Invalid sampling rate index {0:D}", ac.oc[1].m4ac.samplingIndex));
 					popOutputConfiguration();
 					return AAC_ERROR;
 				}
@@ -3033,7 +3033,7 @@ namespace pspsharp.media.codec.aac
 					che = getChe(elemType, elemId);
 					if (che == null)
 					{
-						Console.WriteLine(string.Format("channel element {0:D}.{1:D} is not allocated", elemType, elemId));
+						System.Console.WriteLine(string.Format("channel element {0:D}.{1:D} is not allocated", elemType, elemId));
 						popOutputConfiguration();
 						return AAC_ERROR;
 					}
@@ -3080,7 +3080,7 @@ namespace pspsharp.media.codec.aac
 						}
 						if (pceFound)
 						{
-							Console.WriteLine(string.Format("Not evaluating a further program_config_element as this construct is dubious at best"));
+							System.Console.WriteLine(string.Format("Not evaluating a further program_config_element as this construct is dubious at best"));
 						}
 						else
 						{
@@ -3101,7 +3101,7 @@ namespace pspsharp.media.codec.aac
 						}
 						if (br.BitsLeft < 8 * elemId)
 						{
-							Console.WriteLine(string.Format("TYPE_FIL: overread error"));
+							System.Console.WriteLine(string.Format("TYPE_FIL: overread error"));
 							popOutputConfiguration();
 							return AAC_ERROR;
 						}
@@ -3113,7 +3113,7 @@ namespace pspsharp.media.codec.aac
 						break;
 
 					default:
-						Console.WriteLine(string.Format("Unknown element type {0:D}", elemType));
+						System.Console.WriteLine(string.Format("Unknown element type {0:D}", elemType));
 						popOutputConfiguration();
 						return AAC_ERROR;
 				}
@@ -3129,7 +3129,7 @@ namespace pspsharp.media.codec.aac
 
 				if (br.BitsLeft < 3)
 				{
-					Console.WriteLine(string.Format("overread error"));
+					System.Console.WriteLine(string.Format("overread error"));
 					popOutputConfiguration();
 					return AAC_ERROR;
 				}
@@ -3189,7 +3189,7 @@ namespace pspsharp.media.codec.aac
 
 			if (chanConfig < 0 || chanConfig >= 8)
 			{
-				Console.WriteLine(string.Format("Unknown ER channel configuration {0:D}", chanConfig));
+				System.Console.WriteLine(string.Format("Unknown ER channel configuration {0:D}", chanConfig));
 				return AAC_ERROR;
 			}
 
@@ -3205,7 +3205,7 @@ namespace pspsharp.media.codec.aac
 				ChannelElement che = getChe(elemType, elemId);
 				if (che == null)
 				{
-					Console.WriteLine(string.Format("channel element {0:D}.{1:D} is not allocated", elemType, elemId));
+					System.Console.WriteLine(string.Format("channel element {0:D}.{1:D} is not allocated", elemType, elemId));
 					return AAC_ERROR;
 				}
 

@@ -117,7 +117,7 @@ namespace pspsharp.format.rco.anim
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("BaseAnim play on {0}", @object));
+				System.Console.WriteLine(string.Format("BaseAnim play on {0}", @object));
 			}
 
 			return 0;
@@ -127,7 +127,7 @@ namespace pspsharp.format.rco.anim
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("BaseAnim.play {0}, {1}", thisObject, @object));
+				System.Console.WriteLine(string.Format("BaseAnim.play {0}, {1}", thisObject, @object));
 			}
 
 			if (thisObject.hasPropertyValue(Resource.childrenName))

@@ -188,27 +188,27 @@ namespace pspsharp.remote
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine(string.Format("Server socket at port {0:D} not available: {1}", descriptor.Port, e));
+					System.Console.WriteLine(string.Format("Server socket at port {0:D} not available: {1}", descriptor.Port, e));
 				}
 				catch (KeyStoreException e)
 				{
-					Console.WriteLine(string.Format("SSL Server socket at port {0:D} not available: {1}", descriptor.Port, e));
+					System.Console.WriteLine(string.Format("SSL Server socket at port {0:D} not available: {1}", descriptor.Port, e));
 				}
 				catch (NoSuchAlgorithmException e)
 				{
-					Console.WriteLine(string.Format("SSL Server socket at port {0:D} not available: {1}", descriptor.Port, e));
+					System.Console.WriteLine(string.Format("SSL Server socket at port {0:D} not available: {1}", descriptor.Port, e));
 				}
 				catch (CertificateException e)
 				{
-					Console.WriteLine(string.Format("SSL Server socket at port {0:D} not available: {1}", descriptor.Port, e));
+					System.Console.WriteLine(string.Format("SSL Server socket at port {0:D} not available: {1}", descriptor.Port, e));
 				}
 				catch (UnrecoverableKeyException e)
 				{
-					Console.WriteLine(string.Format("SSL Server socket at port {0:D} not available: {1}", descriptor.Port, e));
+					System.Console.WriteLine(string.Format("SSL Server socket at port {0:D} not available: {1}", descriptor.Port, e));
 				}
 				catch (KeyManagementException e)
 				{
-					Console.WriteLine(string.Format("SSL Server socket at port {0:D} not available: {1}", descriptor.Port, e));
+					System.Console.WriteLine(string.Format("SSL Server socket at port {0:D} not available: {1}", descriptor.Port, e));
 				}
 
 				if (serverSocket == null)
@@ -233,7 +233,7 @@ namespace pspsharp.remote
 					}
 					catch (IOException e)
 					{
-						Console.WriteLine("Accept server socket", e);
+						System.Console.WriteLine("Accept server socket", e);
 					}
 
 					Utilities.sleep(10);
@@ -265,7 +265,7 @@ namespace pspsharp.remote
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("getSSLServerSocketFactory cannot read the file '{0}'", jksFileName));
+							System.Console.WriteLine(string.Format("getSSLServerSocketFactory cannot read the file '{0}'", jksFileName));
 						}
 						return null;
 					}
@@ -364,7 +364,7 @@ namespace pspsharp.remote
 			}
 			catch (AWTException e)
 			{
-				Console.WriteLine("Create captureRobot", e);
+				System.Console.WriteLine("Create captureRobot", e);
 			}
 		}
 
@@ -383,7 +383,7 @@ namespace pspsharp.remote
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("getPasswordAuthentication called for scheme='{0}', prompt='{1}'", RequestingScheme, RequestingPrompt));
+						System.Console.WriteLine(string.Format("getPasswordAuthentication called for scheme='{0}', prompt='{1}'", RequestingScheme, RequestingPrompt));
 					}
     
 					if ("digest".Equals(RequestingScheme))
@@ -443,7 +443,7 @@ namespace pspsharp.remote
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("process InputStream", e);
+				System.Console.WriteLine("process InputStream", e);
 			}
 			System.IO.Stream os = null;
 			try
@@ -452,7 +452,7 @@ namespace pspsharp.remote
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("process OutputStream", e);
+				System.Console.WriteLine("process OutputStream", e);
 			}
 
 			sbyte[] buffer = new sbyte[10000];
@@ -475,7 +475,7 @@ namespace pspsharp.remote
 						{
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("Received request: '{0}', headers: {1}", request, requestHeaders));
+								System.Console.WriteLine(string.Format("Received request: '{0}', headers: {1}", request, requestHeaders));
 							}
 							bool keepAlive = process(descriptor, requestHeaders, os);
 							os.Flush();
@@ -502,7 +502,7 @@ namespace pspsharp.remote
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine("Receive socket", e);
+							System.Console.WriteLine("Receive socket", e);
 						}
 					}
 					break;
@@ -636,7 +636,7 @@ namespace pspsharp.remote
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("doProxy connecting to '{0}'", remoteUrl));
+				System.Console.WriteLine(string.Format("doProxy connecting to '{0}'", remoteUrl));
 			}
 
 			HttpURLConnection connection = (HttpURLConnection) (new URL(remoteUrl)).openConnection();
@@ -655,11 +655,11 @@ namespace pspsharp.remote
 			string additionalData = request[data];
 			if (!string.ReferenceEquals(additionalData, null))
 			{
-				if ("/nav/auth".Equals(pathValue) && additionalData.Contains("&consoleid="))
+				if ("/nav/auth".Equals(pathValue) && additionalData.Contains("&System.Consoleid="))
 				{
-					// Remove the "consoleid" parameter as it is recognized as invalid.
+					// Remove the "System.Consoleid" parameter as it is recognized as invalid.
 					// The dummy value returned by sceOpenPSIDGetPSID is not valid.
-					additionalData = additionalData.replaceAll("\\&consoleid=[0-9a-fA-F]*", "");
+					additionalData = additionalData.replaceAll("\\&System.Consoleid=[0-9a-fA-F]*", "");
 				}
 
 				connection.DoOutput = true;
@@ -691,7 +691,7 @@ namespace pspsharp.remote
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("doProxy", e);
+				System.Console.WriteLine("doProxy", e);
 			}
 
 			string bufferString = StringHelper.NewString(buffer, 0, Length);
@@ -770,7 +770,7 @@ namespace pspsharp.remote
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("doProxy{0}:\n{1}", (bufferPatched ? " (response patched)" : ""), Utilities.getMemoryDump(buffer, 0, Length)));
+				System.Console.WriteLine(string.Format("doProxy{0}:\n{1}", (bufferPatched ? " (response patched)" : ""), Utilities.getMemoryDump(buffer, 0, Length)));
 			}
 
 			os.Write(buffer, 0, Length);
@@ -795,7 +795,7 @@ namespace pspsharp.remote
 					}
 					catch (IOException e)
 					{
-						Console.WriteLine("doProxy", e);
+						System.Console.WriteLine("doProxy", e);
 					}
 					os.Write(buffer, 0, Length);
 				}
@@ -1073,7 +1073,7 @@ namespace pspsharp.remote
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Response: {0}", line));
+				System.Console.WriteLine(string.Format("Response: {0}", line));
 			}
 			os.WriteByte(line.GetBytes());
 			os.WriteByte(eol.GetBytes());
@@ -1180,7 +1180,7 @@ namespace pspsharp.remote
 			Rectangle rect = Emulator.MainGUI.CaptureRectangle;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Capturing screen from {0} to {1}", rect, fileName));
+				System.Console.WriteLine(string.Format("Capturing screen from {0} to {1}", rect, fileName));
 			}
 
 			System.Drawing.Bitmap img = captureRobot.createScreenCapture(rect);
@@ -1192,7 +1192,7 @@ namespace pspsharp.remote
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("Error saving screenshot", e);
+				System.Console.WriteLine("Error saving screenshot", e);
 			}
 
 			if (file.canRead())
@@ -1227,7 +1227,7 @@ namespace pspsharp.remote
 			Rectangle rect = Emulator.MainGUI.CaptureRectangle;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Capturing screen from {0} to {1}", rect, fileName));
+				System.Console.WriteLine(string.Format("Capturing screen from {0} to {1}", rect, fileName));
 			}
 
 			startDisplayAction();
@@ -1250,7 +1250,7 @@ namespace pspsharp.remote
 					}
 					catch (IOException e)
 					{
-						Console.WriteLine("Error saving screenshot", e);
+						System.Console.WriteLine("Error saving screenshot", e);
 					}
 
 					if (file.canRead())
@@ -1258,7 +1258,7 @@ namespace pspsharp.remote
 						int Length = (int) file.Length();
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Sending video image Length={0:D}", Length));
+							System.Console.WriteLine(string.Format("Sending video image Length={0:D}", Length));
 						}
 						sbyte[] buffer = new sbyte[Length];
 						System.IO.Stream @is = new System.IO.FileStream(file, System.IO.FileMode.Open, System.IO.FileAccess.Read);
@@ -1277,7 +1277,7 @@ namespace pspsharp.remote
 					{
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("Cannot read capture file {0}", file));
+							System.Console.WriteLine(string.Format("Cannot read capture file {0}", file));
 						}
 						break;
 					}
@@ -1296,7 +1296,7 @@ namespace pspsharp.remote
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sendAudioWAV"));
+				System.Console.WriteLine(string.Format("sendAudioWAV"));
 			}
 			sendOK(os);
 			sendResponseHeader(os, "Content-Type", "audio/wav");
@@ -1387,7 +1387,7 @@ namespace pspsharp.remote
 				os.Write(buffer, 0, Length);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sendAudioWAV sent {0:D} bytes", Length));
+					System.Console.WriteLine(string.Format("sendAudioWAV sent {0:D} bytes", Length));
 				}
 				start += 1000 * Length / (2 * channels * sampleRate);
 			}
@@ -1399,7 +1399,7 @@ namespace pspsharp.remote
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sendAudioRAW"));
+				System.Console.WriteLine(string.Format("sendAudioRAW"));
 			}
 			sendOK(os);
 			sendResponseHeader(os, "Content-Type", "audio/raw");
@@ -1427,7 +1427,7 @@ namespace pspsharp.remote
 				os.Write(buffer, 0, Length);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sendAudioRAW sent {0:D} bytes", Length));
+					System.Console.WriteLine(string.Format("sendAudioRAW sent {0:D} bytes", Length));
 				}
 				start += 1000 * Length / (2 * channels * sampleRate);
 			}
@@ -1451,7 +1451,7 @@ namespace pspsharp.remote
 			Rectangle rect = Emulator.MainGUI.CaptureRectangle;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Capturing RAW screen from {0}", rect));
+				System.Console.WriteLine(string.Format("Capturing RAW screen from {0}", rect));
 			}
 
 			startDisplayAction();
@@ -1482,7 +1482,7 @@ namespace pspsharp.remote
 					os.Write(pixels, 0, pixels.Length);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sendVideoRAW sent {0:D}x{1:D} image ({2:D} bytes)", rect.width, rect.height, pixels.Length));
+						System.Console.WriteLine(string.Format("sendVideoRAW sent {0:D}x{1:D} image ({2:D} bytes)", rect.width, rect.height, pixels.Length));
 					}
 					os.Flush();
 				}
@@ -1647,7 +1647,7 @@ namespace pspsharp.remote
 			Rectangle rect = Emulator.MainGUI.CaptureRectangle;
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Capturing compressed RAW screen from {0}", rect));
+				System.Console.WriteLine(string.Format("Capturing compressed RAW screen from {0}", rect));
 			}
 
 			startDisplayAction();
@@ -1705,7 +1705,7 @@ namespace pspsharp.remote
 						os.Write(buffer, 0, compressedLength);
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("sendVideoCompressedRAW sent {0:D}x{1:D} image ({2:D} bytes, compression rate {3:F1}%)", width, height, compressedLength, 100f * compressedLength / (image.Length * 3)));
+							System.Console.WriteLine(string.Format("sendVideoCompressedRAW sent {0:D}x{1:D} image ({2:D} bytes, compression rate {3:F1}%)", width, height, compressedLength, 100f * compressedLength / (image.Length * 3)));
 						}
 						os.Flush();
 
@@ -1733,7 +1733,7 @@ namespace pspsharp.remote
 			string isoFileName = pathValue.Substring(isoDirectory.Length);
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sendIso '{0}'", isoFileName));
+				System.Console.WriteLine(string.Format("sendIso '{0}'", isoFileName));
 			}
 
 			bool contentSent = false;
@@ -1757,7 +1757,7 @@ namespace pspsharp.remote
 									long to = long.Parse(ranges[1]);
 									//if (log.DebugEnabled)
 									{
-										Console.WriteLine(string.Format("sendIso bytes from=0x{0:X}, to=0x{1:X}, Length=0x{2:X}", from, to, to - from + 1));
+										System.Console.WriteLine(string.Format("sendIso bytes from=0x{0:X}, to=0x{1:X}, Length=0x{2:X}", from, to, to - from + 1));
 									}
 
 									sendHTTPResponseCode(os, 206);
@@ -1768,12 +1768,12 @@ namespace pspsharp.remote
 								}
 								else
 								{
-									Console.WriteLine(string.Format("sendIso: unsupported range format '{0}'", range));
+									System.Console.WriteLine(string.Format("sendIso: unsupported range format '{0}'", range));
 								}
 							}
 							else
 							{
-								Console.WriteLine(string.Format("sendIso: unsupported range format '{0}'", range));
+								System.Console.WriteLine(string.Format("sendIso: unsupported range format '{0}'", range));
 							}
 						}
 					}
@@ -1784,7 +1784,7 @@ namespace pspsharp.remote
 						long isoLength = iso.NumSectors * (long) sectorLength;
 						//if (log.DebugEnabled)
 						{
-							Console.WriteLine(string.Format("sendIso returning content-Length=0x{0:X}", isoLength));
+							System.Console.WriteLine(string.Format("sendIso returning content-Length=0x{0:X}", isoLength));
 						}
 						sendResponseHeader(os, "Content-Length", isoLength);
 						sendResponseHeader(os, "Accept-Ranges", "bytes");
@@ -1814,7 +1814,7 @@ namespace pspsharp.remote
 				iso = previousUmdIsoReader;
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Reusing previous UmdIsoReader for '{0}'", isoFileName));
+					System.Console.WriteLine(string.Format("Reusing previous UmdIsoReader for '{0}'", isoFileName));
 				}
 			}
 			else
@@ -1889,7 +1889,7 @@ namespace pspsharp.remote
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("processControls {0}", parameters));
+					System.Console.WriteLine(string.Format("processControls {0}", parameters));
 				}
 
 				IDictionary<string, string> @event = parseParameters(parameters);
@@ -1949,7 +1949,7 @@ namespace pspsharp.remote
 				}
 				else
 				{
-					Console.WriteLine(string.Format("processControls unknown type '{0}'", type));
+					System.Console.WriteLine(string.Format("processControls unknown type '{0}'", type));
 				}
 			}
 
@@ -2128,7 +2128,7 @@ namespace pspsharp.remote
 					string html = replaceTemplateRepeat(template, lines.ToString());
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sendNaClResponse returning:\n{0}", html));
+						System.Console.WriteLine(string.Format("sendNaClResponse returning:\n{0}", html));
 					}
 					sendResponseFile(os, new System.IO.MemoryStream(html.GetBytes()), guessMimeType(indexFile));
 				}
@@ -2367,7 +2367,7 @@ namespace pspsharp.remote
 						{
 							//if (log.DebugEnabled)
 							{
-								Console.WriteLine(string.Format("Skipping the Widget entry '{0}' because it is not matching the architecture 0x{1:X}", entry.Name, machineArchitecture));
+								System.Console.WriteLine(string.Format("Skipping the Widget entry '{0}' because it is not matching the architecture 0x{1:X}", entry.Name, machineArchitecture));
 							}
 							doCopy = false;
 						}
@@ -2452,7 +2452,7 @@ namespace pspsharp.remote
 			ticket.unknownBytes = new sbyte[72];
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sendNpNavAuth returning dummy ticket: {0}", ticket));
+				System.Console.WriteLine(string.Format("sendNpNavAuth returning dummy ticket: {0}", ticket));
 			}
 			sbyte[] response = ticket.toByteArray();
 
@@ -2490,7 +2490,7 @@ namespace pspsharp.remote
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Response: {0}", xml));
+				System.Console.WriteLine(string.Format("Response: {0}", xml));
 			}
 		}
 
@@ -2512,14 +2512,14 @@ namespace pspsharp.remote
 
 			sendOK(os);
 			sendResponseHeader(os, "X-I-5-DRM-Version", "1.0");
-			sendResponseHeader(os, "X-I-5-DRM-Status", "OK; max_console=1; current_console=0");
+			sendResponseHeader(os, "X-I-5-DRM-Status", "OK; max_System.Console=1; current_System.Console=0");
 			sendResponseHeader(os, "Content-Length", responseLength);
 			sendResponseHeader(os, "Content-Type", "application/x-i-5-drm");
 			sendEndOfHeaders(os);
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Response:{0}", Utilities.getMemoryDump(response, 0, responseLength)));
+				System.Console.WriteLine(string.Format("Response:{0}", Utilities.getMemoryDump(response, 0, responseLength)));
 			}
 
 			os.Write(response, 0, responseLength);
@@ -2560,7 +2560,7 @@ namespace pspsharp.remote
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Response:{0}", Utilities.getMemoryDump(response, 0, responseLength)));
+				System.Console.WriteLine(string.Format("Response:{0}", Utilities.getMemoryDump(response, 0, responseLength)));
 			}
 
 			os.Write(response, 0, responseLength);
@@ -2580,7 +2580,7 @@ namespace pspsharp.remote
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Response:{0}", Utilities.getMemoryDump(response, 0, responseLength)));
+				System.Console.WriteLine(string.Format("Response:{0}", Utilities.getMemoryDump(response, 0, responseLength)));
 			}
 
 			os.Write(response, 0, responseLength);

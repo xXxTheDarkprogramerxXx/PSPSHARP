@@ -157,16 +157,16 @@ namespace pspsharp.HLE.modules
 				addr.setValue(resolvedAddress);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNetResolverStartNtoA returning address 0x{0:X8}('{1}')", resolvedAddress, sceNetInet.internetAddressToString(resolvedAddress)));
+					System.Console.WriteLine(string.Format("sceNetResolverStartNtoA returning address 0x{0:X8}('{1}')", resolvedAddress, sceNetInet.internetAddressToString(resolvedAddress)));
 				}
 				//else if (log.InfoEnabled)
 				{
-					Console.WriteLine(string.Format("sceNetResolverStartNtoA resolved '{0}' into '{1}'", hostname.String, sceNetInet.internetAddressToString(resolvedAddress)));
+					System.Console.WriteLine(string.Format("sceNetResolverStartNtoA resolved '{0}' into '{1}'", hostname.String, sceNetInet.internetAddressToString(resolvedAddress)));
 				}
 			}
 			catch (UnknownHostException e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 				return SceKernelErrors.ERROR_NET_RESOLVER_INVALID_HOST;
 			}
 
@@ -197,12 +197,12 @@ namespace pspsharp.HLE.modules
 				hostnameAddr.setStringNZ(hostnameLength, hostName);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceNetResolverStartAtoN returning host name '{0}'", hostName));
+					System.Console.WriteLine(string.Format("sceNetResolverStartAtoN returning host name '{0}'", hostName));
 				}
 			}
 			catch (UnknownHostException e)
 			{
-				Console.WriteLine(e);
+				System.Console.WriteLine(e);
 				return SceKernelErrors.ERROR_NET_RESOLVER_INVALID_HOST;
 			}
 

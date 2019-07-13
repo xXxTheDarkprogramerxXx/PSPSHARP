@@ -60,7 +60,7 @@ namespace pspsharp.crypto
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("setCurve", e);
+				System.Console.WriteLine("setCurve", e);
 			}
 		}
 

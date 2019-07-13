@@ -63,7 +63,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("hleRtcTickAdd64 dstPtr={0}, srcPtr={1}({2:D}), {3:D} * {4:D}", dstPtr, srcPtr, srcPtr.Value, value, multiplier));
+				System.Console.WriteLine(string.Format("hleRtcTickAdd64 dstPtr={0}, srcPtr={1}({2:D}), {3:D} * {4:D}", dstPtr, srcPtr, srcPtr.Value, value, multiplier));
 			}
 
 			long src = srcPtr.Value;
@@ -76,7 +76,7 @@ namespace pspsharp.HLE.modules
 		/// 32 bit addend </summary>
 		protected internal virtual int hleRtcTickAdd32(TPointer64 dstPtr, TPointer64 srcPtr, int value, long multiplier)
 		{
-			Console.WriteLine("hleRtcTickAdd32 " + multiplier + " * " + value);
+			System.Console.WriteLine("hleRtcTickAdd32 " + multiplier + " * " + value);
 
 			long src = srcPtr.Value;
 			dstPtr.Value = src + multiplier * value;
@@ -126,7 +126,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceRtcGetCurrentTick returning {0:D}", currentTick.Value));
+				System.Console.WriteLine(string.Format("sceRtcGetCurrentTick returning {0:D}", currentTick.Value));
 			}
 
 			return 0;
@@ -207,7 +207,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceRtcGetDaysInMonth returning {0:D}", days));
+				System.Console.WriteLine(string.Format("sceRtcGetDaysInMonth returning {0:D}", days));
 			}
 
 			return days;
@@ -233,7 +233,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceRtcGetDayOfWeek returning {0:D}", dayOfWeekNumber));
+				System.Console.WriteLine(string.Format("sceRtcGetDayOfWeek returning {0:D}", dayOfWeekNumber));
 			}
 
 			return dayOfWeekNumber;
@@ -286,7 +286,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceRtcCheckValid time={0}, cal={1}, returning 0x{2:X8}", time, cal, result));
+				System.Console.WriteLine(string.Format("sceRtcCheckValid time={0}, cal={1}, returning 0x{2:X8}", time, cal, result));
 			}
 
 			return result;
@@ -310,7 +310,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceRtcGetTime_t returning {0:D}", unixtime));
+				System.Console.WriteLine(string.Format("sceRtcGetTime_t returning {0:D}", unixtime));
 			}
 
 			timeAddr.setValue(unixtime);
@@ -342,7 +342,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceRtcGetDosTime returning {0:D}", dostime));
+				System.Console.WriteLine(string.Format("sceRtcGetDosTime returning {0:D}", dostime));
 			}
 
 			timeAddr.setValue(dostime);
@@ -374,7 +374,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceRtcGetWin32FileTime returning {0:D}", filetimetime));
+				System.Console.WriteLine(string.Format("sceRtcGetWin32FileTime returning {0:D}", filetimetime));
 			}
 
 			timeAddr.Value = filetimetime;
@@ -410,7 +410,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceRtcGetTick returning {0:D}", ticks));
+				System.Console.WriteLine(string.Format("sceRtcGetTick returning {0:D}", ticks));
 			}
 
 			return 0;
@@ -436,63 +436,63 @@ namespace pspsharp.HLE.modules
 		[HLEFunction(nid : 0x44F45E05, version : 150)]
 		public virtual int sceRtcTickAddTicks(TPointer64 dstPtr, TPointer64 srcPtr, long value)
 		{
-			Console.WriteLine("sceRtcTickAddTicks redirecting to hleRtcTickAdd64(1)");
+			System.Console.WriteLine("sceRtcTickAddTicks redirecting to hleRtcTickAdd64(1)");
 			return hleRtcTickAdd64(dstPtr, srcPtr, value, 1);
 		}
 
 		[HLEFunction(nid : 0x26D25A5D, version : 150)]
 		public virtual int sceRtcTickAddMicroseconds(TPointer64 dstPtr, TPointer64 srcPtr, long value)
 		{
-			Console.WriteLine("sceRtcTickAddMicroseconds redirecting to hleRtcTickAdd64(1)");
+			System.Console.WriteLine("sceRtcTickAddMicroseconds redirecting to hleRtcTickAdd64(1)");
 			return hleRtcTickAdd64(dstPtr, srcPtr, value, 1);
 		}
 
 		[HLEFunction(nid : 0xF2A4AFE5, version : 150)]
 		public virtual int sceRtcTickAddSeconds(TPointer64 dstPtr, TPointer64 srcPtr, long value)
 		{
-			Console.WriteLine("sceRtcTickAddSeconds redirecting to hleRtcTickAdd64(1000000)");
+			System.Console.WriteLine("sceRtcTickAddSeconds redirecting to hleRtcTickAdd64(1000000)");
 			return hleRtcTickAdd64(dstPtr, srcPtr, value, 1000000L);
 		}
 
 		[HLEFunction(nid : 0xE6605BCA, version : 150)]
 		public virtual int sceRtcTickAddMinutes(TPointer64 dstPtr, TPointer64 srcPtr, long value)
 		{
-			Console.WriteLine("sceRtcTickAddMinutes redirecting to hleRtcTickAdd64(60*1000000)");
+			System.Console.WriteLine("sceRtcTickAddMinutes redirecting to hleRtcTickAdd64(60*1000000)");
 			return hleRtcTickAdd64(dstPtr, srcPtr, value, PSP_TIME_SECONDS_IN_MINUTE * 1000000L);
 		}
 
 		[HLEFunction(nid : 0x26D7A24A, version : 150)]
 		public virtual int sceRtcTickAddHours(TPointer64 dstPtr, TPointer64 srcPtr, int value)
 		{
-			Console.WriteLine("sceRtcTickAddHours redirecting to hleRtcTickAdd32(60*60*1000000)");
+			System.Console.WriteLine("sceRtcTickAddHours redirecting to hleRtcTickAdd32(60*60*1000000)");
 			return hleRtcTickAdd32(dstPtr, srcPtr, value, PSP_TIME_SECONDS_IN_HOUR * 1000000L);
 		}
 
 		[HLEFunction(nid : 0xE51B4B7A, version : 150)]
 		public virtual int sceRtcTickAddDays(TPointer64 dstPtr, TPointer64 srcPtr, int value)
 		{
-			Console.WriteLine("sceRtcTickAddDays redirecting to hleRtcTickAdd32(24*60*60*1000000)");
+			System.Console.WriteLine("sceRtcTickAddDays redirecting to hleRtcTickAdd32(24*60*60*1000000)");
 			return hleRtcTickAdd32(dstPtr, srcPtr, value, PSP_TIME_SECONDS_IN_DAY * 1000000L);
 		}
 
 		[HLEFunction(nid : 0xCF3A2CA8, version : 150)]
 		public virtual int sceRtcTickAddWeeks(TPointer64 dstPtr, TPointer64 srcPtr, int value)
 		{
-			Console.WriteLine("sceRtcTickAddWeeks redirecting to hleRtcTickAdd32(7*24*60*60*1000000)");
+			System.Console.WriteLine("sceRtcTickAddWeeks redirecting to hleRtcTickAdd32(7*24*60*60*1000000)");
 			return hleRtcTickAdd32(dstPtr, srcPtr, value, PSP_TIME_SECONDS_IN_WEEK * 1000000L);
 		}
 
 		[HLEFunction(nid : 0xDBF74F1B, version : 150)]
 		public virtual int sceRtcTickAddMonths(TPointer64 dstPtr, TPointer64 srcPtr, int value)
 		{
-			Console.WriteLine("sceRtcTickAddMonths redirecting to hleRtcTickAdd32(30*24*60*60*1000000)");
+			System.Console.WriteLine("sceRtcTickAddMonths redirecting to hleRtcTickAdd32(30*24*60*60*1000000)");
 			return hleRtcTickAdd32(dstPtr, srcPtr, value, PSP_TIME_SECONDS_IN_MONTH * 1000000L);
 		}
 
 		[HLEFunction(nid : 0x42842C77, version : 150)]
 		public virtual int sceRtcTickAddYears(TPointer64 dstPtr, TPointer64 srcPtr, int value)
 		{
-			Console.WriteLine("sceRtcTickAddYears redirecting to hleRtcTickAdd32(365*24*60*60*1000000)");
+			System.Console.WriteLine("sceRtcTickAddYears redirecting to hleRtcTickAdd32(365*24*60*60*1000000)");
 			return hleRtcTickAdd32(dstPtr, srcPtr, value, PSP_TIME_SECONDS_IN_YEAR * 1000000L);
 		}
 
@@ -528,7 +528,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceRtcFormatRFC3339LocalTime src={0:D}, returning '{1}'", srcPtr.Value, result));
+				System.Console.WriteLine(string.Format("sceRtcFormatRFC3339LocalTime src={0:D}, returning '{1}'", srcPtr.Value, result));
 			}
 
 			resultString.StringZ = result;
@@ -559,7 +559,7 @@ namespace pspsharp.HLE.modules
 		{
 			if (log.DebugEnabled && srcPtr.NotNull)
 			{
-				Console.WriteLine(string.Format("sceRtcSetAlarmTick src=0x{0:X}", srcPtr.Value));
+				System.Console.WriteLine(string.Format("sceRtcSetAlarmTick src=0x{0:X}", srcPtr.Value));
 			}
 
 			return 0;
@@ -603,7 +603,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceRtcGetTime64_t psptime={0} returning unixtime={1:D}", dateTime, unixtime));
+				System.Console.WriteLine(string.Format("sceRtcGetTime64_t psptime={0} returning unixtime={1:D}", dateTime, unixtime));
 			}
 
 			timeAddr.Value = unixtime;
@@ -636,7 +636,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceRtcGetCurrentNetworkTick returning {0:D}", networkTick.Value));
+				System.Console.WriteLine(string.Format("sceRtcGetCurrentNetworkTick returning {0:D}", networkTick.Value));
 			}
 
 			return 0;

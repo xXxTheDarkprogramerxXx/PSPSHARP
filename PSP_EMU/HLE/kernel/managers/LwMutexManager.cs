@@ -88,7 +88,7 @@ namespace pspsharp.HLE.kernel.managers
 			}
 			else
 			{
-				Console.WriteLine("LwMutex deleted while we were waiting for it! (timeout expired)");
+				System.Console.WriteLine("LwMutex deleted while we were waiting for it! (timeout expired)");
 				// Return WAIT_DELETE
 				thread.cpuContext._v0 = ERROR_KERNEL_WAIT_DELETE;
 			}
@@ -104,7 +104,7 @@ namespace pspsharp.HLE.kernel.managers
 			}
 			else
 			{
-				Console.WriteLine("EventFlag deleted while we were waiting for it!");
+				System.Console.WriteLine("EventFlag deleted while we were waiting for it!");
 				// Return WAIT_DELETE
 				thread.cpuContext._v0 = ERROR_KERNEL_WAIT_DELETE;
 			}
@@ -158,7 +158,7 @@ namespace pspsharp.HLE.kernel.managers
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("onLwMutexModified waking thread {0}", thread));
+						System.Console.WriteLine(string.Format("onLwMutexModified waking thread {0}", thread));
 					}
 					// New thread is taking control of LwMutex.
 					info.threadid = thread.uid;
@@ -214,15 +214,15 @@ namespace pspsharp.HLE.kernel.managers
 					//if (log.DebugEnabled)
 					{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("hleKernelLockLwMutex uid=%d, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b -  - unknown UID", uid, count, timeoutAddr, wait, doCallbacks));
-						Console.WriteLine(string.Format("hleKernelLockLwMutex uid=%d, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b -  - unknown UID", uid, count, timeoutAddr, wait, doCallbacks));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("hleKernelLockLwMutex uid=%d, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b -  - unknown UID", uid, count, timeoutAddr, wait, doCallbacks));
+						System.Console.WriteLine(string.Format("hleKernelLockLwMutex uid=%d, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b -  - unknown UID", uid, count, timeoutAddr, wait, doCallbacks));
 					}
 				}
 				else
 				{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("hleKernelLockLwMutex uid=%d, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b -  - unknown UID", uid, count, timeoutAddr, wait, doCallbacks));
-					Console.WriteLine(string.Format("hleKernelLockLwMutex uid=%d, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b -  - unknown UID", uid, count, timeoutAddr, wait, doCallbacks));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("hleKernelLockLwMutex uid=%d, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b -  - unknown UID", uid, count, timeoutAddr, wait, doCallbacks));
+					System.Console.WriteLine(string.Format("hleKernelLockLwMutex uid=%d, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b -  - unknown UID", uid, count, timeoutAddr, wait, doCallbacks));
 				}
 				return ERROR_KERNEL_LWMUTEX_NOT_FOUND;
 			}
@@ -234,8 +234,8 @@ namespace pspsharp.HLE.kernel.managers
 				//if (log.DebugEnabled)
 				{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("hleKernelLockLwMutex %s, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b - fast check failed", info.toString(), count, timeoutAddr, wait, doCallbacks));
-					Console.WriteLine(string.Format("hleKernelLockLwMutex %s, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b - fast check failed", info.ToString(), count, timeoutAddr, wait, doCallbacks));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("hleKernelLockLwMutex %s, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b - fast check failed", info.toString(), count, timeoutAddr, wait, doCallbacks));
+					System.Console.WriteLine(string.Format("hleKernelLockLwMutex %s, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b - fast check failed", info.ToString(), count, timeoutAddr, wait, doCallbacks));
 				}
 				if (wait && info.threadid != currentThread.uid)
 				{
@@ -261,8 +261,8 @@ namespace pspsharp.HLE.kernel.managers
 				//if (log.DebugEnabled)
 				{
 //JAVA TO C# CONVERTER TODO TASK: The following line has a Java format specifier which cannot be directly translated to .NET:
-//ORIGINAL LINE: Console.WriteLine(String.format("hleKernelLockLwMutex %s, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b - fast check succeeded", info.toString(), count, timeoutAddr, wait, doCallbacks));
-					Console.WriteLine(string.Format("hleKernelLockLwMutex %s, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b - fast check succeeded", info.ToString(), count, timeoutAddr, wait, doCallbacks));
+//ORIGINAL LINE: System.Console.WriteLine(String.format("hleKernelLockLwMutex %s, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b - fast check succeeded", info.toString(), count, timeoutAddr, wait, doCallbacks));
+					System.Console.WriteLine(string.Format("hleKernelLockLwMutex %s, count=%d, timeout_addr=%s, wait=%b, doCallbacks=%b - fast check succeeded", info.ToString(), count, timeoutAddr, wait, doCallbacks));
 				}
 			}
 
@@ -285,7 +285,7 @@ namespace pspsharp.HLE.kernel.managers
 			SceKernelLwMutexInfo info = lwMutexMap.Remove(uid);
 			if (info == null)
 			{
-				Console.WriteLine("sceKernelDeleteLwMutex unknown UID " + uid.ToString("x"));
+				System.Console.WriteLine("sceKernelDeleteLwMutex unknown UID " + uid.ToString("x"));
 				return ERROR_KERNEL_LWMUTEX_NOT_FOUND;
 			}
 
@@ -324,23 +324,23 @@ namespace pspsharp.HLE.kernel.managers
 					// Avoid spamming messages for uid==0
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("sceKernelUnlockLwMutex unknown uid=0x{0:X}", uid));
+						System.Console.WriteLine(string.Format("sceKernelUnlockLwMutex unknown uid=0x{0:X}", uid));
 					}
 				}
 				else
 				{
-					Console.WriteLine(string.Format("sceKernelUnlockLwMutex unknown uid=0x{0:X}", uid));
+					System.Console.WriteLine(string.Format("sceKernelUnlockLwMutex unknown uid=0x{0:X}", uid));
 				}
 				return ERROR_KERNEL_LWMUTEX_NOT_FOUND;
 			}
 			if (info.lockedCount == 0)
 			{
-				Console.WriteLine("sceKernelUnlockLwMutex not locked");
+				System.Console.WriteLine("sceKernelUnlockLwMutex not locked");
 				return ERROR_KERNEL_LWMUTEX_UNLOCKED;
 			}
 			if (info.lockedCount < 0)
 			{
-				Console.WriteLine("sceKernelUnlockLwMutex underflow");
+				System.Console.WriteLine("sceKernelUnlockLwMutex underflow");
 				return ERROR_KERNEL_LWMUTEX_UNLOCK_UNDERFLOW;
 			}
 
@@ -360,7 +360,7 @@ namespace pspsharp.HLE.kernel.managers
 			SceKernelLwMutexInfo info = lwMutexMap[uid];
 			if (info == null)
 			{
-				Console.WriteLine("sceKernelReferLwMutexStatus unknown UID " + uid.ToString("x"));
+				System.Console.WriteLine("sceKernelReferLwMutexStatus unknown UID " + uid.ToString("x"));
 				return ERROR_KERNEL_LWMUTEX_NOT_FOUND;
 			}
 
@@ -374,7 +374,7 @@ namespace pspsharp.HLE.kernel.managers
 			SceKernelLwMutexInfo info = lwMutexMap[uid];
 			if (info == null)
 			{
-				Console.WriteLine("sceKernelReferLwMutexStatus unknown UID " + uid.ToString("x"));
+				System.Console.WriteLine("sceKernelReferLwMutexStatus unknown UID " + uid.ToString("x"));
 				return ERROR_KERNEL_LWMUTEX_NOT_FOUND;
 			}
 

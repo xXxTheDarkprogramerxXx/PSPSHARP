@@ -90,7 +90,7 @@ namespace pspsharp.memory.mmio
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("MMIOHandlerDdr.doFlush 0x{0:X1}", value));
+				System.Console.WriteLine(string.Format("MMIOHandlerDdr.doFlush 0x{0:X1}", value));
 			}
 
 			if (flushActions[value] != null)

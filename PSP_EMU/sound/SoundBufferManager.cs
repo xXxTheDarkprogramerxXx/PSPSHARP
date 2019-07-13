@@ -76,7 +76,7 @@ namespace pspsharp.sound
 				int alBuffer = AL10.alSourceUnqueueBuffers(alSource);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("free buffer {0:D}", alBuffer));
+					System.Console.WriteLine(string.Format("free buffer {0:D}", alBuffer));
 				}
 				freeBuffers.Push(alBuffer);
 			}

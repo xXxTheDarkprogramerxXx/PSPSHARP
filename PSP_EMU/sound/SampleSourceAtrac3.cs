@@ -61,13 +61,13 @@ namespace pspsharp.sound
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("SampleSourceAtrac3 decodeData returned 0x{0:X8}", result));
+					System.Console.WriteLine(string.Format("SampleSourceAtrac3 decodeData returned 0x{0:X8}", result));
 				}
 				bufferedSamples = 0;
 			}
 			else if (result < 0)
 			{
-				Console.WriteLine(string.Format("SampleSourceAtrac3 decodeData returned 0x{0:X8}", result));
+				System.Console.WriteLine(string.Format("SampleSourceAtrac3 decodeData returned 0x{0:X8}", result));
 				bufferedSamples = 0;
 			}
 			else
@@ -87,7 +87,7 @@ namespace pspsharp.sound
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("SampleSourceAtrac3 decode: bufferedSamples={0:D}, currentSample={1:D}, endSample={2:D}", bufferedSamples, currentSampleIndex, id.AtracEndSample));
+				System.Console.WriteLine(string.Format("SampleSourceAtrac3 decode: bufferedSamples={0:D}, currentSample={1:D}, endSample={2:D}", bufferedSamples, currentSampleIndex, id.AtracEndSample));
 			}
 
 			sampleIndex = 0;

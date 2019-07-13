@@ -99,7 +99,7 @@ namespace pspsharp.HLE.VFS.xmb
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("{0}={1}", fileNames[i], files[i].AbsolutePath));
+					System.Console.WriteLine(string.Format("{0}={1}", fileNames[i], files[i].AbsolutePath));
 				}
 			}
 
@@ -298,7 +298,7 @@ namespace pspsharp.HLE.VFS.xmb
 
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("XmbVirtualFileSystem.ioOpen could not open UMD file '{0}'", umdFileName));
+					System.Console.WriteLine(string.Format("XmbVirtualFileSystem.ioOpen could not open UMD file '{0}'", umdFileName));
 				}
 			}
 

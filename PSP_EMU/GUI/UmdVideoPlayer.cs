@@ -512,7 +512,7 @@ namespace pspsharp.GUI
 			{
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("video size {0:D}x{1:D} resizeScaleFactor={2:D}", videoWidth, videoHeight, resizeScaleFactor));
+					System.Console.WriteLine(string.Format("video size {0:D}x{1:D} resizeScaleFactor={2:D}", videoWidth, videoHeight, resizeScaleFactor));
 				}
 				screenWidth = videoWidth * videoAspectRatioNum / videoAspectRatioDen * resizeScaleFactor;
 				screenHeigth = videoHeight * resizeScaleFactor;
@@ -538,7 +538,7 @@ namespace pspsharp.GUI
 				int umdvVersion = file.readInt();
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Magic 0x{0:X8},  version 0x{1:X8}", umdvMagic, umdvVersion));
+					System.Console.WriteLine(string.Format("Magic 0x{0:X8},  version 0x{1:X8}", umdvMagic, umdvVersion));
 				}
 				int globalDataOffset = endianSwap32(file.readInt());
 				file.seek(globalDataOffset);
@@ -547,11 +547,11 @@ namespace pspsharp.GUI
 				file.skipBytes(2); // NULL.
 				if (umdvMagic != 0x56444D55)
 				{ // UMDV
-					Console.WriteLine("Accessing invalid PLAYLIST.UMD file!");
+					System.Console.WriteLine("Accessing invalid PLAYLIST.UMD file!");
 				}
 				else
 				{
-					Console.WriteLine(string.Format("Accessing valid PLAYLIST.UMD file: playListSize={0:D}, playListTracksNum={1:D}", playListSize, playListTracksNum));
+					System.Console.WriteLine(string.Format("Accessing valid PLAYLIST.UMD file: playListSize={0:D}, playListTracksNum={1:D}", playListSize, playListTracksNum));
 				}
 				for (int i = 0; i < playListTracksNum; i++)
 				{
@@ -617,15 +617,15 @@ namespace pspsharp.GUI
 					MpsStreamInfo info = new MpsStreamInfo(this, streamName, streamWidth, streamHeight, streamFirstTimestamp, streamLastTimestamp, streamMarkers, i + 1);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Release date {0:D}-{1:D}-{2:D}, name '{3}', unknown=0x{4:X4}", releaseDateYear, releaseDateMonth, releaseDateDay, name, unknown));
-						Console.WriteLine(string.Format("StreamInfo #{0:D}: {1}", i, info));
+						System.Console.WriteLine(string.Format("Release date {0:D}-{1:D}-{2:D}, name '{3}', unknown=0x{4:X4}", releaseDateYear, releaseDateMonth, releaseDateDay, name, unknown));
+						System.Console.WriteLine(string.Format("StreamInfo #{0:D}: {1}", i, info));
 					}
 					mpsStreams.Add(info);
 				}
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("parsePlaylistFile", e);
+				System.Console.WriteLine("parsePlaylistFile", e);
 			}
 		}
 
@@ -700,7 +700,7 @@ namespace pspsharp.GUI
 				{
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("Reading RCO file '{0}'", resourceFileName));
+						System.Console.WriteLine(string.Format("Reading RCO file '{0}'", resourceFileName));
 					}
 					UmdIsoFile file = iso.getFile("UMD_VIDEO/RESOURCE/" + resourceFileName);
 					sbyte[] buffer = new sbyte[(int) file.Length()];
@@ -708,7 +708,7 @@ namespace pspsharp.GUI
 					RCO rco = new RCO(buffer);
 					//if (log.DebugEnabled)
 					{
-						Console.WriteLine(string.Format("RCO: {0}", rco));
+						System.Console.WriteLine(string.Format("RCO: {0}", rco));
 					}
 
 					rcoState = rco.execute(this, resourceFileName.Replace(".RCO", ""));
@@ -719,7 +719,7 @@ namespace pspsharp.GUI
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("parse RCO", e);
+				System.Console.WriteLine("parse RCO", e);
 			}
 
 		}
@@ -731,14 +731,14 @@ namespace pspsharp.GUI
 				UmdIsoFile file = iso.getFile(string.Format("UMD_VIDEO/RESOURCE/{0}.RCO", resourceName));
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("Reading RCO file '{0}.RCO'", resourceName));
+					System.Console.WriteLine(string.Format("Reading RCO file '{0}.RCO'", resourceName));
 				}
 				sbyte[] buffer = new sbyte[(int) file.Length()];
 				file.read(buffer);
 				RCO rco = new RCO(buffer);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("RCO: {0}", rco));
+					System.Console.WriteLine(string.Format("RCO: {0}", rco));
 				}
 
 				RCODisplay.changeResource();
@@ -749,7 +749,7 @@ namespace pspsharp.GUI
 			}
 			catch (IOException e)
 			{
-				Console.WriteLine("changeResource", e);
+				System.Console.WriteLine("changeResource", e);
 			}
 		}
 
@@ -792,7 +792,7 @@ namespace pspsharp.GUI
 			currentStreamIndex = streamIndex;
 			MpsStreamInfo info = mpsStreams[currentStreamIndex];
 			fileName = "UMD_VIDEO/STREAM/" + info.Name + ".MPS";
-			Console.WriteLine("Loading stream: " + fileName);
+			System.Console.WriteLine("Loading stream: " + fileName);
 			try
 			{
 				isoFile = iso.getFile(fileName);
@@ -800,7 +800,7 @@ namespace pspsharp.GUI
 				UmdIsoFile cpiFile = iso.getFile(cpiFileName);
 				if (cpiFile != null)
 				{
-					Console.WriteLine("Found CLIPINF data for this stream: " + cpiFileName);
+					System.Console.WriteLine("Found CLIPINF data for this stream: " + cpiFileName);
 				}
 			}
 			catch (FileNotFoundException)
@@ -808,7 +808,7 @@ namespace pspsharp.GUI
 			}
 			catch (IOException e)
 			{
-				Emulator.Console.WriteLine(e);
+				Emulator.System.Console.WriteLine(e);
 			}
 
 			if (isoFile != null)
@@ -852,7 +852,7 @@ namespace pspsharp.GUI
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Resume video"));
+				System.Console.WriteLine(string.Format("Resume video"));
 			}
 			videoPaused = false;
 			fastForwardSpeed = 0;
@@ -872,7 +872,7 @@ namespace pspsharp.GUI
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Fast forward {0:D}, fast rewind {1:D}", fastForwardSpeed, fastRewindSpeed));
+				System.Console.WriteLine(string.Format("Fast forward {0:D}, fast rewind {1:D}", fastForwardSpeed, fastRewindSpeed));
 			}
 		}
 
@@ -889,7 +889,7 @@ namespace pspsharp.GUI
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Fast forward {0:D}, fast rewind {1:D}", fastForwardSpeed, fastRewindSpeed));
+				System.Console.WriteLine(string.Format("Fast forward {0:D}, fast rewind {1:D}", fastForwardSpeed, fastRewindSpeed));
 			}
 		}
 
@@ -927,8 +927,8 @@ namespace pspsharp.GUI
 				}
 				catch (IOException e)
 				{
-					Console.WriteLine(e.ToString());
-					Console.Write(e.StackTrace);
+					System.Console.WriteLine(e.ToString());
+					System.Console.Write(e.StackTrace);
 				}
 			}
 		}
@@ -1131,7 +1131,7 @@ namespace pspsharp.GUI
 					{
 						if (log.InfoEnabled)
 						{
-							Console.WriteLine(string.Format("Audio frame Length 0x{0:X} with incorrect header (header: {1:X2} {2:X2} {3:X2} {4:X2} {5:X2} {6:X2} {7:X2} {8:X2})", audioFrameLength, frameHeader[0], frameHeader[1], frameHeader[2], frameHeader[3], frameHeader[4], frameHeader[5], frameHeader[6], frameHeader[7]));
+							System.Console.WriteLine(string.Format("Audio frame Length 0x{0:X} with incorrect header (header: {1:X2} {2:X2} {3:X2} {4:X2} {5:X2} {6:X2} {7:X2} {8:X2})", audioFrameLength, frameHeader[0], frameHeader[1], frameHeader[2], frameHeader[3], frameHeader[4], frameHeader[5], frameHeader[6], frameHeader[7]));
 						}
 					}
 					else if (log.TraceEnabled)

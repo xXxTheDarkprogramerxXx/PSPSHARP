@@ -153,7 +153,7 @@ namespace pspsharp.HLE.modules
 						break;
 				}
 
-				Console.WriteLine(string.Format("sceImposeSetLanguageMode lang={0:D}({1}), button={2:D}", lang, langStr, button));
+				System.Console.WriteLine(string.Format("sceImposeSetLanguageMode lang={0:D}({1}), button={2:D}", lang, langStr, button));
 			}
 
 			languageMode_language = lang;
@@ -167,7 +167,7 @@ namespace pspsharp.HLE.modules
 		{
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceImposeGetLanguageMode langPtr={0}, buttonPtr={1} returning lang={2:D}, button={3:D}", langPtr, buttonPtr, languageMode_language, languageMode_button));
+				System.Console.WriteLine(string.Format("sceImposeGetLanguageMode langPtr={0}, buttonPtr={1} returning lang={2:D}, button={3:D}", langPtr, buttonPtr, languageMode_language, languageMode_button));
 			}
 
 			langPtr.setValue(languageMode_language);
@@ -259,10 +259,10 @@ namespace pspsharp.HLE.modules
 				case PSP_IMPOSE_80000009:
 				case PSP_IMPOSE_8000000A:
 				case PSP_IMPOSE_8000000B:
-					Console.WriteLine(string.Format("sceImposeGetParam param=0x{0:X} not implemented", param));
+					System.Console.WriteLine(string.Format("sceImposeGetParam param=0x{0:X} not implemented", param));
 					break;
 				default:
-					Console.WriteLine(string.Format("sceImposeGetParam param=0x{0:X} invalid parameter", param));
+					System.Console.WriteLine(string.Format("sceImposeGetParam param=0x{0:X} invalid parameter", param));
 					return SceKernelErrors.ERROR_INVALID_MODE;
 			}
 
@@ -339,10 +339,10 @@ namespace pspsharp.HLE.modules
 				case PSP_IMPOSE_80000009:
 				case PSP_IMPOSE_8000000A:
 				case PSP_IMPOSE_8000000B:
-					Console.WriteLine(string.Format("sceImposeSetParam param=0x{0:X}, value=0x{1:X} not implemented", param, value));
+					System.Console.WriteLine(string.Format("sceImposeSetParam param=0x{0:X}, value=0x{1:X} not implemented", param, value));
 					break;
 				default:
-					Console.WriteLine(string.Format("sceImposeSetParam param=0x{0:X}, value=0x{1:X} invalid parameter", param, value));
+					System.Console.WriteLine(string.Format("sceImposeSetParam param=0x{0:X}, value=0x{1:X} invalid parameter", param, value));
 					return SceKernelErrors.ERROR_INVALID_MODE;
 			}
 
@@ -386,7 +386,7 @@ namespace pspsharp.HLE.modules
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("sceImposeChanges returning 0x{0:X}", result));
+				System.Console.WriteLine(string.Format("sceImposeChanges returning 0x{0:X}", result));
 			}
 
 			return result;

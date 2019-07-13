@@ -67,7 +67,7 @@ namespace pspsharp.HLE.modules
 				p3daCore[i] = p3daCoreAddr.getValue(i << 2);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceP3daBridgeCore p3daCore[{0:D}]=0x{1:X8}", i, p3daCore[i]));
+					System.Console.WriteLine(string.Format("sceP3daBridgeCore p3daCore[{0:D}]=0x{1:X8}", i, p3daCore[i]));
 				}
 			}
 
@@ -77,7 +77,7 @@ namespace pspsharp.HLE.modules
 				int inputChannelAddr = inputAddr.getValue(i << 2);
 				//if (log.DebugEnabled)
 				{
-					Console.WriteLine(string.Format("sceP3daBridgeCore channel={0:D}, inputChannelAddr=0x{1:X8}", i, inputChannelAddr));
+					System.Console.WriteLine(string.Format("sceP3daBridgeCore channel={0:D}, inputChannelAddr=0x{1:X8}", i, inputChannelAddr));
 				}
 				if (inputChannelAddr != 0)
 				{

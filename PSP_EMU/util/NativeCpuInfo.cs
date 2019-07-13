@@ -39,7 +39,7 @@ namespace pspsharp.util
 			}
 			catch (UnsatisfiedLinkError ule)
 			{
-				Console.WriteLine("Loading cpuinfo native library", ule);
+				System.Console.WriteLine("Loading cpuinfo native library", ule);
 			}
 		}
 
@@ -89,14 +89,14 @@ namespace pspsharp.util
 
 		public static void printInfo()
 		{
-			Console.WriteLine("Supports SSE    " + hasSSE());
-			Console.WriteLine("Supports SSE2   " + hasSSE2());
-			Console.WriteLine("Supports SSE3   " + hasSSE3());
-			Console.WriteLine("Supports SSSE3  " + hasSSSE3());
-			Console.WriteLine("Supports SSE4.1 " + hasSSE41());
-			Console.WriteLine("Supports SSE4.2 " + hasSSE42());
-			Console.WriteLine("Supports AVX    " + hasAVX());
-			Console.WriteLine("Supports AVX2   " + hasAVX2());
+			System.Console.WriteLine("Supports SSE    " + hasSSE());
+			System.Console.WriteLine("Supports SSE2   " + hasSSE2());
+			System.Console.WriteLine("Supports SSE3   " + hasSSE3());
+			System.Console.WriteLine("Supports SSSE3  " + hasSSSE3());
+			System.Console.WriteLine("Supports SSE4.1 " + hasSSE41());
+			System.Console.WriteLine("Supports SSE4.2 " + hasSSE42());
+			System.Console.WriteLine("Supports AVX    " + hasAVX());
+			System.Console.WriteLine("Supports AVX2   " + hasAVX2());
 		}
 	}
 

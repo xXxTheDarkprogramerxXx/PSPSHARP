@@ -527,7 +527,7 @@ namespace pspsharp.media.codec.atrac3
 						}
 						break;
 					default:
-						Console.WriteLine(string.Format("Invalid s2 code {0:D}", s2));
+						System.Console.WriteLine(string.Format("Invalid s2 code {0:D}", s2));
 						break;
 				}
 			}
@@ -604,7 +604,7 @@ namespace pspsharp.media.codec.atrac3
 			{
 				if (br.read(2) != 3)
 				{
-					Console.WriteLine(string.Format("JS mono Sound Unit id != 3"));
+					System.Console.WriteLine(string.Format("JS mono Sound Unit id != 3"));
 					return AT3_ERROR;
 				}
 			}
@@ -612,7 +612,7 @@ namespace pspsharp.media.codec.atrac3
 			{
 				if (br.read(6) != 0x28)
 				{
-					Console.WriteLine(string.Format("Sound Unit id != 0x28"));
+					System.Console.WriteLine(string.Format("Sound Unit id != 0x28"));
 					return AT3_ERROR;
 				}
 			}
@@ -764,7 +764,7 @@ namespace pspsharp.media.codec.atrac3
 
 			//if (log.DebugEnabled)
 			{
-				Console.WriteLine(string.Format("Bytes read 0x{0:X}", ctx.br.BytesRead));
+				System.Console.WriteLine(string.Format("Bytes read 0x{0:X}", ctx.br.BytesRead));
 			}
 
 			return ctx.br.BytesRead;

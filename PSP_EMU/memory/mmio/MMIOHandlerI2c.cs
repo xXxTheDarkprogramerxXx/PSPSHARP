@@ -157,7 +157,7 @@ namespace pspsharp.memory.mmio
 							WM8750.Instance.executeTransmitReceiveCommand(transmitData, receiveData);
 							break;
 						default:
-							Console.WriteLine(string.Format("MMIOHandlerI2c.startCommand unknown i2cAddress=0x{0:X}", i2cAddress));
+							System.Console.WriteLine(string.Format("MMIOHandlerI2c.startCommand unknown i2cAddress=0x{0:X}", i2cAddress));
 							return;
 					}
 					break;
@@ -172,12 +172,12 @@ namespace pspsharp.memory.mmio
 							WM8750.Instance.executeTransmitCommand(transmitData);
 							break;
 						default:
-							Console.WriteLine(string.Format("MMIOHandlerI2c.startCommand unknown i2cAddress=0x{0:X}", i2cAddress));
+							System.Console.WriteLine(string.Format("MMIOHandlerI2c.startCommand unknown i2cAddress=0x{0:X}", i2cAddress));
 							return;
 					}
 					break;
 				default:
-					Console.WriteLine(string.Format("MMIOHandlerI2c.startCommand unknown command=0x{0:X}", command));
+					System.Console.WriteLine(string.Format("MMIOHandlerI2c.startCommand unknown command=0x{0:X}", command));
 					return;
 			}
 

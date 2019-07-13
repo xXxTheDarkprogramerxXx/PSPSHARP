@@ -80,7 +80,7 @@ namespace pspsharp.util
 		{
 			if (rc.in_ptr == rc.in_len)
 			{
-				Console.WriteLine("End of input!");
+				System.Console.WriteLine("End of input!");
 				return 0;
 			}
 
@@ -91,7 +91,7 @@ namespace pspsharp.util
 		{
 			if (rc.out_ptr == rc.out_len)
 			{
-				Console.WriteLine("Output overflow!");
+				System.Console.WriteLine("Output overflow!");
 				return;
 			}
 
@@ -307,7 +307,7 @@ namespace pspsharp.util
 					// Copy match bytes
 					if (match_dist > rc.out_ptr || match_dist < 0)
 					{
-						Console.WriteLine(string.Format("match_dist out of range! 0x{0:X8}", match_dist));
+						System.Console.WriteLine(string.Format("match_dist out of range! 0x{0:X8}", match_dist));
 						return -1;
 					}
 

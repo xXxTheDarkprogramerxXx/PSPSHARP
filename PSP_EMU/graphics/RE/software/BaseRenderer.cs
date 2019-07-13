@@ -521,7 +521,7 @@ namespace pspsharp.graphics.RE.software
 				foreach (LongLongKey filterKey in filterKeys)
 				{
 					int? count = filtersStatistics[filterKey];
-					Console.WriteLine(string.Format("Filter: count={0:D}, id={1}, {2}", count, filterKey, filterNames[filterKey]));
+					System.Console.WriteLine(string.Format("Filter: count={0:D}, id={1}, {2}", count, filterKey, filterNames[filterKey]));
 				}
 			}
 
